@@ -1,0 +1,88 @@
+﻿@model Floreview.ViewModels.IndexVM
+
+<header>
+    <nav>
+        <ul class="content-container">
+            <li>
+                @Html.ActionLink("Home", "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink("Blog", "Index", "Blog")
+            </li>
+            <li>
+                @Html.ActionLink("Floreview", "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink("Contact", "Index", "Home")
+            </li>
+            <li class="nav-login">
+                @Html.Partial("_LoginPartial")
+            </li>
+        </ul>
+    </nav>
+
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <div id="cms-menu">
+            <ul class="content-container">
+                <li>
+                    @Html.ActionLink("Winkels", "Store", "Manage")
+                </li>
+            </ul>
+        </div>
+    }
+
+    <div id="search-box">
+        <h1>Ik zoek een bloemenwinkel</h1>
+
+        @using (Html.BeginForm("Index", "Search", FormMethod.Post, new { @id = "search-form" }))
+        {
+            <input type="text" id="SearchName" name="SearchName" placeholder="Naam" autocomplete="off" />
+
+            <input type="text" id="SearchCity" name="SearchCity" placeholder="Gemeente" list="lstCities" autocomplete="off" />
+
+            @Html.HiddenFor(model => model.LatitudeRAW, new { @id = "hidden-latitude" })
+            @Html.HiddenFor(model => model.LongitudeRAW, new { @id = "hidden-longitude" })
+
+            <input id="submit" type="submit" value="Zoeken" class="btn btn-success" />
+        }
+
+        <datalist id="lstCities">
+            <select>
+                <option id="0" value="Prefill item"></option>
+            </select>
+        </datalist>
+    </div>
+</header>
+
+@if (Model.Blogs.Count > 0)
+{
+    <section id="home-blogs" class="content-container">
+        <h2>Recente blogs</h2>
+
+        @foreach (var item in Model.Blogs)
+        {
+            <article>
+                <img src="@item.Avatar" alt="@item.Title" />
+                <a class="blog-title" href="#" title="@item.Title">@item.Title</a>
+                <p>
+                    <span>geplaatst op</span> @item.Timestamp.ToString("dd").@item.Timestamp.ToString("MM").@item.Timestamp.Year <span class="blog-spacing">|</span>  <a class="blog-link" href="/Blog/Index?c=@item.Category.ID">@item.Category.Name</a>
+                </p>
+                <p>
+                    <span>door</span> <a class="blog-link" href="/Blog/Index?a=@item.Author.AccessCode">@item.Author.FirstName @item.Author.LastName</a>
+                </p>
+            </article>
+        }
+    </section>
+}
+
+<div style="clear:both;"></div>
+
+<article id="home-about" class="content-container">
+    <h2>Floreview</h2>
+    <p>
+        Paleo photo booth cred messenger bag jean shorts. Laboris post-ironic vero sint drinking vinegar farm-to-table. Forage salvia mustache hella chambray, leggings single-origin coffee ethnic keffiyeh sartorial mlkshk commodo yr try-hard meggings. Skateboard flexitarian brunch leggings.
+    </p>
+</article>
+
+<div style="clear:both;"></div>

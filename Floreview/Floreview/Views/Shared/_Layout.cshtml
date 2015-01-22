@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floreview</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/Font.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="/Scripts/js-webshim/minified/polyfiller.js"></script>
+    <script>
+    webshims.polyfill();
+
+    if (!Modernizr.input.list && !window.chrome) {
+        jQuery.webshims.setOptions('forms', {
+            lightweightDatalist: true
+        });
+        jQuery.webshims.polyfill('forms es5');
+    }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+</head>
+<body>
+    @RenderBody()
+
+    <footer>
+
+    </footer>
+
+    @Scripts.Render("~/bundles/custom")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

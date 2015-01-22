@@ -1,0 +1,60 @@
+﻿@model Floreview.Models.LoginViewModel
+
+@{
+    var className = "small-header";
+    if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        className = "cms-header";
+    }
+}
+
+<header class="@className">
+    <nav>
+        <ul class="content-container">
+            <li>
+                @Html.ActionLink("Home", "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink("Blog", "Index", "Blog")
+            </li>
+            <li>
+                @Html.ActionLink("Floreview", "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink("Contact", "Index", "Home")
+            </li>
+            <li class="nav-login">
+                @Html.Partial("_LoginPartial")
+            </li>
+        </ul>
+    </nav>
+
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <div id="cms-menu">
+            <ul class="content-container">
+                <li>
+                    @Html.ActionLink("Winkels", "Store", "Manage")
+                </li>
+            </ul>
+        </div>
+    }
+</header>
+
+<section id="login-container">
+    <h2>Aanmelden</h2>
+
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        @Html.TextBoxFor(model => model.UserName, new { @placeholder = "Gebruikersnaam" })
+        @Html.ValidationMessageFor(model => model.UserName)
+
+        @Html.PasswordFor(model => model.Password, new { @placeholder = "Wachtwoord", @autocomplete = "off" })
+        @Html.ValidationMessageFor(model => model.Password)
+        
+        <input type="submit" value="Aanmelden" />
+    }
+</section>

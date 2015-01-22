@@ -1,0 +1,164 @@
+﻿@{
+    @*GET querystring vars for bloglist load*@
+    String author = Request.QueryString["a"];
+    String category = Request.QueryString["c"];
+    String query = Request.QueryString["q"];
+    String date = Request.QueryString["d"];
+
+    Floreview.ViewModels.BlogVM model = new Floreview.ViewModels.BlogVM()
+    {
+        Author = author,
+        CategoryID = Convert.ToInt32(category),
+        Query = query
+    };
+    
+    
+    var className = "small-header";
+    if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        className = "cms-header";
+    }
+}
+
+<header class="@className">
+    <nav>
+        <ul class="content-container">
+            <li>
+                @Html.ActionLink("Home", "Index", "Home")
+            </li>
+            <li>                
+                @Html.ActionLink("Blog", "Index", "Blog")
+            </li>
+            <li>
+                @Html.ActionLink("Floreview", "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink("Contact", "Index", "Home")
+            </li>
+            <li class="nav-login">
+                @Html.Partial("_LoginPartial")
+            </li>
+        </ul>
+    </nav>
+
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <div id="cms-menu">
+            <ul class="content-container">
+                <li>
+                    @Html.ActionLink("Winkels", "Store", "Manage")
+                </li>
+            </ul>
+        </div>
+    }
+</header>
+
+<section id="blog-container" class="content-container" style="height: 5px;">
+    <div class="blog-left">
+        <div id="blog-list"></div>
+        <div id="load-blogs">
+            <p>Meer laden</p>
+            <img src="http://floreview.blob.core.windows.net/images/icon_loading.gif" alt="Loading icon" />
+        </div>
+    </div>
+
+    <div class="blog-right">
+        @{Html.RenderAction("SideBlog", "Blog", new { Model = model });}
+    </div>
+</section>
+
+<div style="clear: both;"></div>
+
+<script>
+    var blockNumber = 0;
+    var postData;
+    var author, category, query, date;
+    var noMoreData = false;
+    var inProgress = false;
+
+    $(document).ready(function () {
+        loadBlogs();
+
+        $("#load-blogs").click(function () {
+            loadBlogs();
+        });
+    });
+
+    function loadBlogs() {
+        if (!noMoreData && !inProgress) {
+            $("#load-blogs p").css("display", "none");
+            $("#load-blogs img").css("display", "block");
+
+            inProgress = true;
+
+            var tempAuthor = "@author";
+            var tempCategoryID = "@category";
+            var tempQuery = "@query";
+            var tempDate = "@date";
+
+            // check querystring contains values
+            if (tempAuthor.length != 0 || tempCategoryID.length != 0 || tempQuery.length != 0 || tempDate.length != 0) {
+                if (author == null && category == null && query == null && date == null) {
+                    // previous call had no variables
+                    blockNumber = 0;    // make sure we get the blogs from the beginning
+                }
+                // fill in vars
+                if (tempAuthor.length != 0) {
+                    author = tempAuthor;
+                }
+                else {
+                    author = null;
+                }
+                if (tempCategoryID.length != 0) {
+                    category = tempCategoryID;
+                }
+                else {
+                    category = null;
+                }
+                if (tempQuery.length != 0) {
+                    query = tempQuery;
+                }
+                else {
+                    query = null;
+                }
+                if (tempDate.length != 0) {
+                    date = tempDate;
+                }
+                else {
+                    date = null;
+                }
+
+                postData = {
+                    BlockNumber: blockNumber,
+                    Author: author,
+                    CategoryID: category,
+                    Query: query,
+                    Date: date
+                }
+            }
+            else {
+                postData = {
+                    BlockNumber: blockNumber,
+                    Author: "",
+                    CategoryID: 0,
+                    Query: "",
+                    Date: ""
+                }
+            }
+
+            $.post("@Url.Action("InfiniteScroll", "Blog")", postData, function (data) {
+                blockNumber++;
+                noMoreData = data.NoMoreData;
+                $("#blog-list").append(data.HTMLString);
+                inProgress = false;
+
+                if (noMoreData) {
+                    $("#load-blogs").hide();
+                }
+            }).done(function () {
+                $("#load-blogs p").css("display", "block");
+                $("#load-blogs img").css("display", "none");
+            });
+        }
+    }
+</script>

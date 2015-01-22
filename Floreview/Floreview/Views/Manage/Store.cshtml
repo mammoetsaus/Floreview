@@ -1,0 +1,52 @@
+﻿<header class="cms-header">
+    <nav>
+        <ul class="content-container">
+            <li>
+                @Html.ActionLink("Home", "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink("Blog", "Index", "Blog")
+            </li>
+            <li>
+                @Html.ActionLink("Floreview", "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink("Contact", "Index", "Home")
+            </li>
+            <li class="nav-login">
+                @Html.Partial("_LoginPartial")
+            </li>
+        </ul>
+    </nav>
+
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <div id="cms-menu">
+            <ul class="content-container">
+                <li>
+                    @Html.ActionLink("Winkels", "Store", "Manage")
+                </li>
+            </ul>
+        </div>
+    }
+</header>
+
+<section id="store-info" class="content-container-border">
+    <a href="/Manage/AddStore" id="btn-add-store">Toevoegen</a>
+    <select id="sort-store">
+        <option value="0">Laatst toegevoegd</option>
+        <option value="1">Naam</option>
+        <option value="2">Gemeente</option>
+        <option value="3">Provincie</option>
+    </select>
+    <input id="search-store" placeholder="Zoeken" />
+    <img src="http://floreview.blob.core.windows.net/images/icon_loading.gif" alt="Loading icon" />
+</section>
+
+<section id="store-list" class="content-container"></section>
+
+<script>
+    $(document).ready(function () {
+        loadCompanies("", 0);       // load default companies
+    });
+</script>

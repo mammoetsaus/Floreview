@@ -1,0 +1,233 @@
+﻿@model Floreview.ViewModels.DetailVM
+
+@{
+    var className = "small-header";
+    if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        className = "cms-header";
+    }
+
+    var latitude = Model.Company.Coordinates.Latitude.ToString().Replace(',', '.');
+    var longitude = Model.Company.Coordinates.Longitude.ToString().Replace(',', '.');
+    var point = latitude + "," + longitude;
+}
+
+<header class="@className">
+    <nav>
+        <ul class="content-container">
+            <li>
+                @Html.ActionLink("Home", "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink("Blog", "Index", "Blog")
+            </li>
+            <li>
+                @Html.ActionLink("Floreview", "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink("Contact", "Index", "Home")
+            </li>
+            <li class="nav-login">
+                @Html.Partial("_LoginPartial")
+            </li>
+        </ul>
+    </nav>
+
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <div id="cms-menu">
+            <ul class="content-container">
+                <li>
+                    @Html.ActionLink("Winkels", "Store", "Manage")
+                </li>
+            </ul>
+        </div>
+    }
+</header>
+
+<section id="detail-profile" class="content-container-border">
+    <div class="detail-right">
+        <h1>@Model.Company.Name</h1>
+        <p>@Model.Company.DescriptionLong</p>
+
+        <div class="detail-pictures">
+            <ul>
+                <li>
+                    <img src="@Model.Company.Florist.ImagePath" alt="@Model.Company.Florist.FirstName @Model.Company.Florist.LastName" />
+                    <div>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+                        <g>
+                        <path fill="#333333" d="M16,15.2l0.6,0.6L31,1.4v8.8h0.8V0H21.7v0.8h8.8L16,15.2z M16,15.2" />
+                        <path fill="#333333" d="M31.1,14.5v16.6H0.9V0.9h16.4V0H0v32h32V14.5H31.1z M31.1,14.5" />
+                            </g>
+                        </svg>
+                    </div>
+                </li>
+                @{
+                    if (!String.IsNullOrEmpty(Model.Company.ImageList))
+                    {
+                        String[] split = Model.Company.ImageList.Split(';');
+                        foreach (String image in split)
+                        {
+                            if (!String.IsNullOrEmpty(image))
+                            {
+                                <li>
+                                    <img src="@image" alt="@Model.Company.Name" />
+                                    <div>
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                             viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+                                        <g>
+                                        <path fill="#333333" d="M16,15.2l0.6,0.6L31,1.4v8.8h0.8V0H21.7v0.8h8.8L16,15.2z M16,15.2" />
+                                        <path fill="#333333" d="M31.1,14.5v16.6H0.9V0.9h16.4V0H0v32h32V14.5H31.1z M31.1,14.5" />
+                                    </g>
+                                    </svg>
+                                    </div>
+                                </li>
+                            }
+                        }
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+
+    <div class="detail-left">
+        <div id="gmap">
+            <div id="map-canvas"></div>
+        </div>
+
+        <div class="detail-contact">
+            <ul>
+                <li>
+                    <svg class="icon-facebook" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+                    <path fill="#cccccc" d="M0,0v50h50V0H0z M30.4,25h-3.5c0,5.6,0,12.5,0,12.5h-5.2c0,0,0-6.8,0-12.5h-2.5v-4.4h2.5v-2.9c0-2,1-5.2,5.2-5.2l3.8,0v4.3c0,0-2.3,0-2.8,0c-0.5,0-1.1,0.2-1.1,1.2v2.6h4L30.4,25z" />
+                    </svg>
+                </li>
+                <li>
+                    <svg class="icon-mail" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+                    <path fill="#cccccc" d="M0,0v50h50V0H0z M14.6,16H36c0.5,0,0.9,0.1,1.2,0.4L25.3,26.5L13.4,16.4C13.7,16.1,14.1,16,14.6,16zM13,17.3l8.6,7.5L13,32.2V17.3z M36,34H14.6c-0.5,0-0.9-0.4-1.2-0.7l8.8-7.7l3.1,2.7l3.1-2.7l8.8,7.8C36.9,33.6,36.5,34,36,34zM38,32.2l-8.6-7.3l8.6-7.5V32.2z" />
+                    </svg>
+                </li>
+                <li>
+                    <svg class="icon-site" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+                    <g>
+                    <path fill="#cccccc" d="M32,25.5c-1.1,0.7-3.5-1.4-3.1,1c0.6,1.1,3.4-1.5,2,0.8c-0.9,1.6-3.2,5.1-2.9,7c0,2.7-2.7,0.6-3.7-0.3
+		                        c-0.6-1.8-0.2-4.9-1.9-5.8c-1.8-0.1-3.4-0.2-4.1-2.3c-0.4-1.5,0.5-3.6,2-4c2.3-1.4,3.1,1.7,5.3,1.7c0.7-0.7,2.5-0.9,2.6-1.7
+		                        c-1.4-0.2,1.8-1.2-0.1-1.7c-1.1,0.1-1.7,1.1-1.2,1.9c-2.1,0.5-2.1-3-4.1-1.9c-0.1,1.7-3.2,0.6-1.1,0.2c0.7-0.3-1.2-1.2-0.2-1.1
+		                        c0.5,0,2.2-0.6,1.8-1c1-0.6,1.8,1.4,2.7,0c0.7-1.1-0.3-1.3-1.1-0.8c-0.5-0.5,0.8-1.7,2-2.2c0.4-0.2,0.8-0.3,1-0.2
+		                        c0.6,0.7,1.7,0.8,1.7-0.1c-1.5-0.7-3.1-1.1-4.7-1.1c-2.4,0-4.7,0.8-6.5,2.2c0.5,0.2,0.8,0.5,0.3,0.9c-0.4,1.1-1.9,2.6-3.3,2.4
+		                        c-0.7,1.2-1.2,2.5-1.4,3.9c1.1,0.4,1.4,1.1,1.1,1.4c-0.6,0.5-0.9,1.2-1.1,2c0.4,2.2,1.4,4.3,3.1,5.9c2.1,2.1,4.8,3.2,7.7,3.2
+		                        c2.9,0,5.7-1.1,7.7-3.2c1.5-1.5,2.6-3.5,3-5.5c-0.3,0.5-0.6,0.7-0.8-0.4C34.7,25,33.1,26.1,32,25.5z" />
+                    <path fill="#cccccc" d="M0,0v50h50V0H0z M33.8,33.8c-2.4,2.4-5.5,3.7-8.8,3.7s-6.5-1.3-8.8-3.7c-2.4-2.4-3.7-5.5-3.7-8.8
+		                        s1.3-6.5,3.7-8.8c2.4-2.4,5.5-3.7,8.8-3.7s6.5,1.3,8.8,3.7c2.4,2.4,3.7,5.5,3.7,8.8S36.2,31.5,33.8,33.8z" />
+                        </g>
+                    </svg>
+                </li>
+                <li>
+                    <svg class="icon-phone" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+                    <path fill="#cccccc" d="M0,0v50h50V0H0z M37.2,33.3l-3.5,3.5c-0.2,0.2-0.3,0.3-0.6,0.4c-0.2,0.1-0.5,0.2-0.7,0.2c0,0-0.1,0-0.2,0
+	                        c-0.1,0-0.2,0-0.3,0c-0.3,0-0.9-0.1-1.7-0.2c-0.7-0.1-1.7-0.4-2.7-0.8s-2.3-1.2-3.7-2c-1.4-0.9-2.8-2.2-4.4-3.7
+	                        c-1.2-1.2-2.2-2.4-3.1-3.5c-0.8-1.1-1.5-2.2-2-3.1s-0.8-1.8-1.1-2.6c-0.2-0.7-0.4-1.4-0.5-2c-0.2-0.6-0.2-1.1-0.2-1.3
+	                        c0-0.3,0-0.5,0-0.5c0-0.2,0.1-0.5,0.2-0.7c0.1-0.2,0.2-0.5,0.4-0.6l3.5-3.5c0.2-0.2,0.5-0.3,0.8-0.3c0.2,0,0.4,0.1,0.6,0.2
+	                        c0.2,0.2,0.3,0.3,0.4,0.5l2.8,5.4c0.2,0.2,0.2,0.6,0.2,0.9c-0.1,0.3-0.2,0.6-0.4,0.8l-1.2,1.2c0,0-0.1,0.1-0.1,0.2
+	                        c0,0.1,0,0.2,0,0.2c0.1,0.3,0.2,0.8,0.5,1.2c0.2,0.4,0.5,0.9,1,1.6c0.4,0.6,1.1,1.3,1.9,2.1c0.8,0.8,1.5,1.4,2.1,1.9
+	                        c0.6,0.4,1.2,0.7,1.6,1s0.7,0.3,0.9,0.4l0.3,0.1c0,0,0.1,0,0.2,0c0.1,0,0.2-0.1,0.2-0.1l1.5-1.5c0.3-0.2,0.7-0.4,1.1-0.4
+	                        c0.3,0,0.5,0.1,0.7,0.2l5.1,3c0.3,0.1,0.6,0.4,0.7,0.7C37.6,32.7,37.4,33,37.2,33.3z" />
+                    </svg>
+                </li>
+                <li>
+                    <svg class="icon-mobile" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+                    <g>
+                    <path fill="#cccccc" d="M25,37c-0.5,0-1,0.4-1,1c0,0.5,0.4,1,1,1s1-0.5,1-1S25.6,37,25,37z" />
+                    <rect x="17.7" y="13.2" fill="#cccccc" width="14.6" height="23" />
+                    <path fill="#cccccc" d="M22.9,11.9h4.3c0.1,0,0.2-0.1,0.2-0.2c0-0.1-0.1-0.2-0.2-0.2h-4.3c-0.2,0-0.3,0.1-0.2,0.2C22.7,11.8,22.8,11.9,22.9,11.9z" />
+                    <path fill="#cccccc" d="M0,0v50h50V0H0z M33.7,38c0,1.1-0.9,2-2,2H18.3c-1.1,0-2-0.9-2-2V12c0-1.1,0.9-2,2-2h13.4c1.1,0,2,0.9,2,2V38z" />
+                        </g>
+                    </svg>
+                </li>
+                <li>
+                    <svg class="icon-gps" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+                    <g>
+                    <path fill="#cccccc" d="M25,17.6c-0.6,0-1.2,0.2-1.6,0.7s-0.7,1-0.7,1.6c0,0.6,0.2,1.2,0.7,1.6c0.5,0.5,1,0.7,1.6,0.7
+		                        c0.6,0,1.2-0.2,1.6-0.7c0.5-0.5,0.7-1,0.7-1.6c0-0.6-0.2-1.2-0.7-1.6C26.2,17.8,25.6,17.6,25,17.6z" />
+                    <path fill="#cccccc" d="M0,0v50h50V0H0z M31.7,23.4c-0.6,1.5-1.2,3-1.8,4.4c-0.7,1.4-1.4,3-2.3,4.7c-0.9,1.7-1.5,2.9-1.8,3.5
+		                        c-0.3,0.6-0.6,1.1-0.8,1.5c0,0.1-0.6-1.1-1.9-3.5c-1.3-2.4-2.5-5-3.8-7.9c-1.3-2.9-1.9-5-1.9-6.2c0-2.1,0.7-3.8,2.2-5.2
+		                        c1.5-1.4,3.2-2.2,5.3-2.2s3.9,0.7,5.3,2.2c1.5,1.4,2.2,3.2,2.2,5.2C32.5,20.7,32.2,21.9,31.7,23.4z" />
+                        </g>
+                    </svg>
+                </li>
+            </ul>
+            <div id="detail-contact-popup">
+                <a class="popup-facebook" href="http://facebook.com/@Model.Company.Facebook" target="_blank">Bezoek onze facebook pagina</a>
+                <a class="popup-mail" href="mailto:@Model.Company.Email">@Model.Company.Email</a>
+                <a class="popup-site" href="@Model.Company.Website" target="_blank">@Model.Company.Website</a>
+                @{
+                    String phone, mobile;
+                    if (!string.IsNullOrEmpty(Model.Company.Florist.Phone))
+                    {
+                        phone = Model.Company.Florist.Phone.Insert(3, " ").Insert(5, " ").Insert(9, " ").Insert(12, " ");
+                    }
+                    else
+                    {
+                        phone = "Geen telefoonnumer beschikbaar.";
+                    }
+                    if (!string.IsNullOrEmpty(Model.Company.Florist.Cellphone))
+                    {
+                        mobile = Model.Company.Florist.Cellphone.Insert(3, " ").Insert(7, " ").Insert(10, " ").Insert(13, " ").Insert(16, " ");
+                    }
+                    else
+                    {
+                        mobile = "Geen GSM nummer beschikbaar.";
+                    }
+                }
+                <p class="popup-phone">@phone</p>
+                <p class="popup-mobile">@mobile</p>
+                <a class="popup-gps" href="https://maps.google.com/?q=@point" target="_blank">Routebeschrijving naar onze winkel</a>
+            </div>
+        </div>
+    </div>
+    <div style="clear:both;"></div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        initGMaps();
+    });
+
+    function initGMaps() {
+        var myLatLng = new google.maps.LatLng(@latitude@Html.Raw(",")@longitude);
+        var mapOptions = {
+            zoom: 15,
+            center: myLatLng
+        }
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+        var contentString = '<div id="content">' +
+                                '<div id="siteNotice"></div>' +
+                                '<h1 id="firstHeading" class="firstHeading">@Model.Company.Name</h1>' +
+                                '<div id="bodyContent" style="margin: 5px 0 0 0;">' +
+                                    '<p>@Model.Company.Address</p>' +
+                                    '<p>@Model.Company.Location.Zip @Model.Company.Location.City</p>' +
+                                    '<p>@Model.Company.Location.Province.Name</p>' +
+                                '</div>' +
+                            '</div>';
+
+        var infoWindow = new google.maps.InfoWindow({ content: contentString });
+
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+        });
+
+        google.maps.event.addListener(marker, 'click', function () {
+            infoWindow.open(map, marker);
+        });
+    }
+</script>

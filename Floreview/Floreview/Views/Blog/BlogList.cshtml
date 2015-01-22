@@ -1,0 +1,15 @@
+﻿@model List<Floreview.Models.Blog>
+
+@foreach (var item in Model)
+{
+    <article class="blog-item">
+        <div class="blog-item-left">
+            <p>@item.Timestamp.ToString("dd").@item.Timestamp.ToString("MM").@item.Timestamp.Year</p>
+        </div>
+        <div class="blog-item-right">
+            <h2>@item.Title</h2>
+            <p><span>door</span> <a class="blog-link" href="/Blog/Index?a=@item.Author.AccessCode">@item.Author.FirstName @item.Author.LastName</a> <span class="blog-spacing">|</span> <a class="blog-link" href="/Blog/Index?c=@item.Category.ID">@item.Category.Name</a></p>
+            <p>Helvetica Intelligentsia fap kitsch, Cosby sweater letterpress vinyl. Master cleanse VHS shabby chic, food truck bespoke Portland hoodie fashion axe fingerstache. Deep v Kickstarter Godard, four loko dreamcatcher Pinterest twee Echo Park iPhone. Bicycle rights irony whatever chia, small batch fanny pack normcore Bushwick.</p>
+        </div>
+    </article>
+}
