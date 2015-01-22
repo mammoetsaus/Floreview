@@ -13,6 +13,12 @@
     transition: $args;
 }
 
+@mixin opacity($value) {
+    opacity: $value;
+    $opacity-ie: $value * 100;
+    filter: alpha(opacity=$opacity-ie);
+}
+
 %clearfix {
     *zoom: 1;
 

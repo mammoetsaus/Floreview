@@ -15,7 +15,7 @@
             <li>
                 @Html.ActionLink("Contact", "Index", "Home")
             </li>
-            <li class="nav-login">
+            <li>
                 @Html.Partial("_LoginPartial")
             </li>
         </ul>
@@ -23,66 +23,96 @@
 
     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
     {
-        <div id="cms-menu">
+        <section class="menu-admin">
             <ul class="content-container">
                 <li>
                     @Html.ActionLink("Winkels", "Store", "Manage")
                 </li>
             </ul>
-        </div>
+        </section>
     }
 
-    <div id="search-box">
+    <section class="home-search-container">
         <h1>Ik zoek een bloemenwinkel</h1>
 
         @using (Html.BeginForm("Index", "Search", FormMethod.Post, new { @id = "search-form" }))
         {
-            <input type="text" id="SearchName" name="SearchName" placeholder="Naam" autocomplete="off" />
+            <input type="text" id="home-search-name" name="home-search-name" placeholder="Naam" autocomplete="off" />
 
-            <input type="text" id="SearchCity" name="SearchCity" placeholder="Gemeente" list="lstCities" autocomplete="off" />
+            <input type="text" id="home-search-city" name="home-search-name" placeholder="Gemeente" list="list-home-search-cities" autocomplete="off" />
 
             @Html.HiddenFor(model => model.LatitudeRAW, new { @id = "hidden-latitude" })
             @Html.HiddenFor(model => model.LongitudeRAW, new { @id = "hidden-longitude" })
 
-            <input id="submit" type="submit" value="Zoeken" class="btn btn-success" />
+            <input type="submit" id="home-search-submit" value="Zoeken" />
         }
 
-        <datalist id="lstCities">
+        <datalist id="list-home-search-cities">
             <select>
-                <option id="0" value="Prefill item"></option>
+                <option id="-1" value="--prefill--"></option>
             </select>
         </datalist>
-    </div>
+    </section>
 </header>
 
 @if (Model.Blogs.Count > 0)
 {
-    <section id="home-blogs" class="content-container">
+    <section class="home-promotion-blogs">
         <h2>Recente blogs</h2>
 
         @foreach (var item in Model.Blogs)
         {
             <article>
                 <img src="@item.Avatar" alt="@item.Title" />
-                <a class="blog-title" href="#" title="@item.Title">@item.Title</a>
+                <a href="#" title="@item.Title">@item.Title</a>
                 <p>
-                    <span>geplaatst op</span> @item.Timestamp.ToString("dd").@item.Timestamp.ToString("MM").@item.Timestamp.Year <span class="blog-spacing">|</span>  <a class="blog-link" href="/Blog/Index?c=@item.Category.ID">@item.Category.Name</a>
+                    <span>geplaatst op</span> @item.Timestamp.ToString("dd").@item.Timestamp.ToString("MM").@item.Timestamp.Year <span>|</span>  <a href="/Blog/Index?c=@item.Category.ID">@item.Category.Name</a>
                 </p>
                 <p>
-                    <span>door</span> <a class="blog-link" href="/Blog/Index?a=@item.Author.AccessCode">@item.Author.FirstName @item.Author.LastName</a>
+                    <span>door</span> <a href="/Blog/Index?a=@item.Author.AccessCode">@item.Author.FirstName @item.Author.LastName</a>
                 </p>
             </article>
         }
     </section>
 }
 
-<div style="clear:both;"></div>
-
-<article id="home-about" class="content-container">
+<article class="home-promotion-about">
     <h2>Floreview</h2>
     <p>
         Paleo photo booth cred messenger bag jean shorts. Laboris post-ironic vero sint drinking vinegar farm-to-table. Forage salvia mustache hella chambray, leggings single-origin coffee ethnic keffiyeh sartorial mlkshk commodo yr try-hard meggings. Skateboard flexitarian brunch leggings.
     </p>
 </article>
 
-<div style="clear:both;"></div>
+<script>
+    document.addEventListener('DOMContentLoaded', function (event) {
+        document.getElementById('list-home-search-cities').innerHTML = null;
+
+        document.getElementById('home-search-city').addEventListener('input', function () {
+            loadCities(this.value);
+        });
+    });
+
+    function loadCities(name) {
+        if (name.length < 3) {
+            document.getElementById('list-home-search-cities').innerHTML = null;
+        }
+        else if (name.length == 3) {
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 && request.status == 200) {
+                    insertCitiesIntoDatalist(JSON.parse(request.responseText));
+                }
+            };
+            request.open("GET", "/api/cities?city=" + name, true);
+            request.send();
+        }
+    }
+
+    function insertCitiesIntoDatalist(arr) {
+        var output = "";
+        for (var i = 0; i < arr.length; i++) {
+            output += "<option id='" + arr[i].ID + "' value='" + arr[i].City + "'></option>";
+        }
+        document.getElementById('list-home-search-cities').innerHTML = output;
+    }
+</script>

@@ -281,7 +281,14 @@
     <Content Include="fonts\Lato-Reg-webfont.eot" />
     <Content Include="fonts\Lato-Reg-webfont.ttf" />
     <Content Include="fonts\Lato-Reg-webfont.woff" />
-    <Content Include="Content\style.scss" />
+    <Content Include="Content\style.scss">
+      <Compile>True</Compile>
+      <Minify>True</Minify>
+      <IgnoreWarnings>True</IgnoreWarnings>
+      <IgnoreErrors>True</IgnoreErrors>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </Content>
     <Content Include="Content\_mixins.scss" />
     <None Include="Properties\PublishProfiles\floreview - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\floreview - Web Deploy.pubxml" />
@@ -607,15 +614,50 @@
     <Content Include="Scripts\js-webshim\dev\shims\FlashCanvasPro\save.php" />
     <Content Include="Scripts\js-webshim\dev\shims\FlashCanvas\proxy.php" />
     <Content Include="Scripts\js-webshim\dev\shims\FlashCanvas\save.php" />
-    <Content Include="Scripts\js-webshim\dev\shims\jme\controls.scss" />
+    <Content Include="Scripts\js-webshim\dev\shims\jme\controls.scss">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <IgnoreWarnings>True</IgnoreWarnings>
+      <IgnoreErrors>True</IgnoreErrors>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </Content>
     <Content Include="Scripts\js-webshim\dev\shims\jme\jme.eot" />
     <Content Include="Scripts\js-webshim\dev\shims\jme\jme.ttf" />
     <Content Include="Scripts\js-webshim\dev\shims\jme\jme.woff" />
     <Content Include="Scripts\js-webshim\dev\shims\jme\_icons.scss" />
-    <Content Include="Scripts\js-webshim\dev\shims\styles\scss\forms-ext.scss" />
-    <Content Include="Scripts\js-webshim\dev\shims\styles\scss\forms-picker.scss" />
-    <Content Include="Scripts\js-webshim\dev\shims\styles\scss\shim-ext.scss" />
-    <Content Include="Scripts\js-webshim\dev\shims\styles\scss\shim.scss" />
+    <Content Include="Scripts\js-webshim\dev\shims\styles\scss\forms-ext.scss">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <IgnoreWarnings>True</IgnoreWarnings>
+      <IgnoreErrors>True</IgnoreErrors>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </Content>
+    <Content Include="Scripts\js-webshim\dev\shims\styles\scss\forms-picker.scss">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <IgnoreWarnings>True</IgnoreWarnings>
+      <IgnoreErrors>True</IgnoreErrors>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </Content>
+    <Content Include="Scripts\js-webshim\dev\shims\styles\scss\shim-ext.scss">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <IgnoreWarnings>True</IgnoreWarnings>
+      <IgnoreErrors>True</IgnoreErrors>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </Content>
+    <Content Include="Scripts\js-webshim\dev\shims\styles\scss\shim.scss">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <IgnoreWarnings>True</IgnoreWarnings>
+      <IgnoreErrors>True</IgnoreErrors>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </Content>
     <Content Include="Scripts\js-webshim\dev\shims\styles\scss\_api-forms-ext.scss" />
     <Content Include="Scripts\js-webshim\dev\shims\styles\scss\_api-shim.scss" />
     <Content Include="Scripts\js-webshim\dev\shims\styles\scss\_extends.scss" />

@@ -28,7 +28,7 @@ namespace Floreview
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/site.css"));
+                      "~/Content/style.css"));
         }
     }
 }

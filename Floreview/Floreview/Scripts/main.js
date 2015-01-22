@@ -181,35 +181,35 @@ function animateDetailContactDown() {
     $("#detail-contact-popup").stop().animate({ top: "0px" }, 600, "easeInOutQuint");
 }
 
-function loadCities(currentInput) {
-    // clear list if no characters in input field
-    if (currentInput.length < 3) {
-        $("#lstCities").empty();
-    }
+//function loadCities(currentInput) {
+//    // clear list if no characters in input field
+//    if (currentInput.length < 3) {
+//        $("#lstCities").empty();
+//    }
 
-    // get data if 3 characters in input field
-    if (currentInput.length == 3) {
-        // get api data
-        $.getJSON("/api/cities?city=" + currentInput, function (data) {
-            var polyfillData = "";
+//    // get data if 3 characters in input field
+//    if (currentInput.length == 3) {
+//        // get api data
+//        $.getJSON("/api/cities?city=" + currentInput, function (data) {
+//            var polyfillData = "";
 
-            for (var i = 0; i < data.length; i++) {
-                var city = {
-                    value: data[i].City,
-                    id: data[i].ID
-                };
+//            for (var i = 0; i < data.length; i++) {
+//                var city = {
+//                    value: data[i].City,
+//                    id: data[i].ID
+//                };
 
-                // append data to datalist
-                var datalistItem = "<option id='" + city.id + "' value='" + city.value + "'></option>";
-                $("#lstCities").append(datalistItem);
+//                // append data to datalist
+//                var datalistItem = "<option id='" + city.id + "' value='" + city.value + "'></option>";
+//                $("#lstCities").append(datalistItem);
 
-                polyfillData += datalistItem;
-            }
+//                polyfillData += datalistItem;
+//            }
 
-            $("#lstCities").htmlPolyfill(polyfillData);;
-        });
-    }
-}
+//            $("#lstCities").htmlPolyfill(polyfillData);;
+//        });
+//    }
+//}
 
 function loadCompanies(filter, sort) {
     $("#store-info img").css("display", "block");
