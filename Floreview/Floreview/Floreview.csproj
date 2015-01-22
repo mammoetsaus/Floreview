@@ -270,15 +270,19 @@
     <Compile Include="ViewModels\SearchVM.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Font.css" />
+    <Content Include="Content\font.css" />
+    <Content Include="Content\style.css">
+      <DependentUpon>style.scss</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\Lato-Reg-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\Lato-Reg-webfont.eot" />
     <Content Include="fonts\Lato-Reg-webfont.ttf" />
     <Content Include="fonts\Lato-Reg-webfont.woff" />
+    <Content Include="Content\style.scss" />
+    <Content Include="Content\_mixins.scss" />
     <None Include="Properties\PublishProfiles\floreview - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\floreview - Web Deploy.pubxml" />
     <None Include="Properties\Settings.settings">
@@ -636,9 +640,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
