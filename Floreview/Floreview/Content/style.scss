@@ -75,6 +75,10 @@ header {
                 text-decoration: underline;
             }
         }
+
+        form a:hover {
+            cursor: pointer;
+        }
     }
 
     nav.scrolled {
@@ -179,10 +183,20 @@ header {
     }
 }
 
+header.small {
+    height: 48px;
+    background: none;
+}
+
+header.admin {
+    height: 80px;
+    background: none;
+}
+
 section.home-promotion-blogs {
     @extend .content-container;
-    margin-top: 75px;
     @extend %clearfix;
+    margin-top: 75px;
 
     h2 {
         text-align: center;
@@ -256,7 +270,7 @@ section.home-promotion-blogs {
         }
     }
 
-    article:nth-child(2) {
+    article:nth-of-type(2) {
         margin: 0 39px 0 0;
     }
 
@@ -284,6 +298,154 @@ article.home-promotion-about {
         color: $font-color-white;
         padding: 5px 10px;
     }
+}
+
+section.search-information {
+    @extend .content-container;
+    @extend %clearfix;
+
+    div {
+        @extend %clearfix;
+        float: left;
+        width: 315px;
+        height: 60px;
+        background-color: $fill-white;
+        border: 1px solid $border-color-default;
+        @include prefix(box-sizing, border-box);
+        margin: 30px 40px 0 0;
+
+        h2 {
+            float: left;
+            width: 157px;
+            height: 58px;
+            font-family: latoregular, sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 60px;
+            border-right: 1px dashed $border-color-dashed;
+        }
+
+        p {
+            float: left;
+            width: 155px;
+            height: 58px;
+            font-family: latoregular, sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            text-align: center;
+            line-height: 60px;
+            overflow: hidden;
+        }
+    }
+
+    div:nth-of-type(2) {
+        margin: 30px 39px 0 0;
+    }
+
+    div:nth-of-type(3) {
+        margin: 30px 0 0 0;
+    }
+}
+
+section.search-results {
+    @extend .content-container;
+    @extend %clearfix;
+    margin-top: 30px;
+
+    div {
+        float: left;
+        width: 490px;
+        height: 150px;
+        background-color: $fill-white;
+        border: 1px solid $border-color-default;
+        margin: 0 0 25px 0;
+    }
+
+    div:nth-of-type(odd) {
+        margin: 0 40px 25px 0;
+    }
+
+    img {
+        display: block;
+        float: left;
+        width: 150px;
+        height: 150px;
+        max-width: 150px;
+        max-height: 150px;
+    }
+
+    h3 {
+        float: left;
+        padding: 5px 5px 5px 5px;
+        width: 290px;
+        font-family: latoregular, sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        @include prefix(box-sizing, border-box);
+    }
+
+    p {
+        float: left;
+        width: 290px;
+        font-family: latoregular, sans-serif;
+        font-size: 16px;
+        @include prefix(box-sizing, border-box);
+    }
+
+    p:first-of-type {
+        margin: -15px 0 0 0;
+        padding: 0 5px;
+        height: 85px;
+    }
+
+    p:nth-of-type(2) {
+        font-size: 14px;
+        margin: 5px 0 0 0;
+        padding: 0 5px;
+    }
+
+    a {
+        display: block;
+        float: left;
+        width: 50px;
+        height: 50px;
+
+        svg {
+            @extend a;
+        }
+
+        svg:hover {
+            cursor: pointer;
+        }
+    }
+
+    a:nth-of-type(1) {
+        svg:hover path {
+            fill: #36609f;
+        }
+    }
+
+    a:nth-of-type(2) {
+        svg:hover path {
+            fill: #1e70b6;
+        }
+    }
+
+    a:nth-of-type(3) {
+        margin: -20px 0 0 0;
+
+        svg:hover path {
+            fill: $secondary-green;
+        }
+    }
+}
+
+section.search-nearby-results {
+    @extend .content-container;
+    @extend %clearfix;
+
 }
 
 footer {

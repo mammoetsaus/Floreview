@@ -1,15 +1,17 @@
-﻿using Floreview.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Floreview.ViewModels
 {
-    public class IndexVM
+    public class IndexSearchVM
     {
         #region Fields & Props
-        public List<Blog> Blogs { get; set; }
+        public String Name { get; set; }
+
+        public String City { get; set; }
         #endregion
     }
 }

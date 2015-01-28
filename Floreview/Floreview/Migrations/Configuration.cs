@@ -16,14 +16,11 @@ namespace Floreview.Migrations
 
     internal sealed class Configuration : DbMigrationsConfiguration<FlowerContext>
     {
-        #region Constructor
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
-        #endregion
 
-        #region Functions
         private void CreateUsers()
         {
             FlowerContext context = new FlowerContext();
@@ -125,7 +122,7 @@ namespace Floreview.Migrations
                 DescriptionShort = "Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater synth Schlitz.",
                 DescriptionLong = "Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
                 Coordinates = DbGeography.FromText("POINT(3.920891 51.036445)"),        // longitude - latitude
-                Avatar = "http://floreview.blob.core.windows.net/profiles/profile_1.jpg",
+                Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg",
                 ImageList = "profile_1_1;profile_1_2;profile_1_3;profile_1_4;profile_1_5",
                 Website = "http://mammoetsaus.azurewebsites.net",
                 Email = "thomas.voet@live.be",
@@ -152,7 +149,7 @@ namespace Floreview.Migrations
                 DescriptionShort = "Keytar chia Thundercats Marfa irony brunch lo-fi, Odd Future authentic art party actually pork belly tofu. PBR fashion axe PBR&B beard pickled.",
                 DescriptionLong = "Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
                 Coordinates = DbGeography.FromText("POINT(3.734070 51.048552)"),
-                Avatar = "http://floreview.blob.core.windows.net/profiles/profile_2.jpg",
+                Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg",
                 ImageList = "profile_1_1;profile_1_2;profile_1_3;profile_1_4;profile_1_5",
                 Website = "http://mammoetsaus.azurewebsites.net",
                 Email = "thomas.voet@student.howest.be",
@@ -179,7 +176,7 @@ namespace Floreview.Migrations
                 DescriptionShort = "Meggings keffiyeh Godard DIY, beard gluten-free Tumblr. Crucifix normcore seitan, salvia chambray VHS disrupt organic cliche flexitarian. Mustache.",
                 DescriptionLong = "Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
                 Coordinates = DbGeography.FromText("POINT(3.855433 51.036439)"),
-                Avatar = "http://floreview.blob.core.windows.net/profiles/profile_2.jpg",
+                Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg",
                 ImageList = "profile_1_1;profile_1_2;profile_1_3;profile_1_4;profile_1_5",
                 Website = "http://mammoetsaus.azurewebsites.net",
                 Email = "thomas.mammoetsaus@gmail.be",
@@ -206,7 +203,7 @@ namespace Floreview.Migrations
                 DescriptionShort = "Kickstarter dreamcatcher irony pickled Banksy. Fingerstache bespoke umami stumptown. Mixtape tattooed chillwave ugh cardigan fixie.",
                 DescriptionLong = "Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
                 Coordinates = DbGeography.FromText("POINT(3.679745 51.072267)"),
-                Avatar = "http://floreview.blob.core.windows.net/profiles/profile_2.jpg",
+                Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg",
                 ImageList = "profile_1_1;profile_1_2;profile_1_3;profile_1_4;profile_1_5",
                 Website = "http://mammoetsaus.azurewebsites.net",
                 Email = "thomas.voet@live.be",
@@ -233,7 +230,7 @@ namespace Floreview.Migrations
                 DescriptionShort = "Shabby chic mumblecore VHS keffiyeh vinyl tousled. Umami art party mumblecore pour-over. Cornhole single-origin coffee Brooklyn, freegan.",
                 DescriptionLong = "Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
                 Coordinates = DbGeography.FromText("POINT(3.816564 51.200252)"),
-                Avatar = "http://floreview.blob.core.windows.net/profiles/profile_2.jpg",
+                Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg",
                 ImageList = "profile_1_1;profile_1_2;profile_1_3;profile_1_4;profile_1_5",
                 Website = "http://mammoetsaus.azurewebsites.net",
                 Email = "thomas.voet@student.howest.be",
@@ -260,7 +257,7 @@ namespace Floreview.Migrations
                 DescriptionShort = "Cliche Pinterest meggings yr forage Kickstarter. PBR&B beard quinoa fingerstache authentic. Portland church-key small batch crucifix.",
                 DescriptionLong = "Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
                 Coordinates = DbGeography.FromText("POINT(3.915618 51.035375)"),
-                Avatar = "http://floreview.blob.core.windows.net/profiles/profile_1.jpg",
+                Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg",
                 ImageList = "profile_1_1;profile_1_2;profile_1_3;profile_1_4;profile_1_5",
                 Website = "http://mammoetsaus.azurewebsites.net",
                 Email = "laurens.voet@live.be",
@@ -287,7 +284,7 @@ namespace Floreview.Migrations
                 DescriptionShort = "Cliche Pinterest meggings yr forage Kickstarter. PBR&B beard quinoa fingerstache authentic. Portland church-key small batch crucifix.",
                 DescriptionLong = "Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
                 Coordinates = DbGeography.FromText("POINT(3.743870 51.178863)"),
-                Avatar = "http://floreview.blob.core.windows.net/profiles/profile_1.jpg",
+                Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg",
                 ImageList = "profile_1_1;profile_1_2;profile_1_3;profile_1_4;profile_1_5",
                 Website = "http://mammoetsaus.azurewebsites.net",
                 Email = "laurens.voet@live.be",
@@ -429,9 +426,8 @@ namespace Floreview.Migrations
             context.Blog.Add(b6);
             context.SaveChanges();
         }
-        #endregion
 
-        #region Seed
+
         protected override void Seed(FlowerContext context)
         {
             CreateUsers();
@@ -446,6 +442,18 @@ namespace Floreview.Migrations
 
             CreateBlogItems();
         }
-        #endregion
+    }
+
+    public class LocationParse
+    {
+        public int Zip { get; set; }
+
+        public String City { get; set; }
+
+        public int ZipMain { get; set; }
+
+        public String CityMain { get; set; }
+
+        public String Province { get; set; }
     }
 }

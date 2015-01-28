@@ -10,7 +10,6 @@ namespace Floreview.Models
 {
     public class Company
     {
-        #region Fields & Props
         public int ID { get; set; }
 
         [Required(ErrorMessage = "Gelieve een naam in te vullen.")]
@@ -43,13 +42,11 @@ namespace Floreview.Models
 
         [Required(ErrorMessage = "Gelieve een facebook profiel in te vullen.")]
         public String Facebook { get; set; }
-        
 
         public virtual Florist Florist { get; set; }
 
         public virtual Location Location { get; set; }
 
         public virtual Genre Genre { get; set; }
-        #endregion
     }
 }

@@ -8,7 +8,6 @@ namespace Floreview.Models
 {
     public class Florist
     {
-        #region Fields & Props
         public int ID { get; set; }
 
         [Required(ErrorMessage = "Gelieve een voornaam in te vullen.")]
@@ -26,6 +25,5 @@ namespace Floreview.Models
         public String Cellphone { get; set; }
 
         public String ImagePath { get; set; }
-        #endregion
     }
 }

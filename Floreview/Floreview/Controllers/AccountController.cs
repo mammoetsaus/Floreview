@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using Floreview.DataAccess.Interfaces;
 using Floreview.Models;
+using Floreview.ViewModels;
 
 namespace Floreview.Controllers
 {

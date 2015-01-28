@@ -1,19 +1,20 @@
-﻿@model Floreview.ViewModels.IndexVM
+﻿@using Floreview.Resources
+@model Floreview.ViewModels.IndexVM
 
 <header>
     <nav>
         <ul class="content-container">
             <li>
-                @Html.ActionLink("Home", "Index", "Home")
+                @Html.ActionLink(Global.Menu_Home, "Index", "Home")
             </li>
             <li>
-                @Html.ActionLink("Blog", "Index", "Blog")
+                @Html.ActionLink(Global.Menu_Blog, "Index", "Blog")
             </li>
             <li>
-                @Html.ActionLink("Floreview", "Index", "Home")
+                @Html.ActionLink(Global.Menu_Floreview, "Index", "Home")
             </li>
             <li>
-                @Html.ActionLink("Contact", "Index", "Home")
+                @Html.ActionLink(Global.Menu_Contact, "Index", "Home")
             </li>
             <li>
                 @Html.Partial("_LoginPartial")
@@ -26,25 +27,22 @@
         <section class="menu-admin">
             <ul class="content-container">
                 <li>
-                    @Html.ActionLink("Winkels", "Store", "Manage")
+                    @Html.ActionLink(Global.Menu_Admin_Stores, "Store", "Manage")
                 </li>
             </ul>
         </section>
     }
 
     <section class="home-search-container">
-        <h1>Ik zoek een bloemenwinkel</h1>
+        <h1>@Global.Home_Search_Title</h1>
 
-        @using (Html.BeginForm("Index", "Search", FormMethod.Post, new { @id = "search-form" }))
+        @using (Html.BeginForm("Index", "Search", FormMethod.Post))
         {
-            <input type="text" id="home-search-name" name="home-search-name" placeholder="Naam" autocomplete="off" />
+            <input type="text" id="home-search-name" name="name" placeholder="@Global.Home_Search_Name_Placeholder" autocomplete="off" />
 
-            <input type="text" id="home-search-city" name="home-search-name" placeholder="Gemeente" list="list-home-search-cities" autocomplete="off" />
+            <input type="text" id="home-search-city" name="city" placeholder="@Global.Home_Search_City_Placeholder" list="list-home-search-cities" autocomplete="off" />
 
-            @Html.HiddenFor(model => model.LatitudeRAW, new { @id = "hidden-latitude" })
-            @Html.HiddenFor(model => model.LongitudeRAW, new { @id = "hidden-longitude" })
-
-            <input type="submit" id="home-search-submit" value="Zoeken" />
+            <input type="submit" id="home-search-submit" value="@Global.Home_Search_Submit" />
         }
 
         <datalist id="list-home-search-cities">
@@ -58,7 +56,7 @@
 @if (Model.Blogs.Count > 0)
 {
     <section class="home-promotion-blogs">
-        <h2>Recente blogs</h2>
+        <h2>@Global.Home_Blog_Promotion_Title</h2>
 
         @foreach (var item in Model.Blogs)
         {
@@ -66,10 +64,10 @@
                 <img src="@item.Avatar" alt="@item.Title" />
                 <a href="#" title="@item.Title">@item.Title</a>
                 <p>
-                    <span>geplaatst op</span> @item.Timestamp.ToString("dd").@item.Timestamp.ToString("MM").@item.Timestamp.Year <span>|</span>  <a href="/Blog/Index?c=@item.Category.ID">@item.Category.Name</a>
+                    <span>@Global.Home_Blog_Promotion_Datetime</span> @item.Timestamp.ToString("dd").@item.Timestamp.ToString("MM").@item.Timestamp.Year <span>|</span>  <a href="/Blog/Index?c=@item.Category.ID">@item.Category.Name</a>
                 </p>
                 <p>
-                    <span>door</span> <a href="/Blog/Index?a=@item.Author.AccessCode">@item.Author.FirstName @item.Author.LastName</a>
+                    <span>@Global.Home_Blog_Promotion_Author</span> <a href="/Blog/Index?a=@item.Author.AccessCode">@item.Author.FirstName @item.Author.LastName</a>
                 </p>
             </article>
         }

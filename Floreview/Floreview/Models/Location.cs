@@ -8,7 +8,6 @@ namespace Floreview.Models
 {
     public class Location
     {
-        #region Fields & Props
         public int ID { get; set; }
 
         public int Zip { get; set; }
@@ -20,8 +19,6 @@ namespace Floreview.Models
 
         public String CityMain { get; set; }
 
-
         public virtual Province Province { get; set; }
-        #endregion
     }
 }

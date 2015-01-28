@@ -8,11 +8,8 @@ namespace Floreview.Models
 {
     public class ApplicationRole : IdentityRole
     {
-        #region Fields & Props
         public virtual String Description { get; set; }
-        #endregion
 
-        #region Constructor
         public ApplicationRole() : base()
         {
 
@@ -22,6 +19,5 @@ namespace Floreview.Models
         {
             this.Description = description;
         }
-        #endregion
     }
 }

@@ -1,19 +1,29 @@
-﻿@using Microsoft.AspNet.Identity
+﻿@using Floreview.Resources
+@using Microsoft.AspNet.Identity
+
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @id = "form-logout" }))
     {
     @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
+    <ul>
         <li>
-            @Html.ActionLink("Hallo " + User.Identity.GetUserName() + "!", "", "", new { @style = "text-transform: none;"})
+            @Html.ActionLink(Global.Menu_Login_Welcome + " " + User.Identity.GetUserName() + "!", "", "")
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        <li><a id="form-logout-submit">@Global.Menu_Logout</a></li>
     </ul>
     }
 }
 else
 {
-    @Html.ActionLink("Log in", "Login", "Account")
+    @Html.ActionLink(Global.Menu_Login, "Login", "Account")
 }
+
+<script>
+    document.addEventListener('DOMContentLoaded', function (event) {
+        document.getElementById('form-logout-submit').addEventListener('click', function () {
+            document.getElementById('form-logout').submit();
+        });
+    });
+</script>

@@ -117,10 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Target" xml:space="preserve">
-    <value>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</value>
+  <data name="Home_Blog_Promotion_Author" xml:space="preserve">
+    <value>door</value>
   </data>
-  <data name="DefaultSchema" xml:space="preserve">
-    <value>dbo</value>
+  <data name="Home_Blog_Promotion_Datetime" xml:space="preserve">
+    <value>geplaatst op</value>
+  </data>
+  <data name="Home_Blog_Promotion_Title" xml:space="preserve">
+    <value>Recente blogs</value>
+  </data>
+  <data name="Home_Search_City_Placeholder" xml:space="preserve">
+    <value>Gemeente</value>
+  </data>
+  <data name="Home_Search_Name_Placeholder" xml:space="preserve">
+    <value>Naam</value>
+  </data>
+  <data name="Home_Search_Submit" xml:space="preserve">
+    <value>Zoeken</value>
+  </data>
+  <data name="Home_Search_Title" xml:space="preserve">
+    <value>Ik zoek een bloemenwinkel</value>
+  </data>
+  <data name="Menu_Admin_Stores" xml:space="preserve">
+    <value>Winkels</value>
+  </data>
+  <data name="Menu_Blog" xml:space="preserve">
+    <value>Blog</value>
+  </data>
+  <data name="Menu_Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Menu_Floreview" xml:space="preserve">
+    <value>Floreview</value>
+  </data>
+  <data name="Menu_Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Menu_Login" xml:space="preserve">
+    <value>Aanmelden</value>
+  </data>
+  <data name="Menu_Login_Welcome" xml:space="preserve">
+    <value>Hallo</value>
+  </data>
+  <data name="Menu_Logout" xml:space="preserve">
+    <value>Afmelden</value>
+  </data>
+  <data name="Search_Information_City" xml:space="preserve">
+    <value>Gemeente</value>
+  </data>
+  <data name="Search_Information_Name" xml:space="preserve">
+    <value>Naam</value>
+  </data>
+  <data name="Search_Information_Results" xml:space="preserve">
+    <value>Resultaten</value>
   </data>
 </root>

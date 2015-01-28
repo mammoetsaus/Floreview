@@ -11,15 +11,11 @@ namespace Floreview.DataAccess.Context
 {
     public class FlowerContext : IdentityDbContext<ApplicationUser>
     {
-        #region Constructor
-        public FlowerContext()
-            : base("FlowerContext")
+        public FlowerContext() : base("FlowerContext")
         {
 
         }
-        #endregion
 
-        #region Fields & Props
         public DbSet<Florist> Florist { get; set; }
 
         public DbSet<Company> Company { get; set; }
@@ -33,9 +29,9 @@ namespace Floreview.DataAccess.Context
         public DbSet<BlogCategory> BlogCategory { get; set; }
 
         public DbSet<Blog> Blog { get; set; }
-        #endregion
 
-        #region OnModelCreate
+        public DbSet<CompanyLocation> CompanyLocation { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             if (modelBuilder == null)
@@ -72,6 +68,5 @@ namespace Floreview.DataAccess.Context
 
             entityTypeConfiguration1.Property((ApplicationRole r) => r.Name).IsRequired();
         }
-        #endregion
     }
 }

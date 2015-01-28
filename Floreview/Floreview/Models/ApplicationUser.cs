@@ -8,7 +8,6 @@ namespace Floreview.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        #region Fields & Props
         public String FirstName { get; set; }
 
         public String LastName { get; set; }
@@ -16,6 +15,5 @@ namespace Floreview.Models
         public String Email { get; set; }
 
         public String AccessCode { get; set; }
-        #endregion
     }
 }

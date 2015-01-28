@@ -212,6 +212,7 @@
     <Compile Include="Controllers\CMS\ManageController.cs" />
     <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="DataAccess\Context\FlowerContext.cs" />
     <Compile Include="DataAccess\Interfaces\IAccessService.cs" />
@@ -235,12 +236,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201501221346081_initDB.cs" />
-    <Compile Include="Migrations\201501221346081_initDB.Designer.cs">
-      <DependentUpon>201501221346081_initDB.cs</DependentUpon>
+    <Compile Include="Migrations\201501281440067_initDB.cs" />
+    <Compile Include="Migrations\201501281440067_initDB.Designer.cs">
+      <DependentUpon>201501281440067_initDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CompanyLocation.cs" />
+    <Compile Include="ViewModels\AccountViewModel.cs" />
     <Compile Include="Models\ApplicationRole.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Blog.cs" />
@@ -250,7 +252,6 @@
     <Compile Include="Models\Florist.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Location.cs" />
-    <Compile Include="Models\LocationParse.cs" />
     <Compile Include="Models\Province.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -258,16 +259,36 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Global.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Global.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Global.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Global.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Global.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Global.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Global.de.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Global.de.resx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Utils\BlobStorageEngine.cs" />
     <Compile Include="Utils\CodeEngine.cs" />
-    <Compile Include="Utils\HaversineEngine.cs" />
+    <Compile Include="Utils\GeocodingEngine.cs" />
     <Compile Include="ViewModels\BlogVM.cs" />
     <Compile Include="ViewModels\CMS\StoreVM.cs" />
     <Compile Include="ViewModels\DetailVM.cs" />
     <Compile Include="ViewModels\IndexVM.cs" />
-    <Compile Include="ViewModels\ResultsVM.cs" />
-    <Compile Include="ViewModels\SearchVM.cs" />
+    <Compile Include="ViewModels\IndexSearchResultVM.cs" />
+    <Compile Include="ViewModels\IndexSearchVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\font.css" />
@@ -608,7 +629,6 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Scripts\js-webshim\dev\shims\combos\comboinfo.json" />
     <Content Include="Scripts\js-webshim\dev\shims\FlashCanvasPro\proxy.php" />
     <Content Include="Scripts\js-webshim\dev\shims\FlashCanvasPro\save.php" />
@@ -677,16 +697,34 @@
     <Content Include="Views\Blog\BlogList.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Blog\SideBlog.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Language\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201501221346081_initDB.resx">
-      <DependentUpon>201501221346081_initDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201501281440067_initDB.resx">
+      <DependentUpon>201501281440067_initDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Global.en.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Global.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Global.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Global.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Global.fr.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Global.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Global.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Global.de.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -7,7 +7,6 @@ namespace Floreview.Models
 {
     public class Blog
     {
-        #region Fields & Props
         public int ID { get; set; }
 
         public String Avatar { get; set; }
@@ -19,6 +18,5 @@ namespace Floreview.Models
         public virtual BlogCategory Category { get; set; }
 
         public virtual ApplicationUser Author { get; set; }
-        #endregion
     }
 }

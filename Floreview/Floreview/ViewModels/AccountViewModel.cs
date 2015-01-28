@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Floreview.Models
+namespace Floreview.ViewModels
 {
     public class ExternalLoginConfirmationViewModel
     {

@@ -5,10 +5,12 @@ using System.Web;
 
 namespace Floreview.Models
 {
-    public class Genre
+    public class CompanyLocation
     {
         public int ID { get; set; }
 
-        public String Name { get; set; }
+        public Company Company { get; set; }
+
+        public Location Location { get; set; }
     }
 }

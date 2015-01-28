@@ -36,76 +36,45 @@ namespace Floreview.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(SearchVM model)
+        public ActionResult Index(IndexSearchVM model)
         {
             try
             {
-                ResultsVM result = new ResultsVM();
-
                 if (ModelState.IsValid)
                 {
+                    IndexSearchResultVM result = new IndexSearchResultVM();
 
-                    #region User Search
-                    // check if model has values
-                    if (String.IsNullOrEmpty(model.SearchName) && String.IsNullOrEmpty(model.SearchCity))
+                    if (!String.IsNullOrEmpty(model.Name) && String.IsNullOrEmpty(model.City))
+                    {
+                        result.Companies = _accessService.GetCompaniesSearchName(model.Name);
+                        ViewBag.Name = model.Name;
+                        ViewBag.City = "-";
+                    }
+                    else if (String.IsNullOrEmpty(model.Name) && !String.IsNullOrEmpty(model.City))
+                    {
+                        result.Companies = _accessService.GetCompaniesSearchCity(model.City);
+                        ViewBag.Name = "-";
+                        ViewBag.City = model.City;
+                    }
+                    else if (!String.IsNullOrEmpty(model.Name) && !String.IsNullOrEmpty(model.City))
+                    {
+                        result.Companies = _accessService.GetCompaniesSearchBoth(model.Name, model.City);
+                        ViewBag.Name = model.Name;
+                        ViewBag.City = model.City;
+                    }
+                    else
                     {
                         throw new ArgumentException();
                     }
-                    else if (!String.IsNullOrEmpty(model.SearchName) && String.IsNullOrEmpty(model.SearchCity))
-                    {
-                        // only search on florist or company name
-                        result.Companies = _accessService.GetCompaniesSearchName(model.SearchName);
 
-                        // set variables
-                        ViewBag.SearchName = model.SearchName;
-                        ViewBag.SearchCity = "-";
-                    }
-                    else if (String.IsNullOrEmpty(model.SearchName) && !String.IsNullOrEmpty(model.SearchCity))  
-                    {
-                        // only search on city name
-                        result.Companies = _accessService.GetCompaniesSearchCity(model.SearchCity);
+                    ViewBag.NumberOfCompanies = result.Companies.Count;
 
-                        // set variables
-                        ViewBag.SearchName = "-";
-                        ViewBag.SearchCity = model.SearchCity;
-                    }
-                    else if (!String.IsNullOrEmpty(model.SearchName) && !String.IsNullOrEmpty(model.SearchCity))
-                    {
-                        // search both variables
-                        result.Companies = _accessService.GetCompaniesSearchBoth(model.SearchName, model.SearchCity);
-
-                        // set variables
-                        ViewBag.SearchName = model.SearchName;
-                        ViewBag.SearchCity = model.SearchCity;
-                    }
-
-
-                    // collect variables
-                    ViewBag.Results = result.Companies.Count;
-                    #endregion
-
-                    #region Nearby Search
-                    if (!String.IsNullOrEmpty(model.SearchCity) && !String.IsNullOrEmpty(model.LatitudeRAW) && !String.IsNullOrEmpty(model.LongitudeRAW)) {
-                        // user explicitly searched for a city
-                        List<Company> companies = _accessService.GetAllCompanies();
-
-                        // create position
-                        DbGeography cityCoordinates = DbGeography.FromText("POINT(" + model.LongitudeRAW + " " + model.LatitudeRAW + ")");
-
-                        HaversineEngine engine = new HaversineEngine();
-                        result.NearbyCompanies = new List<Company>();
-                        foreach (Company company in companies)
-                        {
-                            if (engine.IsStoreWhitinRange(company.Coordinates, cityCoordinates) && !company.Location.City.Equals(model.SearchCity))
-                            {
-                                result.NearbyCompanies.Add(company);
-                            }
-                        }
-                    }
-                    #endregion
+                    return View(result);
                 }
-
-                return View(result);
+                else
+                {
+                    throw new ArgumentException();
+                }
             }
             catch (ArgumentException)
             {

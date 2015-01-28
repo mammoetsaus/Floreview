@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Floreview.ViewModels
 {
-    public class ResultsVM
+    public class IndexSearchResultVM
     {
         #region Fields & Props
         public List<Company> Companies { get; set; }
