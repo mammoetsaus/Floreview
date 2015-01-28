@@ -11,6 +11,7 @@ using Microsoft.Owin.Security;
 using Floreview.DataAccess.Interfaces;
 using Floreview.Models;
 using Floreview.ViewModels;
+using Floreview.Resources;
 
 namespace Floreview.Controllers
 {
@@ -57,7 +58,7 @@ namespace Floreview.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Inloggegevens niet correct.");
+                    ModelState.AddModelError("LoginError", Global.Login_Validation_Message);
                 }
             }
 

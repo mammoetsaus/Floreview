@@ -1,10 +1,11 @@
-﻿@model Floreview.ViewModels.LoginViewModel
+﻿@using Floreview.Resources
+@model Floreview.ViewModels.LoginViewModel
 
 @{
-    var className = "small-header";
+    var className = "small";
     if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
     {
-        className = "cms-header";
+        className = "admin";
     }
 }
 
@@ -12,18 +13,18 @@
     <nav>
         <ul class="content-container">
             <li>
-                @Html.ActionLink("Home", "Index", "Home")
+                @Html.ActionLink(Global.Menu_Home, "Index", "Home")
             </li>
             <li>
-                @Html.ActionLink("Blog", "Index", "Blog")
+                @Html.ActionLink(Global.Menu_Blog, "Index", "Blog")
             </li>
             <li>
-                @Html.ActionLink("Floreview", "Index", "Home")
+                @Html.ActionLink(Global.Menu_Floreview, "Index", "Home")
             </li>
             <li>
-                @Html.ActionLink("Contact", "Index", "Home")
+                @Html.ActionLink(Global.Menu_Contact, "Index", "Home")
             </li>
-            <li class="nav-login">
+            <li>
                 @Html.Partial("_LoginPartial")
             </li>
         </ul>
@@ -31,30 +32,30 @@
 
     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
     {
-        <div id="cms-menu">
+        <section class="menu-admin">
             <ul class="content-container">
                 <li>
-                    @Html.ActionLink("Winkels", "Store", "Manage")
+                    @Html.ActionLink(Global.Menu_Admin_Stores, "Store", "Manage")
                 </li>
             </ul>
-        </div>
+        </section>
     }
 </header>
 
-<section id="login-container">
-    <h2>Aanmelden</h2>
+<section class="login">
+    <h2>@Global.Login_Title</h2>
 
     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
     {
         @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
+        @Html.ValidationMessage("LoginError")
 
-        @Html.TextBoxFor(model => model.UserName, new { @placeholder = "Gebruikersnaam" })
+        @Html.TextBoxFor(model => model.UserName, new { @placeholder = Global.Login_Username_Placeholder, @autocomplete = "off" })
         @Html.ValidationMessageFor(model => model.UserName)
 
-        @Html.PasswordFor(model => model.Password, new { @placeholder = "Wachtwoord", @autocomplete = "off" })
+        @Html.PasswordFor(model => model.Password, new { @placeholder = Global.Login_Password_Placeholder, @autocomplete = "off" })
         @Html.ValidationMessageFor(model => model.Password)
         
-        <input type="submit" value="Aanmelden" />
+        <input type="submit" value="@Global.Login_Submit" />
     }
 </section>

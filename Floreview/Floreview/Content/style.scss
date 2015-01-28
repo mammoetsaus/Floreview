@@ -193,6 +193,72 @@ header.admin {
     background: none;
 }
 
+section.login {
+    @extend .content-container;
+    margin-top: 30px;
+    width: 315px;
+    border: $border-color-default;
+    background-color: $fill-white;
+
+    h2 {
+        font-family: latoregular, sans-serif;
+        font-weight: 400;
+        font-size: 26px;
+        color: $font-color-dark-grey;
+        padding: 10px;
+    }
+
+    form {
+        padding: 10px;
+
+        input {
+            display: block;
+            width: 100%;
+            border: 1px solid $border-color-light-grey;
+            @include prefix(box-sizing, border-box);
+            font-family: latoregular, sans-serif;
+            font-size: 16px;            
+            padding: 10px;
+            margin: 10px 0 0 0;
+        }
+
+        input:focus {
+            outline: none;
+            border: 1px solid $border-color-focus-green;
+        }
+
+        input[type="text"] {
+            margin: 0;
+        }
+
+        input[type="submit"] {
+            border: none;
+            background-color: $secondary-green;
+            font-size: 18px;
+            color: $fill-white;
+        }
+
+        input[type="submit"]:hover {
+            cursor: pointer;
+            background-color: $secondary-green-active;
+        }
+
+        span.field-validation-error {
+            display: block;
+            width: 100%;
+            @include prefix(box-sizing, border-box);
+            font-family: latoregular, sans-serif;
+            font-size: 14px;
+            color: $error-color;
+            padding: 5px 0;
+        }
+
+        span.field-validation-error[data-valmsg-for="LoginError"] {
+            padding: 0 0 10px 0;
+        }
+    }
+}
+
 section.home-promotion-blogs {
     @extend .content-container;
     @extend %clearfix;

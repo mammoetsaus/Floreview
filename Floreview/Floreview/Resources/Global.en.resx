@@ -138,6 +138,27 @@
   <data name="Home_Search_Title" xml:space="preserve">
     <value>I'm looking for a flower shop</value>
   </data>
+  <data name="Login_Password_Error" xml:space="preserve">
+    <value>Please fill in a password.</value>
+  </data>
+  <data name="Login_Password_Placeholder" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Login_Submit" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="Login_Title" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="Login_Username_Error" xml:space="preserve">
+    <value>Please fill in an username.</value>
+  </data>
+  <data name="Login_Username_Placeholder" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="Login_Validation_Message" xml:space="preserve">
+    <value>Credentials are not correct.</value>
+  </data>
   <data name="Menu_Admin_Stores" xml:space="preserve">
     <value>Stores</value>
   </data>

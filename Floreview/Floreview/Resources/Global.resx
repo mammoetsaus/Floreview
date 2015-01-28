@@ -138,6 +138,27 @@
   <data name="Home_Search_Title" xml:space="preserve">
     <value>Ik zoek een bloemenwinkel</value>
   </data>
+  <data name="Login_Password_Error" xml:space="preserve">
+    <value>Gelieve een wachtwoord in te vullen.</value>
+  </data>
+  <data name="Login_Password_Placeholder" xml:space="preserve">
+    <value>Wachtwoord</value>
+  </data>
+  <data name="Login_Submit" xml:space="preserve">
+    <value>Aanmelden</value>
+  </data>
+  <data name="Login_Title" xml:space="preserve">
+    <value>Aanmelden</value>
+  </data>
+  <data name="Login_Username_Error" xml:space="preserve">
+    <value>Gelieve een gebruikersnaam in te vullen.</value>
+  </data>
+  <data name="Login_Username_Placeholder" xml:space="preserve">
+    <value>Gebruikersnaam</value>
+  </data>
+  <data name="Login_Validation_Message" xml:space="preserve">
+    <value>Inloggegevens niet correct.</value>
+  </data>
   <data name="Menu_Admin_Stores" xml:space="preserve">
     <value>Winkels</value>
   </data>

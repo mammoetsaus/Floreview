@@ -13,16 +13,16 @@
     <nav>
         <ul class="content-container">
             <li>
-                @Html.ActionLink("Home", "Index", "Home")
+                @Html.ActionLink(Global.Menu_Home, "Index", "Home")
             </li>
             <li>
-                @Html.ActionLink("Blog", "Index", "Blog")
+                @Html.ActionLink(Global.Menu_Blog, "Index", "Blog")
             </li>
             <li>
-                @Html.ActionLink("Floreview", "Index", "Home")
+                @Html.ActionLink(Global.Menu_Floreview, "Index", "Home")
             </li>
             <li>
-                @Html.ActionLink("Contact", "Index", "Home")
+                @Html.ActionLink(Global.Menu_Contact, "Index", "Home")
             </li>
             <li>
                 @Html.Partial("_LoginPartial")
@@ -32,13 +32,13 @@
 
     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
     {
-    <section class="menu-admin">
-        <ul class="content-container">
-            <li>
-                @Html.ActionLink("Winkels", "Store", "Manage")
-            </li>
-        </ul>
-    </section>
+        <section class="menu-admin">
+            <ul class="content-container">
+                <li>
+                    @Html.ActionLink(Global.Menu_Admin_Stores, "Store", "Manage")
+                </li>
+            </ul>
+        </section>
     }
 </header>
 

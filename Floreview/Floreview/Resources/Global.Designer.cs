@@ -124,6 +124,69 @@ namespace Floreview.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Gelieve een wachtwoord in te vullen..
+        /// </summary>
+        public static string Login_Password_Error {
+            get {
+                return ResourceManager.GetString("Login_Password_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wachtwoord.
+        /// </summary>
+        public static string Login_Password_Placeholder {
+            get {
+                return ResourceManager.GetString("Login_Password_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aanmelden.
+        /// </summary>
+        public static string Login_Submit {
+            get {
+                return ResourceManager.GetString("Login_Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aanmelden.
+        /// </summary>
+        public static string Login_Title {
+            get {
+                return ResourceManager.GetString("Login_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gelieve een gebruikersnaam in te vullen..
+        /// </summary>
+        public static string Login_Username_Error {
+            get {
+                return ResourceManager.GetString("Login_Username_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gebruikersnaam.
+        /// </summary>
+        public static string Login_Username_Placeholder {
+            get {
+                return ResourceManager.GetString("Login_Username_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inloggegevens niet correct..
+        /// </summary>
+        public static string Login_Validation_Message {
+            get {
+                return ResourceManager.GetString("Login_Validation_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Winkels.
         /// </summary>
         public static string Menu_Admin_Stores {

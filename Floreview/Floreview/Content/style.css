@@ -13,7 +13,7 @@ section.home-promotion-blogs, section.search-information, section.search-informa
 body {
   background-color: #f3f3f3; }
 
-.content-container, section.home-promotion-blogs, article.home-promotion-about, section.search-information, section.search-results, section.search-nearby-results {
+.content-container, section.login, section.home-promotion-blogs, article.home-promotion-about, section.search-information, section.search-results, section.search-nearby-results {
   display: block;
   width: 1024px;
   margin: 0 auto; }
@@ -139,6 +139,58 @@ header.small {
 header.admin {
   height: 80px;
   background: none; }
+
+section.login {
+  margin-top: 30px;
+  width: 315px;
+  border: #e9e9e9;
+  background-color: #ffffff; }
+  section.login h2 {
+    font-family: latoregular, sans-serif;
+    font-weight: 400;
+    font-size: 26px;
+    color: #333333;
+    padding: 10px; }
+  section.login form {
+    padding: 10px; }
+    section.login form input {
+      display: block;
+      width: 100%;
+      border: 1px solid #999999;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      box-sizing: border-box;
+      font-family: latoregular, sans-serif;
+      font-size: 16px;
+      padding: 10px;
+      margin: 10px 0 0 0; }
+    section.login form input:focus {
+      outline: none;
+      border: 1px solid #1f9b35; }
+    section.login form input[type="text"] {
+      margin: 0; }
+    section.login form input[type="submit"] {
+      border: none;
+      background-color: #1f9b35;
+      font-size: 18px;
+      color: #ffffff; }
+    section.login form input[type="submit"]:hover {
+      cursor: pointer;
+      background-color: #197f25; }
+    section.login form span.field-validation-error {
+      display: block;
+      width: 100%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      box-sizing: border-box;
+      font-family: latoregular, sans-serif;
+      font-size: 14px;
+      color: #e84340;
+      padding: 5px 0; }
+    section.login form span.field-validation-error[data-valmsg-for="LoginError"] {
+      padding: 0 0 10px 0; }
 
 section.home-promotion-blogs {
   margin-top: 75px; }

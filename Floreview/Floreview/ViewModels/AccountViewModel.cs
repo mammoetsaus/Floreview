@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Floreview.Resources;
+using System.ComponentModel.DataAnnotations;
 
 namespace Floreview.ViewModels
 {
@@ -30,11 +31,11 @@ namespace Floreview.ViewModels
 
     public class LoginViewModel
     {
-        [Required]
-        [Display(Name = "User name")]
+        [Required(ErrorMessageResourceName = "Login_Username_Error", ErrorMessageResourceType = typeof(Global))]
+        [Display(Name = "Username")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceName = "Login_Password_Error", ErrorMessageResourceType = typeof(Global))]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }

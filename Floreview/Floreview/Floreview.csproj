@@ -238,10 +238,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201501281502533_initDB.cs" />
-    <Compile Include="Migrations\201501281502533_initDB.Designer.cs">
-      <DependentUpon>201501281502533_initDB.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CompanyLocation.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
@@ -703,15 +699,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Language\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201501281502533_initDB.resx">
-      <DependentUpon>201501281502533_initDB.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Global.en.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Global.en.Designer.cs</LastGenOutput>
