@@ -9,8 +9,8 @@ namespace Floreview.Models
     {
         public int ID { get; set; }
 
-        public Company Company { get; set; }
+        public virtual Company Company { get; set; }
 
-        public Location Location { get; set; }
+        public virtual Location Location { get; set; }
     }
 }

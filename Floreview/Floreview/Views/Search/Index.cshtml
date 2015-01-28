@@ -1,4 +1,5 @@
-﻿@model Floreview.ViewModels.IndexSearchResultVM
+﻿@using Floreview.Resources
+@model Floreview.ViewModels.IndexSearchResultVM
 
 @{
     var className = "small";
@@ -43,15 +44,15 @@
 
 <section class="search-information">
     <div>
-        <h2>Resultaten</h2>
+        <h2>@Global.Search_Information_Results</h2>
         <p>@ViewBag.NumberOfCompanies</p>
     </div>
     <div>
-        <h2>Naam</h2>
+        <h2>@Global.Search_Information_Name</h2>
         <p>@ViewBag.Name</p>
     </div>
     <div>
-        <h2>Gemeente</h2>
+        <h2>@Global.Search_Information_City</h2>
         <p>@ViewBag.City</p>
     </div>
 </section>
@@ -62,7 +63,7 @@
         {
             foreach (var company in Model.Companies)
             {
-                <div>
+                <div class="search-profile">
                     <img src="@company.Avatar" alt="Profile picture @company.Name" />
                     <h3>@company.Name</h3>
                     <a href="http://facebook.com/@company.Facebook" target="_blank">
@@ -95,7 +96,7 @@
     if (Model.NearbyCompanies != null && Model.NearbyCompanies.Count > 0)
     {
         <section class="search-nearby-results">
-            <h2>Winkels in de buurt</h2>
+            <h2>@Global.Search_Nearby_Companies</h2>
 
             @foreach (var company in Model.NearbyCompanies)
             {

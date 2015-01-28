@@ -67,6 +67,18 @@ namespace Floreview.Controllers
                         throw new ArgumentException();
                     }
 
+                    if (!String.IsNullOrEmpty(model.City))
+                    {
+                        result.NearbyCompanies = new List<Company>();
+                        Location searchedLocation = _accessService.GetLocationByCityName(model.City);
+                        List<CompanyLocation> companyLocations = _accessService.GetAllCompanyLocationsByLocationID(searchedLocation.ID);
+
+                        if (companyLocations != null && companyLocations.Count > 0)
+                        {
+                            companyLocations.ForEach(i => result.NearbyCompanies.Add(i.Company));
+                        }
+                    }
+                    
                     ViewBag.NumberOfCompanies = result.Companies.Count;
 
                     return View(result);

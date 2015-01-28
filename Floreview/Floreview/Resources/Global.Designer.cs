@@ -221,5 +221,14 @@ namespace Floreview.Resources {
                 return ResourceManager.GetString("Search_Information_Results", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Winkels in de buurt.
+        /// </summary>
+        public static string Search_Nearby_Companies {
+            get {
+                return ResourceManager.GetString("Search_Nearby_Companies", resourceCulture);
+            }
+        }
     }
 }

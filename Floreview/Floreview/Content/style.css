@@ -41,7 +41,7 @@ header {
       float: left;
       list-style: none;
       margin: 0 25px 0 0; }
-      header nav ul li a, header nav ul li section.search-results a svg, section.search-results a header nav ul li svg {
+      header nav ul li a, header nav ul li section.search-results div a svg, section.search-results div a header nav ul li svg, header nav ul li section.search-nearby-results div a svg, section.search-nearby-results div a header nav ul li svg {
         color: #333333;
         text-decoration: none;
         text-transform: lowercase;
@@ -51,11 +51,11 @@ header {
     header nav ul li:last-of-type {
       float: right;
       margin: 0; }
-      header nav ul li:last-of-type a, header nav ul li:last-of-type section.search-results a svg, section.search-results a header nav ul li:last-of-type svg {
+      header nav ul li:last-of-type a, header nav ul li:last-of-type section.search-results div a svg, section.search-results div a header nav ul li:last-of-type svg, header nav ul li:last-of-type section.search-nearby-results div a svg, section.search-nearby-results div a header nav ul li:last-of-type svg {
         font-size: 16px; }
-      header nav ul li:last-of-type a:hover, header nav ul li:last-of-type section.search-results a svg:hover, section.search-results a header nav ul li:last-of-type svg:hover {
+      header nav ul li:last-of-type a:hover, header nav ul li:last-of-type section.search-results div a svg:hover, section.search-results div a header nav ul li:last-of-type svg:hover, header nav ul li:last-of-type section.search-nearby-results div a svg:hover, section.search-nearby-results div a header nav ul li:last-of-type svg:hover {
         text-decoration: underline; }
-    header nav form a:hover, header nav form section.search-results a svg:hover, section.search-results a header nav form svg:hover {
+    header nav form a:hover, header nav form section.search-results div a svg:hover, section.search-results div a header nav form svg:hover, header nav form section.search-nearby-results div a svg:hover, section.search-nearby-results div a header nav form svg:hover {
       cursor: pointer; }
   header nav.scrolled {
     border-bottom: 1px solid #cccccc;
@@ -76,14 +76,14 @@ header {
       float: left;
       list-style: none;
       margin: 0 25px 0 0; }
-      header section.menu-admin ul li a, header section.menu-admin ul li section.search-results a svg, section.search-results a header section.menu-admin ul li svg {
+      header section.menu-admin ul li a, header section.menu-admin ul li section.search-results div a svg, section.search-results div a header section.menu-admin ul li svg, header section.menu-admin ul li section.search-nearby-results div a svg, section.search-nearby-results div a header section.menu-admin ul li svg {
         color: #ffffff;
         text-decoration: none;
         text-transform: lowercase;
         font-family: latoregular, sans-serif;
         font-size: 16px;
         line-height: 32px; }
-      header section.menu-admin ul li a:hover, header section.menu-admin ul li section.search-results a svg:hover, section.search-results a header section.menu-admin ul li svg:hover {
+      header section.menu-admin ul li a:hover, header section.menu-admin ul li section.search-results div a svg:hover, section.search-results div a header section.menu-admin ul li svg:hover, header section.menu-admin ul li section.search-nearby-results div a svg:hover, section.search-nearby-results div a header section.menu-admin ul li svg:hover {
         text-decoration: underline; }
   header section.home-search-container {
     position: relative;
@@ -163,7 +163,7 @@ section.home-promotion-blogs {
     box-sizing: border-box; }
     section.home-promotion-blogs article img {
       max-width: 313px; }
-    section.home-promotion-blogs article > a, section.home-promotion-blogs section.search-results a article > svg, section.search-results a section.home-promotion-blogs article > svg {
+    section.home-promotion-blogs article > a, section.home-promotion-blogs section.search-results div a article > svg, section.search-results div a section.home-promotion-blogs article > svg, section.home-promotion-blogs section.search-nearby-results div a article > svg, section.search-nearby-results div a section.home-promotion-blogs article > svg {
       display: block;
       height: 42px;
       max-height: 42px;
@@ -173,7 +173,7 @@ section.home-promotion-blogs {
       text-decoration: none;
       border-bottom: 1px dashed #cccccc;
       padding: 10px; }
-    section.home-promotion-blogs article > a:hover, section.home-promotion-blogs section.search-results a article > svg:hover, section.search-results a section.home-promotion-blogs article > svg:hover {
+    section.home-promotion-blogs article > a:hover, section.home-promotion-blogs section.search-results div a article > svg:hover, section.search-results div a section.home-promotion-blogs article > svg:hover, section.home-promotion-blogs section.search-nearby-results div a article > svg:hover, section.search-nearby-results div a section.home-promotion-blogs article > svg:hover {
       color: #1f9b35; }
     section.home-promotion-blogs article p {
       color: #333333;
@@ -184,12 +184,12 @@ section.home-promotion-blogs {
         font-size: 14px;
         font-family: latoregular, sans-serif;
         color: #999999; }
-      section.home-promotion-blogs article p a, section.home-promotion-blogs article p section.search-results a svg, section.search-results a section.home-promotion-blogs article p svg {
+      section.home-promotion-blogs article p a, section.home-promotion-blogs article p section.search-results div a svg, section.search-results div a section.home-promotion-blogs article p svg, section.home-promotion-blogs article p section.search-nearby-results div a svg, section.search-nearby-results div a section.home-promotion-blogs article p svg {
         color: #333333;
         font-size: 14px;
         font-family: latoregular, sans-serif;
         text-decoration: none; }
-      section.home-promotion-blogs article p a:hover, section.home-promotion-blogs article p section.search-results a svg:hover, section.search-results a section.home-promotion-blogs article p svg:hover {
+      section.home-promotion-blogs article p a:hover, section.home-promotion-blogs article p section.search-results div a svg:hover, section.search-results div a section.home-promotion-blogs article p svg:hover, section.home-promotion-blogs article p section.search-nearby-results div a svg:hover, section.search-nearby-results div a section.home-promotion-blogs article p svg:hover {
         text-decoration: underline; }
     section.home-promotion-blogs article p:nth-of-type(1) {
       margin: 9px 0 4px 0; }
@@ -235,6 +235,7 @@ section.search-information div {
     font-size: 16px;
     text-transform: uppercase;
     text-align: center;
+    color: #333333;
     line-height: 60px;
     border-right: 1px dashed #cccccc; }
   section.search-information div p {
@@ -245,6 +246,7 @@ section.search-information div {
     font-weight: 400;
     font-size: 18px;
     text-align: center;
+    color: #333333;
     line-height: 60px;
     overflow: hidden; }
 section.search-information div:nth-of-type(2) {
@@ -252,67 +254,77 @@ section.search-information div:nth-of-type(2) {
 section.search-information div:nth-of-type(3) {
   margin: 30px 0 0 0; }
 
-section.search-results {
+section.search-results, section.search-nearby-results {
   margin-top: 30px; }
-  section.search-results div {
+  section.search-results div, section.search-nearby-results div {
     float: left;
     width: 490px;
     height: 150px;
     background-color: #ffffff;
     border: 1px solid #e9e9e9;
     margin: 0 0 25px 0; }
-  section.search-results div:nth-of-type(odd) {
+    section.search-results div img, section.search-nearby-results div img {
+      display: block;
+      float: left;
+      width: 150px;
+      height: 150px;
+      max-width: 150px;
+      max-height: 150px; }
+    section.search-results div h3, section.search-nearby-results div h3 {
+      float: left;
+      padding: 5px 5px 5px 5px;
+      width: 290px;
+      font-family: latoregular, sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      color: #333333;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      box-sizing: border-box; }
+    section.search-results div p, section.search-nearby-results div p {
+      float: left;
+      width: 290px;
+      font-family: latoregular, sans-serif;
+      font-size: 16px;
+      color: #333333;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      box-sizing: border-box; }
+    section.search-results div p:first-of-type, section.search-nearby-results div p:first-of-type {
+      margin: -15px 0 0 0;
+      padding: 0 5px;
+      height: 85px; }
+    section.search-results div p:nth-of-type(2), section.search-nearby-results div p:nth-of-type(2) {
+      font-size: 14px;
+      margin: 5px 0 0 0;
+      padding: 0 5px; }
+    section.search-results div a, section.search-nearby-results div a, section.search-results div a svg, section.search-nearby-results div a svg {
+      display: block;
+      float: left;
+      width: 50px;
+      height: 50px; }
+      section.search-results div a svg:hover, section.search-nearby-results div a svg:hover {
+        cursor: pointer; }
+    section.search-results div a:nth-of-type(1) svg:hover path, section.search-nearby-results div a:nth-of-type(1) svg:hover path, section.search-results div a svg:nth-of-type(1) svg:hover path, section.search-nearby-results div a svg:nth-of-type(1) svg:hover path {
+      fill: #36609f; }
+    section.search-results div a:nth-of-type(2) svg:hover path, section.search-nearby-results div a:nth-of-type(2) svg:hover path, section.search-results div a svg:nth-of-type(2) svg:hover path, section.search-nearby-results div a svg:nth-of-type(2) svg:hover path {
+      fill: #1e70b6; }
+    section.search-results div a:nth-of-type(3), section.search-nearby-results div a:nth-of-type(3), section.search-results div a svg:nth-of-type(3), section.search-nearby-results div a svg:nth-of-type(3) {
+      margin: -20px 0 0 0; }
+      section.search-results div a:nth-of-type(3) svg:hover path, section.search-nearby-results div a:nth-of-type(3) svg:hover path, section.search-results div a svg:nth-of-type(3) svg:hover path, section.search-nearby-results div a svg:nth-of-type(3) svg:hover path {
+        fill: #1f9b35; }
+  section.search-results div:nth-of-type(odd), section.search-nearby-results div:nth-of-type(odd) {
     margin: 0 40px 25px 0; }
-  section.search-results img {
-    display: block;
-    float: left;
-    width: 150px;
-    height: 150px;
-    max-width: 150px;
-    max-height: 150px; }
-  section.search-results h3 {
-    float: left;
-    padding: 5px 5px 5px 5px;
-    width: 290px;
-    font-family: latoregular, sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box; }
-  section.search-results p {
-    float: left;
-    width: 290px;
-    font-family: latoregular, sans-serif;
-    font-size: 16px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box; }
-  section.search-results p:first-of-type {
-    margin: -15px 0 0 0;
-    padding: 0 5px;
-    height: 85px; }
-  section.search-results p:nth-of-type(2) {
-    font-size: 14px;
-    margin: 5px 0 0 0;
-    padding: 0 5px; }
-  section.search-results a, section.search-results a svg {
-    display: block;
-    float: left;
-    width: 50px;
-    height: 50px; }
-    section.search-results a svg:hover {
-      cursor: pointer; }
-  section.search-results a:nth-of-type(1) svg:hover path, section.search-results a svg:nth-of-type(1) svg:hover path {
-    fill: #36609f; }
-  section.search-results a:nth-of-type(2) svg:hover path, section.search-results a svg:nth-of-type(2) svg:hover path {
-    fill: #1e70b6; }
-  section.search-results a:nth-of-type(3), section.search-results a svg:nth-of-type(3) {
-    margin: -20px 0 0 0; }
-    section.search-results a:nth-of-type(3) svg:hover path, section.search-results a svg:nth-of-type(3) svg:hover path {
-      fill: #1f9b35; }
+
+section.search-nearby-results h2 {
+  font-family: latoregular, sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  text-align: center;
+  color: #333333;
+  margin: 0 0 50px 0; }
 
 footer {
   height: 200px; }

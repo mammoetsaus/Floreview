@@ -30,6 +30,7 @@ namespace Floreview
             container.RegisterType<ICompany, CompanyRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<IBlog, BlogRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<IBlogCategory, BlogCategoryRepository>(new HierarchicalLifetimeManager());
+            container.RegisterType<ICompanyLocation, CompanyLocationRepository>(new HierarchicalLifetimeManager());
             
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);

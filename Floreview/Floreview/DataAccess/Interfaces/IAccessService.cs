@@ -43,5 +43,7 @@ namespace Floreview.DataAccess.Interfaces
         List<BlogCategory> GetBlogCategoriesForSideBlog();
 
         Dictionary<DateTime, int> GetDatesForSideBlog();
+
+        List<CompanyLocation> GetAllCompanyLocationsByLocationID(int ID);
     }
 }

@@ -323,6 +323,7 @@ section.search-information {
             font-size: 16px;
             text-transform: uppercase;
             text-align: center;
+            color: $font-color-dark-grey;
             line-height: 60px;
             border-right: 1px dashed $border-color-dashed;
         }
@@ -335,6 +336,7 @@ section.search-information {
             font-weight: 400;
             font-size: 18px;
             text-align: center;
+            color: $font-color-dark-grey;
             line-height: 60px;
             overflow: hidden;
         }
@@ -361,91 +363,102 @@ section.search-results {
         background-color: $fill-white;
         border: 1px solid $border-color-default;
         margin: 0 0 25px 0;
+
+        img {
+            display: block;
+            float: left;
+            width: 150px;
+            height: 150px;
+            max-width: 150px;
+            max-height: 150px;
+        }
+
+        h3 {
+            float: left;
+            padding: 5px 5px 5px 5px;
+            width: 290px;
+            font-family: latoregular, sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            color: $font-color-dark-grey;
+            @include prefix(box-sizing, border-box);
+        }
+
+        p {
+            float: left;
+            width: 290px;
+            font-family: latoregular, sans-serif;
+            font-size: 16px;
+            color: $font-color-dark-grey;
+            @include prefix(box-sizing, border-box);
+        }
+
+        p:first-of-type {
+            margin: -15px 0 0 0;
+            padding: 0 5px;
+            height: 85px;
+        }
+
+        p:nth-of-type(2) {
+            font-size: 14px;
+            margin: 5px 0 0 0;
+            padding: 0 5px;
+        }
+
+        a {
+            display: block;
+            float: left;
+            width: 50px;
+            height: 50px;
+
+            svg {
+                @extend a;
+            }
+
+            svg:hover {
+                cursor: pointer;
+            }
+        }
+
+        a:nth-of-type(1) {
+            svg:hover path {
+                fill: #36609f;
+            }
+        }
+
+        a:nth-of-type(2) {
+            svg:hover path {
+                fill: #1e70b6;
+            }
+        }
+
+        a:nth-of-type(3) {
+            margin: -20px 0 0 0;
+
+            svg:hover path {
+                fill: $secondary-green;
+            }
+        }
     }
 
     div:nth-of-type(odd) {
         margin: 0 40px 25px 0;
-    }
-
-    img {
-        display: block;
-        float: left;
-        width: 150px;
-        height: 150px;
-        max-width: 150px;
-        max-height: 150px;
-    }
-
-    h3 {
-        float: left;
-        padding: 5px 5px 5px 5px;
-        width: 290px;
-        font-family: latoregular, sans-serif;
-        font-weight: 400;
-        font-size: 18px;
-        @include prefix(box-sizing, border-box);
-    }
-
-    p {
-        float: left;
-        width: 290px;
-        font-family: latoregular, sans-serif;
-        font-size: 16px;
-        @include prefix(box-sizing, border-box);
-    }
-
-    p:first-of-type {
-        margin: -15px 0 0 0;
-        padding: 0 5px;
-        height: 85px;
-    }
-
-    p:nth-of-type(2) {
-        font-size: 14px;
-        margin: 5px 0 0 0;
-        padding: 0 5px;
-    }
-
-    a {
-        display: block;
-        float: left;
-        width: 50px;
-        height: 50px;
-
-        svg {
-            @extend a;
-        }
-
-        svg:hover {
-            cursor: pointer;
-        }
-    }
-
-    a:nth-of-type(1) {
-        svg:hover path {
-            fill: #36609f;
-        }
-    }
-
-    a:nth-of-type(2) {
-        svg:hover path {
-            fill: #1e70b6;
-        }
-    }
-
-    a:nth-of-type(3) {
-        margin: -20px 0 0 0;
-
-        svg:hover path {
-            fill: $secondary-green;
-        }
     }
 }
 
 section.search-nearby-results {
     @extend .content-container;
     @extend %clearfix;
+    @extend section.search-results;
 
+    h2 {
+        font-family: latoregular, sans-serif;
+        font-weight: 400;
+        font-size: 26px;
+        text-align: center;
+        color: $font-color-dark-grey;
+        margin: 0 0 50px 0;
+    }
 }
 
 footer {

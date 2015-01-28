@@ -121,7 +121,7 @@ namespace Floreview.Migrations
                 Address = "Boombosstraat 71",
                 DescriptionShort = "Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater synth Schlitz.",
                 DescriptionLong = "Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
-                Coordinates = DbGeography.FromText("POINT(3.920891 51.036445)"),        // longitude - latitude
+                Coordinates = DbGeography.FromText("POINT(3.920891 51.036445)"),
                 Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg",
                 ImageList = "profile_1_1;profile_1_2;profile_1_3;profile_1_4;profile_1_5",
                 Website = "http://mammoetsaus.azurewebsites.net",
@@ -334,6 +334,20 @@ namespace Floreview.Migrations
             }
         }
 
+        private void CreateCompanyLocations()
+        {
+            FlowerContext context = new FlowerContext();
+
+            CompanyLocation c1 = new CompanyLocation()
+            {
+                Company = context.Company.First(i => i.Location.City.Equals("Kalken")),
+                Location = context.Location.First(i => i.City.Equals("Laarne"))
+            };
+
+            context.CompanyLocation.Add(c1);
+            context.SaveChanges();
+        }
+
         private void CreateBlogTypes()
         {
             FlowerContext context = new FlowerContext();
@@ -437,6 +451,8 @@ namespace Floreview.Migrations
             CreateLocations();
 
             CreateCompanies();
+
+            CreateCompanyLocations();
 
             CreateBlogTypes();
 

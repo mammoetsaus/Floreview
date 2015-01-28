@@ -171,4 +171,7 @@
   <data name="Search_Information_Results" xml:space="preserve">
     <value>Results</value>
   </data>
+  <data name="Search_Nearby_Companies" xml:space="preserve">
+    <value>Stores in the area</value>
+  </data>
 </root>

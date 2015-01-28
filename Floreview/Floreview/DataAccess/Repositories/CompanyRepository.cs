@@ -17,7 +17,6 @@ namespace Floreview.DataAccess.Repositories
         }
         #endregion
 
-        #region ICompany Interface
         public IEnumerable<Company> GetCompaniesSearchName(string name)
         {
             var result = (from c in context.Company.Where(i => i.Name.Contains(name)) select c);
@@ -47,6 +46,5 @@ namespace Floreview.DataAccess.Repositories
             var result = (from c in context.Company.Where(i => i.ID.Equals(id)) select c).FirstOrDefault();
             return result;
         }
-        #endregion
     }
 }

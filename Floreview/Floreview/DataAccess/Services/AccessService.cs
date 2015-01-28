@@ -10,7 +10,6 @@ namespace Floreview.DataAccess.Services
 {
     public class AccessService : IAccessService
     {
-        #region Fields & Props
         private IUnitOfWork _uow = null;
 
         private ILocation _locationRepository = null;
@@ -20,25 +19,24 @@ namespace Floreview.DataAccess.Services
         private IBlog _blogRepository = null;
 
         private IBlogCategory _blogTypeRepository = null;
-        #endregion
 
-        #region Constructor
+        private ICompanyLocation _companyLocationRepository = null;
+
         public AccessService()
         {
 
         }
 
-        public AccessService(IUnitOfWork uow, ILocation locationRepo, ICompany companyRepo, IBlog blogRepo, IBlogCategory blogTypeRepo)
+        public AccessService(IUnitOfWork uow, ILocation locationRepo, ICompany companyRepo, IBlog blogRepo, IBlogCategory blogTypeRepo, ICompanyLocation compantyLocationRepo)
         {
             _uow = uow;
             _locationRepository = locationRepo;
             _companyRepository = companyRepo;
             _blogRepository = blogRepo;
             _blogTypeRepository = blogTypeRepo;
+            _companyLocationRepository = compantyLocationRepo;
         }
-        #endregion
 
-        #region IAccess Interface
         public List<Location> GetLocationsAutocomplete(String query)
         {
             return _locationRepository.GetLocationsAutocomplete(query).ToList<Location>();
@@ -193,6 +191,10 @@ namespace Floreview.DataAccess.Services
 
             return dictFinalDates;
         }
-        #endregion
+
+        public List<CompanyLocation> GetAllCompanyLocationsByLocationID(int ID)
+        {
+            return _companyLocationRepository.GetAllCompanyLocationsByLocationID(ID).ToList<CompanyLocation>();
+        }
     }
 }
