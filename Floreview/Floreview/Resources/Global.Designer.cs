@@ -250,6 +250,60 @@ namespace Floreview.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Toevoegen.
+        /// </summary>
+        public static string Manage_Store_Add {
+            get {
+                return ResourceManager.GetString("Manage_Store_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zoeken.
+        /// </summary>
+        public static string Manage_Store_Search_Placeholder {
+            get {
+                return ResourceManager.GetString("Manage_Store_Search_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gemeente.
+        /// </summary>
+        public static string Manage_Store_Select_City {
+            get {
+                return ResourceManager.GetString("Manage_Store_Select_City", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Naam.
+        /// </summary>
+        public static string Manage_Store_Select_Name {
+            get {
+                return ResourceManager.GetString("Manage_Store_Select_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provincie.
+        /// </summary>
+        public static string Manage_Store_Select_Province {
+            get {
+                return ResourceManager.GetString("Manage_Store_Select_Province", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Laatst toegevoegd.
+        /// </summary>
+        public static string Manage_Store_Select_Recent {
+            get {
+                return ResourceManager.GetString("Manage_Store_Select_Recent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Winkels.
         /// </summary>
         public static string Menu_Admin_Stores {

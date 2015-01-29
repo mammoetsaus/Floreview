@@ -180,6 +180,24 @@
   <data name="Login_Validation_Message" xml:space="preserve">
     <value>Inloggegevens niet correct.</value>
   </data>
+  <data name="Manage_Store_Add" xml:space="preserve">
+    <value>Toevoegen</value>
+  </data>
+  <data name="Manage_Store_Search_Placeholder" xml:space="preserve">
+    <value>Zoeken</value>
+  </data>
+  <data name="Manage_Store_Select_City" xml:space="preserve">
+    <value>Gemeente</value>
+  </data>
+  <data name="Manage_Store_Select_Name" xml:space="preserve">
+    <value>Naam</value>
+  </data>
+  <data name="Manage_Store_Select_Province" xml:space="preserve">
+    <value>Provincie</value>
+  </data>
+  <data name="Manage_Store_Select_Recent" xml:space="preserve">
+    <value>Laatst toegevoegd</value>
+  </data>
   <data name="Menu_Admin_Stores" xml:space="preserve">
     <value>Winkels</value>
   </data>

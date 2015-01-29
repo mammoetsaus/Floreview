@@ -538,6 +538,7 @@ section.detail-profile {
     background-color: $fill-white;
     border: $border-color-default;
 
+
     div.detail-profile-left {
         float: left;
         width: 645px;
@@ -675,6 +676,149 @@ section.detail-profile {
     }
 }
 
+section.manage-store-information {
+    @extend .content-container;
+    @extend %clearfix;
+    margin-top: 30px;
+    height: 60px;
+    background-color: $fill-white;
+    border: $border-color-light-grey;
+
+    a {
+        display: block;
+        float: left;
+        width: 160px;
+        height: 40px;
+        background-color: $secondary-green;
+        font-family: latoregular, sans-serif;
+        font-size: 18px;
+        color: $font-color-white;
+        text-decoration: none;
+        text-align: center;
+        line-height: 40px;
+        margin: 10px 0 0 10px;
+    }
+
+    a:hover {
+        cursor: pointer;
+        background-color: $secondary-green-active;
+    }
+
+    select {
+        float: right;
+        width: 160px;
+        height: 40px;
+        font-family: latoregular, sans-serif;
+        font-size: 14px;
+        margin: 10px 10px 0 0;
+        padding: 10px 5px;
+        border: 1px solid $border-color-light-grey;
+    }
+
+    select:focus {
+        outline: 0;
+        border: 1px solid $border-color-focus-green;
+    }
+
+    input[type="text"] {
+        display: block;
+        float: right;
+        width: 160px;
+        height: 20px;
+        font-family: latoregular, sans-serif;
+        font-size: 14px;
+        margin: 10px 10px 0 0;
+        padding: 10px;
+        border: 1px solid $border-color-light-grey;
+    }
+
+    input[type="text"]:focus {
+        outline: 0;
+        border: 1px solid $border-color-focus-green;
+    }
+
+    img {
+        display: none;
+        float: right;
+        width: 20px;
+        height: 20px;
+        margin: 20px 10px 0 0;
+    }
+
+    img.loading {
+        display: block;
+    }
+}
+
+section.manage-store-list {
+    @extend .content-container;
+    margin-top: 30px;
+
+    div.store-profile {
+        height: 50px;
+        background-color: $fill-white;
+        border: 1px solid $border-color-default;
+        margin: 0 0 15px 0;
+
+        p {
+            float: left;
+            font-family: latoregular, sans-serif;
+            line-height: 50px;
+            width: 270px;
+            padding: 0 10px;
+            border-right: 1px dashed $border-color-dashed;
+        }
+
+        p:nth-child(3) {
+            border: none;
+        }
+
+        ul li {
+            display: block;
+            float: left;
+            list-style: none;
+            width: 50px;
+            height: 50px;
+
+            a {
+                display: block;
+                width: 50px;
+                height: 50px;
+
+                svg {
+                    display: block;
+                    width: 50px;
+                    height: 50px;
+                }
+
+                svg:hover {
+                    cursor: pointer;
+                }
+
+                svg.icon-info:hover path {
+                    fill: #1f9b35;
+                }
+
+                svg.icon-info:hover rect {
+                    fill: #1f9b35;
+                }
+
+                svg.icon-edit:hover rect {
+                    fill: #f7bb31;
+                }
+
+                svg.icon-delete:hover rect {
+                    fill: #f24730;
+                }
+            }
+
+            a:focus {
+                outline: none;
+            }
+        }
+    }
+}
+
 footer {
     @extend .content-container;
     @extend %clearfix;
@@ -700,6 +844,10 @@ footer {
         a:hover {
             text-decoration: underline;
         }
+
+        a:focus {
+            outline: none;
+        }
     }
 
     select {
@@ -707,5 +855,10 @@ footer {
         font-family: latoregular, sans-serif;
         padding: 5px;
         margin: 10px 0;
+    }
+
+    select:focus {
+        outline: 0;
+        border: 1px solid $border-color-focus-green;
     }
 }

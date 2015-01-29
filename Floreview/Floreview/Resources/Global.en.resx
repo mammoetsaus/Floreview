@@ -180,6 +180,24 @@
   <data name="Login_Validation_Message" xml:space="preserve">
     <value>Credentials are not correct.</value>
   </data>
+  <data name="Manage_Store_Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Manage_Store_Search_Placeholder" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Manage_Store_Select_City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="Manage_Store_Select_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Manage_Store_Select_Province" xml:space="preserve">
+    <value>Province</value>
+  </data>
+  <data name="Manage_Store_Select_Recent" xml:space="preserve">
+    <value>Most recent</value>
+  </data>
   <data name="Menu_Admin_Stores" xml:space="preserve">
     <value>Stores</value>
   </data>

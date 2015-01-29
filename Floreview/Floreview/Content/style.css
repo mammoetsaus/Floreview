@@ -1,9 +1,9 @@
-section.home-promotion-blogs, section.search-information, section.search-information div, section.search-results, section.search-nearby-results, section.detail-profile, footer {
+section.home-promotion-blogs, section.search-information, section.search-information div, section.search-results, section.search-nearby-results, section.detail-profile, section.manage-store-information, footer {
   *zoom: 1; }
-  section.home-promotion-blogs:before, section.search-information:before, section.search-information div:before, section.search-results:before, section.search-nearby-results:before, section.detail-profile:before, footer:before, section.home-promotion-blogs:after, section.search-information:after, section.search-information div:after, section.search-results:after, section.search-nearby-results:after, section.detail-profile:after, footer:after {
+  section.home-promotion-blogs:before, section.search-information:before, section.search-information div:before, section.search-results:before, section.search-nearby-results:before, section.detail-profile:before, section.manage-store-information:before, footer:before, section.home-promotion-blogs:after, section.search-information:after, section.search-information div:after, section.search-results:after, section.search-nearby-results:after, section.detail-profile:after, section.manage-store-information:after, footer:after {
     content: " ";
     display: table; }
-  section.home-promotion-blogs:after, section.search-information:after, section.search-information div:after, section.search-results:after, section.search-nearby-results:after, section.detail-profile:after, footer:after {
+  section.home-promotion-blogs:after, section.search-information:after, section.search-information div:after, section.search-results:after, section.search-nearby-results:after, section.detail-profile:after, section.manage-store-information:after, footer:after {
     clear: both; }
 
 * {
@@ -19,7 +19,7 @@ html {
 body {
   background-color: #f3f3f3; }
 
-.content-container, section.login, section.home-promotion-blogs, article.home-promotion-about, section.search-information, section.search-results, section.search-nearby-results, section.detail-profile, footer {
+.content-container, section.login, section.home-promotion-blogs, article.home-promotion-about, section.search-information, section.search-results, section.search-nearby-results, section.detail-profile, section.manage-store-information, section.manage-store-list, footer {
   display: block;
   width: 1024px;
   margin: 0 auto; }
@@ -475,6 +475,104 @@ section.detail-profile {
         section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup a:hover, section.detail-profile div.detail-profile-right div.detail-profile-contact section.search-results div.detail-profile-contact-popup a svg:hover, section.search-results section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup a svg:hover, section.detail-profile div.detail-profile-right div.detail-profile-contact section.search-nearby-results div.detail-profile-contact-popup a svg:hover, section.search-nearby-results section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup a svg:hover {
           text-decoration: underline; }
 
+section.manage-store-information {
+  margin-top: 30px;
+  height: 60px;
+  background-color: #ffffff;
+  border: #999999; }
+  section.manage-store-information a, section.manage-store-information section.search-results div a svg, section.search-results div a section.manage-store-information svg, section.manage-store-information section.search-nearby-results div a svg, section.search-nearby-results div a section.manage-store-information svg {
+    display: block;
+    float: left;
+    width: 160px;
+    height: 40px;
+    background-color: #1f9b35;
+    font-family: latoregular, sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+    margin: 10px 0 0 10px; }
+  section.manage-store-information a:hover, section.manage-store-information section.search-results div a svg:hover, section.search-results div a section.manage-store-information svg:hover, section.manage-store-information section.search-nearby-results div a svg:hover, section.search-nearby-results div a section.manage-store-information svg:hover {
+    cursor: pointer;
+    background-color: #197f25; }
+  section.manage-store-information select {
+    float: right;
+    width: 160px;
+    height: 40px;
+    font-family: latoregular, sans-serif;
+    font-size: 14px;
+    margin: 10px 10px 0 0;
+    padding: 10px 5px;
+    border: 1px solid #999999; }
+  section.manage-store-information select:focus {
+    outline: 0;
+    border: 1px solid #1f9b35; }
+  section.manage-store-information input[type="text"] {
+    display: block;
+    float: right;
+    width: 160px;
+    height: 20px;
+    font-family: latoregular, sans-serif;
+    font-size: 14px;
+    margin: 10px 10px 0 0;
+    padding: 10px;
+    border: 1px solid #999999; }
+  section.manage-store-information input[type="text"]:focus {
+    outline: 0;
+    border: 1px solid #1f9b35; }
+  section.manage-store-information img {
+    display: none;
+    float: right;
+    width: 20px;
+    height: 20px;
+    margin: 20px 10px 0 0; }
+  section.manage-store-information img.loading {
+    display: block; }
+
+section.manage-store-list {
+  margin-top: 30px; }
+  section.manage-store-list div.store-profile {
+    height: 50px;
+    background-color: #ffffff;
+    border: 1px solid #e9e9e9;
+    margin: 0 0 15px 0; }
+    section.manage-store-list div.store-profile p {
+      float: left;
+      font-family: latoregular, sans-serif;
+      line-height: 50px;
+      width: 270px;
+      padding: 0 10px;
+      border-right: 1px dashed #cccccc; }
+    section.manage-store-list div.store-profile p:nth-child(3) {
+      border: none; }
+    section.manage-store-list div.store-profile ul li {
+      display: block;
+      float: left;
+      list-style: none;
+      width: 50px;
+      height: 50px; }
+      section.manage-store-list div.store-profile ul li a, section.manage-store-list section.search-results div.store-profile ul li a svg, section.search-results section.manage-store-list div.store-profile ul li a svg, section.manage-store-list section.search-results div.store-profile a ul li svg, section.search-results section.manage-store-list div.store-profile a ul li svg, section.manage-store-list section.search-nearby-results div.store-profile ul li a svg, section.search-nearby-results section.manage-store-list div.store-profile ul li a svg, section.manage-store-list section.search-nearby-results div.store-profile a ul li svg, section.search-nearby-results section.manage-store-list div.store-profile a ul li svg {
+        display: block;
+        width: 50px;
+        height: 50px; }
+        section.manage-store-list div.store-profile ul li a svg, section.manage-store-list section.search-results div.store-profile a ul li svg svg, section.search-results section.manage-store-list div.store-profile a ul li svg svg, section.manage-store-list section.search-nearby-results div.store-profile a ul li svg svg, section.search-nearby-results section.manage-store-list div.store-profile a ul li svg svg {
+          display: block;
+          width: 50px;
+          height: 50px; }
+        section.manage-store-list div.store-profile ul li a svg:hover, section.manage-store-list section.search-results div.store-profile a ul li svg svg:hover, section.search-results section.manage-store-list div.store-profile a ul li svg svg:hover, section.manage-store-list section.search-nearby-results div.store-profile a ul li svg svg:hover, section.search-nearby-results section.manage-store-list div.store-profile a ul li svg svg:hover {
+          cursor: pointer; }
+        section.manage-store-list div.store-profile ul li a svg.icon-info:hover path, section.manage-store-list section.search-results div.store-profile a ul li svg svg.icon-info:hover path, section.search-results section.manage-store-list div.store-profile a ul li svg svg.icon-info:hover path, section.manage-store-list section.search-nearby-results div.store-profile a ul li svg svg.icon-info:hover path, section.search-nearby-results section.manage-store-list div.store-profile a ul li svg svg.icon-info:hover path {
+          fill: #1f9b35; }
+        section.manage-store-list div.store-profile ul li a svg.icon-info:hover rect, section.manage-store-list section.search-results div.store-profile a ul li svg svg.icon-info:hover rect, section.search-results section.manage-store-list div.store-profile a ul li svg svg.icon-info:hover rect, section.manage-store-list section.search-nearby-results div.store-profile a ul li svg svg.icon-info:hover rect, section.search-nearby-results section.manage-store-list div.store-profile a ul li svg svg.icon-info:hover rect {
+          fill: #1f9b35; }
+        section.manage-store-list div.store-profile ul li a svg.icon-edit:hover rect, section.manage-store-list section.search-results div.store-profile a ul li svg svg.icon-edit:hover rect, section.search-results section.manage-store-list div.store-profile a ul li svg svg.icon-edit:hover rect, section.manage-store-list section.search-nearby-results div.store-profile a ul li svg svg.icon-edit:hover rect, section.search-nearby-results section.manage-store-list div.store-profile a ul li svg svg.icon-edit:hover rect {
+          fill: #f7bb31; }
+        section.manage-store-list div.store-profile ul li a svg.icon-delete:hover rect, section.manage-store-list section.search-results div.store-profile a ul li svg svg.icon-delete:hover rect, section.search-results section.manage-store-list div.store-profile a ul li svg svg.icon-delete:hover rect, section.manage-store-list section.search-nearby-results div.store-profile a ul li svg svg.icon-delete:hover rect, section.search-nearby-results section.manage-store-list div.store-profile a ul li svg svg.icon-delete:hover rect {
+          fill: #f24730; }
+      section.manage-store-list div.store-profile ul li a:focus, section.manage-store-list section.search-results div.store-profile ul li a svg:focus, section.search-results section.manage-store-list div.store-profile ul li a svg:focus, section.manage-store-list section.search-results div.store-profile a ul li svg:focus, section.search-results section.manage-store-list div.store-profile a ul li svg:focus, section.manage-store-list section.search-nearby-results div.store-profile ul li a svg:focus, section.search-nearby-results section.manage-store-list div.store-profile ul li a svg:focus, section.manage-store-list section.search-nearby-results div.store-profile a ul li svg:focus, section.search-nearby-results section.manage-store-list div.store-profile a ul li svg:focus {
+        outline: none; }
+
 footer {
   margin-top: 60px;
   margin-bottom: 30px;
@@ -493,10 +591,15 @@ footer {
       text-decoration: none; }
     footer p a:hover, footer p section.search-results div a svg:hover, section.search-results div a footer p svg:hover, footer p section.search-nearby-results div a svg:hover, section.search-nearby-results div a footer p svg:hover {
       text-decoration: underline; }
+    footer p a:focus, footer p section.search-results div a svg:focus, section.search-results div a footer p svg:focus, footer p section.search-nearby-results div a svg:focus, section.search-nearby-results div a footer p svg:focus {
+      outline: none; }
   footer select {
     float: right;
     font-family: latoregular, sans-serif;
     padding: 5px;
     margin: 10px 0; }
+  footer select:focus {
+    outline: 0;
+    border: 1px solid #1f9b35; }
 
 /*# sourceMappingURL=style.css.map */
