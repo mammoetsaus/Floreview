@@ -1,33 +1,34 @@
-﻿@model Floreview.ViewModels.DetailVM
+﻿@using Floreview.Resources
+@model Floreview.ViewModels.DetailVM
 
 @{
-    var className = "small-header";
+    var className = "small";
     if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
     {
-        className = "cms-header";
+        className = "admin";
     }
 
     var latitude = Model.Company.Coordinates.Latitude.ToString().Replace(',', '.');
     var longitude = Model.Company.Coordinates.Longitude.ToString().Replace(',', '.');
-    var point = latitude + "," + longitude;
+    var googleMapsPoint = latitude + ',' + longitude;
 }
 
 <header class="@className">
     <nav>
         <ul class="content-container">
             <li>
-                @Html.ActionLink("Home", "Index", "Home")
+                @Html.ActionLink(Global.Menu_Home, "Index", "Home")
             </li>
             <li>
-                @Html.ActionLink("Blog", "Index", "Blog")
+                @Html.ActionLink(Global.Menu_Blog, "Index", "Blog")
             </li>
             <li>
-                @Html.ActionLink("Floreview", "Index", "Home")
+                @Html.ActionLink(Global.Menu_Floreview, "Index", "Home")
             </li>
             <li>
-                @Html.ActionLink("Contact", "Index", "Home")
+                @Html.ActionLink(Global.Menu_Contact, "Index", "Home")
             </li>
-            <li class="nav-login">
+            <li>
                 @Html.Partial("_LoginPartial")
             </li>
         </ul>
@@ -35,55 +36,44 @@
 
     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
     {
-        <div id="cms-menu">
+        <section class="menu-admin">
             <ul class="content-container">
                 <li>
-                    @Html.ActionLink("Winkels", "Store", "Manage")
+                    @Html.ActionLink(Global.Menu_Admin_Stores, "Store", "Manage")
                 </li>
             </ul>
-        </div>
+        </section>
     }
 </header>
 
-<section id="detail-profile" class="content-container-border">
-    <div class="detail-right">
+<section class="detail-profile">
+    <div class="detail-profile-left">
         <h1>@Model.Company.Name</h1>
         <p>@Model.Company.DescriptionLong</p>
 
-        <div class="detail-pictures">
+        <div class="detail-profile-pictures">
             <ul>
                 <li>
                     <img src="@Model.Company.Florist.ImagePath" alt="@Model.Company.Florist.FirstName @Model.Company.Florist.LastName" />
-                    <div>
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                             viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
-                        <g>
-                        <path fill="#333333" d="M16,15.2l0.6,0.6L31,1.4v8.8h0.8V0H21.7v0.8h8.8L16,15.2z M16,15.2" />
-                        <path fill="#333333" d="M31.1,14.5v16.6H0.9V0.9h16.4V0H0v32h32V14.5H31.1z M31.1,14.5" />
-                            </g>
-                        </svg>
-                    </div>
                 </li>
                 @{
                     if (!String.IsNullOrEmpty(Model.Company.ImageList))
                     {
+                        int counter = 0;
                         String[] split = Model.Company.ImageList.Split(';');
                         foreach (String image in split)
                         {
                             if (!String.IsNullOrEmpty(image))
                             {
-                                <li>
-                                    <img src="@image" alt="@Model.Company.Name" />
-                                    <div>
-                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                             viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
-                                        <g>
-                                        <path fill="#333333" d="M16,15.2l0.6,0.6L31,1.4v8.8h0.8V0H21.7v0.8h8.8L16,15.2z M16,15.2" />
-                                        <path fill="#333333" d="M31.1,14.5v16.6H0.9V0.9h16.4V0H0v32h32V14.5H31.1z M31.1,14.5" />
-                                    </g>
-                                    </svg>
-                                    </div>
-                                </li>
+                                if (counter < 4)
+                                {
+                                    String url = "http://floreview.blob.core.windows.net/profiles/{0}.jpg";
+                                    <li>
+                                        <img src="@String.Format(url, image)" alt="@Model.Company.Name" />
+                                    </li>
+                    
+                                    counter++;
+                                }
                             }
                         }
                     }
@@ -92,12 +82,12 @@
         </div>
     </div>
 
-    <div class="detail-left">
-        <div id="gmap">
+    <div class="detail-profile-right">
+        <div class="google-map">
             <div id="map-canvas"></div>
         </div>
 
-        <div class="detail-contact">
+        <div class="detail-profile-contact">
             <ul>
                 <li>
                     <svg class="icon-facebook" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -164,19 +154,28 @@
                     </svg>
                 </li>
             </ul>
-            <div id="detail-contact-popup">
+            <div class="detail-profile-contact-popup">
                 <a class="popup-facebook" href="http://facebook.com/@Model.Company.Facebook" target="_blank">Bezoek onze facebook pagina</a>
                 <a class="popup-mail" href="mailto:@Model.Company.Email">@Model.Company.Email</a>
-                <a class="popup-site" href="@Model.Company.Website" target="_blank">@Model.Company.Website</a>
                 @{
-                    String phone, mobile;
+                    String website, phone, mobile;
+                    if (!string.IsNullOrEmpty(Model.Company.Website))
+                    {
+                        website = Model.Company.Website;
+                        <a class="popup-site" href="@website" target="_blank">@website</a>
+                    }
+                    else
+                    {
+                        website = Global.Detail_Contact_Website_Error;
+                        <p class="popup-site">@website</p>
+                    }
                     if (!string.IsNullOrEmpty(Model.Company.Florist.Phone))
                     {
                         phone = Model.Company.Florist.Phone.Insert(3, " ").Insert(5, " ").Insert(9, " ").Insert(12, " ");
                     }
                     else
                     {
-                        phone = "Geen telefoonnumer beschikbaar.";
+                        phone = Global.Detail_Contact_Phone_Error;
                     }
                     if (!string.IsNullOrEmpty(Model.Company.Florist.Cellphone))
                     {
@@ -184,28 +183,26 @@
                     }
                     else
                     {
-                        mobile = "Geen GSM nummer beschikbaar.";
+                        mobile = Global.Detail_Contact_Mobile_Error;
                     }
                 }
                 <p class="popup-phone">@phone</p>
                 <p class="popup-mobile">@mobile</p>
-                <a class="popup-gps" href="https://maps.google.com/?q=@point" target="_blank">Routebeschrijving naar onze winkel</a>
+                <a class="popup-gps" href="https://maps.google.com/?q=@googleMapsPoint" target="_blank">Routebeschrijving naar onze winkel</a>
             </div>
         </div>
     </div>
-    <div style="clear:both;"></div>
 </section>
 
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
 <script>
-    $(document).ready(function () {
-        initGMaps();
-    });
+    google.maps.event.addDomListener(window, 'load', initialize);
 
-    function initGMaps() {
-        var myLatLng = new google.maps.LatLng(@latitude@Html.Raw(",")@longitude);
+    function initialize() {
+        var coordinates = new google.maps.LatLng(@latitude@Html.Raw(',')@longitude);
         var mapOptions = {
             zoom: 15,
-            center: myLatLng
+            center: coordinates
         }
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
@@ -222,7 +219,7 @@
         var infoWindow = new google.maps.InfoWindow({ content: contentString });
 
         var marker = new google.maps.Marker({
-            position: myLatLng,
+            position: coordinates,
             map: map,
         });
 

@@ -10,12 +10,10 @@ namespace Floreview.DataAccess.Repositories
 {
     public class CompanyRepository : GenericRepository<Company>, ICompany
     {
-        #region Constructor
         public CompanyRepository(FlowerContext context) : base(context)
         {
 
         }
-        #endregion
 
         public IEnumerable<Company> GetCompaniesSearchName(string name)
         {

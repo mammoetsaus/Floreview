@@ -11,11 +11,8 @@ namespace Floreview.Controllers
 {
     public class DetailController : Controller
     {
-        #region Fields & Props
         public IAccessService _accessService = null;
-        #endregion
 
-        #region Constructor
         public DetailController(IAccessService service)
         {
             _accessService = service;
@@ -25,10 +22,8 @@ namespace Floreview.Controllers
         {
 
         }
-        #endregion
 
-        #region Actions
-        public ActionResult Index(int profile)
+        public ActionResult Index(int? profile)
         {
             try
             {
@@ -36,11 +31,9 @@ namespace Floreview.Controllers
 
                 if (ModelState.IsValid)
                 {
-
-                    if (profile > 0)
+                    if (profile.HasValue && profile > 0)
                     {
-                        // get company by id
-                        Company company = _accessService.GetCompanyByID(profile);
+                        Company company = _accessService.GetCompanyByID(profile.Value);
 
                         if (company != null)
                         {
@@ -68,6 +61,5 @@ namespace Floreview.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
-        #endregion
     }
 }

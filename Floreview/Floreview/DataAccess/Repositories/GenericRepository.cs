@@ -6,13 +6,15 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace Floreview.DataAccess.Repositories {
-    public class GenericRepository<T> : IGeneric<T> where T : class {
-
+namespace Floreview.DataAccess.Repositories
+{
+    public class GenericRepository<T> : IGeneric<T> where T : class
+    {
         internal FlowerContext context;
         internal DbSet<T> dbSet;
 
-        public GenericRepository() {
+        public GenericRepository()
+        {
 
         }
         public GenericRepository(FlowerContext context)
@@ -21,35 +23,41 @@ namespace Floreview.DataAccess.Repositories {
             this.dbSet = context.Set<T>();
         }
 
-        public virtual IEnumerable<T> All() {
+        public virtual IEnumerable<T> All()
+        {
             int aantal = dbSet.Count<T>();
             return dbSet;
         }
 
-        public virtual T GetByID(object id) {
+        public virtual T GetByID(object id)
+        {
             return dbSet.Find(id);
         }
 
-        public virtual T Insert(T entity) {
+        public virtual T Insert(T entity)
+        {
             return dbSet.Add(entity);
         }
 
-        public virtual void Delete(object id) {
+        public virtual void Delete(object id)
+        {
             T entityToDelete = dbSet.Find(id);
             Delete(entityToDelete);
         }
 
-        public virtual void Delete(T entityToDelete) {
-            if (context.Entry(entityToDelete).State == EntityState.Detached) {
+        public virtual void Delete(T entityToDelete)
+        {
+            if (context.Entry(entityToDelete).State == EntityState.Detached)
+            {
                 dbSet.Attach(entityToDelete);
             }
             dbSet.Remove(entityToDelete);
         }
 
-        public virtual void Update(T entityToUpdate) {
+        public virtual void Update(T entityToUpdate)
+        {
             dbSet.Attach(entityToUpdate);
             context.Entry(entityToUpdate).State = EntityState.Modified;
         }
-
     }
 }

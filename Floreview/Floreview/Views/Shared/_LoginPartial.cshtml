@@ -22,8 +22,11 @@ else
 
 <script>
     document.addEventListener('DOMContentLoaded', function (event) {
-        document.getElementById('form-logout-submit').addEventListener('click', function () {
-            document.getElementById('form-logout').submit();
-        });
+        var logoutFormSubmit = document.getElementById('form-logout-submit')
+        if (logoutFormSubmit != null) {
+            logoutFormSubmit.addEventListener('click', function () {
+                document.getElementById('form-logout').submit();
+            });
+        }
     });
 </script>

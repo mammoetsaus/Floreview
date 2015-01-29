@@ -14,11 +14,8 @@ namespace Floreview.Controllers
 {
     public class HomeController : Controller
     {
-        #region Fields & Props
         private IAccessService _accessService = null;
-        #endregion
 
-        #region Constructor
         public HomeController(IAccessService service)
         {
             _accessService = service;
@@ -28,9 +25,7 @@ namespace Floreview.Controllers
         {
 
         }
-        #endregion
 
-        #region Actions
         public ActionResult Index()
         {
             IndexVM model = new IndexVM();
@@ -38,6 +33,5 @@ namespace Floreview.Controllers
 
             return View(model);
         }
-        #endregion
     }
 }

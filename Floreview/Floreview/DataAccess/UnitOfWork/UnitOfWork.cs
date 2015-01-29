@@ -9,11 +9,8 @@ namespace Floreview.DataAccess.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
-        #region Fields & Props
         private FlowerContext context = null;
-        #endregion
 
-        #region Constructor
         public UnitOfWork(FlowerContext context)
         {
             this.context = context;
@@ -23,13 +20,10 @@ namespace Floreview.DataAccess.UnitOfWork
         {
 
         }
-        #endregion
 
-        #region IUnitOfWork Interface
         public void SaveChanges()
         {
             context.SaveChanges();
         }
-        #endregion
     }
 }

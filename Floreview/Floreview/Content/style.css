@@ -1,19 +1,25 @@
-section.home-promotion-blogs, section.search-information, section.search-information div, section.search-results, section.search-nearby-results {
+section.home-promotion-blogs, section.search-information, section.search-information div, section.search-results, section.search-nearby-results, section.detail-profile, footer {
   *zoom: 1; }
-  section.home-promotion-blogs:before, section.search-information:before, section.search-information div:before, section.search-results:before, section.search-nearby-results:before, section.home-promotion-blogs:after, section.search-information:after, section.search-information div:after, section.search-results:after, section.search-nearby-results:after {
+  section.home-promotion-blogs:before, section.search-information:before, section.search-information div:before, section.search-results:before, section.search-nearby-results:before, section.detail-profile:before, footer:before, section.home-promotion-blogs:after, section.search-information:after, section.search-information div:after, section.search-results:after, section.search-nearby-results:after, section.detail-profile:after, footer:after {
     content: " ";
     display: table; }
-  section.home-promotion-blogs:after, section.search-information:after, section.search-information div:after, section.search-results:after, section.search-nearby-results:after {
+  section.home-promotion-blogs:after, section.search-information:after, section.search-information div:after, section.search-results:after, section.search-nearby-results:after, section.detail-profile:after, footer:after {
     clear: both; }
 
 * {
   margin: 0;
   padding: 0; }
 
+html {
+  -webkit-overflow-y: scroll;
+  -moz-overflow-y: scroll;
+  -ms-overflow-y: scroll;
+  overflow-y: scroll; }
+
 body {
   background-color: #f3f3f3; }
 
-.content-container, section.login, section.home-promotion-blogs, article.home-promotion-about, section.search-information, section.search-results, section.search-nearby-results {
+.content-container, section.login, section.home-promotion-blogs, article.home-promotion-about, section.search-information, section.search-results, section.search-nearby-results, section.detail-profile, footer {
   display: block;
   width: 1024px;
   margin: 0 auto; }
@@ -378,7 +384,119 @@ section.search-nearby-results h2 {
   color: #333333;
   margin: 0 0 50px 0; }
 
+section.detail-profile {
+  margin-top: 30px;
+  background-color: #ffffff;
+  border: #e9e9e9; }
+  section.detail-profile div.detail-profile-left {
+    float: left;
+    width: 645px;
+    padding: 10px; }
+    section.detail-profile div.detail-profile-left h1 {
+      font-family: latoregular, sans-serif;
+      font-weight: 400;
+      font-size: 32px;
+      color: #333333; }
+    section.detail-profile div.detail-profile-left p {
+      height: 110px;
+      max-height: 110px;
+      font-family: latoregular, sans-serif;
+      font-size: 16px;
+      text-align: justify;
+      color: #333333;
+      margin: 15px 0 0 0; }
+    section.detail-profile div.detail-profile-left div.detail-profile-pictures {
+      margin: 75px 0 0 0; }
+      section.detail-profile div.detail-profile-left div.detail-profile-pictures ul li {
+        display: block;
+        float: left;
+        list-style: none;
+        width: 125px;
+        height: 125px;
+        margin: 0 5px 0 0; }
+        section.detail-profile div.detail-profile-left div.detail-profile-pictures ul li img {
+          width: 125px;
+          height: 125px; }
+      section.detail-profile div.detail-profile-left div.detail-profile-pictures ul li:last-of-type {
+        margin: 0; }
+  section.detail-profile div.detail-profile-right {
+    float: left;
+    width: 300px;
+    padding: 10px;
+    margin: 0 0 0 39px; }
+    section.detail-profile div.detail-profile-right div.google-map {
+      width: 300px;
+      height: 300px;
+      overflow: hidden; }
+      section.detail-profile div.detail-profile-right div.google-map div#map-canvas {
+        width: 300px;
+        height: 317px; }
+    section.detail-profile div.detail-profile-right div.detail-profile-contact {
+      margin: 10px 0 0 0;
+      height: 50px; }
+      section.detail-profile div.detail-profile-right div.detail-profile-contact ul {
+        position: relative;
+        height: 50px; }
+        section.detail-profile div.detail-profile-right div.detail-profile-contact ul li {
+          display: block;
+          float: left;
+          list-style: none;
+          height: 50px;
+          width: 50px; }
+          section.detail-profile div.detail-profile-right div.detail-profile-contact ul li svg:hover {
+            cursor: pointer; }
+          section.detail-profile div.detail-profile-right div.detail-profile-contact ul li svg.icon-facebook:hover path {
+            fill: #36609f; }
+          section.detail-profile div.detail-profile-right div.detail-profile-contact ul li svg.icon-mail:hover path {
+            fill: #1e70b6; }
+          section.detail-profile div.detail-profile-right div.detail-profile-contact ul li svg.icon-site:hover path {
+            fill: #f27730; }
+          section.detail-profile div.detail-profile-right div.detail-profile-contact ul li svg.icon-phone:hover path {
+            fill: #98bc3e; }
+          section.detail-profile div.detail-profile-right div.detail-profile-contact ul li svg.icon-mobile:hover g path {
+            fill: #4490ce; }
+          section.detail-profile div.detail-profile-right div.detail-profile-contact ul li svg.icon-mobile:hover g rect {
+            fill: #4490ce; }
+          section.detail-profile div.detail-profile-right div.detail-profile-contact ul li svg.icon-gps:hover g path {
+            fill: #e84340; }
+      section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup {
+        position: relative;
+        height: 40px; }
+        section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup a, section.detail-profile div.detail-profile-right div.detail-profile-contact section.search-results div.detail-profile-contact-popup a svg, section.search-results section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup a svg, section.detail-profile div.detail-profile-right div.detail-profile-contact section.search-nearby-results div.detail-profile-contact-popup a svg, section.search-nearby-results section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup a svg, section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup p {
+          display: none;
+          padding: 0 10px;
+          line-height: 40px;
+          font-family: latoregular, sans-serif;
+          font-size: 16px;
+          text-decoration: none;
+          color: #ffffff; }
+        section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup a.active, section.detail-profile div.detail-profile-right div.detail-profile-contact section.search-results div.detail-profile-contact-popup a svg.active, section.search-results section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup a svg.active, section.detail-profile div.detail-profile-right div.detail-profile-contact section.search-nearby-results div.detail-profile-contact-popup a svg.active, section.search-nearby-results section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup a svg.active, section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup p.active {
+          display: block; }
+        section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup a:hover, section.detail-profile div.detail-profile-right div.detail-profile-contact section.search-results div.detail-profile-contact-popup a svg:hover, section.search-results section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup a svg:hover, section.detail-profile div.detail-profile-right div.detail-profile-contact section.search-nearby-results div.detail-profile-contact-popup a svg:hover, section.search-nearby-results section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup a svg:hover {
+          text-decoration: underline; }
+
 footer {
-  height: 200px; }
+  margin-top: 60px;
+  margin-bottom: 30px;
+  border-top: 1px solid #999999; }
+  footer p {
+    float: left;
+    width: 300px;
+    font-family: latoregular, sans-serif;
+    font-size: 14px;
+    color: #333333;
+    padding: 15px 0; }
+    footer p a, footer p section.search-results div a svg, section.search-results div a footer p svg, footer p section.search-nearby-results div a svg, section.search-nearby-results div a footer p svg {
+      font-family: latoregular, sans-serif;
+      font-size: 14px;
+      color: #333333;
+      text-decoration: none; }
+    footer p a:hover, footer p section.search-results div a svg:hover, section.search-results div a footer p svg:hover, footer p section.search-nearby-results div a svg:hover, section.search-nearby-results div a footer p svg:hover {
+      text-decoration: underline; }
+  footer select {
+    float: right;
+    font-family: latoregular, sans-serif;
+    padding: 5px;
+    margin: 10px 0; }
 
 /*# sourceMappingURL=style.css.map */

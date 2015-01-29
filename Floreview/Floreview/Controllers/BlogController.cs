@@ -12,13 +12,10 @@ namespace Floreview.Controllers
 {
     public class BlogController : Controller
     {
-        #region Fields & Props
         private IAccessService _accessService = null;
 
         private const int BLOCKSIZE = 1;
-        #endregion
 
-        #region Constructor
         public BlogController(IAccessService service)
         {
             _accessService = service;
@@ -28,9 +25,7 @@ namespace Floreview.Controllers
         {
 
         }
-        #endregion
 
-        #region Actions
         public ActionResult BlogList(List<Blog> Model)
         {
             // only shown once at startup
@@ -69,9 +64,7 @@ namespace Floreview.Controllers
         {
             return View();
         }
-        #endregion
 
-        #region Functions
         protected String RenderPartialViewToString(String viewName, object model)
         {
             ViewData.Model = model;
@@ -85,6 +78,5 @@ namespace Floreview.Controllers
                 return sw.GetStringBuilder().ToString();
             }
         }
-        #endregion
     }
 }

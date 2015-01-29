@@ -123,7 +123,7 @@ namespace Floreview.Migrations
                 DescriptionLong = "Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
                 Coordinates = DbGeography.FromText("POINT(3.920891 51.036445)"),
                 Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg",
-                ImageList = "profile_1_1;profile_1_2;profile_1_3;profile_1_4;profile_1_5",
+                ImageList = "profile_1_image_0;profile_1_image_1;profile_1_image_2;profile_1_image_3",
                 Website = "http://mammoetsaus.azurewebsites.net",
                 Email = "thomas.voet@live.be",
                 Facebook = "voetthomas",
@@ -133,7 +133,7 @@ namespace Floreview.Migrations
                     LastName = "Voet",
                     Phone = "+3293457673",
                     Cellphone = "+32499434095",
-                    ImagePath = "http://images.com/2"
+                    ImagePath = "http://floreview.blob.core.windows.net/profiles/profile_1_florist.jpg"
                 },
                 Location = context.Location.First(i => i.City.Equals("Kalken")),
                 Genre = new Genre()

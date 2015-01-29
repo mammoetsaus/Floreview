@@ -11,11 +11,8 @@ namespace Floreview.Controllers.API
 {
     public class RESTController : ApiController
     {
-        #region Fields & Props
         private IAccessService _accessService = null;
-        #endregion
 
-        #region Constructor
         public RESTController(IAccessService accessService)
         {
             _accessService = accessService;
@@ -25,9 +22,7 @@ namespace Floreview.Controllers.API
         {
 
         }
-        #endregion
 
-        #region Actions
         [Route("api/cities")]
         public HttpResponseMessage GetCitiesByName(String city)
         {
@@ -76,6 +71,5 @@ namespace Floreview.Controllers.API
 
             return message;
         }
-        #endregion
     }
 }

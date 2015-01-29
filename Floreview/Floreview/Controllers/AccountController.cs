@@ -20,6 +20,8 @@ namespace Floreview.Controllers
     {
         private IUserManagementService service = null;
 
+        public UserManager<ApplicationUser> UserManager { get; private set; }
+
         public AccountController()
         {
 
@@ -30,10 +32,6 @@ namespace Floreview.Controllers
             this.service = service;
         }
 
-        public UserManager<ApplicationUser> UserManager { get; private set; }
-
-        //
-        // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -41,8 +39,6 @@ namespace Floreview.Controllers
             return View();
         }
 
-        //
-        // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -62,21 +58,15 @@ namespace Floreview.Controllers
                 }
             }
 
-            // If we got this far, something failed, redisplay form
             return View(model);
         }
 
-        //
-        // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
         {
             return RedirectToAction("Index", "Home");
-            // return View();       -       register isn't open
         }
 
-        //
-        // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]

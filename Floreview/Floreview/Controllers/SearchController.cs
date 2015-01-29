@@ -13,11 +13,8 @@ namespace Floreview.Controllers
 {
     public class SearchController : Controller
     {
-        #region Fields & Props
         private IAccessService _accessService = null;
-        #endregion
 
-        #region Constructor
         public SearchController(IAccessService service)
         {
             _accessService = service;
@@ -27,9 +24,7 @@ namespace Floreview.Controllers
         {
 
         }
-        #endregion
 
-        #region Actions
         public ActionResult Index()
         {
             return RedirectToAction("Index", "Home");
@@ -71,14 +66,23 @@ namespace Floreview.Controllers
                     {
                         result.NearbyCompanies = new List<Company>();
                         Location searchedLocation = _accessService.GetLocationByCityName(model.City);
-                        List<CompanyLocation> companyLocations = _accessService.GetAllCompanyLocationsByLocationID(searchedLocation.ID);
 
-                        if (companyLocations != null && companyLocations.Count > 0)
+                        if (searchedLocation != null)
                         {
-                            companyLocations.ForEach(i => result.NearbyCompanies.Add(i.Company));
+                            List<CompanyLocation> companyLocations = _accessService.GetAllCompanyLocationsByLocationID(searchedLocation.ID);
+
+                            if (companyLocations != null && companyLocations.Count > 0)
+                            {
+                                companyLocations.ForEach(i => result.NearbyCompanies.Add(i.Company));
+                            }
                         }
+                        else
+                        {
+                            throw new ArgumentException();
+                        }
+
                     }
-                    
+
                     ViewBag.NumberOfCompanies = result.Companies.Count;
 
                     return View(result);
@@ -93,6 +97,5 @@ namespace Floreview.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
-        #endregion
     }
 }

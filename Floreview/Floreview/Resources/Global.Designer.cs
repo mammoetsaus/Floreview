@@ -61,6 +61,69 @@ namespace Floreview.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Geen GSM nummer beschikbaar.
+        /// </summary>
+        public static string Detail_Contact_Mobile_Error {
+            get {
+                return ResourceManager.GetString("Detail_Contact_Mobile_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Geen telefoonnummer beschikbaar.
+        /// </summary>
+        public static string Detail_Contact_Phone_Error {
+            get {
+                return ResourceManager.GetString("Detail_Contact_Phone_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Geen website beschikbaar.
+        /// </summary>
+        public static string Detail_Contact_Website_Error {
+            get {
+                return ResourceManager.GetString("Detail_Contact_Website_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nederlands.
+        /// </summary>
+        public static string Footer_Language_Dutch {
+            get {
+                return ResourceManager.GetString("Footer_Language_Dutch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Engels.
+        /// </summary>
+        public static string Footer_Language_English {
+            get {
+                return ResourceManager.GetString("Footer_Language_English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Frans.
+        /// </summary>
+        public static string Footer_Language_French {
+            get {
+                return ResourceManager.GetString("Footer_Language_French", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Duits.
+        /// </summary>
+        public static string Footer_Language_German {
+            get {
+                return ResourceManager.GetString("Footer_Language_German", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to door.
         /// </summary>
         public static string Home_Blog_Promotion_Author {

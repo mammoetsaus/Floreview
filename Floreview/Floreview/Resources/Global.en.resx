@@ -117,6 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Detail_Contact_Mobile_Error" xml:space="preserve">
+    <value>No mbile number available</value>
+  </data>
+  <data name="Detail_Contact_Phone_Error" xml:space="preserve">
+    <value>No phone number available</value>
+  </data>
+  <data name="Detail_Contact_Website_Error" xml:space="preserve">
+    <value>No website available</value>
+  </data>
+  <data name="Footer_Language_Dutch" xml:space="preserve">
+    <value>Dutch</value>
+  </data>
+  <data name="Footer_Language_English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Footer_Language_French" xml:space="preserve">
+    <value>French</value>
+  </data>
+  <data name="Footer_Language_German" xml:space="preserve">
+    <value>German</value>
+  </data>
   <data name="Home_Blog_Promotion_Author" xml:space="preserve">
     <value>by</value>
   </data>

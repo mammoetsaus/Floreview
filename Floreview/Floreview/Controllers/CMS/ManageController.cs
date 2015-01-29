@@ -15,11 +15,8 @@ namespace Floreview.Controllers.CMS
     [Authorize]
     public class ManageController : Controller
     {
-        #region Fields & Props
         private IAccessService _accessService = null;
-        #endregion
 
-        #region Constructor
         public ManageController(IAccessService service)
         {
             _accessService = service;
@@ -29,9 +26,7 @@ namespace Floreview.Controllers.CMS
         {
 
         }
-        #endregion
 
-        #region Actions
         public ActionResult Store()
         {
             return View();
@@ -212,9 +207,7 @@ namespace Floreview.Controllers.CMS
                 throw;
             }
         }
-        #endregion
 
-        #region Functions
         private void UploadImagesToStorage(StoreVM model, int id)
         {
             BlobStorageEngine storageEngine = new BlobStorageEngine();
@@ -385,6 +378,5 @@ namespace Floreview.Controllers.CMS
             storageEngine.DeleteImageFromStorage(storeAvatarFilename, "profiles");
             storageEngine.DeleteImageFromStorage(storeFloristFilename, "profiles");
         }
-        #endregion
     }
 }

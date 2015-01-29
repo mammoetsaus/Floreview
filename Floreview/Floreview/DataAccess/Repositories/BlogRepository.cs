@@ -10,20 +10,16 @@ namespace Floreview.DataAccess.Repositories
 {
     public class BlogRepository : GenericRepository<Blog>, IBlog
     {
-        #region Constructor
         public BlogRepository()
         {
 
         }
 
-        public BlogRepository(FlowerContext context)
-            : base(context)
+        public BlogRepository(FlowerContext context) : base(context)
         {
 
         }
-        #endregion
 
-        #region IBlog Interface
         public IEnumerable<Blog> GetMostRecentBlogs()
         {
             // argument 1: select only available blogs (not future blogs)
@@ -76,6 +72,5 @@ namespace Floreview.DataAccess.Repositories
             var result = (from d in context.Blog.Where(i => i.Timestamp <= DateTime.Now) orderby d.Timestamp descending select d.Timestamp);
             return result.ToList<DateTime>();
         }
-        #endregion
     }
 }

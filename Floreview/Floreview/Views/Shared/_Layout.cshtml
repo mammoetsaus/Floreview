@@ -1,28 +1,80 @@
-﻿<!DOCTYPE html>
+﻿@using Floreview.Resources
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Floreview</title>
-    
+
     <link href="~/Content/font.css" rel="stylesheet" />
     <link href="~/Content/style.css" rel="stylesheet" />
-    
+
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
     <script src="/Scripts/js-webshim/minified/polyfiller.js"></script>
     <script>
-    webshims.polyfill();
+        webshims.polyfill();
 
-    if (!Modernizr.input.list && !window.chrome) {
-        jQuery.webshims.setOptions('forms', {
-            lightweightDatalist: true
-        });
-        jQuery.webshims.polyfill('forms es5');
-    }
+        if (!Modernizr.input.list && !window.chrome) {
+            jQuery.webshims.setOptions('forms', {
+                lightweightDatalist: true
+            });
+            jQuery.webshims.polyfill('forms es5');
+        }
     </script>
 </head>
 <body>
     @RenderBody()
-    <footer></footer>
+    <footer>
+        <p>
+            &copy; 2015 - Designed and created by <a href="http://thomasvoet.be" target="_blank">Thomas Voet</a>
+        </p>
+        <select id="language-select">
+            @{
+                HttpCookie languageCookie = Request.Cookies["floreview_language_cookie"];
+                if (languageCookie != null && !String.IsNullOrEmpty(languageCookie.Value))
+                {
+                    switch (languageCookie.Value)
+                    {
+                        case "nl":
+                            <option value="nl" selected disabled>@Global.Footer_Language_Dutch</option>
+                            <option value="en">@Global.Footer_Language_English</option>
+                            <option value="fr">@Global.Footer_Language_French</option>
+                            <option value="de">@Global.Footer_Language_German</option>
+                            break;
+                        case "en":
+                            <option value="nl">@Global.Footer_Language_Dutch</option>
+                            <option value="en" selected disabled>@Global.Footer_Language_English</option>
+                            <option value="fr">@Global.Footer_Language_French</option>
+                            <option value="de">@Global.Footer_Language_German</option>
+                            break;
+                        case "fr":
+                            <option value="nl">@Global.Footer_Language_Dutch</option>
+                            <option value="en">@Global.Footer_Language_English</option>
+                            <option value="fr" selected disabled>@Global.Footer_Language_French</option>
+                            <option value="de">@Global.Footer_Language_German</option>
+                            break;
+                        case "de":
+                            <option value="nl">@Global.Footer_Language_Dutch</option>
+                            <option value="en">@Global.Footer_Language_English</option>
+                            <option value="fr">@Global.Footer_Language_French</option>
+                            <option value="de" selected disabled>@Global.Footer_Language_German</option>
+                            break;
+                    }
+                }
+            }
+        </select>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('language-select').addEventListener('change', function (e) {
+                var path = window.location.pathname + window.location.search;
+                var language = this.options[this.selectedIndex].value;
+
+                window.location.href = "/Language/Change?lang=" + language + "&returnURL=" + path;
+            });
+        });
+    </script>
 </body>
 </html>
