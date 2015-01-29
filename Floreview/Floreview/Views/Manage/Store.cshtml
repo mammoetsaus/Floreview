@@ -52,6 +52,24 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         loadCompanies("", 0);
+
+        var searchInput = document.querySelector('section.manage-store-information input[type="text"]'),
+            sortList = document.querySelector('section.manage-store-information select');
+
+
+        searchInput.addEventListener('blur', function () {
+            var filter = this.value,
+                sort = sortList.options[sortList.selectedIndex].value;
+
+            loadCompanies(filter, sort);
+        });
+
+        sortList.addEventListener('change', function () {
+            var filter = searchInput.value,
+                sort = this.options[this.selectedIndex].value;
+
+            loadCompanies(filter, sort);
+        });
     });
 
     function loadCompanies(filter, sort) {
