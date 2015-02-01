@@ -180,8 +180,116 @@
   <data name="Login_Validation_Message" xml:space="preserve">
     <value>Credentials are not correct.</value>
   </data>
+  <data name="Manage_AddStore_Address_Error" xml:space="preserve">
+    <value>Please fill in an address.</value>
+  </data>
+  <data name="Manage_AddStore_Address_Placeholder" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="Manage_AddStore_City_Error" xml:space="preserve">
+    <value>Please fill in a city.</value>
+  </data>
+  <data name="Manage_AddStore_City_Placeholder" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="Manage_AddStore_Description_Long_DE" xml:space="preserve">
+    <value>Long description (DE)</value>
+  </data>
+  <data name="Manage_AddStore_Description_Long_EN" xml:space="preserve">
+    <value>Long description (EN)</value>
+  </data>
+  <data name="Manage_AddStore_Description_Long_FR" xml:space="preserve">
+    <value>Long description (FR)</value>
+  </data>
+  <data name="Manage_AddStore_Description_Long_NL" xml:space="preserve">
+    <value>Long description (NL)</value>
+  </data>
+  <data name="Manage_AddStore_Description_Short_DE" xml:space="preserve">
+    <value>Short description (DE)</value>
+  </data>
+  <data name="Manage_AddStore_Description_Short_EN" xml:space="preserve">
+    <value>Short description (EN)</value>
+  </data>
+  <data name="Manage_AddStore_Description_Short_FR" xml:space="preserve">
+    <value>Short description (FR)</value>
+  </data>
+  <data name="Manage_AddStore_Description_Short_NL" xml:space="preserve">
+    <value>Short description (NL)</value>
+  </data>
+  <data name="Manage_AddStore_Description_Title" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Manage_AddStore_Facebook_Error" xml:space="preserve">
+    <value>Please fill in a Facebook profile.</value>
+  </data>
+  <data name="Manage_AddStore_Facebook_Placeholder" xml:space="preserve">
+    <value>Facebook</value>
+  </data>
+  <data name="Manage_AddStore_Florist_Email_Error" xml:space="preserve">
+    <value>Please fill in an e-mail address.</value>
+  </data>
+  <data name="Manage_AddStore_Florist_Email_Placeholder" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Manage_AddStore_Florist_Email_REGEX_Error" xml:space="preserve">
+    <value>Please fill in a correct e-mail address.</value>
+  </data>
+  <data name="Manage_AddStore_Florist_FirstName_Error" xml:space="preserve">
+    <value>Please fill in a first name.</value>
+  </data>
+  <data name="Manage_AddStore_Florist_FirstName_Length_Error" xml:space="preserve">
+    <value>A first name has min. 2 and max. 35 characters.</value>
+  </data>
+  <data name="Manage_AddStore_Florist_Firstname_Placeholder" xml:space="preserve">
+    <value>Firstname</value>
+  </data>
+  <data name="Manage_AddStore_Florist_LastName_Error" xml:space="preserve">
+    <value>Please fill in a last name.</value>
+  </data>
+  <data name="Manage_AddStore_Florist_LastName_Length_Error" xml:space="preserve">
+    <value>A last name has min. 2 and max. 35 characters.</value>
+  </data>
+  <data name="Manage_AddStore_Florist_Lastname_Placeholder" xml:space="preserve">
+    <value>Lastname</value>
+  </data>
+  <data name="Manage_AddStore_Florist_Mobile_Placeholder" xml:space="preserve">
+    <value>Mobile phone</value>
+  </data>
+  <data name="Manage_AddStore_Florist_Mobile_REGEX_Error" xml:space="preserve">
+    <value>Please fill in a correct mobile number. (+324)</value>
+  </data>
+  <data name="Manage_AddStore_Florist_Phone_Placeholder" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="Manage_AddStore_Florist_Phone_REGEX_Error" xml:space="preserve">
+    <value>Please fill in a correct phonenumber. (+329)</value>
+  </data>
+  <data name="Manage_AddStore_Florist_Title" xml:space="preserve">
+    <value>Florist</value>
+  </data>
+  <data name="Manage_AddStore_StoreName_Error" xml:space="preserve">
+    <value>Please fill in a company name.</value>
+  </data>
+  <data name="Manage_AddStore_StoreName_Length_Error" xml:space="preserve">
+    <value>A company name has min. 2 and max. 30 characters.</value>
+  </data>
+  <data name="Manage_AddStore_StoreName_Placeholder" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Manage_AddStore_Store_Title" xml:space="preserve">
+    <value>Store</value>
+  </data>
+  <data name="Manage_AddStore_Submit" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Manage_AddStore_Website_Error" xml:space="preserve">
+    <value>Please fill in a correct website address.</value>
+  </data>
+  <data name="Manage_AddStore_Website_Placeholder" xml:space="preserve">
+    <value>Website</value>
+  </data>
   <data name="Manage_Store_Add" xml:space="preserve">
-    <value>Add</value>
+    <value>Add store</value>
   </data>
   <data name="Manage_Store_Search_Placeholder" xml:space="preserve">
     <value>City</value>

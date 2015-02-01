@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Floreview.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity.Spatial;
 using System.Linq;
 using System.Web;
 
@@ -12,7 +14,7 @@ namespace Floreview.Models
 
         public int Zip { get; set; }
 
-        [Required(ErrorMessage = "Gelieve een gemeente in te vullen.")]
+        [Required(ErrorMessageResourceName = "Manage_AddStore_City_Error", ErrorMessageResourceType = typeof(Global), ErrorMessage = null)]
         public String City { get; set; }
 
         public int ZipMain { get; set; }

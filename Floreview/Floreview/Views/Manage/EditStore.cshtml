@@ -1,27 +1,22 @@
-﻿@model Floreview.ViewModels.CMS.StoreVM
+﻿@using Floreview.Resources;
+@model Floreview.ViewModels.CMS.StoreVM
 
-@{
-    var latitude = Model.Company.Coordinates.Latitude.ToString().Replace(',', '.');
-    var longitude = Model.Company.Coordinates.Longitude.ToString().Replace(',', '.');
-    var point = latitude + "," + longitude;
-}
-
-<header class="cms-header">
+<header class="admin">
     <nav>
         <ul class="content-container">
             <li>
-                @Html.ActionLink("Home", "Index", "Home")
+                @Html.ActionLink(Global.Menu_Home, "Index", "Home")
             </li>
             <li>
-                @Html.ActionLink("Blog", "Index", "Blog")
+                @Html.ActionLink(Global.Menu_Blog, "Index", "Blog")
             </li>
             <li>
-                @Html.ActionLink("Floreview", "Index", "Home")
+                @Html.ActionLink(Global.Menu_Floreview, "Index", "Home")
             </li>
             <li>
-                @Html.ActionLink("Contact", "Index", "Home")
+                @Html.ActionLink(Global.Menu_Contact, "Index", "Home")
             </li>
-            <li class="nav-login">
+            <li>
                 @Html.Partial("_LoginPartial")
             </li>
         </ul>
@@ -29,113 +24,191 @@
 
     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
     {
-        <div id="cms-menu">
+        <section class="menu-admin">
             <ul class="content-container">
                 <li>
-                    @Html.ActionLink("Winkels", "Store", "Manage")
+                    @Html.ActionLink(Global.Menu_Admin_Stores, "Store", "Manage")
                 </li>
             </ul>
-        </div>
+        </section>
     }
 </header>
 
-@using (Html.BeginForm("EditStore", "Manage", FormMethod.Post, new { @id = "form-add-store", @class = "content-container", enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken();
-    @Html.ValidationSummary(true);
-
-    <section class="form-add-store-part">
-        <h2>Winkel</h2>
-
-        @Html.TextBoxFor(model => model.Company.Name, new { @placeholder = "Naam", @autocomplete = "off", @value = Model.Company.Name })
-        @Html.ValidationMessageFor(model => model.Company.Name)
-
-        @Html.TextAreaFor(model => model.Company.DescriptionShort, new { @placeholder = "Korte beschrijving", @value = Model.Company.DescriptionShort })
-        @Html.ValidationMessageFor(model => Model.Company.DescriptionShort)
-
-        @Html.TextAreaFor(model => model.Company.DescriptionLong, new { @placeholder = "Lange beschrijving", @value = Model.Company.DescriptionLong })
-        @Html.ValidationMessageFor(model => model.Company.DescriptionLong)
-
-        @Html.TextBoxFor(model => model.Company.Facebook, new { @placeholder = "Facebook", @autocomplete = "off", @value = Model.Company.Facebook })
-        @Html.ValidationMessageFor(model => model.Company.Facebook)
-
-        @Html.TextBoxFor(model => model.Company.Website, new { @placeholder = "Website", @autocomplete = "off", @value = Model.Company.Website })
-        @Html.ValidationMessageFor(model => model.Company.Website)
-
-        @Html.HiddenFor(model => model.Company.Avatar)
-        <input id="add-store-avatar" type="file" name="CompanyAvatar" accept="image/*" />
-        <img id="add-store-avatar-preview" class="image-previews" src="@Model.Company.Avatar" alt="Store avatar preview" />
-    </section>
-
-    <section class="form-add-store-part">
-        <h2>Florist</h2>
-
-        @Html.TextBoxFor(model => model.Company.Florist.FirstName, new { @placeholder = "Voornaam", @autocomplete = "off", @value = Model.Company.Florist.FirstName })
-        @Html.ValidationMessageFor(model => model.Company.Florist.FirstName)
-
-        @Html.TextBoxFor(model => model.Company.Florist.LastName, new { @placeholder = "Achternaam", @autocomplete = "off", @value = Model.Company.Florist.LastName })
-        @Html.ValidationMessageFor(model => model.Company.Florist.LastName)
-
-        @Html.TextBoxFor(model => model.Company.Florist.Phone, new { @placeholder = "Telefoon", @autocomplete = "off", @value = Model.Company.Florist.Phone })
-        @Html.ValidationMessageFor(model => model.Company.Florist.Phone)
-
-        @Html.TextBoxFor(model => model.Company.Florist.Cellphone, new { @placeholder = "GSM", @autocomplete = "off", @value = Model.Company.Florist.Cellphone })
-        @Html.ValidationMessageFor(model => model.Company.Florist.Cellphone)
-
-        @Html.TextBoxFor(model => model.Company.Email, new { @placeholder = "E-mail", @autocomplete = "off", @value = Model.Company.Email })
-        @Html.ValidationMessageFor(model => model.Company.Email)
-
-        @Html.HiddenFor(model => model.Company.Florist.ImagePath)
-        <input id="add-store-florist-avatar" type="file" name="FloristAvatar" accept="image/*" />
-        <img id="add-store-avatar-florist-preview" class="image-previews" src="@Model.Company.Florist.ImagePath" alt="Profile avatar preview" />
-    
-        <input id="add-store-images" type="file" name="CompanyImages" accept="image/*" multiple="multiple" />
-
-        <ul id="store-images-list"></ul>
-    </section>
-
-    <section class="form-add-store-part">
-        <h2>Plaats</h2>
-
-        @Html.TextBoxFor(model => model.Company.Location.City, new { @placeholder = "Gemeente", @id = "add-store-city", @list = "lstCities", @autocomplete = "off", @value = Model.Company.Location.City })
-        @Html.ValidationMessageFor(model => model.Company.Location.City)
-
-        @Html.TextBoxFor(model => model.Company.Address, new { @placeholder = "Adres", @id = "add-store-address", @autocomplete = "off", @value = Model.Company.Address })
-        @Html.ValidationMessageFor(model => model.Company.Address)
-
-        @Html.Hidden("LatitudeRAW", latitude, new { @id = "hidden-latitude" })
-        @Html.Hidden("LongitudeRAW", longitude, new { @id = "hidden-longitude" })
+<section class="manage-addstore-container">
+    @using (Html.BeginForm("EditStore", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken();
         @Html.HiddenFor(model => model.Company.ID)
 
-        <div id="add-store-map-canvas"></div>
+        <div>
+            <h2>@Global.Manage_AddStore_Store_Title</h2>
 
-        <input type="submit" value="Opslaan" />
-    </section>
-}
+            @Html.TextBoxFor(model => model.Company.Name, new { @placeholder = Global.Manage_AddStore_StoreName_Placeholder, @autocomplete = "off" })
+            @Html.ValidationMessageFor(model => model.Company.Name)
 
-<datalist id="lstCities">
+            @Html.TextBoxFor(model => model.Company.Facebook, new { @placeholder = Global.Manage_AddStore_Facebook_Placeholder, @autocomplete = "off" })
+            @Html.ValidationMessageFor(model => model.Company.Facebook)
+
+            @Html.TextBoxFor(model => model.Company.Website, new { @placeholder = Global.Manage_AddStore_Website_Placeholder, @autocomplete = "off" })
+            @Html.ValidationMessageFor(model => model.Company.Website)
+
+            @Html.TextBoxFor(model => model.Company.Location.City, new { @placeholder = Global.Manage_AddStore_City_Placeholder, @id = "manage-addstore-city", @list = "list-manage-addstore-cities", @autocomplete = "off" })
+            @Html.ValidationMessageFor(model => model.Company.Location.City)
+
+            @Html.TextBoxFor(model => model.Company.Address, new { @placeholder = Global.Manage_AddStore_Address_Placeholder, @autocomplete = "off" })
+            @Html.ValidationMessageFor(model => model.Company.Address)
+
+            <input id="manage-addstore-company-avatar" type="file" name="CompanyAvatar" accept="image/*" />
+            <img id="manage-addstore-company-avatar-preview" src="@Model.Company.Avatar" alt="Store avatar preview" />
+        </div>
+
+        <div>
+            <h2>@Global.Manage_AddStore_Florist_Title</h2>
+
+            @Html.TextBoxFor(model => model.Company.Florist.FirstName, new { @placeholder = Global.Manage_AddStore_Florist_Firstname_Placeholder, @autocomplete = "off" })
+            @Html.ValidationMessageFor(model => model.Company.Florist.FirstName)
+
+            @Html.TextBoxFor(model => model.Company.Florist.LastName, new { @placeholder = Global.Manage_AddStore_Florist_Lastname_Placeholder, @autocomplete = "off" })
+            @Html.ValidationMessageFor(model => model.Company.Florist.LastName)
+
+            @Html.TextBoxFor(model => model.Company.Florist.Phone, new { @placeholder = Global.Manage_AddStore_Florist_Phone_Placeholder, @autocomplete = "off" })
+            @Html.ValidationMessageFor(model => model.Company.Florist.Phone)
+
+            @Html.TextBoxFor(model => model.Company.Florist.Cellphone, new { @placeholder = Global.Manage_AddStore_Florist_Mobile_Placeholder, @autocomplete = "off" })
+            @Html.ValidationMessageFor(model => model.Company.Florist.Cellphone)
+
+            @Html.TextBoxFor(model => model.Company.Email, new { @placeholder = Global.Manage_AddStore_Florist_Email_Placeholder, @autocomplete = "off" })
+            @Html.ValidationMessageFor(model => model.Company.Email)
+
+            <input id="manage-addstore-florist-avatar" type="file" name="FloristAvatar" accept="image/*" />
+            <img id="manage-addstore-florist-avatar-preview" src="@Model.Company.Florist.ImagePath" alt="Profile avatar preview" />
+
+            <input id="manage-addstore-company-images" type="file" name="CompanyImages" accept="image/*" multiple="multiple" />
+
+            <ul id="manage-addstore-company-images-list"></ul>
+        </div>
+
+        <div>
+            <h2>@Global.Manage_AddStore_Description_Title</h2>
+
+            <ul>
+                <li id="description-nl">NL</li>
+                <li id="description-en">EN</li>
+                <li id="description-fr">FR</li>
+                <li id="description-de">DE</li>
+            </ul>
+
+            @Html.TextAreaFor(model => model.Company.DescriptionShortNL, new { @placeholder = Global.Manage_AddStore_Description_Short_NL, @class = "description-nl" })
+            @Html.ValidationMessageFor(model => model.Company.DescriptionShortNL)
+            @Html.TextAreaFor(model => model.Company.DescriptionShortEN, new { @placeholder = Global.Manage_AddStore_Description_Short_EN, @class = "description-en" })
+            @Html.ValidationMessageFor(model => model.Company.DescriptionShortEN)
+            @Html.TextAreaFor(model => model.Company.DescriptionShortFR, new { @placeholder = Global.Manage_AddStore_Description_Short_FR, @class = "description-fr" })
+            @Html.ValidationMessageFor(model => model.Company.DescriptionShortFR)
+            @Html.TextAreaFor(model => model.Company.DescriptionShortDE, new { @placeholder = Global.Manage_AddStore_Description_Short_DE, @class = "description-de" })
+            @Html.ValidationMessageFor(model => model.Company.DescriptionShortDE)
+
+            @Html.TextAreaFor(model => model.Company.DescriptionLongNL, new { @placeholder = Global.Manage_AddStore_Description_Long_NL, @class = "description-nl" })
+            @Html.ValidationMessageFor(model => model.Company.DescriptionLongNL)
+            @Html.TextAreaFor(model => model.Company.DescriptionLongEN, new { @placeholder = Global.Manage_AddStore_Description_Long_EN, @class = "description-en" })
+            @Html.ValidationMessageFor(model => model.Company.DescriptionLongEN)
+            @Html.TextAreaFor(model => model.Company.DescriptionLongFR, new { @placeholder = Global.Manage_AddStore_Description_Long_FR, @class = "description-fr" })
+            @Html.ValidationMessageFor(model => model.Company.DescriptionLongFR)
+            @Html.TextAreaFor(model => model.Company.DescriptionLongDE, new { @placeholder = Global.Manage_AddStore_Description_Long_DE, @class = "description-de" })
+            @Html.ValidationMessageFor(model => model.Company.DescriptionLongDE)
+        </div>
+
+        <input type="submit" value="@Global.Manage_AddStore_Submit" />
+    }
+</section>
+
+<datalist id="list-manage-addstore-cities">
     <select>
         <option id="0" value="Prefill item"></option>
     </select>
 </datalist>
 
 <script>
-    $(document).ready(function () {
-        initGMaps();
+    document.addEventListener('DOMContentLoaded', function (event) {
+        switchDescriptions('nl');
+
+        document.getElementById('list-manage-addstore-cities').innerHTML = null;
+
+        document.getElementById('manage-addstore-city').addEventListener('input', function () {
+            loadCities(this.value);
+        });
+
+        document.getElementById('description-nl').addEventListener('click', function () {
+            switchDescriptions('nl');
+        });
+
+        document.getElementById('description-en').addEventListener('click', function () {
+            switchDescriptions('en');
+        });
+
+        document.getElementById('description-fr').addEventListener('click', function () {
+            switchDescriptions('fr');
+        });
+
+        document.getElementById('description-de').addEventListener('click', function () {
+            switchDescriptions('de');
+        });
+
+        document.getElementById('manage-addstore-company-avatar').addEventListener('change', function () {
+            var url = window.URL.createObjectURL(this.files[0]);
+            document.getElementById('manage-addstore-company-avatar-preview').src = url;
+        });
+
+        document.getElementById('manage-addstore-florist-avatar').addEventListener('change', function () {
+            var url = window.URL.createObjectURL(this.files[0]);
+            document.getElementById('manage-addstore-florist-avatar-preview').src = url;
+        });
+
+        document.getElementById('manage-addstore-company-images').addEventListener('change', function () {
+            var imageList = document.getElementById('manage-addstore-company-images-list'),
+                output = "";
+
+            for (var i = 0; i < this.files.length; i++) {
+                output += "<li>" + this.files[i].name + "</li>";
+            }
+
+            imageList.innerHTML = output;
+        });
     });
 
-    function initGMaps() {
-        geocoder = new google.maps.Geocoder();
-        var myLatLng = new google.maps.LatLng(@latitude@Html.Raw(",")@longitude);
-        var mapOptions = {
-            zoom: 14,
-            center: myLatLng
+    function loadCities(name) {
+        if (name.length < 3) {
+            document.getElementById('list-manage-addstore-cities').innerHTML = null;
         }
-        map = new google.maps.Map(document.getElementById("add-store-map-canvas"), mapOptions);
+        else if (name.length == 3) {
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 && request.status == 200) {
+                    insertCitiesIntoDatalist(JSON.parse(request.responseText));
+                }
+            };
+            request.open("GET", "/api/cities?city=" + name, true);
+            request.send();
+        }
+    }
 
-        marker = new google.maps.Marker({
-            position: myLatLng,
-            map: map
-        });
+    function insertCitiesIntoDatalist(arr) {
+        var output = "";
+        for (var i = 0; i < arr.length; i++) {
+            output += "<option id='" + arr[i].ID + "' value='" + arr[i].City + "'></option>";
+        }
+        document.getElementById('list-manage-addstore-cities').innerHTML = output;
+    }
+
+    function switchDescriptions(lang) {
+        var selector = 'description-' + lang,
+            textareas = document.querySelectorAll('textarea');
+
+        for (var i = 0; i < textareas.length; i++) {
+            textareas[i].classList.add('description-hidden');
+
+            if (textareas[i].className.substring(12, 14) == lang) {
+                textareas[i].classList.remove('description-hidden');
+            }
+        }
     }
 </script>

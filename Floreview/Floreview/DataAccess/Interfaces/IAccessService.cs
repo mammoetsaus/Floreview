@@ -10,33 +10,37 @@ namespace Floreview.DataAccess.Interfaces
 {
     public interface IAccessService
     {
-        List<Location> GetLocationsAutocomplete(String query);
-
-        List<Company> GetCompaniesSearchName(String name);
-
-        List<Company> GetCompaniesSearchCity(String city);
-
-        List<Company> GetCompaniesSearchBoth(String name, String city);
-
-        Location GetLocationByCityName(String query);
-
-        List<Company> GetCompaniesMainCity(String main, String city, int region);
-
-        Company GetCompanyByID(int id);
+        List<Blog> GetLatestBlogs(int amount);
 
         List<Company> GetAllCompanies();
 
-        List<Company> GetCompaniesManage(String filter, int sort);
+        Company GetCompanyByID(int ID);
 
-        int InsertCompany(Company c);
+        Company InsertCompany(Company company);
 
-        void UpdateCompany(Company c);
+        void UpdateCompany(Company company);
 
         void DeleteCompany(Company c);
+        
+        List<Company> GetCompaniesByCompanyName(String company);
+
+        List<Company> GetCompaniesByCityName(String city);
+
+        List<Company> GetCompaniesByCompanyAndCity(String company, String city);
+
+        List<Company> GetCompaniesByFilterAndSortMethod(String filter, int sort);
+
+        void DeleteFlorist(Florist florist);
+
+        List<Location> GetLocationsByQuery(String query);
+
+        Location GetLocationByCityName(String city);
+
+
+
+        List<Company> GetCompaniesMainCity(String main, String city, int region);
 
         List<Blog> GetAllBlogs();
-
-        List<Blog> GetMostRecentBlogs();
 
         List<Blog> GetNextRangeOfBlogs(BlogVM model, int blockSize);
 
@@ -44,6 +48,5 @@ namespace Floreview.DataAccess.Interfaces
 
         Dictionary<DateTime, int> GetDatesForSideBlog();
 
-        List<CompanyLocation> GetAllCompanyLocationsByLocationID(int ID);
     }
 }

@@ -1,9 +1,9 @@
-section.home-promotion-blogs, section.search-information, section.search-information div, section.search-results, section.search-nearby-results, section.detail-profile, section.manage-store-information, footer {
+section.home-promotion-blogs, section.search-information, section.search-information div, section.search-results, section.search-nearby-results, section.detail-profile, section.manage-store-information, section.manage-addstore-container, section.manage-addstore-container form div ul, footer {
   *zoom: 1; }
-  section.home-promotion-blogs:before, section.search-information:before, section.search-information div:before, section.search-results:before, section.search-nearby-results:before, section.detail-profile:before, section.manage-store-information:before, footer:before, section.home-promotion-blogs:after, section.search-information:after, section.search-information div:after, section.search-results:after, section.search-nearby-results:after, section.detail-profile:after, section.manage-store-information:after, footer:after {
+  section.home-promotion-blogs:before, section.search-information:before, section.search-information div:before, section.search-results:before, section.search-nearby-results:before, section.detail-profile:before, section.manage-store-information:before, section.manage-addstore-container:before, section.manage-addstore-container form div ul:before, footer:before, section.home-promotion-blogs:after, section.search-information:after, section.search-information div:after, section.search-results:after, section.search-nearby-results:after, section.detail-profile:after, section.manage-store-information:after, section.manage-addstore-container:after, section.manage-addstore-container form div ul:after, footer:after {
     content: " ";
     display: table; }
-  section.home-promotion-blogs:after, section.search-information:after, section.search-information div:after, section.search-results:after, section.search-nearby-results:after, section.detail-profile:after, section.manage-store-information:after, footer:after {
+  section.home-promotion-blogs:after, section.search-information:after, section.search-information div:after, section.search-results:after, section.search-nearby-results:after, section.detail-profile:after, section.manage-store-information:after, section.manage-addstore-container:after, section.manage-addstore-container form div ul:after, footer:after {
     clear: both; }
 
 * {
@@ -19,7 +19,7 @@ html {
 body {
   background-color: #f3f3f3; }
 
-.content-container, section.login, section.home-promotion-blogs, article.home-promotion-about, section.search-information, section.search-results, section.search-nearby-results, section.detail-profile, section.manage-store-information, section.manage-store-list, footer {
+.content-container, section.login, section.home-promotion-blogs, article.home-promotion-about, section.search-information, section.search-results, section.search-nearby-results, section.detail-profile, section.manage-store-information, section.manage-store-list, section.manage-addstore-container, footer {
   display: block;
   width: 1024px;
   margin: 0 auto; }
@@ -54,6 +54,8 @@ header {
         font-family: latoregular, sans-serif;
         font-size: 20px;
         line-height: 48px; }
+      header nav ul li a:focus, header nav ul li section.search-results div a svg:focus, section.search-results div a header nav ul li svg:focus, header nav ul li section.search-nearby-results div a svg:focus, section.search-nearby-results div a header nav ul li svg:focus {
+        outline: none; }
     header nav ul li:last-of-type {
       float: right;
       margin: 0; }
@@ -91,6 +93,8 @@ header {
         line-height: 32px; }
       header section.menu-admin ul li a:hover, header section.menu-admin ul li section.search-results div a svg:hover, section.search-results div a header section.menu-admin ul li svg:hover, header section.menu-admin ul li section.search-nearby-results div a svg:hover, section.search-nearby-results div a header section.menu-admin ul li svg:hover {
         text-decoration: underline; }
+      header section.menu-admin ul li a:focus, header section.menu-admin ul li section.search-results div a svg:focus, section.search-results div a header section.menu-admin ul li svg:focus, header section.menu-admin ul li section.search-nearby-results div a svg:focus, section.search-nearby-results div a header section.menu-admin ul li svg:focus {
+        outline: none; }
   header section.home-search-container {
     position: relative;
     width: 100%;
@@ -572,6 +576,120 @@ section.manage-store-list {
           fill: #f24730; }
       section.manage-store-list div.store-profile ul li a:focus, section.manage-store-list section.search-results div.store-profile ul li a svg:focus, section.search-results section.manage-store-list div.store-profile ul li a svg:focus, section.manage-store-list section.search-results div.store-profile a ul li svg:focus, section.search-results section.manage-store-list div.store-profile a ul li svg:focus, section.manage-store-list section.search-nearby-results div.store-profile ul li a svg:focus, section.search-nearby-results section.manage-store-list div.store-profile ul li a svg:focus, section.manage-store-list section.search-nearby-results div.store-profile a ul li svg:focus, section.search-nearby-results section.manage-store-list div.store-profile a ul li svg:focus {
         outline: none; }
+
+section.manage-addstore-container {
+  margin-top: 30px; }
+  section.manage-addstore-container form div {
+    float: left;
+    width: 315px;
+    background-color: #ffffff;
+    border: 1px solid #e9e9e9;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 40px 0 0; }
+    section.manage-addstore-container form div h2 {
+      font-family: latoregular, sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: #333333;
+      text-transform: uppercase;
+      text-align: center;
+      border-bottom: 1px dashed #cccccc;
+      padding: 10px; }
+    section.manage-addstore-container form div ul {
+      margin: 10px; }
+      section.manage-addstore-container form div ul li {
+        float: left;
+        list-style: none;
+        font-family: latoregular, sans-serif;
+        text-align: center;
+        width: 60px;
+        height: 18px;
+        padding: 10px 0;
+        margin: 0 17px 0 0; }
+      section.manage-addstore-container form div ul li:last-of-type {
+        margin: 0; }
+      section.manage-addstore-container form div ul li:hover {
+        cursor: pointer;
+        color: #1f9b35; }
+    section.manage-addstore-container form div ul#manage-addstore-company-images-list li {
+      float: none;
+      list-style: disc;
+      padding: 5px 0;
+      margin: 0 0 0 20px; }
+    section.manage-addstore-container form div ul#manage-addstore-company-images-list li:hover {
+      color: #333333;
+      cursor: default; }
+    section.manage-addstore-container form div input[type="text"] {
+      width: 271px;
+      height: 18px;
+      font-family: latoregular, sans-serif;
+      font-size: 16px;
+      border: 1px solid #999999;
+      padding: 10px;
+      margin: 10px; }
+    section.manage-addstore-container form div input[type="text"]:focus {
+      outline: 0;
+      border: 1px solid #1f9b35; }
+    section.manage-addstore-container form div input[type="file"] {
+      width: 281px;
+      height: 18px;
+      border: 1px solid #999999;
+      padding: 8px 5px;
+      margin: 10px; }
+    section.manage-addstore-container form div input[type="file"]:focus {
+      outline: 0;
+      border: 1px solid #1f9b35; }
+    section.manage-addstore-container form div textarea {
+      width: 271px;
+      max-width: 271px;
+      height: 83px;
+      font-family: latoregular, sans-serif;
+      font-size: 16px;
+      border: 1px solid #999999;
+      padding: 10px;
+      margin: 10px; }
+    section.manage-addstore-container form div textarea:nth-child(n+10) {
+      height: 148px; }
+    section.manage-addstore-container form div textarea:focus {
+      outline: 0;
+      border: 1px solid #1f9b35; }
+    section.manage-addstore-container form div textarea.description-hidden {
+      display: none; }
+    section.manage-addstore-container form div img {
+      width: 295px;
+      margin: 10px; }
+    section.manage-addstore-container form div span.field-validation-error {
+      display: block;
+      width: 293px;
+      font-family: latoregular, sans-serif;
+      font-size: 14px;
+      color: #e84340;
+      padding: 0 10px;
+      margin: 0 0 5px 0; }
+  section.manage-addstore-container form div:nth-of-type(2) {
+    margin: 0 39px 0 0; }
+  section.manage-addstore-container form div:nth-of-type(3) {
+    margin: 0; }
+  section.manage-addstore-container form div.validation-summary-errors {
+    display: none; }
+  section.manage-addstore-container form input[type="submit"] {
+    float: left;
+    width: 315px;
+    height: 40px;
+    font-family: latoregular, sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #1f9b35;
+    border: none;
+    margin: 25px 0 0 0; }
+  section.manage-addstore-container form input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: #197f25; }
+  section.manage-addstore-container form input[type="submit"]:focus {
+    outline: 0; }
 
 footer {
   margin-top: 60px;

@@ -20,11 +20,12 @@ namespace Floreview.DataAccess.Repositories
             
         }
 
-        public IEnumerable<Location> GetLocationsAutocomplete(String query)
+        public IEnumerable<Location> GetLocationsByQuery(String query)
         {
             var result = (from l in context.Location.Where(i => i.City.StartsWith(query)) select l).OrderBy(n => n.City);
             return result.ToList<Location>();
         }
+
 
         public Location GetLocationByCityName(string query)
         {

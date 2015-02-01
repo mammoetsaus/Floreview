@@ -8,7 +8,6 @@ namespace Floreview.ViewModels
 {
     public class BlogVM
     {
-        #region Fields & Props
         public int BlockNumber { get; set; }
 
         public String Author { get; set; }
@@ -24,6 +23,5 @@ namespace Floreview.ViewModels
         public int[] CategoryFrequencies { get; set; }
 
         public Dictionary<DateTime, int> Dates { get; set; }
-        #endregion
     }
 }

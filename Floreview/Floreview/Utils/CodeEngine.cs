@@ -9,11 +9,8 @@ namespace Floreview.Utils
 {
     public class CodeEngine
     {
-        #region Fields & Props
         private const int LENGTH = 4;
-        #endregion
 
-        #region Functions
         public String GenerateRandomCode()
         {
             StringBuilder builder = new StringBuilder(LENGTH);
@@ -48,6 +45,5 @@ namespace Floreview.Utils
 
             return chars.ToCharArray();
         }
-        #endregion
     }
 }

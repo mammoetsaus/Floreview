@@ -1,4 +1,5 @@
 ﻿using Floreview.DataAccess.Interfaces;
+using Floreview.DataAccess.Repositories;
 using Floreview.Models;
 using Floreview.ViewModels;
 using System;
@@ -20,56 +21,27 @@ namespace Floreview.DataAccess.Services
 
         private IBlogCategory _blogTypeRepository = null;
 
-        private ICompanyLocation _companyLocationRepository = null;
+        private IGeneric<Florist> _floristRepository = null;
 
         public AccessService()
         {
 
         }
 
-        public AccessService(IUnitOfWork uow, ILocation locationRepo, ICompany companyRepo, IBlog blogRepo, IBlogCategory blogTypeRepo, ICompanyLocation compantyLocationRepo)
+        public AccessService(IUnitOfWork uow, ILocation locationRepo, ICompany companyRepo, IBlog blogRepo, IBlogCategory blogTypeRepo, GenericRepository<Florist> floristRepo)
         {
             _uow = uow;
             _locationRepository = locationRepo;
             _companyRepository = companyRepo;
             _blogRepository = blogRepo;
             _blogTypeRepository = blogTypeRepo;
-            _companyLocationRepository = compantyLocationRepo;
+            _floristRepository = floristRepo;
         }
 
-        public List<Location> GetLocationsAutocomplete(String query)
-        {
-            return _locationRepository.GetLocationsAutocomplete(query).ToList<Location>();
-        }
 
-        public List<Company> GetCompaniesSearchName(string name)
+        public List<Blog> GetLatestBlogs(int amount)
         {
-            return _companyRepository.GetCompaniesSearchName(name).ToList<Company>();
-        }
-
-        public List<Company> GetCompaniesSearchCity(string city)
-        {
-            return _companyRepository.GetCompaniesSearchCity(city).ToList<Company>();
-        }
-
-        public List<Company> GetCompaniesSearchBoth(string name, string city)
-        {
-            return _companyRepository.GetCompaniesSearchBoth(name, city).ToList<Company>();
-        }
-
-        public Location GetLocationByCityName(string query)
-        {
-            return _locationRepository.GetLocationByCityName(query);
-        }
-
-        public List<Company> GetCompaniesMainCity(string main, string city, int region)
-        {
-            return _companyRepository.GetCompaniesMainCity(main, city, region).ToList<Company>();
-        }
-
-        public Company GetCompanyByID(int id)
-        {
-            return _companyRepository.GetCompanyByID(id);
+            return _blogRepository.GetLatestBlogs(amount).ToList<Blog>();
         }
 
         public List<Company> GetAllCompanies()
@@ -77,7 +49,47 @@ namespace Floreview.DataAccess.Services
             return _companyRepository.All().ToList<Company>();
         }
 
-        public List<Company> GetCompaniesManage(string filter, int sort)
+        public Company GetCompanyByID(int ID)
+        {
+            return _companyRepository.GetCompanyByID(ID);
+        }
+
+        public Company InsertCompany(Company company)
+        {
+            Company result = _companyRepository.Insert(company);
+            _uow.SaveChanges();
+
+            return result;
+        }
+
+        public void UpdateCompany(Company company)
+        {
+            _companyRepository.Update(company);
+            _uow.SaveChanges();
+        }
+
+        public void DeleteCompany(Company company)
+        {
+            _companyRepository.Delete(company);
+            _uow.SaveChanges();
+        }
+
+        public List<Company> GetCompaniesByCompanyName(String company)
+        {
+            return _companyRepository.GetCompaniesByCompanyName(company).ToList<Company>();
+        }
+
+        public List<Company> GetCompaniesByCityName(String city)
+        {
+            return _companyRepository.GetCompaniesByCityName(city).ToList<Company>();
+        }
+
+        public List<Company> GetCompaniesByCompanyAndCity(String company, String city)
+        {
+            return _companyRepository.GetCompaniesByCompanyAndCity(company, city).ToList<Company>();
+        }
+
+        public List<Company> GetCompaniesByFilterAndSortMethod(String filter, int sort)
         {
             List<Company> lstCompanies = null;
 
@@ -87,7 +99,7 @@ namespace Floreview.DataAccess.Services
             }
             else
             {
-                lstCompanies = _companyRepository.GetCompaniesSearchCity(filter).ToList<Company>();
+                lstCompanies = _companyRepository.GetCompaniesByCityName(filter).ToList<Company>();
             }
 
             switch (sort)
@@ -95,42 +107,39 @@ namespace Floreview.DataAccess.Services
                 case 1:
                     return lstCompanies.OrderBy(o => o.Name).ToList<Company>();
                 case 2:
-                    return lstCompanies.OrderBy(o => o.Location.City).ToList<Company>();
+                    return lstCompanies.OrderBy(o => o.Location.City).ThenBy(o => o.Name).ToList<Company>();
                 case 3:
-                    return lstCompanies.OrderBy(o => o.Location.Province.Name).ToList<Company>();
+                    return lstCompanies.OrderBy(o => o.Location.Province.Name).ThenBy(o => o.Name).ToList<Company>();
                 default:
-                    return lstCompanies.OrderByDescending(o => o.ID).ToList<Company>();
+                    return lstCompanies.OrderByDescending(o => o.ID).ThenBy(o => o.Name).ToList<Company>();
             }
         }
 
-        public int InsertCompany(Company c)
+        public void DeleteFlorist(Florist florist)
         {
-            Company company = _companyRepository.Insert(c);
-            _uow.SaveChanges();
-
-            return company.ID;
-        }
-
-        public void UpdateCompany(Company c)
-        {
-            _companyRepository.Update(c);
+            _floristRepository.Delete(florist);
             _uow.SaveChanges();
         }
 
-        public void DeleteCompany(Company c)
+        public List<Location> GetLocationsByQuery(String query)
         {
-            _companyRepository.Delete(c);
-            _uow.SaveChanges();
+            return _locationRepository.GetLocationsByQuery(query).ToList<Location>();
+        }
+
+        public Location GetLocationByCityName(String city)
+        {
+            return _locationRepository.GetLocationByCityName(city);
+        }
+
+
+        public List<Company> GetCompaniesMainCity(string main, string city, int region)
+        {
+            return _companyRepository.GetCompaniesMainCity(main, city, region).ToList<Company>();
         }
 
         public List<Blog> GetAllBlogs()
         {
             return _blogRepository.All().ToList<Blog>();
-        }
-
-        public List<Blog> GetMostRecentBlogs()
-        {
-            return _blogRepository.GetMostRecentBlogs().ToList<Blog>();
         }
 
         public List<Blog> GetNextRangeOfBlogs(BlogVM model, int blockSize)
@@ -190,11 +199,6 @@ namespace Floreview.DataAccess.Services
             }
 
             return dictFinalDates;
-        }
-
-        public List<CompanyLocation> GetAllCompanyLocationsByLocationID(int ID)
-        {
-            return _companyLocationRepository.GetAllCompanyLocationsByLocationID(ID).ToList<CompanyLocation>();
         }
     }
 }

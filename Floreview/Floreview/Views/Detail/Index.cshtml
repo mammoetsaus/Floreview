@@ -8,6 +8,30 @@
         className = "admin";
     }
 
+    var contentDescriptionLong = "";
+    var languageCookie = Request.Cookies["floreview_language_cookie"];
+    if (languageCookie != null && !String.IsNullOrEmpty(languageCookie.Value))
+    {
+        switch (languageCookie.Value)
+        {
+            case "nl":
+                contentDescriptionLong = Model.Company.DescriptionLongNL;
+                break;
+            case "en":
+                contentDescriptionLong = Model.Company.DescriptionLongEN;
+                break;
+            case "fr":
+                contentDescriptionLong = Model.Company.DescriptionLongFR;
+                break;
+            case "de":
+                contentDescriptionLong = Model.Company.DescriptionLongDE;
+                break;
+            default:
+                contentDescriptionLong = Model.Company.DescriptionLongNL;
+                break;
+        }
+    }
+
     var latitude = Model.Company.Coordinates.Latitude.ToString().Replace(',', '.');
     var longitude = Model.Company.Coordinates.Longitude.ToString().Replace(',', '.');
     var googleMapsPoint = latitude + ',' + longitude;
@@ -49,7 +73,7 @@
 <section class="detail-profile">
     <div class="detail-profile-left">
         <h1>@Model.Company.Name</h1>
-        <p>@Model.Company.DescriptionLong</p>
+        <p>@contentDescriptionLong</p>
 
         <div class="detail-profile-pictures">
             <ul>
@@ -67,9 +91,8 @@
                             {
                                 if (counter < 4)
                                 {
-                                    String url = "http://floreview.blob.core.windows.net/profiles/{0}.jpg";
                                     <li>
-                                        <img src="@String.Format(url, image)" alt="@Model.Company.Name" />
+                                        <img src="@image" alt="@Model.Company.Name" />
                                     </li>
                     
                                     counter++;

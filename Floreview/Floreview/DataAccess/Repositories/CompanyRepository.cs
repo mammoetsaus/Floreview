@@ -15,23 +15,24 @@ namespace Floreview.DataAccess.Repositories
 
         }
 
-        public IEnumerable<Company> GetCompaniesSearchName(string name)
+        public IEnumerable<Company> GetCompaniesByCompanyName(String company)
         {
-            var result = (from c in context.Company.Where(i => i.Name.Contains(name)) select c);
+            var result = (from c in context.Company.Where(i => i.Name.Contains(company) || i.Florist.FirstName.Contains(company) || i.Florist.LastName.Contains(company)) select c);
             return result.ToList<Company>();
         }
 
-        public IEnumerable<Company> GetCompaniesSearchCity(string city)
+        public IEnumerable<Company> GetCompaniesByCityName(String city)
         {
             var result = (from c in context.Company.Where(i => i.Location.City.Contains(city)) select c);
             return result.ToList<Company>();
         }
 
-        public IEnumerable<Company> GetCompaniesSearchBoth(string name, string city)
+        public IEnumerable<Company> GetCompaniesByCompanyAndCity(String company, String city)
         {
-            var result = (from c in context.Company.Where(i => (i.Name.Contains(name) || i.Florist.FirstName.Contains(name) || i.Florist.LastName.Contains(name)) && (i.Location.City.Contains(city))) select c);
+            var result = (from c in context.Company.Where(i => (i.Name.Contains(company) || i.Florist.FirstName.Contains(company) || i.Florist.LastName.Contains(company)) && (i.Location.City.Contains(city))) select c);
             return result.ToList<Company>();
         }
+
 
         public IEnumerable<Company> GetCompaniesMainCity(string main, string city, int region)
         {

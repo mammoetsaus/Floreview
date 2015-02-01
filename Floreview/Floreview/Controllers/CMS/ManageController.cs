@@ -1,5 +1,6 @@
 ﻿using Floreview.DataAccess.Interfaces;
 using Floreview.Models;
+using Floreview.Resources;
 using Floreview.Utils;
 using Floreview.ViewModels.CMS;
 using Microsoft.WindowsAzure.Storage.Blob;
@@ -40,343 +41,154 @@ namespace Floreview.Controllers.CMS
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddStore(StoreVM model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                model.Company.Coordinates = GeocodingEngine.GetLatLongFromAddress(String.Format("{0}, {1}", model.Company.Location.City, model.Company.Address));
+                model.Company.Location = _accessService.GetLocationByCityName(model.Company.Location.City);
+                model.Company.Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg";
+                model.Company.Florist.ImagePath = "http://floreview.blob.core.windows.net/profiles/profile_florist_default.jpg";
+                Company insertedCompany = _accessService.InsertCompany(model.Company);
+
+                #region Company Avatar
+                if (model.CompanyAvatar != null)
                 {
-                    model.Company.Location = _accessService.GetLocationByCityName(model.Company.Location.City);
-                    model.Company.Coordinates = DbGeography.FromText("POINT(" + model.LongitudeRAW + " " + model.LatitudeRAW + ")");
-                    model.Company.Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg";
-                    model.Company.Florist.ImagePath = "http://floreview.blob.core.windows.net/profiles/profile_florist_default.jpg";
-                    int id = _accessService.InsertCompany(model.Company);
-
-                    UploadImagesToStorage(model, id);
-
-
-                    return RedirectToAction("Store", "Manage");
+                    insertedCompany.Avatar = BlobStorageEngine.UploadCompanyAvatar(model.CompanyAvatar, insertedCompany);
                 }
                 else
                 {
-                    throw new ArgumentException();
+                    insertedCompany.Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg";
                 }
-            }
-            catch (ArgumentException)
-            {
-                System.Diagnostics.Debug.WriteLine("Bad variable");
-                //return RedirectToAction("AddStore", "Manage");
-                throw;
-            }
-            catch (Exception)
-            {
-                System.Diagnostics.Debug.WriteLine("Server error");
-                //return RedirectToAction("AddStore", "Manage");
-                throw;
-            }
-        }
+                #endregion
 
-        public ActionResult EditStore(int id)
-        {
-            try
-            {
-                StoreVM model = new StoreVM();
-
-                if (ModelState.IsValid)
+                #region Florist Avatar
+                if (model.FloristAvatar != null)
                 {
-                    if (id > 0)
-                    {
-                        Company company = _accessService.GetCompanyByID(id);
-
-                        if (company != null)
-                        {
-                            model.Company = company;
-
-                            return View(model);
-                        }
-                        else
-                        {
-                            throw new ArgumentException();
-                        }
-                    }
-                    else
-                    {
-                        throw new ArgumentException();
-                    }
+                    insertedCompany.Florist.ImagePath = BlobStorageEngine.UploadFloristAvatar(model.FloristAvatar, insertedCompany);
                 }
                 else
                 {
-                    throw new ArgumentException();
+                    insertedCompany.Florist.ImagePath = "http://floreview.blob.core.windows.net/profiles/profile_florist_default.jpg";
                 }
-            }
-            catch (ArgumentException)
-            {
+                #endregion
+
+                #region Imagelist
+                if (model.CompanyImages[0] != null)
+                {
+                    insertedCompany.ImageList = BlobStorageEngine.UploadCompanyImages(model.CompanyImages, insertedCompany);
+                }
+                #endregion
+
+                _accessService.UpdateCompany(insertedCompany);
+
                 return RedirectToAction("Store", "Manage");
             }
+
+            return View(model);
+        }
+
+        public ActionResult EditStore(int? id)
+        {
+            if (ModelState.IsValid)
+            {
+                if (id.HasValue && id > 0)
+                {
+                    Company company = _accessService.GetCompanyByID(id.Value);
+
+                    if (company != null)
+                    {
+                        StoreVM model = new StoreVM();
+                        model.Company = company;
+
+                        return View(model);
+                    }
+                }
+            }
+
+            return RedirectToAction("Store", "Manage");
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult EditStore(StoreVM model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                Company company = _accessService.GetCompanyByID(model.Company.ID);
+
+                company.Coordinates = GeocodingEngine.GetLatLongFromAddress(String.Format("{0}, {1}", model.Company.Location.City, model.Company.Address));
+                company.Location = _accessService.GetLocationByCityName(model.Company.Location.City);
+                company.Name = model.Company.Name;
+                company.Facebook = model.Company.Facebook;
+                company.Website = model.Company.Website;
+                company.Address = model.Company.Address;
+                company.Email = model.Company.Email;
+
+                company.Florist.FirstName = model.Company.Florist.FirstName;
+                company.Florist.LastName = model.Company.Florist.LastName;
+                company.Florist.Phone = model.Company.Florist.Phone;
+                company.Florist.Cellphone = model.Company.Florist.Cellphone;
+
+                company.DescriptionShortNL = model.Company.DescriptionShortNL;
+                company.DescriptionLongNL = model.Company.DescriptionLongNL;
+                company.DescriptionShortEN = model.Company.DescriptionShortEN;
+                company.DescriptionLongEN = model.Company.DescriptionLongEN;
+                company.DescriptionShortFR = model.Company.DescriptionShortFR;
+                company.DescriptionLongFR = model.Company.DescriptionLongFR;
+                company.DescriptionShortDE = model.Company.DescriptionShortDE;
+                company.DescriptionLongDE = model.Company.DescriptionLongDE;
+
+
+                #region Company Avatar
+                if (model.CompanyAvatar != null)
                 {
-                    model = UploadImagesToStorageEdit(model);
-
-                    Company update = _accessService.GetCompanyByID(model.Company.ID);
-                    update.Name = model.Company.Name;
-                    update.DescriptionShort = model.Company.DescriptionShort;
-                    update.DescriptionLong = model.Company.DescriptionLong;
-                    update.Facebook = model.Company.Facebook;
-                    update.Website = model.Company.Website;
-                    update.Email = model.Company.Email;
-                    update.Florist = model.Company.Florist;
-                    update.Avatar = model.Company.Avatar;
-                    update.ImageList = model.Company.ImageList;
-                    update.Location = _accessService.GetLocationByCityName(model.Company.Location.City);
-                    update.Address = model.Company.Address;
-                    update.Coordinates = DbGeography.FromText("POINT(" + model.LongitudeRAW + " " + model.LatitudeRAW + ")");
-
-
-                    _accessService.UpdateCompany(update);
-
-                    return RedirectToAction("Store", "Manage");
+                    company.Avatar = BlobStorageEngine.UploadCompanyAvatar(model.CompanyAvatar, company);
                 }
-                else
+                #endregion
+
+                #region Florist Avatar
+                if (model.FloristAvatar != null)
                 {
-                    throw new ArgumentException();
+                    company.Florist.ImagePath = BlobStorageEngine.UploadFloristAvatar(model.FloristAvatar, company);
                 }
+                #endregion
+
+                #region Imagelist
+                if (model.CompanyImages[0] != null)
+                {
+                    company.ImageList = BlobStorageEngine.UpdateCompanyImages(model.CompanyImages, company);
+                }
+                #endregion
+
+                _accessService.UpdateCompany(company);
+
+                return RedirectToAction("Store", "Manage");
             }
-            catch (ArgumentException)
-            {
-                System.Diagnostics.Debug.WriteLine("Bad variable");
-                //return RedirectToAction("AddStore", "Manage");
-                throw;
-            }
-            catch (Exception)
-            {
-                System.Diagnostics.Debug.WriteLine("Server error");
-                //return RedirectToAction("AddStore", "Manage");
-                throw;
-            }
+
+            return View(model);
         }
 
-        public ActionResult DeleteStore(int id)
+        public ActionResult DeleteStore(int? id)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                if (id.HasValue && id > 0)
                 {
-                    if (id > 0)
+                    Company company = _accessService.GetCompanyByID(id.Value);
+
+                    if (company != null)
                     {
-                        Company company = _accessService.GetCompanyByID(id);
+                        BlobStorageEngine.DeleteCompanyPhotos(company);
 
-                        if (company != null)
-                        {
-                            DeleteImagesFromStorage(company);
-
-                            _accessService.DeleteCompany(company);
-
-                            return RedirectToAction("Store", "Manage");
-                        }
-                        else
-                        {
-                            throw new ArgumentException();
-                        }
-                    }
-                    else
-                    {
-                        throw new ArgumentException();
-                    }
-                }
-                else
-                {
-                    throw new ArgumentException();
-                }
-            }
-            catch (ArgumentException)
-            {
-                System.Diagnostics.Debug.WriteLine("Bad variable");
-                //return RedirectToAction("Store", "Manage");
-                throw;
-            }
-            catch (Exception)
-            {
-                System.Diagnostics.Debug.WriteLine("Server error");
-                throw;
-            }
-        }
-
-        private void UploadImagesToStorage(StoreVM model, int id)
-        {
-            BlobStorageEngine storageEngine = new BlobStorageEngine();
-
-            #region Company Avatar
-            if (model.CompanyAvatar != null)
-            {
-                // upload picture
-                String filename = "profile_" + id + "_store.jpg";
-                String companyAvatarURL = storageEngine.UploadImageToStorage(model.CompanyAvatar, filename, "profiles");
-
-                if (!String.IsNullOrEmpty(companyAvatarURL))
-                {
-                    model.Company.Avatar = companyAvatarURL;
-                }
-                else
-                {
-                    // upload failed -> set default avatar;
-                    model.Company.Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg";
-                }
-            }
-            else
-            {
-                // no image selected -> set default avatar;
-                model.Company.Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg";
-            }
-            #endregion
-
-            #region Florist Avatar
-            if (model.FloristAvatar != null)
-            {
-                // upload picture
-                String filename = "profile_" + id + "_florist.jpg";
-                String floristAvatarURL = storageEngine.UploadImageToStorage(model.FloristAvatar, filename, "profiles");
-
-                if (!String.IsNullOrEmpty(floristAvatarURL))
-                {
-                    model.Company.Florist.ImagePath = floristAvatarURL;
-                }
-                else
-                {
-                    model.Company.Florist.ImagePath = "http://floreview.blob.core.windows.net/profiles/profile_florist_default.jpg";
-                }
-            }
-            else
-            {
-                model.Company.Florist.ImagePath = "http://floreview.blob.core.windows.net/profiles/profile_florist_default.jpg";
-            }
-            #endregion
-
-            #region Company Images
-            if (model.CompanyImages[0] != null)
-            {
-                String imageList = "";
-
-                for (int i = 0; i < model.CompanyImages.Length; i++)
-                {
-                    // upload picture
-                    String filename = "profile_" + id + "_image_" + i + ".jpg";
-                    String imagePath = storageEngine.UploadImageToStorage(model.CompanyImages[i], filename, "profiles");
-
-                    imageList += imagePath + ";";
-                }
-
-                model.Company.ImageList = imageList;
-            }
-            else
-            {
-                model.Company.ImageList = null;
-            }
-            #endregion
-
-            _accessService.UpdateCompany(model.Company);
-        }
-
-        private StoreVM UploadImagesToStorageEdit(StoreVM model)
-        {
-            BlobStorageEngine storageEngine = new BlobStorageEngine();
-
-            #region Company Avatar
-            if (model.CompanyAvatar != null)
-            {
-                // upload picture
-                String filename = "profile_" + model.Company.ID + "_store.jpg";
-                String companyAvatarURL = storageEngine.UploadImageToStorage(model.CompanyAvatar, filename, "profiles");
-
-                if (!String.IsNullOrEmpty(companyAvatarURL))
-                {
-                    model.Company.Avatar = companyAvatarURL;
-                }
-                else
-                {
-                    // upload failed -> set default avatar;
-                    model.Company.Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg";
-                }
-            }
-            #endregion
-
-            #region Florist Avatar
-            if (model.FloristAvatar != null)
-            {
-                // upload picture
-                String filename = "profile_" + model.Company.ID + "_florist.jpg";
-                String floristAvatarURL = storageEngine.UploadImageToStorage(model.FloristAvatar, filename, "profiles");
-
-                if (!String.IsNullOrEmpty(floristAvatarURL))
-                {
-                    model.Company.Florist.ImagePath = floristAvatarURL;
-                }
-                else
-                {
-                    model.Company.Florist.ImagePath = "http://floreview.blob.core.windows.net/profiles/profile_florist_default.jpg";
-                }
-            }
-            #endregion
-
-            #region Company Images
-            if (model.CompanyImages[0] != null)
-            {
-                List<CloudBlockBlob> lstBlobs = storageEngine.GetAllBlobs("profiles");
-                foreach (CloudBlockBlob blob in lstBlobs)
-                {
-                    if (blob.Name.Contains("profile_" + model.Company.ID + "_image_"))
-                    {
-                        // delete images related to company
-                        storageEngine.DeleteImageFromStorage(blob.Name, "profiles");
-                    }
-                }
-
-                String imageList = "";
-
-                for (int i = 0; i < model.CompanyImages.Length; i++)
-                {
-                    // upload pictures
-                    String filename = "profile_" + model.Company.ID + "_image_" + i + ".jpg";
-                    String imagePath = storageEngine.UploadImageToStorage(model.CompanyImages[i], filename, "profiles");
-
-                    imageList += imagePath + ";";
-                }
-
-                model.Company.ImageList = imageList;
-            }
-            #endregion
-
-            return model;
-        }
-
-        private void DeleteImagesFromStorage(Company c)
-        {
-            BlobStorageEngine storageEngine = new BlobStorageEngine();
-
-            String storeAvatarFilename = "profile_" + c.ID + "_store.jpg";
-            String storeFloristFilename = "profile_" + c.ID + "_florist.jpg";
-
-            if (!String.IsNullOrEmpty(c.ImageList))
-            {
-                String[] split = c.ImageList.Split(';');
-                foreach (String image in split)
-                {
-                    if (!String.IsNullOrEmpty(image))
-                    {
-                        String[] imageSplit = image.Split('/');
-                        storageEngine.DeleteImageFromStorage(imageSplit[4], "profiles");
+                        _accessService.DeleteFlorist(company.Florist);
+                        _accessService.DeleteCompany(company);
                     }
                 }
             }
 
-            storageEngine.DeleteImageFromStorage(storeAvatarFilename, "profiles");
-            storageEngine.DeleteImageFromStorage(storeFloristFilename, "profiles");
+            return RedirectToAction("Store", "Manage");
         }
     }
 }

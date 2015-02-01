@@ -8,10 +8,8 @@ namespace Floreview.ViewModels
 {
     public class IndexSearchVM
     {
-        #region Fields & Props
         public String Name { get; set; }
 
         public String City { get; set; }
-        #endregion
     }
 }

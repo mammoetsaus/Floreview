@@ -30,8 +30,6 @@ namespace Floreview.DataAccess.Context
 
         public DbSet<Blog> Blog { get; set; }
 
-        public DbSet<CompanyLocation> CompanyLocation { get; set; }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             if (modelBuilder == null)

@@ -29,7 +29,7 @@ namespace Floreview.Controllers
         public ActionResult Index()
         {
             IndexVM model = new IndexVM();
-            model.Blogs = _accessService.GetMostRecentBlogs();
+            model.LatestBlogs = _accessService.GetLatestBlogs(3);
 
             return View(model);
         }

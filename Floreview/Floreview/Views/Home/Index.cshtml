@@ -53,12 +53,12 @@
     </section>
 </header>
 
-@if (Model.Blogs.Count > 0)
+@if (Model.LatestBlogs.Count > 0)
 {
     <section class="home-promotion-blogs">
         <h2>@Global.Home_Blog_Promotion_Title</h2>
 
-        @foreach (var item in Model.Blogs)
+        @foreach (var item in Model.LatestBlogs)
         {
             <article>
                 <img src="@item.Avatar" alt="@item.Title" />

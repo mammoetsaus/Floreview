@@ -20,13 +20,12 @@ namespace Floreview.DataAccess.Repositories
 
         }
 
-        public IEnumerable<Blog> GetMostRecentBlogs()
+        public IEnumerable<Blog> GetLatestBlogs(int amount)
         {
-            // argument 1: select only available blogs (not future blogs)
-            // argument 2: order by timestamp
-            var result = (from b in context.Blog.Where(i => i.Timestamp <= DateTime.Now) select b).OrderByDescending(i => i.Timestamp).Take(3);
+            var result = (from b in context.Blog.Where(i => i.Timestamp <= DateTime.Now) select b).OrderByDescending(i => i.Timestamp).Take(amount);
             return result.ToList<Blog>();
         }
+
 
         public IEnumerable<Blog> GetNextRangeOfBlogs(int blockNumber, int blockSize)
         {

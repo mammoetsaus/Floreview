@@ -9,7 +9,8 @@ namespace Floreview.DataAccess.Interfaces
 {
     public interface IBlog : IGeneric<Blog>
     {
-        IEnumerable<Blog> GetMostRecentBlogs();
+        IEnumerable<Blog> GetLatestBlogs(int amount);
+
 
         IEnumerable<Blog> GetNextRangeOfBlogs(int blockNumber, int blockSize);
 

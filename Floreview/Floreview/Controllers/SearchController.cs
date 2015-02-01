@@ -41,46 +41,25 @@ namespace Floreview.Controllers
 
                     if (!String.IsNullOrEmpty(model.Name) && String.IsNullOrEmpty(model.City))
                     {
-                        result.Companies = _accessService.GetCompaniesSearchName(model.Name);
+                        result.Companies = _accessService.GetCompaniesByCompanyName(model.Name);
                         ViewBag.Name = model.Name;
                         ViewBag.City = "-";
                     }
                     else if (String.IsNullOrEmpty(model.Name) && !String.IsNullOrEmpty(model.City))
                     {
-                        result.Companies = _accessService.GetCompaniesSearchCity(model.City);
+                        result.Companies = _accessService.GetCompaniesByCityName(model.City);
                         ViewBag.Name = "-";
                         ViewBag.City = model.City;
                     }
                     else if (!String.IsNullOrEmpty(model.Name) && !String.IsNullOrEmpty(model.City))
                     {
-                        result.Companies = _accessService.GetCompaniesSearchBoth(model.Name, model.City);
+                        result.Companies = _accessService.GetCompaniesByCompanyAndCity(model.Name, model.City);
                         ViewBag.Name = model.Name;
                         ViewBag.City = model.City;
                     }
                     else
                     {
                         throw new ArgumentException();
-                    }
-
-                    if (!String.IsNullOrEmpty(model.City))
-                    {
-                        result.NearbyCompanies = new List<Company>();
-                        Location searchedLocation = _accessService.GetLocationByCityName(model.City);
-
-                        if (searchedLocation != null)
-                        {
-                            List<CompanyLocation> companyLocations = _accessService.GetAllCompanyLocationsByLocationID(searchedLocation.ID);
-
-                            if (companyLocations != null && companyLocations.Count > 0)
-                            {
-                                companyLocations.ForEach(i => result.NearbyCompanies.Add(i.Company));
-                            }
-                        }
-                        else
-                        {
-                            throw new ArgumentException();
-                        }
-
                     }
 
                     ViewBag.NumberOfCompanies = result.Companies.Count;

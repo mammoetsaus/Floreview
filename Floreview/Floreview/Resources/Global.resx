@@ -180,6 +180,114 @@
   <data name="Login_Validation_Message" xml:space="preserve">
     <value>Inloggegevens niet correct.</value>
   </data>
+  <data name="Manage_AddStore_Address_Error" xml:space="preserve">
+    <value>Gelieve een adres in te vullen.</value>
+  </data>
+  <data name="Manage_AddStore_Address_Placeholder" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="Manage_AddStore_City_Error" xml:space="preserve">
+    <value>Gelieve een gemeente in te vullen.</value>
+  </data>
+  <data name="Manage_AddStore_City_Placeholder" xml:space="preserve">
+    <value>Gemeente</value>
+  </data>
+  <data name="Manage_AddStore_Description_Long_DE" xml:space="preserve">
+    <value>Lange beschrijving (DE)</value>
+  </data>
+  <data name="Manage_AddStore_Description_Long_EN" xml:space="preserve">
+    <value>Lange beschrijving (EN)</value>
+  </data>
+  <data name="Manage_AddStore_Description_Long_FR" xml:space="preserve">
+    <value>Lange beschrijving (FR)</value>
+  </data>
+  <data name="Manage_AddStore_Description_Long_NL" xml:space="preserve">
+    <value>Lange beschrijving (NL)</value>
+  </data>
+  <data name="Manage_AddStore_Description_Short_DE" xml:space="preserve">
+    <value>Korte beschrijving (DE)</value>
+  </data>
+  <data name="Manage_AddStore_Description_Short_EN" xml:space="preserve">
+    <value>Korte beschrijving (EN)</value>
+  </data>
+  <data name="Manage_AddStore_Description_Short_FR" xml:space="preserve">
+    <value>Korte beschrijving (FR)</value>
+  </data>
+  <data name="Manage_AddStore_Description_Short_NL" xml:space="preserve">
+    <value>Korte beschrijving (NL)</value>
+  </data>
+  <data name="Manage_AddStore_Description_Title" xml:space="preserve">
+    <value>Beschrijving</value>
+  </data>
+  <data name="Manage_AddStore_Facebook_Error" xml:space="preserve">
+    <value>Gelieve een Facebook profiel in te vullen.</value>
+  </data>
+  <data name="Manage_AddStore_Facebook_Placeholder" xml:space="preserve">
+    <value>Facebook</value>
+  </data>
+  <data name="Manage_AddStore_Florist_Email_Error" xml:space="preserve">
+    <value>Gelieve een e-mail in te vullen.</value>
+  </data>
+  <data name="Manage_AddStore_Florist_Email_Placeholder" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Manage_AddStore_Florist_Email_REGEX_Error" xml:space="preserve">
+    <value>Gelieve een correct e-mail in te vullen.</value>
+  </data>
+  <data name="Manage_AddStore_Florist_FirstName_Error" xml:space="preserve">
+    <value>Gelieve een voornaam in te vullen.</value>
+  </data>
+  <data name="Manage_AddStore_Florist_FirstName_Length_Error" xml:space="preserve">
+    <value>Een voornaam heeft min. 2 en max. 35 karakters.</value>
+  </data>
+  <data name="Manage_AddStore_Florist_Firstname_Placeholder" xml:space="preserve">
+    <value>Voornaam</value>
+  </data>
+  <data name="Manage_AddStore_Florist_LastName_Error" xml:space="preserve">
+    <value>Gelieve een achternaam in te vullen.</value>
+  </data>
+  <data name="Manage_AddStore_Florist_LastName_Length_Error" xml:space="preserve">
+    <value>Een achternaam heeft min. 2 en max. 35 karakters.</value>
+  </data>
+  <data name="Manage_AddStore_Florist_Lastname_Placeholder" xml:space="preserve">
+    <value>Achternaam</value>
+  </data>
+  <data name="Manage_AddStore_Florist_Mobile_Placeholder" xml:space="preserve">
+    <value>GSM</value>
+  </data>
+  <data name="Manage_AddStore_Florist_Mobile_REGEX_Error" xml:space="preserve">
+    <value>Gelieve een correct GSM nummer in te vullen. (+324)</value>
+  </data>
+  <data name="Manage_AddStore_Florist_Phone_Placeholder" xml:space="preserve">
+    <value>Telefoon</value>
+  </data>
+  <data name="Manage_AddStore_Florist_Phone_REGEX_Error" xml:space="preserve">
+    <value>Gelieve een correct telefoonnummer in te vullen. (+329)</value>
+  </data>
+  <data name="Manage_AddStore_Florist_Title" xml:space="preserve">
+    <value>Florist</value>
+  </data>
+  <data name="Manage_AddStore_StoreName_Error" xml:space="preserve">
+    <value>Gelieve een naam in te vullen.</value>
+  </data>
+  <data name="Manage_AddStore_StoreName_Length_Error" xml:space="preserve">
+    <value>Een winkel heeft min. 2 en max. 30 karakters.</value>
+  </data>
+  <data name="Manage_AddStore_StoreName_Placeholder" xml:space="preserve">
+    <value>Naam</value>
+  </data>
+  <data name="Manage_AddStore_Store_Title" xml:space="preserve">
+    <value>Winkel</value>
+  </data>
+  <data name="Manage_AddStore_Submit" xml:space="preserve">
+    <value>Opslaan</value>
+  </data>
+  <data name="Manage_AddStore_Website_Error" xml:space="preserve">
+    <value>Gelieve een correcte website in te vullen.</value>
+  </data>
+  <data name="Manage_AddStore_Website_Placeholder" xml:space="preserve">
+    <value>Website</value>
+  </data>
   <data name="Manage_Store_Add" xml:space="preserve">
     <value>Toevoegen</value>
   </data>

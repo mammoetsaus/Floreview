@@ -119,8 +119,14 @@ namespace Floreview.Migrations
             {
                 Name = "Thomas' bloemenwinkel",
                 Address = "Boombosstraat 71",
-                DescriptionShort = "Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater synth Schlitz.",
-                DescriptionLong = "Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortNL = "NL - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongNL = "NL - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortEN = "EN - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongEN = "EN - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortFR = "FR - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongFR = "FR - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortDE = "DE - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongDE = "DE - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
                 Coordinates = DbGeography.FromText("POINT(3.920891 51.036445)"),
                 Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg",
                 ImageList = "profile_1_image_0;profile_1_image_1;profile_1_image_2;profile_1_image_3",
@@ -146,8 +152,14 @@ namespace Floreview.Migrations
             {
                 Name = "Zotte bloemen",
                 Address = "Lange violettestraat 15",
-                DescriptionShort = "Keytar chia Thundercats Marfa irony brunch lo-fi, Odd Future authentic art party actually pork belly tofu. PBR fashion axe PBR&B beard pickled.",
-                DescriptionLong = "Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortNL = "NL - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongNL = "NL - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortEN = "EN - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongEN = "EN - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortFR = "FR - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongFR = "FR - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortDE = "DE - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongDE = "DE - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
                 Coordinates = DbGeography.FromText("POINT(3.734070 51.048552)"),
                 Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg",
                 ImageList = "profile_1_1;profile_1_2;profile_1_3;profile_1_4;profile_1_5",
@@ -173,8 +185,14 @@ namespace Floreview.Migrations
             {
                 Name = "Zwarte knalpotten",
                 Address = "Kerkstraat 2",
-                DescriptionShort = "Meggings keffiyeh Godard DIY, beard gluten-free Tumblr. Crucifix normcore seitan, salvia chambray VHS disrupt organic cliche flexitarian. Mustache.",
-                DescriptionLong = "Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortNL = "NL - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongNL = "NL - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortEN = "EN - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongEN = "EN - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortFR = "FR - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongFR = "FR - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortDE = "DE - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongDE = "DE - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
                 Coordinates = DbGeography.FromText("POINT(3.855433 51.036439)"),
                 Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg",
                 ImageList = "profile_1_1;profile_1_2;profile_1_3;profile_1_4;profile_1_5",
@@ -200,8 +218,14 @@ namespace Floreview.Migrations
             {
                 Name = "Maria's bloemen",
                 Address = "Elfnovemberstraat 7",
-                DescriptionShort = "Kickstarter dreamcatcher irony pickled Banksy. Fingerstache bespoke umami stumptown. Mixtape tattooed chillwave ugh cardigan fixie.",
-                DescriptionLong = "Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortNL = "NL - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongNL = "NL - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortEN = "EN - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongEN = "EN - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortFR = "FR - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongFR = "FR - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortDE = "DE - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongDE = "DE - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
                 Coordinates = DbGeography.FromText("POINT(3.679745 51.072267)"),
                 Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg",
                 ImageList = "profile_1_1;profile_1_2;profile_1_3;profile_1_4;profile_1_5",
@@ -227,8 +251,14 @@ namespace Floreview.Migrations
             {
                 Name = "Bloemen Kevin",
                 Address = "Wachtebekestraat 15",
-                DescriptionShort = "Shabby chic mumblecore VHS keffiyeh vinyl tousled. Umami art party mumblecore pour-over. Cornhole single-origin coffee Brooklyn, freegan.",
-                DescriptionLong = "Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortNL = "NL - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongNL = "NL - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortEN = "EN - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongEN = "EN - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortFR = "FR - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongFR = "FR - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortDE = "DE - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongDE = "DE - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
                 Coordinates = DbGeography.FromText("POINT(3.816564 51.200252)"),
                 Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg",
                 ImageList = "profile_1_1;profile_1_2;profile_1_3;profile_1_4;profile_1_5",
@@ -254,8 +284,14 @@ namespace Floreview.Migrations
             {
                 Name = "Kalkense bloemen",
                 Address = "Vaartstraat 24",
-                DescriptionShort = "Cliche Pinterest meggings yr forage Kickstarter. PBR&B beard quinoa fingerstache authentic. Portland church-key small batch crucifix.",
-                DescriptionLong = "Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortNL = "NL - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongNL = "NL - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortEN = "EN - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongEN = "EN - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortFR = "FR - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongFR = "FR - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortDE = "DE - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongDE = "DE - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
                 Coordinates = DbGeography.FromText("POINT(3.915618 51.035375)"),
                 Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg",
                 ImageList = "profile_1_1;profile_1_2;profile_1_3;profile_1_4;profile_1_5",
@@ -281,8 +317,14 @@ namespace Floreview.Migrations
             {
                 Name = "Bloemen van Eeklo",
                 Address = "Eeklostraat 15",
-                DescriptionShort = "Cliche Pinterest meggings yr forage Kickstarter. PBR&B beard quinoa fingerstache authentic. Portland church-key small batch crucifix.",
-                DescriptionLong = "Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortNL = "NL - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongNL = "NL - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortEN = "EN - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongEN = "EN - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortFR = "FR - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongFR = "FR - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
+                DescriptionShortDE = "DE - Leggings hella twee, tote bag meggings quinoa pour-over Godard High Life viral Marfa messenger bag kogi. Sriracha pop-up Cosby sweater.",
+                DescriptionLongDE = "DE - Flexitarian Godard deep v freegan beard literally. Jean shorts quinoa biodiesel yr. Bushwick YOLO chia sriracha, disrupt messenger bag Intelligentsia four loko leggings Etsy. Hella keffiyeh locavore XOXO, bitters authentic brunch distillery narwhal kitsch fap biodiesel pickled Wes Anderson. Asymmetrical semiotics pickled master cleanse, raw denim plaid pop-up vegan Truffaut Etsy actually Thundercats cray. Chillwave single-origin coffee PBR, direct trade brunch farm-to-table 3 wolf moon deep v.",
                 Coordinates = DbGeography.FromText("POINT(3.743870 51.178863)"),
                 Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg",
                 ImageList = "profile_1_1;profile_1_2;profile_1_3;profile_1_4;profile_1_5",
@@ -332,20 +374,6 @@ namespace Floreview.Migrations
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
             }
-        }
-
-        private void CreateCompanyLocations()
-        {
-            FlowerContext context = new FlowerContext();
-
-            CompanyLocation c1 = new CompanyLocation()
-            {
-                Company = context.Company.First(i => i.Location.City.Equals("Kalken")),
-                Location = context.Location.First(i => i.City.Equals("Laarne"))
-            };
-
-            context.CompanyLocation.Add(c1);
-            context.SaveChanges();
         }
 
         private void CreateBlogTypes()
@@ -450,9 +478,7 @@ namespace Floreview.Migrations
 
             CreateLocations();
 
-            CreateCompanies();
-
-            CreateCompanyLocations();
+            //CreateCompanies();
 
             CreateBlogTypes();
 

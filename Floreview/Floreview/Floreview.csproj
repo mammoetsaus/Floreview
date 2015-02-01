@@ -219,7 +219,6 @@
     <Compile Include="DataAccess\Interfaces\IBlog.cs" />
     <Compile Include="DataAccess\Interfaces\IBlogCategory.cs" />
     <Compile Include="DataAccess\Interfaces\ICompany.cs" />
-    <Compile Include="DataAccess\Interfaces\ICompanyLocation.cs" />
     <Compile Include="DataAccess\Interfaces\IGeneric.cs" />
     <Compile Include="DataAccess\Interfaces\IIdentityManager.cs" />
     <Compile Include="DataAccess\Interfaces\ILocation.cs" />
@@ -227,7 +226,6 @@
     <Compile Include="DataAccess\Interfaces\IUserManagementService.cs" />
     <Compile Include="DataAccess\Repositories\BlogRepository.cs" />
     <Compile Include="DataAccess\Repositories\BlogCategoryRepository.cs" />
-    <Compile Include="DataAccess\Repositories\CompanyLocationRepository.cs" />
     <Compile Include="DataAccess\Repositories\CompanyRepository.cs" />
     <Compile Include="DataAccess\Repositories\GenericRepository.cs" />
     <Compile Include="DataAccess\Repositories\IdentityManagerRepository.cs" />
@@ -238,8 +236,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502011905325_initDB.cs" />
+    <Compile Include="Migrations\201502011905325_initDB.Designer.cs">
+      <DependentUpon>201502011905325_initDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\CompanyLocation.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
     <Compile Include="Models\ApplicationRole.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -704,6 +705,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201502011905325_initDB.resx">
+      <DependentUpon>201502011905325_initDB.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Global.en.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Global.en.Designer.cs</LastGenOutput>

@@ -32,7 +32,7 @@ namespace Floreview.Controllers.API
             {
                 if (city.Length >= 3) 
                 {
-                    List<Location> lstCities = _accessService.GetLocationsAutocomplete(city);
+                    List<Location> lstCities = _accessService.GetLocationsByQuery(city);
 
                     message = new HttpResponseMessage(HttpStatusCode.OK);
                     message.Content = new ObjectContent<List<Location>>(lstCities, Configuration.Formatters[0], "application/json");
@@ -59,7 +59,7 @@ namespace Floreview.Controllers.API
 
             try
             {
-                List<Company> lstCompanies = _accessService.GetCompaniesManage(filter, sort);
+                List<Company> lstCompanies = _accessService.GetCompaniesByFilterAndSortMethod(filter, sort);
 
                 message = new HttpResponseMessage(HttpStatusCode.OK);
                 message.Content = new ObjectContent<List<Company>>(lstCompanies, Configuration.Formatters[0], "application/json");

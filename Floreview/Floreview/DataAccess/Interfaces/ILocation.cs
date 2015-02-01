@@ -9,7 +9,8 @@ namespace Floreview.DataAccess.Interfaces
 {
     public interface ILocation : IGeneric<Location>
     {
-        IEnumerable<Location> GetLocationsAutocomplete(String query);
+        IEnumerable<Location> GetLocationsByQuery(String query);
+
 
         Location GetLocationByCityName(String query);
     }

@@ -25,41 +25,23 @@ namespace Floreview.Controllers
 
         public ActionResult Index(int? profile)
         {
-            try
+            if (ModelState.IsValid)
             {
-                DetailVM model = new DetailVM();
-
-                if (ModelState.IsValid)
+                if (profile.HasValue && profile > 0)
                 {
-                    if (profile.HasValue && profile > 0)
-                    {
-                        Company company = _accessService.GetCompanyByID(profile.Value);
+                    Company company = _accessService.GetCompanyByID(profile.Value);
 
-                        if (company != null)
-                        {
-                            model.Company = company;
-                        }
-                        else
-                        {
-                            throw new ArgumentException();
-                        }
-                    }
-                    else
+                    if (company != null)
                     {
-                        throw new ArgumentException();
+                        DetailVM model = new DetailVM();
+                        model.Company = company;
+
+                        return View(model);
                     }
                 }
-                else
-                {
-                    throw new ArgumentException();
-                }
+            }
 
-                return View(model);
-            }
-            catch (ArgumentException)
-            {
-                return RedirectToAction("Index", "Home");
-            }
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -17,11 +17,11 @@ namespace Floreview.Utils
 
         private const int RADIUS_CIRCLE = 15;
 
-        public static DbGeography GetLatLongFromCity(String city)
+        public static DbGeography GetLatLongFromAddress(String address)
         {
             try
             {
-                WebRequest request = WebRequest.Create(String.Format(GOOGLE_GEOCODING_URL, city));
+                WebRequest request = WebRequest.Create(String.Format(GOOGLE_GEOCODING_URL, address));
                 WebResponse response = request.GetResponse();
 
                 if (((HttpWebResponse)response).StatusCode == HttpStatusCode.OK)
@@ -44,16 +44,17 @@ namespace Floreview.Utils
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return DbGeography.FromText("POINT(0 0)");
             }
         }
 
-        public static Boolean IsStoreWhitinRange(DbGeography company, DbGeography city)
+        public static Boolean IsStoreWithinRange(DbGeography company, DbGeography reference)
         {
             double latPos1 = Convert.ToDouble(company.Latitude);
             double lngPos1 = Convert.ToDouble(company.Longitude);
-            double latPos2 = Convert.ToDouble(city.Latitude);
-            double lngPos2 = Convert.ToDouble(city.Longitude);
+            double latPos2 = Convert.ToDouble(reference.Latitude);
+            double lngPos2 = Convert.ToDouble(reference.Longitude);
 
             double ΔLatitude = ConvertToRadians(latPos2 - latPos1);
             double ΔLongitude = ConvertToRadians(lngPos2 - lngPos1);

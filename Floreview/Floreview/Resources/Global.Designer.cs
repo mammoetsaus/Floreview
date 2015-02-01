@@ -250,6 +250,330 @@ namespace Floreview.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Gelieve een adres in te vullen..
+        /// </summary>
+        public static string Manage_AddStore_Address_Error {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Address_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adres.
+        /// </summary>
+        public static string Manage_AddStore_Address_Placeholder {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Address_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gelieve een gemeente in te vullen..
+        /// </summary>
+        public static string Manage_AddStore_City_Error {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_City_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gemeente.
+        /// </summary>
+        public static string Manage_AddStore_City_Placeholder {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_City_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lange beschrijving (DE).
+        /// </summary>
+        public static string Manage_AddStore_Description_Long_DE {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Description_Long_DE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lange beschrijving (EN).
+        /// </summary>
+        public static string Manage_AddStore_Description_Long_EN {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Description_Long_EN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lange beschrijving (FR).
+        /// </summary>
+        public static string Manage_AddStore_Description_Long_FR {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Description_Long_FR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lange beschrijving (NL).
+        /// </summary>
+        public static string Manage_AddStore_Description_Long_NL {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Description_Long_NL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Korte beschrijving (DE).
+        /// </summary>
+        public static string Manage_AddStore_Description_Short_DE {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Description_Short_DE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Korte beschrijving (EN).
+        /// </summary>
+        public static string Manage_AddStore_Description_Short_EN {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Description_Short_EN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Korte beschrijving (FR).
+        /// </summary>
+        public static string Manage_AddStore_Description_Short_FR {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Description_Short_FR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Korte beschrijving (NL).
+        /// </summary>
+        public static string Manage_AddStore_Description_Short_NL {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Description_Short_NL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Beschrijving.
+        /// </summary>
+        public static string Manage_AddStore_Description_Title {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Description_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gelieve een Facebook profiel in te vullen..
+        /// </summary>
+        public static string Manage_AddStore_Facebook_Error {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Facebook_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Facebook.
+        /// </summary>
+        public static string Manage_AddStore_Facebook_Placeholder {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Facebook_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gelieve een e-mail in te vullen..
+        /// </summary>
+        public static string Manage_AddStore_Florist_Email_Error {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Florist_Email_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail.
+        /// </summary>
+        public static string Manage_AddStore_Florist_Email_Placeholder {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Florist_Email_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gelieve een correct e-mail in te vullen..
+        /// </summary>
+        public static string Manage_AddStore_Florist_Email_REGEX_Error {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Florist_Email_REGEX_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gelieve een voornaam in te vullen..
+        /// </summary>
+        public static string Manage_AddStore_Florist_FirstName_Error {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Florist_FirstName_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Een voornaam heeft min. 2 en max. 35 karakters..
+        /// </summary>
+        public static string Manage_AddStore_Florist_FirstName_Length_Error {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Florist_FirstName_Length_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Voornaam.
+        /// </summary>
+        public static string Manage_AddStore_Florist_Firstname_Placeholder {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Florist_Firstname_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gelieve een achternaam in te vullen..
+        /// </summary>
+        public static string Manage_AddStore_Florist_LastName_Error {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Florist_LastName_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Een achternaam heeft min. 2 en max. 35 karakters..
+        /// </summary>
+        public static string Manage_AddStore_Florist_LastName_Length_Error {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Florist_LastName_Length_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Achternaam.
+        /// </summary>
+        public static string Manage_AddStore_Florist_Lastname_Placeholder {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Florist_Lastname_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GSM.
+        /// </summary>
+        public static string Manage_AddStore_Florist_Mobile_Placeholder {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Florist_Mobile_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gelieve een correct GSM nummer in te vullen. (+324).
+        /// </summary>
+        public static string Manage_AddStore_Florist_Mobile_REGEX_Error {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Florist_Mobile_REGEX_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Telefoon.
+        /// </summary>
+        public static string Manage_AddStore_Florist_Phone_Placeholder {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Florist_Phone_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gelieve een correct telefoonnummer in te vullen. (+329).
+        /// </summary>
+        public static string Manage_AddStore_Florist_Phone_REGEX_Error {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Florist_Phone_REGEX_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Florist.
+        /// </summary>
+        public static string Manage_AddStore_Florist_Title {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Florist_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Winkel.
+        /// </summary>
+        public static string Manage_AddStore_Store_Title {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Store_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gelieve een naam in te vullen..
+        /// </summary>
+        public static string Manage_AddStore_StoreName_Error {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_StoreName_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Een winkel heeft min. 2 en max. 30 karakters..
+        /// </summary>
+        public static string Manage_AddStore_StoreName_Length_Error {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_StoreName_Length_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Naam.
+        /// </summary>
+        public static string Manage_AddStore_StoreName_Placeholder {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_StoreName_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opslaan.
+        /// </summary>
+        public static string Manage_AddStore_Submit {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gelieve een correcte website in te vullen..
+        /// </summary>
+        public static string Manage_AddStore_Website_Error {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Website_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Website.
+        /// </summary>
+        public static string Manage_AddStore_Website_Placeholder {
+            get {
+                return ResourceManager.GetString("Manage_AddStore_Website_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Toevoegen.
         /// </summary>
         public static string Manage_Store_Add {

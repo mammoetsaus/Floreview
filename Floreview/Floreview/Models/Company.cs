@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Floreview.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -12,20 +13,28 @@ namespace Floreview.Models
     {
         public int ID { get; set; }
 
-        [Required(ErrorMessage = "Gelieve een naam in te vullen.")]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "De naam van een winkel heeft min 2 en max 50 karkaters.")]
+        [Required(ErrorMessageResourceName = "Manage_AddStore_StoreName_Error", ErrorMessageResourceType = typeof(Global), ErrorMessage = null)]
+        [StringLength(30, MinimumLength = 2, ErrorMessageResourceName = "Manage_AddStore_StoreName_Length_Error", ErrorMessageResourceType = typeof(Global), ErrorMessage = null)]
         public String Name { get; set; }
 
-        [Required(ErrorMessage = "Gelieve een adres in te vullen.")]
+        [Required(ErrorMessageResourceName = "Manage_AddStore_Address_Error", ErrorMessageResourceType = typeof(Global), ErrorMessage = null)]
         public String Address { get; set; }
 
-        [Required(ErrorMessage = "Gelieve een korte beschrijving in te vullen.")]
-        [StringLength(150, MinimumLength = 20, ErrorMessage = "Gelieve min 20 en max 150 karakters te gebruiken.")]
-        public String DescriptionShort { get; set; }
+        public String DescriptionShortNL { get; set; }
 
-        [Required(ErrorMessage = "Gelieve een lange beschrijving in te vullen.")]
-        [StringLength(500, MinimumLength = 20, ErrorMessage = "Gelieve min 20 en max 500 karakters te gebruiken.")]
-        public String DescriptionLong { get; set; }
+        public String DescriptionLongNL { get; set; }
+
+        public String DescriptionShortEN { get; set; }
+
+        public String DescriptionLongEN { get; set; }
+
+        public String DescriptionShortFR { get; set; }
+
+        public String DescriptionLongFR { get; set; }
+
+        public String DescriptionShortDE { get; set; }
+
+        public String DescriptionLongDE { get; set; }
 
         public DbGeography Coordinates { get; set; }
 
@@ -33,14 +42,14 @@ namespace Floreview.Models
 
         public String ImageList { get; set; }
 
-        [RegularExpression(@"^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$", ErrorMessage = "Gelieve een correcte website in te vullen.")]
+        [RegularExpression(@"^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$", ErrorMessageResourceName = "Manage_AddStore_Website_Error", ErrorMessageResourceType = typeof(Global), ErrorMessage = null)]
         public String Website { get; set; }
 
-        [Required(ErrorMessage = "Gelieve een e-mail in te vullen.")]
-        [EmailAddress(ErrorMessage = "Gelieve een geldig e-mailadres in te vullen")]
+        [Required(ErrorMessageResourceName = "Manage_AddStore_Florist_Email_Error", ErrorMessageResourceType = typeof(Global), ErrorMessage = null)]
+        [EmailAddress(ErrorMessageResourceName = "Manage_AddStore_Florist_Email_REGEX_Error", ErrorMessageResourceType = typeof(Global), ErrorMessage = null)]
         public String Email { get; set; }
 
-        [Required(ErrorMessage = "Gelieve een facebook profiel in te vullen.")]
+        [Required(ErrorMessageResourceName = "Manage_AddStore_Facebook_Error", ErrorMessageResourceType = typeof(Global), ErrorMessage = null)]
         public String Facebook { get; set; }
 
         public virtual Florist Florist { get; set; }

@@ -65,6 +65,10 @@ header {
                 font-size: 20px;
                 line-height: 48px;
             }
+
+            a:focus {
+                outline: none;
+            }
         }
 
         ul li:last-of-type {
@@ -116,6 +120,10 @@ header {
 
             a:hover {
                 text-decoration: underline;
+            }
+
+            a:focus {
+                outline: none;
             }
         }
     }
@@ -816,6 +824,171 @@ section.manage-store-list {
                 outline: none;
             }
         }
+    }
+}
+
+section.manage-addstore-container {
+    @extend .content-container;
+    @extend %clearfix;
+    margin-top: 30px;
+
+    form div {
+        float: left;
+        width: 315px;
+        background-color: $fill-white;
+        border: 1px solid $border-color-default;
+        @include prefix(box-sizing, border-box);
+        margin: 0 40px 0 0;
+
+        h2 {
+            font-family: latoregular, sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: $font-color-dark-grey;
+            text-transform: uppercase;
+            text-align: center;
+            border-bottom: 1px dashed $border-color-dashed;
+            padding: 10px;
+        }
+
+        ul {
+            margin: 10px;
+            @extend %clearfix;
+
+            li {
+                float: left;
+                list-style: none;
+                font-family: latoregular, sans-serif;
+                text-align: center;
+                width: 60px;
+                height: 18px;
+                padding: 10px 0;
+                margin: 0 17px 0 0;
+            }
+
+            li:last-of-type {
+                margin: 0;
+            }
+
+            li:hover {
+                cursor: pointer;
+                color: $secondary-green;
+            }
+        }
+
+        ul#manage-addstore-company-images-list {
+            li {
+                float: none;
+                list-style: disc;
+                padding: 5px 0;
+                margin: 0 0 0 20px;
+            }
+
+            li:hover {
+                color: $font-color-dark-grey;
+                cursor: default;
+            }
+        }
+
+        input[type="text"] {
+            width: 271px;
+            height: 18px;
+            font-family: latoregular, sans-serif;
+            font-size: 16px;
+            border: 1px solid $border-color-light-grey;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        input[type="text"]:focus {
+            outline: 0;
+            border: 1px solid $border-color-focus-green;
+        }
+
+        input[type="file"] {
+            width: 281px;
+            height: 18px;
+            border: 1px solid $border-color-light-grey;
+            padding: 8px 5px;
+            margin: 10px;
+        }
+
+        input[type="file"]:focus {
+            outline: 0;
+            border: 1px solid $border-color-focus-green;
+        }
+
+        textarea {
+            width: 271px;
+            max-width: 271px;
+            height: 83px;
+            font-family: latoregular, sans-serif;
+            font-size: 16px;
+            border: 1px solid $border-color-light-grey;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        textarea:nth-child(n+10) {
+            height: 148px;
+        }
+
+        textarea:focus {
+            outline: 0;
+            border: 1px solid $border-color-focus-green;
+        }
+
+        textarea.description-hidden {
+            display: none;
+        }
+
+        img {
+            width: 295px;
+            margin: 10px;
+        }
+
+        span.field-validation-error {
+            display: block;
+            width: 293px;
+            font-family: latoregular, sans-serif;
+            font-size: 14px;
+            color: $error-color;
+            padding: 0 10px;
+            margin: 0 0 5px 0;
+        }
+    }
+
+    form div:nth-of-type(2) {
+        margin: 0 39px 0 0;
+    }
+
+    form div:nth-of-type(3) {
+        margin: 0;
+    }
+
+    form div.validation-summary-errors {
+        display: none;
+    }
+
+    form input[type="submit"] {
+        float: left;
+        width: 315px;
+        height: 40px;
+        font-family: latoregular, sans-serif;
+        font-size: 18px;
+        color: $font-color-white;
+        background-color: $secondary-green;
+        border: none;
+        margin: 25px 0 0 0;
+    }
+
+    form input[type="submit"]:hover {
+        cursor: pointer;
+        background-color: $secondary-green-active;
+    }
+
+    form input[type="submit"]:focus {
+        outline: 0;
     }
 }
 

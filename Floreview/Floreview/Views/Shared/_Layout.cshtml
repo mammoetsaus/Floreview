@@ -60,9 +60,15 @@
                             <option value="fr">@Global.Footer_Language_French</option>
                             <option value="de" selected disabled>@Global.Footer_Language_German</option>
                             break;
+                        default:
+                            <option value="nl" selected disabled>@Global.Footer_Language_Dutch</option>
+                            <option value="en">@Global.Footer_Language_English</option>
+                            <option value="fr">@Global.Footer_Language_French</option>
+                            <option value="de">@Global.Footer_Language_German</option>
+                            break;
                     }
                 }
-            }
+}
         </select>
     </footer>
 
@@ -71,8 +77,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('language-select').addEventListener('change', function (e) {
-                var path = window.location.pathname + window.location.search;
-                var language = this.options[this.selectedIndex].value;
+                var path = window.location.pathname + window.location.search,
+                    language = this.options[this.selectedIndex].value;
 
                 window.location.href = "/Language/Change?lang=" + language + "&returnURL=" + path;
             });

@@ -9,11 +9,12 @@ namespace Floreview.DataAccess.Interfaces
 {
     public interface ICompany : IGeneric<Company>
     {
-        IEnumerable<Company> GetCompaniesSearchName(String name);
+        IEnumerable<Company> GetCompaniesByCompanyName(String company);
 
-        IEnumerable<Company> GetCompaniesSearchCity(String city);
+        IEnumerable<Company> GetCompaniesByCityName(String city);
 
-        IEnumerable<Company> GetCompaniesSearchBoth(String name, String city);
+        IEnumerable<Company> GetCompaniesByCompanyAndCity(String company, String city);
+
 
         IEnumerable<Company> GetCompaniesMainCity(String main, String city, int region);
 

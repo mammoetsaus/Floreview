@@ -70,7 +70,7 @@ namespace Floreview.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public ActionResult Register(RegisterViewModel model)
         {
             return RedirectToAction("Index", "Home");
 

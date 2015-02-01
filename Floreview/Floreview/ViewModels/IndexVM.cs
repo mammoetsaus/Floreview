@@ -8,8 +8,6 @@ namespace Floreview.ViewModels
 {
     public class IndexVM
     {
-        #region Fields & Props
-        public List<Blog> Blogs { get; set; }
-        #endregion
+        public List<Blog> LatestBlogs { get; set; }
     }
 }
