@@ -26,7 +26,7 @@ namespace Floreview.Utils
 
                 blob.UploadFromStream(image.InputStream);
 
-                return "http://floreview.blob.core.windows.net/profiles/" + filename;
+                return filename;
 
             }
             catch (Exception)
@@ -86,11 +86,11 @@ namespace Floreview.Utils
             _blobClient = _storageAccount.CreateCloudBlobClient();
 
             String filename = "profile_" + company.ID + "_store.jpg";
-            String companyAvatarURL = UploadImageToStorage(companyAvatar, filename, "profiles");
+            String companyAvatarFileName = UploadImageToStorage(companyAvatar, filename, "profiles");
 
-            if (!String.IsNullOrEmpty(companyAvatarURL))
+            if (!String.IsNullOrEmpty(companyAvatarFileName))
             {
-                return companyAvatarURL;
+                return "http://floreview.blob.core.windows.net/profiles/" + companyAvatarFileName;
             }
 
             return "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg";
@@ -101,11 +101,11 @@ namespace Floreview.Utils
             _blobClient = _storageAccount.CreateCloudBlobClient();
 
             String filename = "profile_" + company.ID + "_florist.jpg";
-            String floristAvatarURL = UploadImageToStorage(floristAvatar, filename, "profiles");
+            String floristAvatarFileName = UploadImageToStorage(floristAvatar, filename, "profiles");
 
-            if (!String.IsNullOrEmpty(floristAvatarURL))
+            if (!String.IsNullOrEmpty(floristAvatarFileName))
             {
-                return floristAvatarURL;
+                return "http://floreview.blob.core.windows.net/profiles/" + floristAvatarFileName;
             }
 
             return "http://floreview.blob.core.windows.net/profiles/profile_florist_default.jpg";
@@ -121,9 +121,11 @@ namespace Floreview.Utils
             {
                 // upload picture
                 String filename = "profile_" + company.ID + "_image_" + i + ".jpg";
-                String imagePath = UploadImageToStorage(images[i], filename, "profiles");
+                String imageFileName = UploadImageToStorage(images[i], filename, "profiles");
 
-                imagelist += imagePath;
+                String imageURL = "http://floreview.blob.core.windows.net/profiles/" + imageFileName;
+
+                imagelist += imageURL;
                 imagelist += ";";
             }
 
@@ -169,6 +171,21 @@ namespace Floreview.Utils
 
             DeleteImageFromStorage(companyAvatarURL, "profiles");
             DeleteImageFromStorage(floristAvatarURL, "profiles");
+        }
+
+        public static String UploadBlogAvatar(HttpPostedFileBase blogAvatar, Blog blog)
+        {
+            _blobClient = _storageAccount.CreateCloudBlobClient();
+
+            String filename = "blog_" + blog.ID + "_avatar.jpg";
+            String blogAvatarFileName = UploadImageToStorage(blogAvatar, filename, "blog");
+
+            if (!String.IsNullOrEmpty(blogAvatarFileName))
+            {
+                return "http://floreview.blob.core.windows.net/blog/" + blogAvatarFileName;
+            }
+
+            return "http://floreview.blob.core.windows.net/blog/blog_avatar_default.jpg";
         }
     }
 }

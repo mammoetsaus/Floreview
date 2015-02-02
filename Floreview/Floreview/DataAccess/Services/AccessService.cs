@@ -19,29 +19,61 @@ namespace Floreview.DataAccess.Services
 
         private IBlog _blogRepository = null;
 
-        private IBlogCategory _blogTypeRepository = null;
+        private IBlogCategory _blogCategoryRepository = null;
 
         private IGeneric<Florist> _floristRepository = null;
+
+        private IGeneric<BlogElement> _blogElementRepository = null;
 
         public AccessService()
         {
 
         }
 
-        public AccessService(IUnitOfWork uow, ILocation locationRepo, ICompany companyRepo, IBlog blogRepo, IBlogCategory blogTypeRepo, GenericRepository<Florist> floristRepo)
+        public AccessService(IUnitOfWork uow, ILocation locationRepo, ICompany companyRepo, IBlog blogRepo, IBlogCategory blogCategoryRepo, GenericRepository<Florist> floristRepo, GenericRepository<BlogElement> blogElementRepo)
         {
             _uow = uow;
             _locationRepository = locationRepo;
             _companyRepository = companyRepo;
             _blogRepository = blogRepo;
-            _blogTypeRepository = blogTypeRepo;
+            _blogCategoryRepository = blogCategoryRepo;
             _floristRepository = floristRepo;
+            _blogElementRepository = blogElementRepo;
         }
 
 
         public List<Blog> GetLatestBlogs(int amount)
         {
             return _blogRepository.GetLatestBlogs(amount).ToList<Blog>();
+        }
+
+        public Blog InsertBlog(Blog blog)
+        {
+            Blog result = _blogRepository.Insert(blog);
+            _uow.SaveChanges();
+
+            return result;
+        }
+
+        public void UpdateBlog(Blog blog)
+        {
+            _blogRepository.Update(blog);
+            _uow.SaveChanges();
+        }
+
+        public List<BlogCategory> GetAllBlogCategories()
+        {
+            return _blogCategoryRepository.All().ToList<BlogCategory>();
+        }
+
+        public BlogCategory GetBlogCategoryByID(int ID)
+        {
+            return _blogCategoryRepository.GetByID(ID);
+        }
+
+        public List<BlogElement> GetAllBlogElements()
+        {
+            return _blogElementRepository.All().ToList<BlogElement>();
         }
 
         public List<Company> GetAllCompanies()
@@ -175,7 +207,7 @@ namespace Floreview.DataAccess.Services
 
         public List<BlogCategory> GetBlogCategoriesForSideBlog()
         {
-            return _blogTypeRepository.GetBlogTypesForSideBlog().ToList<BlogCategory>();
+            return _blogCategoryRepository.GetBlogTypesForSideBlog().ToList<BlogCategory>();
         }
 
         public Dictionary<DateTime, int> GetDatesForSideBlog()

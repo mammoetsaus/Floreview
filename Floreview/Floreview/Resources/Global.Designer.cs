@@ -250,6 +250,96 @@ namespace Floreview.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Basis informatie.
+        /// </summary>
+        public static string Manage_AddBlog_BasicInformation {
+            get {
+                return ResourceManager.GetString("Manage_AddBlog_BasicInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Release datum.
+        /// </summary>
+        public static string Manage_AddBlog_PublishDate_Placeholder {
+            get {
+                return ResourceManager.GetString("Manage_AddBlog_PublishDate_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Korte beschrijving (DE).
+        /// </summary>
+        public static string Manage_AddBlog_Teaser_DE {
+            get {
+                return ResourceManager.GetString("Manage_AddBlog_Teaser_DE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Korte beschrijving (EN).
+        /// </summary>
+        public static string Manage_AddBlog_Teaser_EN {
+            get {
+                return ResourceManager.GetString("Manage_AddBlog_Teaser_EN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Korte beschrijving (FR).
+        /// </summary>
+        public static string Manage_AddBlog_Teaser_FR {
+            get {
+                return ResourceManager.GetString("Manage_AddBlog_Teaser_FR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Korte beschrijving (NL).
+        /// </summary>
+        public static string Manage_AddBlog_Teaser_NL {
+            get {
+                return ResourceManager.GetString("Manage_AddBlog_Teaser_NL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Titel (DE).
+        /// </summary>
+        public static string Manage_AddBlog_Title_DE {
+            get {
+                return ResourceManager.GetString("Manage_AddBlog_Title_DE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Titel (EN).
+        /// </summary>
+        public static string Manage_AddBlog_Title_EN {
+            get {
+                return ResourceManager.GetString("Manage_AddBlog_Title_EN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Titel (FR).
+        /// </summary>
+        public static string Manage_AddBlog_Title_FR {
+            get {
+                return ResourceManager.GetString("Manage_AddBlog_Title_FR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Titel (NL).
+        /// </summary>
+        public static string Manage_AddBlog_Title_NL {
+            get {
+                return ResourceManager.GetString("Manage_AddBlog_Title_NL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Gelieve een adres in te vullen..
         /// </summary>
         public static string Manage_AddStore_Address_Error {
@@ -576,9 +666,18 @@ namespace Floreview.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Toevoegen.
         /// </summary>
-        public static string Manage_Store_Add {
+        public static string Manage_Store_Add_Blog {
             get {
-                return ResourceManager.GetString("Manage_Store_Add", resourceCulture);
+                return ResourceManager.GetString("Manage_Store_Add_Blog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toevoegen.
+        /// </summary>
+        public static string Manage_Store_Add_Store {
+            get {
+                return ResourceManager.GetString("Manage_Store_Add_Store", resourceCulture);
             }
         }
         
@@ -624,6 +723,15 @@ namespace Floreview.Resources {
         public static string Manage_Store_Select_Recent {
             get {
                 return ResourceManager.GetString("Manage_Store_Select_Recent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blogs.
+        /// </summary>
+        public static string Menu_Admin_Blogs {
+            get {
+                return ResourceManager.GetString("Menu_Admin_Blogs", resourceCulture);
             }
         }
         

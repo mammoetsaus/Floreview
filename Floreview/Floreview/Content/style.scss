@@ -297,6 +297,7 @@ section.home-promotion-blogs {
 
         img {
             max-width: 313px;
+            border-bottom: 1px solid $border-color-default;
         }
 
         > a {
@@ -690,7 +691,6 @@ section.manage-store-information {
     margin-top: 30px;
     height: 60px;
     background-color: $fill-white;
-    border: $border-color-light-grey;
 
     a {
         display: block;
@@ -989,6 +989,194 @@ section.manage-addstore-container {
 
     form input[type="submit"]:focus {
         outline: 0;
+    }
+}
+
+section.manage-addblog-elements {
+    @extend .content-container;
+    @extend %clearfix;
+    margin-top: 30px;
+    height: 65px;
+    background-color: $fill-white;
+
+    ul {
+        height: 65px;
+
+        li {
+            @extend %clearfix;
+            float: left;
+            width: 170px;
+            height: 65px;
+            list-style: none;
+            text-align: center;
+
+            svg {
+                float: left;
+                display: block;
+                width: 24px;
+                height: 24px;
+                margin: 10px 0 0 73px;
+            }
+
+            p {
+                clear: left;
+                font-family: latoregular, sans-serif;
+                text-transform: lowercase;
+                font-size: 16px;
+                padding: 5px 0 0 0;
+            }
+        }
+
+        li:nth-of-type(3) {
+            width: 172px;
+        }
+
+        li:nth-of-type(4) {
+            width: 172px;
+        }
+
+        li:hover {
+            cursor: pointer;
+        }
+
+        li:hover svg g path {
+            fill: $secondary-green;
+        }
+
+        li:hover p {
+            color: $secondary-green;
+        }
+    }
+}
+
+section.manage-addblog-crucial {
+    @extend .content-container;
+    @extend %clearfix;
+    margin-top: 30px;
+    background-color: $fill-white;
+
+    h2 {
+        font-family: latoregular, sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        color: $font-color-dark-grey;
+        text-transform: uppercase;
+        text-align: center;
+        border-bottom: 1px dashed $border-color-dashed;
+        padding: 10px;
+    }
+
+    form {
+        @extend %clearfix;
+        margin: 5px 0 0 0;
+
+        div:nth-of-type(1) {
+            float: left;
+            width: 650px;
+
+            input[type="text"] {
+                float: left;
+                width: 303px;
+                height: 18px;
+                border: 1px solid $border-color-light-grey;
+                font-family: latoregular, sans-serif;
+                font-size: 16px;
+                padding: 10px;
+                margin: 10px;
+            }
+
+            input[type="text"].manage-addblog-title {
+                width: 608px;
+            }
+
+            input[type="text"]:focus {
+                outline: 0;
+                border: 1px solid $border-color-focus-green;
+            }
+
+            textarea {
+                width: 608px;
+                height: 100px;
+                max-width: 608px;
+                font-family: latoregular, sans-serif;
+                font-size: 16px;
+                padding: 10px;
+                margin: 10px;
+            }
+
+            textarea:focus {
+                outline: 0;
+                border: 1px solid $border-color-focus-green;
+            }
+
+            select {
+                display: block;
+                float: left;
+                width: 285px;
+                height: 40px;
+                font-family: latoregular, sans-serif;
+                font-size: 16px;
+                border: 1px solid $border-color-light-grey;
+                padding: 0 10px;
+                margin: 10px 0 10px 10px;
+            }
+
+            select:focus {
+                outline: 0;
+                border: 1px solid $border-color-focus-green;
+            }
+        }
+
+        div:nth-of-type(2) {
+            float: left;
+            width: 350px;
+            margin: 10px 0 0 0;
+
+            ul {
+                float: left;
+                width: 40px;
+                height: 182px;
+                text-align: center;
+
+                li {
+                    height: 45px;
+                    font-family: latoregular, sans-serif;
+                    font-size: 16px;
+                    line-height: 40px;
+                    list-style: none;
+                }
+
+                li:last-of-type {
+                    padding: 2px 0 0 0;
+                }
+
+                li:hover {
+                    cursor: pointer;
+                    color: $secondary-green;
+                }
+            }
+
+            img {
+                float: left;
+                width: 290px;
+                height: 165px;
+                margin: 0 0 0 20px;
+            }
+
+            input[type="file"] {
+                float: left;
+                width: 280px;
+                height: 22px;
+                border: 1px solid $border-color-light-grey;
+                padding: 8px 5px;
+                margin: 23px 0 0 60px;
+            }
+
+            input[type="file"]:focus {
+                outline: 0;
+                border: 1px solid $border-color-focus-green;
+            }
+        }
     }
 }
 

@@ -28,13 +28,16 @@
                 <li>
                     @Html.ActionLink(Global.Menu_Admin_Stores, "Store", "Manage")
                 </li>
+                <li>
+                    @Html.ActionLink(Global.Menu_Admin_Blogs, "Blog", "Manage")
+                </li>
             </ul>
         </section>
     }
 </header>
 
 <section class="manage-store-information">
-    <a href="/Manage/AddStore" id="btn-add-store">@Global.Manage_Store_Add</a>
+    <a href="/Manage/AddStore" id="btn-add-store">@Global.Manage_Store_Add_Store</a>
     <select>
         <option value="0">@Global.Manage_Store_Select_Recent</option>
         <option value="1">@Global.Manage_Store_Select_Name</option>

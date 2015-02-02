@@ -12,6 +12,16 @@ namespace Floreview.DataAccess.Interfaces
     {
         List<Blog> GetLatestBlogs(int amount);
 
+        Blog InsertBlog(Blog blog);
+
+        void UpdateBlog(Blog blog);
+
+        List<BlogCategory> GetAllBlogCategories();
+
+        BlogCategory GetBlogCategoryByID(int ID);
+
+        List<BlogElement> GetAllBlogElements();
+
         List<Company> GetAllCompanies();
 
         Company GetCompanyByID(int ID);

@@ -18,9 +18,12 @@ namespace Floreview.Controllers.CMS
     {
         private IAccessService _accessService = null;
 
-        public ManageController(IAccessService service)
+        private IUserManagementService _userManagementService = null;
+
+        public ManageController(IAccessService accessService, IUserManagementService userManagementService)
         {
-            _accessService = service;
+            _accessService = accessService;
+            _userManagementService = userManagementService;
         }
 
         public ManageController()
@@ -52,34 +55,20 @@ namespace Floreview.Controllers.CMS
                 model.Company.Florist.ImagePath = "http://floreview.blob.core.windows.net/profiles/profile_florist_default.jpg";
                 Company insertedCompany = _accessService.InsertCompany(model.Company);
 
-                #region Company Avatar
                 if (model.CompanyAvatar != null)
                 {
                     insertedCompany.Avatar = BlobStorageEngine.UploadCompanyAvatar(model.CompanyAvatar, insertedCompany);
                 }
-                else
-                {
-                    insertedCompany.Avatar = "http://floreview.blob.core.windows.net/profiles/profile_store_default.jpg";
-                }
-                #endregion
 
-                #region Florist Avatar
                 if (model.FloristAvatar != null)
                 {
                     insertedCompany.Florist.ImagePath = BlobStorageEngine.UploadFloristAvatar(model.FloristAvatar, insertedCompany);
                 }
-                else
-                {
-                    insertedCompany.Florist.ImagePath = "http://floreview.blob.core.windows.net/profiles/profile_florist_default.jpg";
-                }
-                #endregion
 
-                #region Imagelist
                 if (model.CompanyImages[0] != null)
                 {
                     insertedCompany.ImageList = BlobStorageEngine.UploadCompanyImages(model.CompanyImages, insertedCompany);
                 }
-                #endregion
 
                 _accessService.UpdateCompany(insertedCompany);
 
@@ -141,26 +130,20 @@ namespace Floreview.Controllers.CMS
                 company.DescriptionLongDE = model.Company.DescriptionLongDE;
 
 
-                #region Company Avatar
                 if (model.CompanyAvatar != null)
                 {
                     company.Avatar = BlobStorageEngine.UploadCompanyAvatar(model.CompanyAvatar, company);
                 }
-                #endregion
 
-                #region Florist Avatar
                 if (model.FloristAvatar != null)
                 {
                     company.Florist.ImagePath = BlobStorageEngine.UploadFloristAvatar(model.FloristAvatar, company);
                 }
-                #endregion
 
-                #region Imagelist
                 if (model.CompanyImages[0] != null)
                 {
                     company.ImageList = BlobStorageEngine.UpdateCompanyImages(model.CompanyImages, company);
                 }
-                #endregion
 
                 _accessService.UpdateCompany(company);
 
@@ -189,6 +172,52 @@ namespace Floreview.Controllers.CMS
             }
 
             return RedirectToAction("Store", "Manage");
+        }
+
+        public ActionResult Blog()
+        {
+            return View();
+        }
+
+        public ActionResult AddBlog()
+        {
+            var blogCategories = _accessService.GetAllBlogCategories();
+
+            BlogVM model = new BlogVM();
+            model.BlogElements = _accessService.GetAllBlogElements();
+            model.BlogCategories = new SelectList(blogCategories, "ID", "Name");
+            model.SelectedBlogCategoryID = 0;
+            model.Blog = new Blog() { PublishDate = DateTime.Today };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddBlog(BlogVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                model.Blog.Avatar = "http://floreview.blob.core.windows.net/blog/blog_avatar_default.jpg";
+                model.Blog.Category = _accessService.GetBlogCategoryByID(model.SelectedBlogCategoryID);
+                model.Blog.Author = _userManagementService.GetUser(User.Identity.Name);
+                Blog insertedBlog = _accessService.InsertBlog(model.Blog);
+
+                if (model.BlogAvatar != null)
+                {
+                    insertedBlog.Avatar = BlobStorageEngine.UploadBlogAvatar(model.BlogAvatar, insertedBlog);
+                }
+
+                _accessService.UpdateBlog(insertedBlog);
+
+                return RedirectToAction("Blog", "Manage");
+            }
+
+            var blogCategories = _accessService.GetAllBlogCategories();
+            model.BlogElements = _accessService.GetAllBlogElements();
+            model.BlogCategories = new SelectList(blogCategories, "ID", "Name");
+
+            return View(model);
         }
     }
 }

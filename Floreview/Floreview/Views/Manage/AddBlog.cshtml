@@ -1,0 +1,94 @@
+﻿@using Floreview.Resources
+@model Floreview.ViewModels.CMS.BlogVM
+
+<header class="admin">
+    <nav>
+        <ul class="content-container">
+            <li>
+                @Html.ActionLink(Global.Menu_Home, "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink(Global.Menu_Blog, "Index", "Blog")
+            </li>
+            <li>
+                @Html.ActionLink(Global.Menu_Floreview, "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink(Global.Menu_Contact, "Index", "Home")
+            </li>
+            <li>
+                @Html.Partial("_LoginPartial")
+            </li>
+        </ul>
+    </nav>
+
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <section class="menu-admin">
+            <ul class="content-container">
+                <li>
+                    @Html.ActionLink(Global.Menu_Admin_Stores, "Store", "Manage")
+                </li>
+                <li>
+                    @Html.ActionLink(Global.Menu_Admin_Blogs, "Blog", "Manage")
+                </li>
+            </ul>
+        </section>
+    }
+</header>
+
+<section class="manage-addblog-elements">
+    <ul>
+        @{
+            foreach (var blogElement in Model.BlogElements)
+            {
+                <li id="blog-element-@blogElement.ID">
+                    @Html.Raw(blogElement.SVG)
+                    <p>@blogElement.Name</p>
+                </li>
+            }
+        }
+    </ul>
+</section>
+
+<section class="manage-addblog-crucial">
+    <h2>@Global.Manage_AddBlog_BasicInformation</h2>
+
+    @using (Html.BeginForm("AddBlog", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken();
+
+        <div>
+            @Html.TextBoxFor(model => model.Blog.TitleNL, new { @class = "manage-addblog-title", @placeholder = Global.Manage_AddBlog_Title_NL })
+
+            @Html.TextAreaFor(model => model.Blog.TeaserNL, new { @placeholder = Global.Manage_AddBlog_Teaser_NL })
+
+            @Html.TextBoxFor(model => model.Blog.PublishDate, new { @placeholder = Global.Manage_AddBlog_PublishDate_Placeholder, @value = Model.Blog.PublishDate })
+
+            @Html.DropDownList("SelectedBlogCategoryID", Model.BlogCategories)
+        </div>
+        <div>
+            <ul>
+                <li>NL</li>
+                <li>FR</li>
+                <li>EN</li>
+                <li>DE</li>
+            </ul>
+
+            <img src="http://floreview.blob.core.windows.net/blog/blog_avatar_default.jpg" id="manage-addblog-avatar-preview" alt="Blog avatar preview" />
+
+            <input type="file" id="manage-addblog-avatar" name="BlogAvatar" accept="image/*" />
+
+            <input type="submit" value="Opslaan" />
+        </div>
+    }
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('manage-addblog-avatar').addEventListener('change', function () {
+            var url = window.URL.createObjectURL(this.files[0]);
+            document.getElementById('manage-addblog-avatar-preview').src = url;
+        });
+    });
+</script>

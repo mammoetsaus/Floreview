@@ -1,15 +1,6 @@
 ﻿@using Floreview.Resources
-@model Floreview.ViewModels.LoginViewModel
 
-@{
-    var className = "small";
-    if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-    {
-        className = "admin";
-    }
-}
-
-<header class="@className">
+<header class="admin">
     <nav>
         <ul class="content-container">
             <li>
@@ -45,20 +36,6 @@
     }
 </header>
 
-<section class="login">
-    <h2>@Global.Login_Title</h2>
-
-    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationMessage("LoginError")
-
-        @Html.TextBoxFor(model => model.UserName, new { @placeholder = Global.Login_Username_Placeholder, @autocomplete = "off" })
-        @Html.ValidationMessageFor(model => model.UserName)
-
-        @Html.PasswordFor(model => model.Password, new { @placeholder = Global.Login_Password_Placeholder, @autocomplete = "off" })
-        @Html.ValidationMessageFor(model => model.Password)
-        
-        <input type="submit" value="@Global.Login_Submit" />
-    }
+<section class="manage-store-information">
+    <a href="/Manage/AddBlog" id="btn-add-blog">@Global.Manage_Store_Add_Blog</a>
 </section>

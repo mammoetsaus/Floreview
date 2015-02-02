@@ -13,8 +13,19 @@ namespace Floreview.Migrations
                     {
                         ID = c.Int(nullable: false, identity: true),
                         Avatar = c.String(),
-                        Title = c.String(),
-                        Timestamp = c.DateTime(nullable: false),
+                        TitleNL = c.String(),
+                        TitleEN = c.String(),
+                        TitleFR = c.String(),
+                        TitleDE = c.String(),
+                        TeaserNL = c.String(),
+                        TeaserEN = c.String(),
+                        TeaserFR = c.String(),
+                        TeaserDE = c.String(),
+                        ContentNL = c.String(),
+                        ContentEN = c.String(),
+                        ContentFR = c.String(),
+                        ContentDE = c.String(),
+                        PublishDate = c.DateTime(nullable: false),
                         Author_Id = c.String(maxLength: 128),
                         Category_ID = c.Int(),
                     })
@@ -95,6 +106,17 @@ namespace Floreview.Migrations
                     {
                         ID = c.Int(nullable: false, identity: true),
                         Name = c.String(),
+                    })
+                .PrimaryKey(t => t.ID);
+            
+            CreateTable(
+                "dbo.BlogElements",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        Layout = c.String(),
+                        SVG = c.String(),
                     })
                 .PrimaryKey(t => t.ID);
             
@@ -206,6 +228,7 @@ namespace Floreview.Migrations
             DropTable("dbo.Genres");
             DropTable("dbo.Florists");
             DropTable("dbo.Companies");
+            DropTable("dbo.BlogElements");
             DropTable("dbo.BlogCategories");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");

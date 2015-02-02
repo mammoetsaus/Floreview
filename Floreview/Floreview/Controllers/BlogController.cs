@@ -26,6 +26,7 @@ namespace Floreview.Controllers
 
         }
 
+        /*
         public ActionResult BlogList(List<Blog> Model)
         {
             // only shown once at startup
@@ -78,5 +79,6 @@ namespace Floreview.Controllers
                 return sw.GetStringBuilder().ToString();
             }
         }
+         * */
     }
 }

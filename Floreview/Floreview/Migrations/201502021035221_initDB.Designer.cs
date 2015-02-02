@@ -13,7 +13,7 @@ namespace Floreview.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201502011905325_initDB"; }
+            get { return "201502021035221_initDB"; }
         }
         
         string IMigrationMetadata.Source

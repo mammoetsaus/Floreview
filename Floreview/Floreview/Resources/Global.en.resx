@@ -180,6 +180,36 @@
   <data name="Login_Validation_Message" xml:space="preserve">
     <value>Credentials are not correct.</value>
   </data>
+  <data name="Manage_AddBlog_BasicInformation" xml:space="preserve">
+    <value>Basic information</value>
+  </data>
+  <data name="Manage_AddBlog_PublishDate_Placeholder" xml:space="preserve">
+    <value>Publish date</value>
+  </data>
+  <data name="Manage_AddBlog_Teaser_DE" xml:space="preserve">
+    <value>Short description (DE)</value>
+  </data>
+  <data name="Manage_AddBlog_Teaser_EN" xml:space="preserve">
+    <value>Short description (EN)</value>
+  </data>
+  <data name="Manage_AddBlog_Teaser_FR" xml:space="preserve">
+    <value>Short description (FR)</value>
+  </data>
+  <data name="Manage_AddBlog_Teaser_NL" xml:space="preserve">
+    <value>Short description (NL)</value>
+  </data>
+  <data name="Manage_AddBlog_Title_DE" xml:space="preserve">
+    <value>Title (DE)</value>
+  </data>
+  <data name="Manage_AddBlog_Title_EN" xml:space="preserve">
+    <value>Title (EN)</value>
+  </data>
+  <data name="Manage_AddBlog_Title_FR" xml:space="preserve">
+    <value>Title (FR)</value>
+  </data>
+  <data name="Manage_AddBlog_Title_NL" xml:space="preserve">
+    <value>Title (NL)</value>
+  </data>
   <data name="Manage_AddStore_Address_Error" xml:space="preserve">
     <value>Please fill in an address.</value>
   </data>
@@ -288,7 +318,10 @@
   <data name="Manage_AddStore_Website_Placeholder" xml:space="preserve">
     <value>Website</value>
   </data>
-  <data name="Manage_Store_Add" xml:space="preserve">
+  <data name="Manage_Store_Add_Blog" xml:space="preserve">
+    <value>Add blog</value>
+  </data>
+  <data name="Manage_Store_Add_Store" xml:space="preserve">
     <value>Add store</value>
   </data>
   <data name="Manage_Store_Search_Placeholder" xml:space="preserve">
@@ -305,6 +338,9 @@
   </data>
   <data name="Manage_Store_Select_Recent" xml:space="preserve">
     <value>Most recent</value>
+  </data>
+  <data name="Menu_Admin_Blogs" xml:space="preserve">
+    <value>Blogs</value>
   </data>
   <data name="Menu_Admin_Stores" xml:space="preserve">
     <value>Stores</value>
