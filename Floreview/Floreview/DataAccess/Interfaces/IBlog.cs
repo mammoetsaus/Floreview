@@ -11,6 +11,8 @@ namespace Floreview.DataAccess.Interfaces
     {
         IEnumerable<Blog> GetLatestBlogs(int amount);
 
+        IEnumerable<Blog> GetBlogsByName(String name);
+
 
         IEnumerable<Blog> GetNextRangeOfBlogs(int blockNumber, int blockSize);
 

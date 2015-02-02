@@ -26,6 +26,13 @@ namespace Floreview.DataAccess.Repositories
             return result.ToList<Blog>();
         }
 
+        public IEnumerable<Blog> GetBlogsByName(String name)
+        {
+            var result = (from b in context.Blog.Where(i => i.TitleNL.Contains(name) || i.TitleEN.Contains(name) 
+                || i.TitleFR.Contains(name) || i.TitleDE.Contains(name)) select b);
+            return result.ToList<Blog>();
+        }
+
 
         public IEnumerable<Blog> GetNextRangeOfBlogs(int blockNumber, int blockSize)
         {

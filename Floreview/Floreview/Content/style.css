@@ -1,9 +1,9 @@
-section.home-promotion-blogs, section.search-information, section.search-information div, section.search-results, section.search-nearby-results, section.detail-profile, section.manage-store-information, section.manage-addstore-container, section.manage-addstore-container form div ul, section.manage-addblog-elements, section.manage-addblog-elements ul li, section.manage-addblog-crucial, section.manage-addblog-crucial form, footer {
+section.home-promotion-blogs, section.search-information, section.search-information div, section.search-results, section.search-nearby-results, section.detail-profile, section.manage-information, section.manage-addstore-container, section.manage-addstore-container form div ul, section.manage-addblog-elements, section.manage-addblog-elements ul li, section.manage-addblog-crucial, section.manage-addblog-crucial form, footer {
   *zoom: 1; }
-  section.home-promotion-blogs:before, section.search-information:before, section.search-information div:before, section.search-results:before, section.search-nearby-results:before, section.detail-profile:before, section.manage-store-information:before, section.manage-addstore-container:before, section.manage-addstore-container form div ul:before, section.manage-addblog-elements:before, section.manage-addblog-elements ul li:before, section.manage-addblog-crucial:before, section.manage-addblog-crucial form:before, footer:before, section.home-promotion-blogs:after, section.search-information:after, section.search-information div:after, section.search-results:after, section.search-nearby-results:after, section.detail-profile:after, section.manage-store-information:after, section.manage-addstore-container:after, section.manage-addstore-container form div ul:after, section.manage-addblog-elements:after, section.manage-addblog-elements ul li:after, section.manage-addblog-crucial:after, section.manage-addblog-crucial form:after, footer:after {
+  section.home-promotion-blogs:before, section.search-information:before, section.search-information div:before, section.search-results:before, section.search-nearby-results:before, section.detail-profile:before, section.manage-information:before, section.manage-addstore-container:before, section.manage-addstore-container form div ul:before, section.manage-addblog-elements:before, section.manage-addblog-elements ul li:before, section.manage-addblog-crucial:before, section.manage-addblog-crucial form:before, footer:before, section.home-promotion-blogs:after, section.search-information:after, section.search-information div:after, section.search-results:after, section.search-nearby-results:after, section.detail-profile:after, section.manage-information:after, section.manage-addstore-container:after, section.manage-addstore-container form div ul:after, section.manage-addblog-elements:after, section.manage-addblog-elements ul li:after, section.manage-addblog-crucial:after, section.manage-addblog-crucial form:after, footer:after {
     content: " ";
     display: table; }
-  section.home-promotion-blogs:after, section.search-information:after, section.search-information div:after, section.search-results:after, section.search-nearby-results:after, section.detail-profile:after, section.manage-store-information:after, section.manage-addstore-container:after, section.manage-addstore-container form div ul:after, section.manage-addblog-elements:after, section.manage-addblog-elements ul li:after, section.manage-addblog-crucial:after, section.manage-addblog-crucial form:after, footer:after {
+  section.home-promotion-blogs:after, section.search-information:after, section.search-information div:after, section.search-results:after, section.search-nearby-results:after, section.detail-profile:after, section.manage-information:after, section.manage-addstore-container:after, section.manage-addstore-container form div ul:after, section.manage-addblog-elements:after, section.manage-addblog-elements ul li:after, section.manage-addblog-crucial:after, section.manage-addblog-crucial form:after, footer:after {
     clear: both; }
 
 * {
@@ -19,7 +19,7 @@ html {
 body {
   background-color: #f3f3f3; }
 
-.content-container, section.login, section.home-promotion-blogs, article.home-promotion-about, section.search-information, section.search-results, section.search-nearby-results, section.detail-profile, section.manage-store-information, section.manage-store-list, section.manage-addstore-container, section.manage-addblog-elements, section.manage-addblog-crucial, footer {
+.content-container, section.login, section.home-promotion-blogs, article.home-promotion-about, section.search-information, section.search-results, section.search-nearby-results, section.detail-profile, section.manage-information, section.manage-store-list, section.manage-addstore-container, section.manage-blog-list, section.manage-addblog-elements, section.manage-addblog-crucial, footer {
   display: block;
   width: 1024px;
   margin: 0 auto; }
@@ -480,11 +480,11 @@ section.detail-profile {
         section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup a:hover, section.detail-profile div.detail-profile-right div.detail-profile-contact section.search-results div.detail-profile-contact-popup a svg:hover, section.search-results section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup a svg:hover, section.detail-profile div.detail-profile-right div.detail-profile-contact section.search-nearby-results div.detail-profile-contact-popup a svg:hover, section.search-nearby-results section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup a svg:hover {
           text-decoration: underline; }
 
-section.manage-store-information {
+section.manage-information {
   margin-top: 30px;
   height: 60px;
   background-color: #ffffff; }
-  section.manage-store-information a, section.manage-store-information section.search-results div a svg, section.search-results div a section.manage-store-information svg, section.manage-store-information section.search-nearby-results div a svg, section.search-nearby-results div a section.manage-store-information svg {
+  section.manage-information a, section.manage-information section.search-results div a svg, section.search-results div a section.manage-information svg, section.manage-information section.search-nearby-results div a svg, section.search-nearby-results div a section.manage-information svg {
     display: block;
     float: left;
     width: 160px;
@@ -497,10 +497,10 @@ section.manage-store-information {
     text-align: center;
     line-height: 40px;
     margin: 10px 0 0 10px; }
-  section.manage-store-information a:hover, section.manage-store-information section.search-results div a svg:hover, section.search-results div a section.manage-store-information svg:hover, section.manage-store-information section.search-nearby-results div a svg:hover, section.search-nearby-results div a section.manage-store-information svg:hover {
+  section.manage-information a:hover, section.manage-information section.search-results div a svg:hover, section.search-results div a section.manage-information svg:hover, section.manage-information section.search-nearby-results div a svg:hover, section.search-nearby-results div a section.manage-information svg:hover {
     cursor: pointer;
     background-color: #197f25; }
-  section.manage-store-information select {
+  section.manage-information select {
     float: right;
     width: 160px;
     height: 40px;
@@ -509,10 +509,10 @@ section.manage-store-information {
     margin: 10px 10px 0 0;
     padding: 10px 5px;
     border: 1px solid #999999; }
-  section.manage-store-information select:focus {
+  section.manage-information select:focus {
     outline: 0;
     border: 1px solid #1f9b35; }
-  section.manage-store-information input[type="text"] {
+  section.manage-information input[type="text"] {
     display: block;
     float: right;
     width: 160px;
@@ -522,16 +522,16 @@ section.manage-store-information {
     margin: 10px 10px 0 0;
     padding: 10px;
     border: 1px solid #999999; }
-  section.manage-store-information input[type="text"]:focus {
+  section.manage-information input[type="text"]:focus {
     outline: 0;
     border: 1px solid #1f9b35; }
-  section.manage-store-information img {
+  section.manage-information img {
     display: none;
     float: right;
     width: 20px;
     height: 20px;
     margin: 20px 10px 0 0; }
-  section.manage-store-information img.loading {
+  section.manage-information img.loading {
     display: block; }
 
 section.manage-store-list {
@@ -548,7 +548,7 @@ section.manage-store-list {
       width: 270px;
       padding: 0 10px;
       border-right: 1px dashed #cccccc; }
-    section.manage-store-list div.store-profile p:nth-child(3) {
+    section.manage-store-list div.store-profile p:nth-of-type(3) {
       border: none; }
     section.manage-store-list div.store-profile ul li {
       display: block;
@@ -690,6 +690,53 @@ section.manage-addstore-container {
     background-color: #197f25; }
   section.manage-addstore-container form input[type="submit"]:focus {
     outline: 0; }
+
+section.manage-blog-list {
+  margin-top: 30px; }
+  section.manage-blog-list div.blog-profile {
+    height: 50px;
+    background-color: #ffffff;
+    border: 1px solid #e9e9e9;
+    margin: 0 0 15px 0; }
+    section.manage-blog-list div.blog-profile p {
+      float: left;
+      font-family: latoregular, sans-serif;
+      line-height: 50px;
+      padding: 0 10px;
+      border-right: 1px dashed #cccccc; }
+    section.manage-blog-list div.blog-profile p:first-of-type {
+      width: 450px; }
+    section.manage-blog-list div.blog-profile p:nth-of-type(2) {
+      width: 205px; }
+    section.manage-blog-list div.blog-profile p:nth-of-type(3) {
+      width: 205px;
+      border: none; }
+    section.manage-blog-list div.blog-profile ul li {
+      display: block;
+      float: left;
+      list-style: none;
+      width: 50px;
+      height: 50px; }
+      section.manage-blog-list div.blog-profile ul li a, section.manage-blog-list section.search-results div.blog-profile ul li a svg, section.search-results section.manage-blog-list div.blog-profile ul li a svg, section.manage-blog-list section.search-results div.blog-profile a ul li svg, section.search-results section.manage-blog-list div.blog-profile a ul li svg, section.manage-blog-list section.search-nearby-results div.blog-profile ul li a svg, section.search-nearby-results section.manage-blog-list div.blog-profile ul li a svg, section.manage-blog-list section.search-nearby-results div.blog-profile a ul li svg, section.search-nearby-results section.manage-blog-list div.blog-profile a ul li svg {
+        display: block;
+        width: 50px;
+        height: 50px; }
+        section.manage-blog-list div.blog-profile ul li a svg, section.manage-blog-list section.search-results div.blog-profile a ul li svg svg, section.search-results section.manage-blog-list div.blog-profile a ul li svg svg, section.manage-blog-list section.search-nearby-results div.blog-profile a ul li svg svg, section.search-nearby-results section.manage-blog-list div.blog-profile a ul li svg svg {
+          display: block;
+          width: 50px;
+          height: 50px; }
+        section.manage-blog-list div.blog-profile ul li a svg:hover, section.manage-blog-list section.search-results div.blog-profile a ul li svg svg:hover, section.search-results section.manage-blog-list div.blog-profile a ul li svg svg:hover, section.manage-blog-list section.search-nearby-results div.blog-profile a ul li svg svg:hover, section.search-nearby-results section.manage-blog-list div.blog-profile a ul li svg svg:hover {
+          cursor: pointer; }
+        section.manage-blog-list div.blog-profile ul li a svg.icon-info:hover path, section.manage-blog-list section.search-results div.blog-profile a ul li svg svg.icon-info:hover path, section.search-results section.manage-blog-list div.blog-profile a ul li svg svg.icon-info:hover path, section.manage-blog-list section.search-nearby-results div.blog-profile a ul li svg svg.icon-info:hover path, section.search-nearby-results section.manage-blog-list div.blog-profile a ul li svg svg.icon-info:hover path {
+          fill: #1f9b35; }
+        section.manage-blog-list div.blog-profile ul li a svg.icon-info:hover rect, section.manage-blog-list section.search-results div.blog-profile a ul li svg svg.icon-info:hover rect, section.search-results section.manage-blog-list div.blog-profile a ul li svg svg.icon-info:hover rect, section.manage-blog-list section.search-nearby-results div.blog-profile a ul li svg svg.icon-info:hover rect, section.search-nearby-results section.manage-blog-list div.blog-profile a ul li svg svg.icon-info:hover rect {
+          fill: #1f9b35; }
+        section.manage-blog-list div.blog-profile ul li a svg.icon-edit:hover rect, section.manage-blog-list section.search-results div.blog-profile a ul li svg svg.icon-edit:hover rect, section.search-results section.manage-blog-list div.blog-profile a ul li svg svg.icon-edit:hover rect, section.manage-blog-list section.search-nearby-results div.blog-profile a ul li svg svg.icon-edit:hover rect, section.search-nearby-results section.manage-blog-list div.blog-profile a ul li svg svg.icon-edit:hover rect {
+          fill: #f7bb31; }
+        section.manage-blog-list div.blog-profile ul li a svg.icon-delete:hover rect, section.manage-blog-list section.search-results div.blog-profile a ul li svg svg.icon-delete:hover rect, section.search-results section.manage-blog-list div.blog-profile a ul li svg svg.icon-delete:hover rect, section.manage-blog-list section.search-nearby-results div.blog-profile a ul li svg svg.icon-delete:hover rect, section.search-nearby-results section.manage-blog-list div.blog-profile a ul li svg svg.icon-delete:hover rect {
+          fill: #f24730; }
+      section.manage-blog-list div.blog-profile ul li a:focus, section.manage-blog-list section.search-results div.blog-profile ul li a svg:focus, section.search-results section.manage-blog-list div.blog-profile ul li a svg:focus, section.manage-blog-list section.search-results div.blog-profile a ul li svg:focus, section.search-results section.manage-blog-list div.blog-profile a ul li svg:focus, section.manage-blog-list section.search-nearby-results div.blog-profile ul li a svg:focus, section.search-nearby-results section.manage-blog-list div.blog-profile ul li a svg:focus, section.manage-blog-list section.search-nearby-results div.blog-profile a ul li svg:focus, section.search-nearby-results section.manage-blog-list div.blog-profile a ul li svg:focus {
+        outline: none; }
 
 section.manage-addblog-elements {
   margin-top: 30px;

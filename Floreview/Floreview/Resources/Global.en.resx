@@ -325,7 +325,7 @@
     <value>Add store</value>
   </data>
   <data name="Manage_Store_Search_Placeholder" xml:space="preserve">
-    <value>City</value>
+    <value>Search</value>
   </data>
   <data name="Manage_Store_Select_City" xml:space="preserve">
     <value>City</value>

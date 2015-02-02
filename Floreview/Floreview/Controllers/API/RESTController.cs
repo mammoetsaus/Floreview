@@ -59,10 +59,41 @@ namespace Floreview.Controllers.API
 
             try
             {
-                List<Company> lstCompanies = _accessService.GetCompaniesByFilterAndSortMethod(filter, sort);
+                List<Company> companies = _accessService.GetCompaniesByFilterAndSortMethod(filter, sort);
 
                 message = new HttpResponseMessage(HttpStatusCode.OK);
-                message.Content = new ObjectContent<List<Company>>(lstCompanies, Configuration.Formatters[0], "application/json");
+                message.Content = new ObjectContent<List<Company>>(companies, Configuration.Formatters[0], "application/json");
+            }
+            catch (Exception)
+            {
+                message = new HttpResponseMessage(HttpStatusCode.InternalServerError);
+            }
+
+            return message;
+        }
+
+        [Authorize]
+        [Route("api/blogs")]
+        public HttpResponseMessage GetBlogs(String filter, int sort)
+        {
+            HttpResponseMessage message = null;
+
+            try
+            {
+                List<Blog> blogs = _accessService.GetBlogsByFilterAndSortMethod(filter, sort);
+
+                foreach (Blog blog in blogs)
+                {
+                    blog.Author = new ApplicationUser()
+                    {
+                        FirstName = blog.Author.FirstName,
+                        LastName = blog.Author.LastName,
+                        AccessCode = blog.Author.AccessCode
+                    };
+                }
+
+                message = new HttpResponseMessage(HttpStatusCode.OK);
+                message.Content = new ObjectContent<List<Blog>>(blogs, Configuration.Formatters[0], "application/json");
             }
             catch (Exception)
             {

@@ -682,7 +682,7 @@ namespace Floreview.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Gemeente.
+        ///   Looks up a localized string similar to Zoeken.
         /// </summary>
         public static string Manage_Store_Search_Placeholder {
             get {

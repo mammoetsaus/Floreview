@@ -42,11 +42,6 @@ namespace Floreview.DataAccess.Services
         }
 
 
-        public List<Blog> GetLatestBlogs(int amount)
-        {
-            return _blogRepository.GetLatestBlogs(amount).ToList<Blog>();
-        }
-
         public Blog InsertBlog(Blog blog)
         {
             Blog result = _blogRepository.Insert(blog);
@@ -59,6 +54,33 @@ namespace Floreview.DataAccess.Services
         {
             _blogRepository.Update(blog);
             _uow.SaveChanges();
+        }
+
+        public List<Blog> GetLatestBlogs(int amount)
+        {
+            return _blogRepository.GetLatestBlogs(amount).ToList<Blog>();
+        }
+
+        public List<Blog> GetBlogsByFilterAndSortMethod(string filter, int sort)
+        {
+            List<Blog> blogs = null;
+
+            if (String.IsNullOrEmpty(filter))
+            {
+                blogs = _blogRepository.All().ToList<Blog>();
+            }
+            else
+            {
+                blogs = _blogRepository.GetBlogsByName(filter).ToList<Blog>();
+            }
+
+            switch (sort)
+            {
+                case 1:
+                    return blogs.OrderByDescending(o => o.PublishDate).ToList<Blog>();
+                default:
+                    return blogs.OrderByDescending(o => o.ID).ToList<Blog>();
+            }
         }
 
         public List<BlogCategory> GetAllBlogCategories()

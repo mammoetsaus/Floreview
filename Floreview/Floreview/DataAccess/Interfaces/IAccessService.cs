@@ -10,11 +10,13 @@ namespace Floreview.DataAccess.Interfaces
 {
     public interface IAccessService
     {
-        List<Blog> GetLatestBlogs(int amount);
-
         Blog InsertBlog(Blog blog);
 
         void UpdateBlog(Blog blog);
+
+        List<Blog> GetLatestBlogs(int amount);
+
+        List<Blog> GetBlogsByFilterAndSortMethod(String filter, int sort);
 
         List<BlogCategory> GetAllBlogCategories();
 
