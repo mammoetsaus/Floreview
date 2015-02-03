@@ -65,7 +65,7 @@
         {
             <article>
                 <img src="@item.Avatar" alt="@item.TitleNL" />
-                <a href="#" title="@item.TitleNL">@item.TitleNL</a>
+                <a href="/Blog/Detail?blog=@item.ID" title="@item.TitleNL">@item.TitleNL</a>
                 <p>
                     <span>@Global.Home_Blog_Promotion_Datetime</span> @item.PublishDate.ToString("dd").@item.PublishDate.ToString("MM").@item.PublishDate.Year <span>|</span>  <a href="/Blog/Index?c=@item.Category.ID">@item.Category.Name</a>
                 </p>

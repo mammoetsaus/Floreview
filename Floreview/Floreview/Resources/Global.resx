@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Blog_Author" xml:space="preserve">
+    <value>Door</value>
+  </data>
+  <data name="Blog_Datetime" xml:space="preserve">
+    <value>Geplaatst op</value>
+  </data>
   <data name="Detail_Contact_Mobile_Error" xml:space="preserve">
     <value>Geen GSM nummer beschikbaar</value>
   </data>
@@ -185,6 +191,9 @@
   </data>
   <data name="Manage_AddBlog_PublishDate_Placeholder" xml:space="preserve">
     <value>Release datum</value>
+  </data>
+  <data name="Manage_AddBlog_Submit" xml:space="preserve">
+    <value>Opslaan</value>
   </data>
   <data name="Manage_AddBlog_Teaser_DE" xml:space="preserve">
     <value>Korte beschrijving (DE)</value>

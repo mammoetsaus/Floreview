@@ -10,6 +10,8 @@ namespace Floreview.DataAccess.Interfaces
 {
     public interface IAccessService
     {
+        Blog GetBlogByID(int ID);
+
         Blog InsertBlog(Blog blog);
 
         void UpdateBlog(Blog blog);
@@ -49,7 +51,7 @@ namespace Floreview.DataAccess.Interfaces
         Location GetLocationByCityName(String city);
 
 
-
+        /*
         List<Company> GetCompaniesMainCity(String main, String city, int region);
 
         List<Blog> GetAllBlogs();
@@ -59,6 +61,6 @@ namespace Floreview.DataAccess.Interfaces
         List<BlogCategory> GetBlogCategoriesForSideBlog();
 
         Dictionary<DateTime, int> GetDatesForSideBlog();
-
+        */
     }
 }

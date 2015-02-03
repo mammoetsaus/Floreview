@@ -26,59 +26,28 @@ namespace Floreview.Controllers
 
         }
 
-        /*
-        public ActionResult BlogList(List<Blog> Model)
-        {
-            // only shown once at startup
-            // called after for markup
-            return PartialView(Model);
-        }
-
-        public ActionResult SideBlog(BlogVM model)
-        {
-            model.Dates = _accessService.GetDatesForSideBlog();
-            model.Categories = _accessService.GetBlogCategoriesForSideBlog();
-
-            if (model.Categories != null && model.Categories.Count > 0)
-            {
-                List<Blog> lstBlogs = _accessService.GetAllBlogs();
-
-                model.CategoryFrequencies = (from c in lstBlogs orderby c.Category.Name group c by c.Category into g select g.Count()).ToArray();
-            }
-
-            return PartialView(model);
-        }
-
-        [HttpPost]
-        public ActionResult InfiniteScroll(BlogVM model)
-        {
-            List<Blog> lstNewBlogs = _accessService.GetNextRangeOfBlogs(model, BLOCKSIZE);
-
-            BlogJSON modelJSON = new BlogJSON();
-            modelJSON.NoMoreData = lstNewBlogs.Count < BLOCKSIZE;
-            modelJSON.HTMLString = RenderPartialViewToString("BlogList", lstNewBlogs);
-
-            return Json(modelJSON);
-        }
-
         public ActionResult Index()
         {
             return View();
         }
 
-        protected String RenderPartialViewToString(String viewName, object model)
+        public ActionResult Detail(int? blog)
         {
-            ViewData.Model = model;
-
-            using (StringWriter sw = new StringWriter())
+            if (ModelState.IsValid)
             {
-                ViewEngineResult viewResult = ViewEngines.Engines.FindPartialView(ControllerContext, viewName);
-                ViewContext viewContext = new ViewContext(ControllerContext, viewResult.View, ViewData, TempData, sw);
-                viewResult.View.Render(viewContext, sw);
+                if (blog.HasValue && blog > 0)
+                {
+                    BlogVM model = new BlogVM();
+                    model.Blog = _accessService.GetBlogByID(blog.Value);
 
-                return sw.GetStringBuilder().ToString();
+                    if (model.Blog != null && DateTime.Compare(model.Blog.PublishDate, DateTime.Now) <= 0)
+                    {
+                        return View(model);
+                    }
+                }
             }
+
+            return RedirectToAction("Index", "Blog");
         }
-         * */
     }
 }

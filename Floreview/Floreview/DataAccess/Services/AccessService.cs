@@ -42,6 +42,11 @@ namespace Floreview.DataAccess.Services
         }
 
 
+        public Blog GetBlogByID(int ID)
+        {
+            return _blogRepository.GetByID(ID);
+        }
+
         public Blog InsertBlog(Blog blog)
         {
             Blog result = _blogRepository.Insert(blog);
@@ -185,7 +190,7 @@ namespace Floreview.DataAccess.Services
             return _locationRepository.GetLocationByCityName(city);
         }
 
-
+        /*
         public List<Company> GetCompaniesMainCity(string main, string city, int region)
         {
             return _companyRepository.GetCompaniesMainCity(main, city, region).ToList<Company>();
@@ -253,6 +258,6 @@ namespace Floreview.DataAccess.Services
             }
 
             return dictFinalDates;
-        }
+        }*/
     }
 }

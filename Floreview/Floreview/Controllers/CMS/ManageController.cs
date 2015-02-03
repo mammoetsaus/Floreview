@@ -193,6 +193,7 @@ namespace Floreview.Controllers.CMS
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public ActionResult AddBlog(BlogVM model)
         {
@@ -201,6 +202,12 @@ namespace Floreview.Controllers.CMS
                 model.Blog.Avatar = "http://floreview.blob.core.windows.net/blog/blog_avatar_default.jpg";
                 model.Blog.Category = _accessService.GetBlogCategoryByID(model.SelectedBlogCategoryID);
                 model.Blog.Author = _userManagementService.GetUser(User.Identity.Name);
+                model.Blog.ContentNL = String.Format(model.Blog.ContentNL, 
+                    model.Blog.TitleNL,
+                    model.Blog.PublishDate.ToString("dd") + "." + model.Blog.PublishDate.ToString("MM") + "." + model.Blog.PublishDate.Year,
+                    model.Blog.Author.AccessCode,
+                    model.Blog.Author.FirstName,
+                    model.Blog.Author.LastName);
                 Blog insertedBlog = _accessService.InsertBlog(model.Blog);
 
                 if (model.BlogAvatar != null)

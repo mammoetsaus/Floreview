@@ -1,6 +1,10 @@
 ﻿@using Floreview.Resources
 @model Floreview.ViewModels.CMS.BlogVM
 
+@{
+    var layout = Model.BlogElements.Find(i => i.ID.Equals(1)).Layout;
+}
+
 <header class="admin">
     <nav>
         <ul class="content-container">
@@ -54,41 +58,169 @@
 <section class="manage-addblog-crucial">
     <h2>@Global.Manage_AddBlog_BasicInformation</h2>
 
-    @using (Html.BeginForm("AddBlog", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("AddBlog", "Manage", FormMethod.Post, new { enctype = "multipart/form-data", @id = "manage-addblog-form" }))
     {
         @Html.AntiForgeryToken();
 
-        <div>
-            @Html.TextBoxFor(model => model.Blog.TitleNL, new { @class = "manage-addblog-title", @placeholder = Global.Manage_AddBlog_Title_NL })
+    <div>
+        @Html.TextBoxFor(model => model.Blog.TitleNL, new { @class = "manage-addblog-title", @placeholder = Global.Manage_AddBlog_Title_NL })
 
-            @Html.TextAreaFor(model => model.Blog.TeaserNL, new { @placeholder = Global.Manage_AddBlog_Teaser_NL })
+        @Html.TextAreaFor(model => model.Blog.TeaserNL, new { @placeholder = Global.Manage_AddBlog_Teaser_NL })
 
-            @Html.TextBoxFor(model => model.Blog.PublishDate, new { @placeholder = Global.Manage_AddBlog_PublishDate_Placeholder, @value = Model.Blog.PublishDate })
+        @Html.TextBoxFor(model => model.Blog.PublishDate, new { @placeholder = Global.Manage_AddBlog_PublishDate_Placeholder, @value = Model.Blog.PublishDate })
 
-            @Html.DropDownList("SelectedBlogCategoryID", Model.BlogCategories)
-        </div>
-        <div>
-            <ul>
-                <li>NL</li>
-                <li>FR</li>
-                <li>EN</li>
-                <li>DE</li>
-            </ul>
+        @Html.DropDownList("SelectedBlogCategoryID", Model.BlogCategories)
 
-            <img src="http://floreview.blob.core.windows.net/blog/blog_avatar_default.jpg" id="manage-addblog-avatar-preview" alt="Blog avatar preview" />
+        @Html.HiddenFor(model => model.Blog.ContentNL, new { @id = "manage-addblog-content-nl" })
+    </div>
+    <div>
+        <ul>
+            <li>NL</li>
+            <li>FR</li>
+            <li>EN</li>
+            <li>DE</li>
+        </ul>
 
-            <input type="file" id="manage-addblog-avatar" name="BlogAvatar" accept="image/*" />
+        <img src="http://floreview.blob.core.windows.net/blog/blog_avatar_default.jpg" id="manage-addblog-avatar-preview" alt="Blog avatar preview" />
 
-            <input type="submit" value="Opslaan" />
-        </div>
+        <input type="file" id="manage-addblog-avatar" name="BlogAvatar" accept="image/*" />
+
+        <input type="submit" value="@Global.Manage_AddBlog_Submit" />
+    </div>
     }
+</section>
+
+<section class="manage-addblog-container">
+    @*<div class="blog-element blog-element-plain-text">
+        <h2>Plain text</h2>
+        <ul>
+            <li class="blog-element-min">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+                <rect x="8" y="29" fill="#333333" width="24" height="3" />
+                </svg>
+            </li>
+            <li class="blog-element-max">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+                <g>
+                <rect x="10" y="6" fill="#FFFFFF" stroke="#333333" stroke-width="2" stroke-miterlimit="10" width="24" height="24" />
+                <rect x="6" y="10" fill="#FFFFFF" stroke="#333333" stroke-width="2" stroke-miterlimit="10" width="24" height="24" />
+                    </g>
+                </svg>
+            </li>
+            <li class="blog-element-del">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+                <g>
+                <path fill="#333333" d="M32,10.4L29.6,8L20,17.6L10.4,8L8,10.4l9.6,9.6L8,29.6l2.4,2.4l9.6-9.6l9.6,9.6l2.4-2.4L22.4,20L32,10.4z
+		                     M32,10.4" />
+                    </g>
+                </svg>
+            </li>
+        </ul>
+
+        <textarea class="blog-element-plain-text-nl" placeholder="Dutch"></textarea>
+        <textarea class="blog-element-plain-text-en" placeholder="English"></textarea>
+        <textarea class="blog-element-plain-text-fr" placeholder="French"></textarea>
+        <textarea class="blog-element-plain-text-de" placeholder="German"></textarea>
+    </div>*@
 </section>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        var container = document.querySelector('section.manage-addblog-container');
+
         document.getElementById('manage-addblog-avatar').addEventListener('change', function () {
             var url = window.URL.createObjectURL(this.files[0]);
             document.getElementById('manage-addblog-avatar-preview').src = url;
         });
+
+        document.getElementById('manage-addblog-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            parseBlogElements();
+            this.submit();
+        });
+
+        document.getElementById('blog-element-1').addEventListener('click', function () {
+            appendBlogElementToContainer(1);
+        });
+
+
+        function appendBlogElementToContainer(elementID) {
+            var content = '',
+                element = document.createElement('div');
+
+            switch (elementID) {
+                case 1:
+                    // plain text
+                    content = '@Html.Raw(Model.BlogElements.Find(i => i.ID.Equals(1)).Layout)';
+                    element.classList.add('blog-element-plain-text');
+                    break;
+            }
+
+            element.innerHTML = content;
+            element.classList.add('blog-element');
+
+            container.appendChild(element);
+
+            setBlogElementMenu();
+        }
+
+        function parseBlogElements() {
+            var element = '<section class="blog-container"><h2>{0}</h2><p><span>geplaatst op </span>{1}<span> | door </span><a href="/Blog/Index?a={2}">{3} {4}</a></p>';
+
+            for (var i = 1; i < container.childNodes.length; i++) {
+                blogElement = container.childNodes[i];
+
+                if (blogElement.classList.contains('blog-element-plain-text')) {
+                    var textareaNL = blogElement.querySelector('.blog-element-plain-text-nl');
+
+                    element += '<p class="blog-plain-text">';
+                    element += textareaNL.value;
+                    element += '</p>';
+                }
+            }
+
+            element += '</section>';
+
+            document.getElementById('manage-addblog-content-nl').value = element;
+        }
+
+        function handleMinimizeEvent() {
+            var minimizeButtons = document.querySelectorAll('li.blog-element-min');
+
+            for (var i = 0; i < minimizeButtons.length; i++) {
+                minimizeButtons[i].addEventListener('click', function () {
+                    this.parentNode.parentNode.classList.add('minimized');
+                });
+            }
+        }
+
+        function handleMaximizeEvent() {
+            var maximizeButtons = document.querySelectorAll('li.blog-element-max');
+
+            for (var i = 0; i < maximizeButtons.length; i++) {
+                maximizeButtons[i].addEventListener('click', function () {
+                    this.parentNode.parentNode.classList.remove('minimized');
+                });
+            }
+        }
+
+        function handleDeleteEvent() {
+            var closeButtons = document.querySelectorAll('li.blog-element-del');
+
+            for (var i = 0; i < closeButtons.length; i++) {
+                closeButtons[i].addEventListener('click', function () {
+                    this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
+                });
+            }
+        }
+
+        function setBlogElementMenu() {
+            handleMinimizeEvent();
+            handleMaximizeEvent();
+            handleDeleteEvent();
+        }
     });
 </script>

@@ -1,4 +1,5 @@
 ﻿@using Floreview.Resources
+@model Floreview.ViewModels.BlogVM
 
 @{
     var className = "small";
@@ -43,3 +44,5 @@
         </section>
     }
 </header>
+
+@Html.Raw(Model.Blog.ContentNL)

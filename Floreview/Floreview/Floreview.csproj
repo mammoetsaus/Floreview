@@ -210,10 +210,10 @@
     <Compile Include="Controllers\API\RESTController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\CMS\ManageController.cs" />
-    <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="DataAccess\Context\FlowerContext.cs" />
     <Compile Include="DataAccess\Interfaces\IAccessService.cs" />
     <Compile Include="DataAccess\Interfaces\IBlog.cs" />
@@ -236,9 +236,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201502021035221_initDB.cs" />
-    <Compile Include="Migrations\201502021035221_initDB.Designer.cs">
-      <DependentUpon>201502021035221_initDB.cs</DependentUpon>
+    <Compile Include="Migrations\201502031503436_initDB.cs" />
+    <Compile Include="Migrations\201502031503436_initDB.Designer.cs">
+      <DependentUpon>201502031503436_initDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BlogElement.cs" />
@@ -691,16 +691,15 @@
     <Content Include="Scripts\js-webshim\minified\shims\styles\widget.eot" />
     <Content Include="Scripts\js-webshim\minified\shims\styles\widget.ttf" />
     <Content Include="Scripts\js-webshim\minified\shims\styles\widget.woff" />
-    <Content Include="Views\Detail\Index.cshtml" />
     <Content Include="Views\Manage\Store.cshtml" />
     <Content Include="Views\Manage\AddStore.cshtml" />
     <Content Include="Views\Manage\EditStore.cshtml" />
-    <Content Include="Views\Blog\BlogList.cshtml" />
-    <Content Include="Views\Blog\Index.cshtml" />
-    <Content Include="Views\Blog\SideBlog.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Manage\Blog.cshtml" />
     <Content Include="Views\Manage\AddBlog.cshtml" />
+    <Content Include="Views\Store\Detail.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Blog\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -709,8 +708,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201502021035221_initDB.resx">
-      <DependentUpon>201502021035221_initDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201502031503436_initDB.resx">
+      <DependentUpon>201502031503436_initDB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Global.en.resx">
       <Generator>ResXFileCodeGenerator</Generator>

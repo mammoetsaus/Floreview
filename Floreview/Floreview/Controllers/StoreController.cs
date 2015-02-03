@@ -9,21 +9,21 @@ using System.Web.Mvc;
 
 namespace Floreview.Controllers
 {
-    public class DetailController : Controller
+    public class StoreController : Controller
     {
         public IAccessService _accessService = null;
 
-        public DetailController(IAccessService service)
+        public StoreController(IAccessService service)
         {
             _accessService = service;
         }
 
-        public DetailController()
+        public StoreController()
         {
 
         }
 
-        public ActionResult Index(int? profile)
+        public ActionResult Detail(int? profile)
         {
             if (ModelState.IsValid)
             {

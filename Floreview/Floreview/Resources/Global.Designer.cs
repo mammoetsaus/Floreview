@@ -61,6 +61,24 @@ namespace Floreview.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Door.
+        /// </summary>
+        public static string Blog_Author {
+            get {
+                return ResourceManager.GetString("Blog_Author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Geplaatst op.
+        /// </summary>
+        public static string Blog_Datetime {
+            get {
+                return ResourceManager.GetString("Blog_Datetime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Geen GSM nummer beschikbaar.
         /// </summary>
         public static string Detail_Contact_Mobile_Error {
@@ -264,6 +282,15 @@ namespace Floreview.Resources {
         public static string Manage_AddBlog_PublishDate_Placeholder {
             get {
                 return ResourceManager.GetString("Manage_AddBlog_PublishDate_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opslaan.
+        /// </summary>
+        public static string Manage_AddBlog_Submit {
+            get {
+                return ResourceManager.GetString("Manage_AddBlog_Submit", resourceCulture);
             }
         }
         

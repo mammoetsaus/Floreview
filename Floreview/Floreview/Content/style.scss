@@ -545,7 +545,7 @@ section.detail-profile {
     @extend %clearfix;
     margin-top: 30px;
     background-color: $fill-white;
-    border: $border-color-default;
+    border: 1px solid $border-color-default;
 
 
     div.detail-profile-left {
@@ -682,6 +682,50 @@ section.detail-profile {
                 }
             }
         }
+    }
+}
+
+section.blog-container {
+    @extend .content-container;
+    margin-top: 30px;
+    background-color: $fill-white;
+    border: 1px solid $border-color-default;
+
+    h2 {
+        font-family: latoregular, sans-serif;
+        font-weight: 400;
+        font-size: 32px;
+        color: $font-color-dark-grey;
+        margin: 10px;
+    }
+
+    p:first-of-type {
+        font-family: latoregular, sans-serif;
+        font-size: 16px;
+        color: $font-color-dark-grey;
+        margin: 10px 10px 25px 10px;
+
+        span {
+            color: $font-color-light-grey;
+            text-transform: lowercase;
+        }
+
+        a {
+            color: $font-color-dark-grey;
+            text-decoration: none;
+        }
+
+        a:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+
+    p.blog-plain-text {
+        font-family: latoregular, sans-serif;
+        font-size: 16px;
+        color: $font-color-dark-grey;
+        margin: 15px 10px;
     }
 }
 
@@ -1009,7 +1053,7 @@ section.manage-blog-list {
             padding: 0 10px;
             border-right: 1px dashed $border-color-dashed;
         }
-        
+
         p:first-of-type {
             width: 450px;
         }
@@ -1131,6 +1175,7 @@ section.manage-addblog-crucial {
     @extend %clearfix;
     margin-top: 30px;
     background-color: $fill-white;
+    border: 1px solid $border-color-default;
 
     h2 {
         font-family: latoregular, sans-serif;
@@ -1253,6 +1298,114 @@ section.manage-addblog-crucial {
                 outline: 0;
                 border: 1px solid $border-color-focus-green;
             }
+
+            input[type="submit"] {
+                float: left;
+                width: 292px;
+                height: 40px;
+                font-family: latoregular, sans-serif;
+                font-size: 18px;
+                color: $font-color-white;
+                background-color: $secondary-green;
+                border: none;
+                margin: 20px 10px 10px 60px;
+            }
+
+            input[type="submit"]:hover {
+                cursor: pointer;
+                background-color: $secondary-green-active;
+            }
+
+            input[type="submit"]:focus {
+                outline: 0;
+            }
+        }
+    }
+}
+
+section.manage-addblog-container {
+    @extend .content-container;
+
+    div.blog-element {
+        @extend .content-container;
+        @extend %clearfix;
+        margin-top: 30px;
+        background-color: $fill-white;
+        border: 1px solid $border-color-default;
+
+        h2 {
+            float: left;
+            width: 884px;
+            font-family: latoregular, sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: $font-color-dark-grey;
+            text-transform: uppercase;
+            border-bottom: 1px dashed $border-color-dashed;
+            padding: 10px;
+            margin: 0 0 5px 0;
+        }
+
+        ul {
+            @extend %clearfix;
+            float: left;
+            height: 38px;
+            width: 120px;
+            border-bottom: 1px dashed $border-color-dashed;
+            margin: 0 0 5px 0;
+
+            li {
+                float: left;
+                display: block;
+                height: 40px;
+                width: 40px;
+
+                svg {
+                    display: block;
+                    height: 24px;
+                    width: 24px;
+                    margin: 8px 0 0 8px;
+                }
+            }
+
+            li:hover {
+                cursor: pointer;
+            }
+
+            li:nth-of-type(1):hover rect {
+                fill: $secondary-green;
+            }
+
+            li:nth-of-type(2):hover rect {
+                stroke: $secondary-green;
+            }
+
+            li:nth-of-type(3):hover path {
+                fill: $secondary-green;
+            }
+        }
+    }
+
+    div.blog-element.minimized {
+        height: 38px;
+        overflow: hidden;
+    }
+
+    div.blog-element-plain-text {
+        textarea {
+            width: 982px;
+            max-width: 982px;
+            height: 100px;
+            font-family: latoregular, sans-serif;
+            font-size: 16px;
+            border: 1px solid $border-color-light-grey;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        textarea:focus {
+            outline: 0;
+            border: 1px solid $border-color-focus-green;
         }
     }
 }
