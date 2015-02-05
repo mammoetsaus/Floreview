@@ -1,4 +1,7 @@
 ﻿@using Floreview.Resources
+@using Floreview.Utils
+@using System.Globalization
+@model Floreview.ViewModels.BlogVM
 
 @{
     var className = "small";
@@ -43,3 +46,83 @@
         </section>
     }
 </header>
+
+<section class="blog-container">
+    <div class="blog-list">
+        @{
+            foreach (var blog in Model.Blogs)
+            {
+                <article>
+                    <img src="@blog.Avatar" alt="Blog avatar" />
+                    <a href="/Blog/Detail?blog=@blog.ID">@LanguageUtility.GetLanguageValue(Request, blog.TitleNL, blog.TitleEN, blog.TitleFR, blog.TitleDE)</a>
+                    <p>@LanguageUtility.GetLanguageValue(Request, blog.TeaserNL, blog.TeaserEN, blog.TeaserFR, blog.TeaserDE)</p>
+                </article>
+            }
+        }
+    </div>
+    <div class="blog-side">
+        @using (Html.BeginForm("Index", "Blog", FormMethod.Get))
+        {
+            @Html.TextBoxFor(model => model.Query, new { @placeholder = Global.Blog_Search_Placeholder, @autocomplete = "off", @value = Model.Query })
+
+            <input type="submit" value="" />
+        }
+
+        <div class="blog-sort-options">
+            <h3>@Global.Blog_Categories</h3>
+            <ul>
+                @{
+                    if (Model.BlogCategoryFrequencies.Count > 0)
+                    {
+                        foreach (var category in Model.BlogCategoryFrequencies)
+                        {
+                            <li>
+                                <a href="/Blog/Index?category=@category.CategoryID">@category.Category
+                                    <span>(@category.Frequency)</span>
+                                </a>
+                            </li>
+                        }
+                    }
+                }
+            </ul>
+        </div>
+
+        <div class="blog-sort-options">
+            <h3>@Global.Blog_Archive</h3>
+            <ul>
+                @{
+                    if (Model.BlogPublishdateFrequencies.Count > 0)
+                    {
+                        foreach (var publishDate in Model.BlogPublishdateFrequencies)
+                        {
+                            <li>
+                                <a href="/Blog/Index?archive=@publishDate.Year-@publishDate.Month">@LanguageUtility.GetLanguagePublishdate(Request, --publishDate.Month) @publishDate.Year
+                                    <span>(@publishDate.Frequency)</span>
+                                </a>
+                            </li>
+                        }
+                    }
+                }
+            </ul>
+        </div>
+
+        <div class="blog-sort-options">
+            <h3>@Global.Blog_Author</h3>
+            <ul>
+                @{
+                    if (Model.BlogAuthorFrequencies.Count > 0)
+                    {
+                        foreach (var author in Model.BlogAuthorFrequencies)
+                        {
+                            <li>
+                                <a href="/Blog/Index?author=@author.AccessCode"> @author.FirstName @author.LastName
+                                    <span>(@author.Frequency)</span>
+                                </a>
+                            </li>
+                        }
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</section>

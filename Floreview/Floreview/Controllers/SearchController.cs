@@ -33,48 +33,40 @@ namespace Floreview.Controllers
         [HttpPost]
         public ActionResult Index(IndexSearchVM model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    IndexSearchResultVM result = new IndexSearchResultVM();
+                IndexSearchResultVM result = new IndexSearchResultVM();
 
-                    if (!String.IsNullOrEmpty(model.Name) && String.IsNullOrEmpty(model.City))
-                    {
-                        result.Companies = _accessService.GetCompaniesByCompanyName(model.Name);
-                        ViewBag.Name = model.Name;
-                        ViewBag.City = "-";
-                    }
-                    else if (String.IsNullOrEmpty(model.Name) && !String.IsNullOrEmpty(model.City))
-                    {
-                        result.Companies = _accessService.GetCompaniesByCityName(model.City);
-                        ViewBag.Name = "-";
-                        ViewBag.City = model.City;
-                    }
-                    else if (!String.IsNullOrEmpty(model.Name) && !String.IsNullOrEmpty(model.City))
-                    {
-                        result.Companies = _accessService.GetCompaniesByCompanyAndCity(model.Name, model.City);
-                        ViewBag.Name = model.Name;
-                        ViewBag.City = model.City;
-                    }
-                    else
-                    {
-                        throw new ArgumentException();
-                    }
+                if (!String.IsNullOrEmpty(model.Name) && String.IsNullOrEmpty(model.City))
+                {
+                    result.Companies = _accessService.GetCompaniesByCompanyName(model.Name);
+                    ViewBag.Name = model.Name;
+                    ViewBag.City = "-";
 
                     ViewBag.NumberOfCompanies = result.Companies.Count;
-
                     return View(result);
                 }
-                else
+                else if (String.IsNullOrEmpty(model.Name) && !String.IsNullOrEmpty(model.City))
                 {
-                    throw new ArgumentException();
+                    result.Companies = _accessService.GetCompaniesByCityName(model.City);
+                    ViewBag.Name = "-";
+                    ViewBag.City = model.City;
+
+                    ViewBag.NumberOfCompanies = result.Companies.Count;
+                    return View(result);
+                }
+                else if (!String.IsNullOrEmpty(model.Name) && !String.IsNullOrEmpty(model.City))
+                {
+                    result.Companies = _accessService.GetCompaniesByCompanyAndCity(model.Name, model.City);
+                    ViewBag.Name = model.Name;
+                    ViewBag.City = model.City;
+
+                    ViewBag.NumberOfCompanies = result.Companies.Count;
+                    return View(result);
                 }
             }
-            catch (ArgumentException)
-            {
-                return RedirectToAction("Index", "Home");
-            }
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

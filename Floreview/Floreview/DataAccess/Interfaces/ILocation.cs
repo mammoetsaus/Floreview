@@ -11,7 +11,6 @@ namespace Floreview.DataAccess.Interfaces
     {
         IEnumerable<Location> GetLocationsByQuery(String query);
 
-
         Location GetLocationByCityName(String query);
     }
 }

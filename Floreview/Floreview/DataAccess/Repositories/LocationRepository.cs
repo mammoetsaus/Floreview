@@ -26,7 +26,6 @@ namespace Floreview.DataAccess.Repositories
             return result.ToList<Location>();
         }
 
-
         public Location GetLocationByCityName(string query)
         {
             var result = (from l in context.Location.Where(i => i.City.Equals(query)) select l).FirstOrDefault();

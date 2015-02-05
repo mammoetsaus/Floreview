@@ -32,18 +32,5 @@ namespace Floreview.DataAccess.Repositories
             var result = (from c in context.Company.Where(i => (i.Name.Contains(company) || i.Florist.FirstName.Contains(company) || i.Florist.LastName.Contains(company)) && (i.Location.City.Contains(city))) select c);
             return result.ToList<Company>();
         }
-
-
-        public IEnumerable<Company> GetCompaniesMainCity(string main, string city, int region)
-        {
-            var result = (from c in context.Company.Where(i => (i.Location.CityMain.Equals(main) || (i.Location.ZipMain / 100).Equals(region)) && !i.Location.City.Equals(city)) select c);
-            return result.ToList<Company>();
-        }
-
-        public Company GetCompanyByID(int id)
-        {
-            var result = (from c in context.Company.Where(i => i.ID.Equals(id)) select c).FirstOrDefault();
-            return result;
-        }
     }
 }

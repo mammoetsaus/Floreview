@@ -25,6 +25,8 @@ namespace Floreview.DataAccess.Services
 
         private IGeneric<BlogElement> _blogElementRepository = null;
 
+        public const int BLOCKSIZE = 20;
+
         public AccessService()
         {
 
@@ -61,16 +63,22 @@ namespace Floreview.DataAccess.Services
             _uow.SaveChanges();
         }
 
+        public void DeleteBlog(Blog blog)
+        {
+            _blogRepository.Delete(blog);
+            _uow.SaveChanges();
+        }
+
         public List<Blog> GetLatestBlogs(int amount)
         {
             return _blogRepository.GetLatestBlogs(amount).ToList<Blog>();
         }
 
-        public List<Blog> GetBlogsByFilterAndSortMethod(string filter, int sort)
+        public List<Blog> GetBlogsByFilterAndSortMethod(String filter, int sort)
         {
             List<Blog> blogs = null;
 
-            if (String.IsNullOrEmpty(filter))
+            if (filter.Equals("%"))
             {
                 blogs = _blogRepository.All().ToList<Blog>();
             }
@@ -88,9 +96,49 @@ namespace Floreview.DataAccess.Services
             }
         }
 
+        public List<Blog> GetBlogsWithFilters(int? page, String query, int? category, String archive, String author)
+        {
+            List<Blog> blogs = new List<Blog>();
+
+            int skip = 0;
+            if (page.HasValue)
+            {
+                skip = (page.Value * BLOCKSIZE) - ((page.Value - 1) * BLOCKSIZE);
+            }
+
+            if (!String.IsNullOrEmpty(query))
+            {
+
+            }
+            else if (category > 0)
+            {
+                blogs = _blogRepository.GetAllBlogsByCategoryID(category.Value, skip).ToList<Blog>();
+            }
+            else if (!String.IsNullOrEmpty(archive) && IsArchiveInCorrectFormat(archive))
+            {
+                blogs = _blogRepository.GetAllBlogsByArchive(GetArchiveYear(archive), GetArchiveMonth(archive), skip).ToList<Blog>();
+            }
+            else if (!String.IsNullOrEmpty(author))
+            {
+                blogs = _blogRepository.GetAllBlogsByAuthor(author, skip).ToList<Blog>();
+            }
+
+            if (blogs.Count == 0)
+            {
+                blogs = _blogRepository.GetAllAccessibleBlogs(skip).ToList<Blog>();
+            }
+
+            return blogs;
+        }
+
+        public List<BlogAuthorFrequency> GetAllBlogAuthorFrequencies()
+        {
+            return _blogRepository.GetAllBlogAuthorFrequencies().ToList<BlogAuthorFrequency>();
+        }
+
         public List<BlogCategory> GetAllBlogCategories()
         {
-            return _blogCategoryRepository.All().ToList<BlogCategory>();
+            return _blogCategoryRepository.All().OrderBy(i => i.Name).ToList<BlogCategory>();
         }
 
         public BlogCategory GetBlogCategoryByID(int ID)
@@ -98,9 +146,19 @@ namespace Floreview.DataAccess.Services
             return _blogCategoryRepository.GetByID(ID);
         }
 
+        public List<BlogCategoryFrequency> GetAllBlogFrequencies()
+        {
+            return _blogRepository.GetAllBlogFrequencies().ToList<BlogCategoryFrequency>();
+        }
+
         public List<BlogElement> GetAllBlogElements()
         {
             return _blogElementRepository.All().ToList<BlogElement>();
+        }
+
+        public List<BlogPublishdateFrequency> GetAllBlogPublishdateFrequencies()
+        {
+            return _blogRepository.GetAllBlogPublishdateFrequencies().ToList<BlogPublishdateFrequency>();
         }
 
         public List<Company> GetAllCompanies()
@@ -110,7 +168,7 @@ namespace Floreview.DataAccess.Services
 
         public Company GetCompanyByID(int ID)
         {
-            return _companyRepository.GetCompanyByID(ID);
+            return _companyRepository.GetByID(ID);
         }
 
         public Company InsertCompany(Company company)
@@ -152,7 +210,7 @@ namespace Floreview.DataAccess.Services
         {
             List<Company> lstCompanies = null;
 
-            if (String.IsNullOrEmpty(filter))
+            if (filter.Equals("%"))
             {
                 lstCompanies = _companyRepository.All().ToList<Company>();
             }
@@ -189,75 +247,38 @@ namespace Floreview.DataAccess.Services
         {
             return _locationRepository.GetLocationByCityName(city);
         }
+        
 
-        /*
-        public List<Company> GetCompaniesMainCity(string main, string city, int region)
+        private Boolean IsArchiveInCorrectFormat(String archive)
         {
-            return _companyRepository.GetCompaniesMainCity(main, city, region).ToList<Company>();
-        }
-
-        public List<Blog> GetAllBlogs()
-        {
-            return _blogRepository.All().ToList<Blog>();
-        }
-
-        public List<Blog> GetNextRangeOfBlogs(BlogVM model, int blockSize)
-        {
-            if (String.IsNullOrEmpty(model.Author) && model.CategoryID == 0 && String.IsNullOrEmpty(model.Query) && String.IsNullOrEmpty(model.Date))
+            try
             {
-                // no querystring values
-                return _blogRepository.GetNextRangeOfBlogs(model.BlockNumber, blockSize).ToList<Blog>();
-            }
-            else if (!String.IsNullOrEmpty(model.Author) && model.CategoryID == 0 && String.IsNullOrEmpty(model.Query) && String.IsNullOrEmpty(model.Date))
-            {
-                // only author value
-                return _blogRepository.GetNextRangeOfBlogsByAuthor(model.BlockNumber, blockSize, model.Author).ToList<Blog>();
-            }
-            else if (String.IsNullOrEmpty(model.Author) && model.CategoryID != 0 && String.IsNullOrEmpty(model.Query) && String.IsNullOrEmpty(model.Date)) 
-            {
-                // only category value
-                return _blogRepository.GetNextRangeOfBlogsByCategory(model.BlockNumber, blockSize, model.CategoryID).ToList<Blog>();
-            }
-            else if (String.IsNullOrEmpty(model.Author) && model.CategoryID == 0 && !String.IsNullOrEmpty(model.Query) && String.IsNullOrEmpty(model.Date))
-            {
-                // only search value
-                return _blogRepository.GetNextRangeOfBlogsByQuery(model.BlockNumber, blockSize, model.Query).ToList<Blog>();
-            }
-            else if (String.IsNullOrEmpty(model.Author) && model.CategoryID == 0 && String.IsNullOrEmpty(model.Query) && !String.IsNullOrEmpty(model.Date))
-            {
-                // only date value
-                return _blogRepository.GetNextRangeOfBlogsByDate(model.BlockNumber, blockSize, model.Date).ToList<Blog>();
-            }
+                String[] split = archive.Split('-');
 
-            return null;
-        }
+                int year = Int32.Parse(split[0]);
+                int month = Int32.Parse(split[1]);
 
-        public List<BlogCategory> GetBlogCategoriesForSideBlog()
-        {
-            return _blogCategoryRepository.GetBlogTypesForSideBlog().ToList<BlogCategory>();
-        }
-
-        public Dictionary<DateTime, int> GetDatesForSideBlog()
-        {
-            Dictionary<DateTime, int> dictFinalDates = new Dictionary<DateTime, int>();
-            List<DateTime> lstAllDates = _blogRepository.GetDatesForSideBlog().ToList<DateTime>();
-
-            foreach (DateTime date in lstAllDates)
-            {
-                // create new empty datetime object
-                DateTime dateTest = new DateTime(date.Year, date.Month, 1, 0, 0, 0);
-
-                if (!dictFinalDates.ContainsKey(dateTest))
+                if (year > 2000 && month > 0 && month < 12)
                 {
-                    dictFinalDates.Add(dateTest, 1);
+                    return true;
                 }
-                else
-                {
-                    dictFinalDates[dateTest]++;
-                }
-            }
 
-            return dictFinalDates;
-        }*/
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        private int GetArchiveYear(String archive)
+        {
+            return Int32.Parse(archive.Split('-')[0]);
+        }
+
+        private int GetArchiveMonth(String archive)
+        {
+            return Int32.Parse(archive.Split('-')[1]);
+        }
     }
 }

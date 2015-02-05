@@ -1,4 +1,5 @@
 ﻿@using Floreview.Resources
+@using Floreview.Utils
 @model Floreview.ViewModels.IndexSearchResultVM
 
 @{
@@ -66,29 +67,7 @@
         {
             foreach (var company in Model.Companies)
             {
-                var contentDescriptionShort = "";
-                var languageCookie = Request.Cookies["floreview_language_cookie"];
-                if (languageCookie != null && !String.IsNullOrEmpty(languageCookie.Value))
-                {
-                    switch (languageCookie.Value)
-                    {
-                        case "nl":
-                            contentDescriptionShort = company.DescriptionShortNL;
-                            break;
-                        case "en":
-                            contentDescriptionShort = company.DescriptionShortEN;
-                            break;
-                        case "fr":
-                            contentDescriptionShort = company.DescriptionShortFR;
-                            break;
-                        case "de":
-                            contentDescriptionShort = company.DescriptionShortDE;
-                            break;
-                        default:
-                            contentDescriptionShort = company.DescriptionShortNL;
-                            break;
-                    }
-                }
+                String description = LanguageUtility.GetLanguageValue(Request, company.DescriptionShortNL, company.DescriptionShortEN, company.DescriptionShortFR, company.DescriptionShortDE);
                 
                 <div class="search-profile">
                     <img src="@company.Avatar" alt="Profile picture @company.Name" />
@@ -99,7 +78,7 @@
                         <path fill="#cccccc" d="M0,0v50h50V0H0z M30.4,25h-3.5c0,5.6,0,12.5,0,12.5h-5.2c0,0,0-6.8,0-12.5h-2.5v-4.4h2.5v-2.9c0-2,1-5.2,5.2-5.2l3.8,0v4.3c0,0-2.3,0-2.8,0c-0.5,0-1.1,0.2-1.1,1.2v2.6h4L30.4,25z" />
                         </svg>
                     </a>
-                    <p>@contentDescriptionShort</p>
+                    <p>@description</p>
                     <a href="mailto:@company.Email">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                              viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
@@ -127,30 +106,8 @@
 
             @foreach (var company in Model.NearbyCompanies)
             {
-                var contentDescriptionShort = "";
-                var languageCookie = Request.Cookies["floreview_language_cookie"];
-                if (languageCookie != null && !String.IsNullOrEmpty(languageCookie.Value))
-                {
-                    switch (languageCookie.Value)
-                    {
-                        case "nl":
-                            contentDescriptionShort = company.DescriptionShortNL;
-                            break;
-                        case "en":
-                            contentDescriptionShort = company.DescriptionShortEN;
-                            break;
-                        case "fr":
-                            contentDescriptionShort = company.DescriptionShortFR;
-                            break;
-                        case "de":
-                            contentDescriptionShort = company.DescriptionShortDE;
-                            break;
-                        default:
-                            contentDescriptionShort = company.DescriptionShortNL;
-                            break;
-                    }
-                }
-                
+                String description = LanguageUtility.GetLanguageValue(Request, company.DescriptionShortNL, company.DescriptionShortEN, company.DescriptionShortFR, company.DescriptionShortDE);
+                                
                 <div class="search-profile">
                     <img src="@company.Avatar" alt="Profile picture @company.Name" />
                     <h3>@company.Name</h3>
@@ -160,7 +117,7 @@
                         <path fill="#cccccc" d="M0,0v50h50V0H0z M30.4,25h-3.5c0,5.6,0,12.5,0,12.5h-5.2c0,0,0-6.8,0-12.5h-2.5v-4.4h2.5v-2.9c0-2,1-5.2,5.2-5.2l3.8,0v4.3c0,0-2.3,0-2.8,0c-0.5,0-1.1,0.2-1.1,1.2v2.6h4L30.4,25z" />
                         </svg>
                     </a>
-                    <p>@contentDescriptionShort</p>
+                    <p>@description</p>
                     <a href="mailto:@company.Email">
                         <svg class="icon-mail" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                              viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">

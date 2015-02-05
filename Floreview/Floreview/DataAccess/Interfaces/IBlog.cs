@@ -9,21 +9,22 @@ namespace Floreview.DataAccess.Interfaces
 {
     public interface IBlog : IGeneric<Blog>
     {
+        IEnumerable<Blog> GetAllAccessibleBlogs(int skip);
+
         IEnumerable<Blog> GetLatestBlogs(int amount);
 
         IEnumerable<Blog> GetBlogsByName(String name);
 
+        IEnumerable<BlogCategoryFrequency> GetAllBlogFrequencies();
 
-        IEnumerable<Blog> GetNextRangeOfBlogs(int blockNumber, int blockSize);
+        IEnumerable<BlogPublishdateFrequency> GetAllBlogPublishdateFrequencies();
 
-        IEnumerable<Blog> GetNextRangeOfBlogsByAuthor(int blockNumber, int blockSize, String accessCode);
+        IEnumerable<BlogAuthorFrequency> GetAllBlogAuthorFrequencies();
 
-        IEnumerable<Blog> GetNextRangeOfBlogsByCategory(int blockNumber, int blockSize, int typeID);
+        IEnumerable<Blog> GetAllBlogsByCategoryID(int ID, int skip);
 
-        IEnumerable<Blog> GetNextRangeOfBlogsByQuery(int blockNumber, int blockSize, String query);
+        IEnumerable<Blog> GetAllBlogsByArchive(int year, int month, int skip);
 
-        IEnumerable<Blog> GetNextRangeOfBlogsByDate(int blockNumber, int blockSize, String date);
-
-        IEnumerable<DateTime> GetDatesForSideBlog();
+        IEnumerable<Blog> GetAllBlogsByAuthor(String author, int skip);
     }
 }

@@ -33,7 +33,7 @@ namespace Floreview.Controllers
 
                     if (company != null)
                     {
-                        DetailVM model = new DetailVM();
+                        DetailStoreVM model = new DetailStoreVM();
                         model.Company = company;
 
                         return View(model);

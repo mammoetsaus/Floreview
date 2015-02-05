@@ -28,7 +28,7 @@ namespace Floreview.Controllers.API
         {
             HttpResponseMessage message = null;
 
-            try
+            if (ModelState.IsValid)
             {
                 if (city.Length >= 3) 
                 {
@@ -36,18 +36,12 @@ namespace Floreview.Controllers.API
 
                     message = new HttpResponseMessage(HttpStatusCode.OK);
                     message.Content = new ObjectContent<List<Location>>(lstCities, Configuration.Formatters[0], "application/json");
-                }
-                else
-                {
-                    message = new HttpResponseMessage(HttpStatusCode.BadRequest);
                     return message;
                 }
             }
-            catch (Exception)
-            {
-                message = new HttpResponseMessage(HttpStatusCode.InternalServerError);
-            }
 
+            message = new HttpResponseMessage(HttpStatusCode.OK);
+            message.Content = new ObjectContent<ApiErrorMessage>(new ApiErrorMessage() { Success = false, Message = "Couldn't load locations." }, Configuration.Formatters[0], "application/json");
             return message;
         }
 
@@ -57,18 +51,17 @@ namespace Floreview.Controllers.API
         {
             HttpResponseMessage message = null;
 
-            try
+            if (ModelState.IsValid)
             {
                 List<Company> companies = _accessService.GetCompaniesByFilterAndSortMethod(filter, sort);
 
                 message = new HttpResponseMessage(HttpStatusCode.OK);
                 message.Content = new ObjectContent<List<Company>>(companies, Configuration.Formatters[0], "application/json");
-            }
-            catch (Exception)
-            {
-                message = new HttpResponseMessage(HttpStatusCode.InternalServerError);
+                return message;
             }
 
+            message = new HttpResponseMessage(HttpStatusCode.OK);
+            message.Content = new ObjectContent<ApiErrorMessage>(new ApiErrorMessage() { Success = false, Message = "Couldn't load companies." }, Configuration.Formatters[0], "application/json");
             return message;
         }
 
@@ -78,7 +71,7 @@ namespace Floreview.Controllers.API
         {
             HttpResponseMessage message = null;
 
-            try
+            if (ModelState.IsValid)
             {
                 List<Blog> blogs = _accessService.GetBlogsByFilterAndSortMethod(filter, sort);
 
@@ -94,12 +87,11 @@ namespace Floreview.Controllers.API
 
                 message = new HttpResponseMessage(HttpStatusCode.OK);
                 message.Content = new ObjectContent<List<Blog>>(blogs, Configuration.Formatters[0], "application/json");
-            }
-            catch (Exception)
-            {
-                message = new HttpResponseMessage(HttpStatusCode.InternalServerError);
+                return message;
             }
 
+            message = new HttpResponseMessage(HttpStatusCode.OK);
+            message.Content = new ObjectContent<ApiErrorMessage>(new ApiErrorMessage() { Success = false, Message = "Couldn't load blogs."}, Configuration.Formatters[0], "application/json");
             return message;
         }
     }

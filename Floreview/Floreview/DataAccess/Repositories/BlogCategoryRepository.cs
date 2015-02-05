@@ -19,11 +19,5 @@ namespace Floreview.DataAccess.Repositories
         {
 
         }
-
-        public IEnumerable<BlogCategory> GetBlogTypesForSideBlog()
-        {
-            var result = (from b in context.Blog orderby b.Category.Name select b.Category).Distinct();
-            return result.ToList<BlogCategory>();
-        }
     }
 }

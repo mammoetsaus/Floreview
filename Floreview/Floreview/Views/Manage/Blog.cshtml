@@ -1,4 +1,5 @@
 ﻿@using Floreview.Resources
+@using Floreview.Utils
 
 <header class="admin">
     <nav>
@@ -38,42 +39,26 @@
 
 <section class="manage-information">
     <a href="/Manage/AddBlog">@Global.Manage_Store_Add_Blog</a>
+    <select id="manage-addblog-select">
+        <option value="0">@Global.Manage_Blog_Select_Recent</option>
+        <option value="1">@Global.Manage_Blog_Select_PublishDate</option>
+    </select>
 
     <img id="manage-blog-loading-icon" src="http://floreview.blob.core.windows.net/images/icon_loading.gif" alt="Loading icon" />
 </section>
 
-<section class="manage-blog-list">
-    <div class="blog-profile">
-        <p>' + arr[i].TitleNL + '</p>
-        <p>' + arr[i].Category.Name + '</p>
-        <p>' + arr[i].PublishDate + '</p>
-        <ul>
-            <li>
-                <a href="/Blog?item=' + arr[i].ID + '">
-                    <svg class="icon-info" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 310 310" enable-background="new 0 0 310 310" xml:space="preserve">
-                    <rect fill="#cccccc" width="310" height="310" />
-                    <polygon fill="#ffffff" points="107.9,263.5 104.2,260.4 199,155 104.2,49.6 107.9,46.5 205.8,155 " />
-            </svg>
-                </a>
-            </li>
-            <li>
-                <a href="/Manage/DeleteBlog?id=' + arr[i].ID + '" title="Delete">
-                    <svg class="icon-delete" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
-                    <rect fill="#cccccc" width="50" height="50" />
-                    <g>
-                    <path fill="#ffffff" d="M32.7,22.7L32.7,22.7C32.7,22.8,32.7,22.8,32.7,22.7c0,0.1,0,0.1,0,0.1l-0.6,12.2h0c-0.1,1-1.2,2.4-7.1,2.4 c-5.9,0-7-1.5-7.1-2.4h0l-0.6-12.2c0,0,0,0,0,0c0,0,0,0,0,0l0-0.1h0c0-0.1,0.1-0.2,0.2-0.3c0.8,0.8,3.8,0.9,7.5,0.9 c3.7,0,6.7-0.1,7.5-0.9C32.6,22.5,32.7,22.6,32.7,22.7L32.7,22.7z M33.7,18.1v1.4c0,0.3-0.3,0.6-0.8,0.8c-1.4,0.7-4.4,1.1-7.9,1.1 c-3.5,0-6.5-0.5-7.9-1.1c-0.5-0.3-0.8-0.5-0.8-0.8v-1.4c0-0.8,1.9-1.4,4.8-1.7v-3c0-0.5,0.4-0.9,0.9-0.9h5.9c0.5,0,0.9,0.4,0.9,0.9 v3C31.6,16.6,33.7,17.3,33.7,18.1L33.7,18.1z M27.1,15c0-0.5-0.1-1-0.2-1h-4.1c-0.1,0-0.2,0.4-0.2,1v1.2l0.2,0 c0.7,0,1.4-0.1,2.1-0.1c0.7,0,1.4,0,2.1,0.1V15z M27.1,15" />
-               </g>
-            </svg>
-                </a>
-            </li>
-        </ul>
-    </div>
-</section>
+<section class="manage-blog-list"></section>
 
 <script src="~/Scripts/humane.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        loadBlogs("", 0);
+        loadBlogs("%", 0);
+
+        var sortList = document.getElementById('manage-addblog-select').addEventListener('change', function () {
+            var sort = this.options[this.selectedIndex].value;
+
+            loadBlogs("%", sort);
+        });
     });
 
     function loadBlogs(filter, sort) {
@@ -101,7 +86,7 @@
         for (var i = 0; i < arr.length; i++) {
             var dateOutput = humaneDate(arr[i].PublishDate);
 
-            output += '<div class="blog-profile"> <p>' + arr[i].TitleNL + '</p><p>' + arr[i].Category.Name + '</p><p>' + dateOutput + '</p><ul> <li> <a href="/Blog?item=' + arr[i].ID + '"> <svg class="icon-info" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 310 310" enable-background="new 0 0 310 310" xml:space="preserve"> <rect fill="#cccccc" width="310" height="310"/> <polygon fill="#ffffff" points="107.9,263.5 104.2,260.4 199,155 104.2,49.6 107.9,46.5 205.8,155 "/> </svg> </a> </li><li> <a href="/Manage/DeleteBlog?id=' + arr[i].ID + '" title="Delete"> <svg class="icon-delete" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve"> <rect fill="#cccccc" width="50" height="50"/> <g> <path fill="#ffffff" d="M32.7,22.7L32.7,22.7C32.7,22.8,32.7,22.8,32.7,22.7c0,0.1,0,0.1,0,0.1l-0.6,12.2h0c-0.1,1-1.2,2.4-7.1,2.4 c-5.9,0-7-1.5-7.1-2.4h0l-0.6-12.2c0,0,0,0,0,0c0,0,0,0,0,0l0-0.1h0c0-0.1,0.1-0.2,0.2-0.3c0.8,0.8,3.8,0.9,7.5,0.9 c3.7,0,6.7-0.1,7.5-0.9C32.6,22.5,32.7,22.6,32.7,22.7L32.7,22.7z M33.7,18.1v1.4c0,0.3-0.3,0.6-0.8,0.8c-1.4,0.7-4.4,1.1-7.9,1.1 c-3.5,0-6.5-0.5-7.9-1.1c-0.5-0.3-0.8-0.5-0.8-0.8v-1.4c0-0.8,1.9-1.4,4.8-1.7v-3c0-0.5,0.4-0.9,0.9-0.9h5.9c0.5,0,0.9,0.4,0.9,0.9 v3C31.6,16.6,33.7,17.3,33.7,18.1L33.7,18.1z M27.1,15c0-0.5-0.1-1-0.2-1h-4.1c-0.1,0-0.2,0.4-0.2,1v1.2l0.2,0 c0.7,0,1.4-0.1,2.1-0.1c0.7,0,1.4,0,2.1,0.1V15z M27.1,15"/> </g> </svg> </a> </li></ul> </div>';
+            output += '<div class="blog-profile"> <p>' + arr[i].TitleNL + '</p><p>' + arr[i].Category.Name + '</p><p>' + dateOutput + '</p><ul> <li> <a href="/Blog/Detail?blog=' + arr[i].ID + '"> <svg class="icon-info" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 310 310" enable-background="new 0 0 310 310" xml:space="preserve"> <rect fill="#cccccc" width="310" height="310"/> <polygon fill="#ffffff" points="107.9,263.5 104.2,260.4 199,155 104.2,49.6 107.9,46.5 205.8,155 "/> </svg> </a> </li><li> <a href="/Manage/DeleteBlog?id=' + arr[i].ID + '" title="Delete"> <svg class="icon-delete" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve"> <rect fill="#cccccc" width="50" height="50"/> <g> <path fill="#ffffff" d="M32.7,22.7L32.7,22.7C32.7,22.8,32.7,22.8,32.7,22.7c0,0.1,0,0.1,0,0.1l-0.6,12.2h0c-0.1,1-1.2,2.4-7.1,2.4 c-5.9,0-7-1.5-7.1-2.4h0l-0.6-12.2c0,0,0,0,0,0c0,0,0,0,0,0l0-0.1h0c0-0.1,0.1-0.2,0.2-0.3c0.8,0.8,3.8,0.9,7.5,0.9 c3.7,0,6.7-0.1,7.5-0.9C32.6,22.5,32.7,22.6,32.7,22.7L32.7,22.7z M33.7,18.1v1.4c0,0.3-0.3,0.6-0.8,0.8c-1.4,0.7-4.4,1.1-7.9,1.1 c-3.5,0-6.5-0.5-7.9-1.1c-0.5-0.3-0.8-0.5-0.8-0.8v-1.4c0-0.8,1.9-1.4,4.8-1.7v-3c0-0.5,0.4-0.9,0.9-0.9h5.9c0.5,0,0.9,0.4,0.9,0.9 v3C31.6,16.6,33.7,17.3,33.7,18.1L33.7,18.1z M27.1,15c0-0.5-0.1-1-0.2-1h-4.1c-0.1,0-0.2,0.4-0.2,1v1.2l0.2,0 c0.7,0,1.4-0.1,2.1-0.1c0.7,0,1.4,0,2.1,0.1V15z M27.1,15"/> </g> </svg> </a> </li></ul> </div>';
         }
 
         resultCallback(output);

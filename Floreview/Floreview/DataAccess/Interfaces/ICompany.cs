@@ -14,10 +14,5 @@ namespace Floreview.DataAccess.Interfaces
         IEnumerable<Company> GetCompaniesByCityName(String city);
 
         IEnumerable<Company> GetCompaniesByCompanyAndCity(String company, String city);
-
-
-        IEnumerable<Company> GetCompaniesMainCity(String main, String city, int region);
-
-        Company GetCompanyByID(int id);
     }
 }

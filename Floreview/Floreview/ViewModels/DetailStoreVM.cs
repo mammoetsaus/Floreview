@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Floreview.ViewModels
 {
-    public class DetailVM
+    public class DetailStoreVM
     {
         public Company Company { get; set; }
     }

@@ -38,13 +38,13 @@
 
 <section class="manage-information">
     <a href="/Manage/AddStore">@Global.Manage_Store_Add_Store</a>
-    <select>
+    <select id="manage-addstore-select">
         <option value="0">@Global.Manage_Store_Select_Recent</option>
         <option value="1">@Global.Manage_Store_Select_Name</option>
         <option value="2">@Global.Manage_Store_Select_City</option>
         <option value="3">@Global.Manage_Store_Select_Province</option>
     </select>
-    <input type="text" placeholder="@Global.Manage_Store_Search_Placeholder" />
+    <input type="text" id="manage-addstore-search" placeholder="@Global.Manage_Store_Search_Placeholder" />
     <img id="manage-store-loading-icon" src="http://floreview.blob.core.windows.net/images/icon_loading.gif" alt="Loading icon" />
 </section>
 
@@ -53,15 +53,17 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        loadCompanies("", 0);
+        loadCompanies("%", 0);
 
-        var searchInput = document.querySelector('section.manage-store-information input[type="text"]'),
-            sortList = document.querySelector('section.manage-store-information select');
+        var searchInput = document.getElementById('manage-addstore-search'),
+            sortList = document.getElementById('manage-addstore-select');
 
 
         searchInput.addEventListener('blur', function () {
             var filter = this.value,
                 sort = sortList.options[sortList.selectedIndex].value;
+
+            if (this.value == '') filter = "%";
 
             loadCompanies(filter, sort);
         });
@@ -69,6 +71,8 @@
         sortList.addEventListener('change', function () {
             var filter = searchInput.value,
                 sort = this.options[this.selectedIndex].value;
+
+            if (searchInput.value == '') filter = "%";
 
             loadCompanies(filter, sort);
         });

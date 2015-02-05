@@ -199,15 +199,16 @@ namespace Floreview.Controllers.CMS
         {
             if (ModelState.IsValid)
             {
+                // parse publish date to UTC
+                model.Blog.PublishDate = model.Blog.PublishDate.AddHours(-1);
+
                 model.Blog.Avatar = "http://floreview.blob.core.windows.net/blog/blog_avatar_default.jpg";
                 model.Blog.Category = _accessService.GetBlogCategoryByID(model.SelectedBlogCategoryID);
                 model.Blog.Author = _userManagementService.GetUser(User.Identity.Name);
-                model.Blog.ContentNL = String.Format(model.Blog.ContentNL, 
-                    model.Blog.TitleNL,
-                    model.Blog.PublishDate.ToString("dd") + "." + model.Blog.PublishDate.ToString("MM") + "." + model.Blog.PublishDate.Year,
-                    model.Blog.Author.AccessCode,
-                    model.Blog.Author.FirstName,
-                    model.Blog.Author.LastName);
+                model.Blog.ContentNL = LanguageUtility.GetLanguageBlogContent(model.Blog, 0);
+                model.Blog.ContentEN = LanguageUtility.GetLanguageBlogContent(model.Blog, 1);
+                model.Blog.ContentFR = LanguageUtility.GetLanguageBlogContent(model.Blog, 2);
+                model.Blog.ContentDE = LanguageUtility.GetLanguageBlogContent(model.Blog, 3);
                 Blog insertedBlog = _accessService.InsertBlog(model.Blog);
 
                 if (model.BlogAvatar != null)
@@ -225,6 +226,26 @@ namespace Floreview.Controllers.CMS
             model.BlogCategories = new SelectList(blogCategories, "ID", "Name");
 
             return View(model);
+        }
+
+        public ActionResult DeleteBlog(int? id)
+        {
+            if (ModelState.IsValid)
+            {
+                if (id.HasValue && id > 0)
+                {
+                    Blog blog = _accessService.GetBlogByID(id.Value);
+
+                    if (blog != null)
+                    {
+                        BlobStorageEngine.DeleteBlogAvatar(blog);
+
+                        _accessService.DeleteBlog(blog);
+                    }
+                }
+            }
+
+            return RedirectToAction("Blog", "Manage");
         }
     }
 }

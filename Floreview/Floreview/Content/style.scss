@@ -454,7 +454,7 @@ section.search-results {
 
         h3 {
             float: left;
-            padding: 5px 5px 5px 5px;
+            padding: 5px 10px;
             width: 290px;
             font-family: latoregular, sans-serif;
             font-weight: 400;
@@ -474,14 +474,14 @@ section.search-results {
 
         p:first-of-type {
             margin: -15px 0 0 0;
-            padding: 0 5px;
+            padding: 0 10px;
             height: 85px;
         }
 
         p:nth-of-type(2) {
             font-size: 14px;
             margin: 5px 0 0 0;
-            padding: 0 5px;
+            padding: 0 10px;
         }
 
         a {
@@ -685,7 +685,7 @@ section.detail-profile {
     }
 }
 
-section.blog-container {
+section.blog-detail-container {
     @extend .content-container;
     margin-top: 30px;
     background-color: $fill-white;
@@ -726,6 +726,128 @@ section.blog-container {
         font-size: 16px;
         color: $font-color-dark-grey;
         margin: 15px 10px;
+    }
+}
+
+section.blog-container {
+    @extend .content-container;
+    @extend %clearfix;
+    margin-top: 30px;
+
+    div.blog-list {
+        float: left;
+        width: 670px;
+        margin: 0 40px 0 0;
+
+        article {
+            @extend %clearfix;
+            background-color: $fill-white;
+            border: 1px solid $border-color-default;
+            margin: 0 0 30px 0;
+
+            img {
+                float: left;
+                height: 125px;
+                width: 220px;
+            }
+
+            a {
+                display: block;
+                float: left;
+                width: 426px;
+                font-family: latoregular, sans-serif;
+                font-size: 18px;
+                color: $font-color-dark-grey;
+                padding: 5px 10px;
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: $secondary-green;
+            }
+
+            p {
+                float: left;
+                width: 426px;
+                font-family: latoregular, sans-serif;
+                font-size: 16px;
+                color: $font-color-dark-grey;
+                padding: 5px 10px;
+                margin: 10px 0 0 0;
+            }
+
+            p:first-of-type {
+                height: 74px;
+            }
+        }
+    }
+
+    div.blog-side {
+        float: left;
+        width: 314px;
+
+        form {
+            @extend %clearfix;
+
+            input[type="text"] {
+                float: left;
+                width: 253px;
+                height: 18px;
+                font-family: latoregular, sans-serif;
+                font-size: 16px;
+                border: 1px solid $border-color-light-grey;
+                border-right: none;
+                padding: 10px;
+            }
+
+            input[type="text"]:focus {
+                outline: 0;
+                border: 1px solid $border-color-focus-green;
+                border-right: none;
+            }
+
+            input[type="submit"] {
+                width: 40px;
+                height: 40px;
+                background: url(../Content/SVG/search_icon.svg);
+                background-position: center center;
+                background-repeat: no-repeat;
+                border: 1px solid $secondary-green;
+            }
+
+            input[type="submit"]:hover {
+                cursor: pointer;
+                background: url(../Content/SVG/search_icon_hover.svg);
+                border: 1px solid $secondary-green-active;
+            }
+        }
+
+        div.blog-sort-options {
+            margin: 25px 0 0 0;
+
+            h3 {
+                font-family: latoregular, sans-serif;
+                font-weight: 400;
+                color: $font-color-dark-grey;
+                border-bottom: 1px solid $border-color-dashed;
+                padding: 10px 0;
+            }
+
+            ul li {
+                list-style: none;
+                margin: 10px 0;
+
+                a {
+                    font-family: latoregular, sans-serif;
+                    color: $font-color-dark-grey;
+                    text-decoration: none;
+                }
+
+                a:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
     }
 }
 
@@ -1246,6 +1368,14 @@ section.manage-addblog-crucial {
             select:focus {
                 outline: 0;
                 border: 1px solid $border-color-focus-green;
+            }
+
+            input[type="text"].blog-crucial-hidden {
+                display: none;
+            }
+
+            textarea.blog-crucial-hidden {
+                display: none;
             }
         }
 

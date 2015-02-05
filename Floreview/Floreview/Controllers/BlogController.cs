@@ -14,8 +14,6 @@ namespace Floreview.Controllers
     {
         private IAccessService _accessService = null;
 
-        private const int BLOCKSIZE = 1;
-
         public BlogController(IAccessService service)
         {
             _accessService = service;
@@ -26,9 +24,23 @@ namespace Floreview.Controllers
 
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int? page, String query, int? category, String archive, String author)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                BlogVM model = new BlogVM();
+
+                if (!String.IsNullOrEmpty(query)) model.Query = query;
+
+                model.BlogCategoryFrequencies = _accessService.GetAllBlogFrequencies();
+                model.BlogPublishdateFrequencies = _accessService.GetAllBlogPublishdateFrequencies();
+                model.Blogs = _accessService.GetBlogsWithFilters(page, query, category, archive, author);
+                model.BlogAuthorFrequencies = _accessService.GetAllBlogAuthorFrequencies();
+
+                return View(model);
+            }
+
+            return RedirectToAction("Index", "Blog");
         }
 
         public ActionResult Detail(int? blog)
@@ -37,10 +49,10 @@ namespace Floreview.Controllers
             {
                 if (blog.HasValue && blog > 0)
                 {
-                    BlogVM model = new BlogVM();
+                    DetailBlogVM model = new DetailBlogVM();
                     model.Blog = _accessService.GetBlogByID(blog.Value);
 
-                    if (model.Blog != null && DateTime.Compare(model.Blog.PublishDate, DateTime.Now) <= 0)
+                    if (model.Blog != null && (DateTime.Compare(model.Blog.PublishDate, DateTime.UtcNow) <= 0 || User.Identity.IsAuthenticated))
                     {
                         return View(model);
                     }

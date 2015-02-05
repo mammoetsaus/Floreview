@@ -501,7 +501,7 @@ namespace Floreview.Migrations
 
             CreateLocations();
 
-            //CreateCompanies();
+            CreateCompanies();
 
             CreateBlogCategories();
 

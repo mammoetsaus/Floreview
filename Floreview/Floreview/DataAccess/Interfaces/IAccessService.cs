@@ -16,15 +16,25 @@ namespace Floreview.DataAccess.Interfaces
 
         void UpdateBlog(Blog blog);
 
+        void DeleteBlog(Blog blog);
+
         List<Blog> GetLatestBlogs(int amount);
 
         List<Blog> GetBlogsByFilterAndSortMethod(String filter, int sort);
+
+        List<Blog> GetBlogsWithFilters(int? page, String query, int? category, String archive, String author);
+
+        List<BlogAuthorFrequency> GetAllBlogAuthorFrequencies();
 
         List<BlogCategory> GetAllBlogCategories();
 
         BlogCategory GetBlogCategoryByID(int ID);
 
+        List<BlogCategoryFrequency> GetAllBlogFrequencies();
+
         List<BlogElement> GetAllBlogElements();
+
+        List<BlogPublishdateFrequency> GetAllBlogPublishdateFrequencies();
 
         List<Company> GetAllCompanies();
 
@@ -49,18 +59,5 @@ namespace Floreview.DataAccess.Interfaces
         List<Location> GetLocationsByQuery(String query);
 
         Location GetLocationByCityName(String city);
-
-
-        /*
-        List<Company> GetCompaniesMainCity(String main, String city, int region);
-
-        List<Blog> GetAllBlogs();
-
-        List<Blog> GetNextRangeOfBlogs(BlogVM model, int blockSize);
-
-        List<BlogCategory> GetBlogCategoriesForSideBlog();
-
-        Dictionary<DateTime, int> GetDatesForSideBlog();
-        */
     }
 }

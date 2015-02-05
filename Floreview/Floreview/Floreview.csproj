@@ -236,12 +236,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201502031503436_initDB.cs" />
-    <Compile Include="Migrations\201502031503436_initDB.Designer.cs">
-      <DependentUpon>201502031503436_initDB.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ApiErrorMessage.cs" />
+    <Compile Include="Models\BlogAuthorFrequency.cs" />
+    <Compile Include="Models\BlogCategoryFrequency.cs" />
     <Compile Include="Models\BlogElement.cs" />
+    <Compile Include="Models\BlogPublishdateFrequency.cs" />
+    <Compile Include="Utils\CodeEngine.cs" />
+    <Compile Include="Utils\LanguageUtility.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
     <Compile Include="Models\ApplicationRole.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -280,12 +282,12 @@
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Utils\BlobStorageEngine.cs" />
-    <Compile Include="Utils\CodeEngine.cs" />
     <Compile Include="Utils\GeocodingEngine.cs" />
     <Compile Include="ViewModels\BlogVM.cs" />
+    <Compile Include="ViewModels\DetailBlogVM.cs" />
     <Compile Include="ViewModels\CMS\BlogVM.cs" />
     <Compile Include="ViewModels\CMS\StoreVM.cs" />
-    <Compile Include="ViewModels\DetailVM.cs" />
+    <Compile Include="ViewModels\DetailStoreVM.cs" />
     <Compile Include="ViewModels\IndexVM.cs" />
     <Compile Include="ViewModels\IndexSearchResultVM.cs" />
     <Compile Include="ViewModels\IndexSearchVM.cs" />
@@ -295,6 +297,8 @@
     <Content Include="Content\style.css">
       <DependentUpon>style.scss</DependentUpon>
     </Content>
+    <Content Include="Content\SVG\search_icon_hover.svg" />
+    <Content Include="Content\SVG\search_icon.svg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\Lato-Reg-webfont.svg" />
     <Content Include="Global.asax" />
@@ -708,9 +712,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201502031503436_initDB.resx">
-      <DependentUpon>201502031503436_initDB.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Global.en.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Global.en.Designer.cs</LastGenOutput>

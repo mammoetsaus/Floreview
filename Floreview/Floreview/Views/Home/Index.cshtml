@@ -1,4 +1,5 @@
 ﻿@using Floreview.Resources
+@using Floreview.Utils
 @model Floreview.ViewModels.IndexVM
 
 <header>
@@ -61,16 +62,18 @@
     <section class="home-promotion-blogs">
         <h2>@Global.Home_Blog_Promotion_Title</h2>
 
-        @foreach (var item in Model.LatestBlogs)
+        @foreach (var blog in Model.LatestBlogs)
         {
+            String title = LanguageUtility.GetLanguageValue(Request, blog.TitleNL, blog.TitleEN, blog.TitleFR, blog.TitleDE);
+            
             <article>
-                <img src="@item.Avatar" alt="@item.TitleNL" />
-                <a href="/Blog/Detail?blog=@item.ID" title="@item.TitleNL">@item.TitleNL</a>
+                <img src="@blog.Avatar" alt="@title" />
+                <a href="/Blog/Detail?blog=@blog.ID" title="@title">@title</a>
                 <p>
-                    <span>@Global.Home_Blog_Promotion_Datetime</span> @item.PublishDate.ToString("dd").@item.PublishDate.ToString("MM").@item.PublishDate.Year <span>|</span>  <a href="/Blog/Index?c=@item.Category.ID">@item.Category.Name</a>
+                    <span>@Global.Home_Blog_Promotion_Datetime</span> @blog.PublishDate.ToString("dd").@blog.PublishDate.ToString("MM").@blog.PublishDate.Year <span>|</span>  <a href="/Blog/Index?c=@blog.Category.ID">@blog.Category.Name</a>
                 </p>
                 <p>
-                    <span>@Global.Home_Blog_Promotion_Author</span> <a href="/Blog/Index?a=@item.Author.AccessCode">@item.Author.FirstName @item.Author.LastName</a>
+                    <span>@Global.Home_Blog_Promotion_Author</span> <a href="/Blog/Index?author=@blog.Author.AccessCode">@blog.Author.FirstName @blog.Author.LastName</a>
                 </p>
             </article>
         }

@@ -1,5 +1,6 @@
 ﻿@using Floreview.Resources
-@model Floreview.ViewModels.BlogVM
+@using Floreview.Utils
+@model Floreview.ViewModels.DetailBlogVM
 
 @{
     var className = "small";
@@ -7,6 +8,8 @@
     {
         className = "admin";
     }
+
+    String content = LanguageUtility.GetLanguageValue(Request, Model.Blog.ContentNL, Model.Blog.ContentEN, Model.Blog.ContentFR, Model.Blog.ContentDE);
 }
 
 <header class="@className">
@@ -45,4 +48,4 @@
     }
 </header>
 
-@Html.Raw(Model.Blog.ContentNL)
+@Html.Raw(content);

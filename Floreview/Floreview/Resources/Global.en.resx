@@ -117,11 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Blog_Archive" xml:space="preserve">
+    <value>Archive</value>
+  </data>
   <data name="Blog_Author" xml:space="preserve">
+    <value>Authors</value>
+  </data>
+  <data name="Blog_Author_Info" xml:space="preserve">
     <value>By</value>
   </data>
-  <data name="Blog_Datetime" xml:space="preserve">
+  <data name="Blog_Categories" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="Blog_Datetime_Info" xml:space="preserve">
     <value>Created on</value>
+  </data>
+  <data name="Blog_Search_Placeholder" xml:space="preserve">
+    <value>Search</value>
   </data>
   <data name="Detail_Contact_Mobile_Error" xml:space="preserve">
     <value>No mbile number available</value>
@@ -326,6 +338,12 @@
   </data>
   <data name="Manage_AddStore_Website_Placeholder" xml:space="preserve">
     <value>Website</value>
+  </data>
+  <data name="Manage_Blog_Select_PublishDate" xml:space="preserve">
+    <value>Publish date</value>
+  </data>
+  <data name="Manage_Blog_Select_Recent" xml:space="preserve">
+    <value>Most recent</value>
   </data>
   <data name="Manage_Store_Add_Blog" xml:space="preserve">
     <value>Add blog</value>

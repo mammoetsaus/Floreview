@@ -9,6 +9,5 @@ namespace Floreview.DataAccess.Interfaces
 {
     public interface IBlogCategory : IGeneric<BlogCategory>
     {
-        IEnumerable<BlogCategory> GetBlogTypesForSideBlog();
     }
 }

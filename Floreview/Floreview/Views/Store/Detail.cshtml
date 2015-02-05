@@ -1,5 +1,6 @@
 ﻿@using Floreview.Resources
-@model Floreview.ViewModels.DetailVM
+@using Floreview.Utils
+@model Floreview.ViewModels.DetailStoreVM
 
 @{
     var className = "small";
@@ -8,29 +9,7 @@
         className = "admin";
     }
 
-    var contentDescriptionLong = "";
-    var languageCookie = Request.Cookies["floreview_language_cookie"];
-    if (languageCookie != null && !String.IsNullOrEmpty(languageCookie.Value))
-    {
-        switch (languageCookie.Value)
-        {
-            case "nl":
-                contentDescriptionLong = Model.Company.DescriptionLongNL;
-                break;
-            case "en":
-                contentDescriptionLong = Model.Company.DescriptionLongEN;
-                break;
-            case "fr":
-                contentDescriptionLong = Model.Company.DescriptionLongFR;
-                break;
-            case "de":
-                contentDescriptionLong = Model.Company.DescriptionLongDE;
-                break;
-            default:
-                contentDescriptionLong = Model.Company.DescriptionLongNL;
-                break;
-        }
-    }
+    var description = LanguageUtility.GetLanguageValue(Request, Model.Company.DescriptionLongNL, Model.Company.DescriptionLongEN, Model.Company.DescriptionLongFR, Model.Company.DescriptionLongDE);
 
     var latitude = Model.Company.Coordinates.Latitude.ToString().Replace(',', '.');
     var longitude = Model.Company.Coordinates.Longitude.ToString().Replace(',', '.');
@@ -76,7 +55,7 @@
 <section class="detail-profile">
     <div class="detail-profile-left">
         <h1>@Model.Company.Name</h1>
-        <p>@contentDescriptionLong</p>
+        <p>@description</p>
 
         <div class="detail-profile-pictures">
             <ul>

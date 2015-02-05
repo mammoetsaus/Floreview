@@ -61,7 +61,16 @@ namespace Floreview.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Door.
+        ///   Looks up a localized string similar to Archief.
+        /// </summary>
+        public static string Blog_Archive {
+            get {
+                return ResourceManager.GetString("Blog_Archive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auteurs.
         /// </summary>
         public static string Blog_Author {
             get {
@@ -70,11 +79,38 @@ namespace Floreview.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Door.
+        /// </summary>
+        public static string Blog_Author_Info {
+            get {
+                return ResourceManager.GetString("Blog_Author_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Categorieën.
+        /// </summary>
+        public static string Blog_Categories {
+            get {
+                return ResourceManager.GetString("Blog_Categories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Geplaatst op.
         /// </summary>
-        public static string Blog_Datetime {
+        public static string Blog_Datetime_Info {
             get {
-                return ResourceManager.GetString("Blog_Datetime", resourceCulture);
+                return ResourceManager.GetString("Blog_Datetime_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zoeken.
+        /// </summary>
+        public static string Blog_Search_Placeholder {
+            get {
+                return ResourceManager.GetString("Blog_Search_Placeholder", resourceCulture);
             }
         }
         
@@ -268,7 +304,7 @@ namespace Floreview.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Basis informatie.
+        ///   Looks up a localized string similar to Basisinformatie.
         /// </summary>
         public static string Manage_AddBlog_BasicInformation {
             get {
@@ -687,6 +723,24 @@ namespace Floreview.Resources {
         public static string Manage_AddStore_Website_Placeholder {
             get {
                 return ResourceManager.GetString("Manage_AddStore_Website_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Release datum.
+        /// </summary>
+        public static string Manage_Blog_Select_PublishDate {
+            get {
+                return ResourceManager.GetString("Manage_Blog_Select_PublishDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Laatst toegevoegd.
+        /// </summary>
+        public static string Manage_Blog_Select_Recent {
+            get {
+                return ResourceManager.GetString("Manage_Blog_Select_Recent", resourceCulture);
             }
         }
         

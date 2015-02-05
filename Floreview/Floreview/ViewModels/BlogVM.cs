@@ -8,6 +8,14 @@ namespace Floreview.ViewModels
 {
     public class BlogVM
     {
-        public Blog Blog { get; set; }
+        public String Query { get; set; }
+
+        public List<Blog> Blogs { get; set; }
+
+        public List<BlogCategoryFrequency> BlogCategoryFrequencies { get; set; }
+
+        public List<BlogPublishdateFrequency> BlogPublishdateFrequencies { get; set; }
+
+        public List<BlogAuthorFrequency> BlogAuthorFrequencies { get; set; }
     }
 }

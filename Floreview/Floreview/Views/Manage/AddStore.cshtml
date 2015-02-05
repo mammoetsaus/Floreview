@@ -208,7 +208,7 @@
         for (var i = 0; i < textareas.length; i++) {
             textareas[i].classList.add('description-hidden');
 
-            if (textareas[i].className.substring(12, 14) == lang) {
+            if (textareas[i].classList.contains('description-' + lang)) {
                 textareas[i].classList.remove('description-hidden');
             }
         }

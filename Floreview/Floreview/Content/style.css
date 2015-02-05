@@ -1,9 +1,9 @@
-section.home-promotion-blogs, section.search-information, section.search-information div, section.search-results, section.search-nearby-results, section.detail-profile, section.manage-information, section.manage-addstore-container, section.manage-addstore-container form div ul, section.manage-addblog-elements, section.manage-addblog-elements ul li, section.manage-addblog-crucial, section.manage-addblog-crucial form, section.manage-addblog-container div.blog-element, section.manage-addblog-container div.blog-element ul, footer {
+section.home-promotion-blogs, section.search-information, section.search-information div, section.search-results, section.search-nearby-results, section.detail-profile, section.blog-container, section.blog-container div.blog-list article, section.blog-container div.blog-side form, section.manage-information, section.manage-addstore-container, section.manage-addstore-container form div ul, section.manage-addblog-elements, section.manage-addblog-elements ul li, section.manage-addblog-crucial, section.manage-addblog-crucial form, section.manage-addblog-container div.blog-element, section.manage-addblog-container div.blog-element ul, footer {
   *zoom: 1; }
-  section.home-promotion-blogs:before, section.search-information:before, section.search-information div:before, section.search-results:before, section.search-nearby-results:before, section.detail-profile:before, section.manage-information:before, section.manage-addstore-container:before, section.manage-addstore-container form div ul:before, section.manage-addblog-elements:before, section.manage-addblog-elements ul li:before, section.manage-addblog-crucial:before, section.manage-addblog-crucial form:before, section.manage-addblog-container div.blog-element:before, section.manage-addblog-container div.blog-element ul:before, footer:before, section.home-promotion-blogs:after, section.search-information:after, section.search-information div:after, section.search-results:after, section.search-nearby-results:after, section.detail-profile:after, section.manage-information:after, section.manage-addstore-container:after, section.manage-addstore-container form div ul:after, section.manage-addblog-elements:after, section.manage-addblog-elements ul li:after, section.manage-addblog-crucial:after, section.manage-addblog-crucial form:after, section.manage-addblog-container div.blog-element:after, section.manage-addblog-container div.blog-element ul:after, footer:after {
+  section.home-promotion-blogs:before, section.search-information:before, section.search-information div:before, section.search-results:before, section.search-nearby-results:before, section.detail-profile:before, section.blog-container:before, section.blog-container div.blog-list article:before, section.blog-container div.blog-side form:before, section.manage-information:before, section.manage-addstore-container:before, section.manage-addstore-container form div ul:before, section.manage-addblog-elements:before, section.manage-addblog-elements ul li:before, section.manage-addblog-crucial:before, section.manage-addblog-crucial form:before, section.manage-addblog-container div.blog-element:before, section.manage-addblog-container div.blog-element ul:before, footer:before, section.home-promotion-blogs:after, section.search-information:after, section.search-information div:after, section.search-results:after, section.search-nearby-results:after, section.detail-profile:after, section.blog-container:after, section.blog-container div.blog-list article:after, section.blog-container div.blog-side form:after, section.manage-information:after, section.manage-addstore-container:after, section.manage-addstore-container form div ul:after, section.manage-addblog-elements:after, section.manage-addblog-elements ul li:after, section.manage-addblog-crucial:after, section.manage-addblog-crucial form:after, section.manage-addblog-container div.blog-element:after, section.manage-addblog-container div.blog-element ul:after, footer:after {
     content: " ";
     display: table; }
-  section.home-promotion-blogs:after, section.search-information:after, section.search-information div:after, section.search-results:after, section.search-nearby-results:after, section.detail-profile:after, section.manage-information:after, section.manage-addstore-container:after, section.manage-addstore-container form div ul:after, section.manage-addblog-elements:after, section.manage-addblog-elements ul li:after, section.manage-addblog-crucial:after, section.manage-addblog-crucial form:after, section.manage-addblog-container div.blog-element:after, section.manage-addblog-container div.blog-element ul:after, footer:after {
+  section.home-promotion-blogs:after, section.search-information:after, section.search-information div:after, section.search-results:after, section.search-nearby-results:after, section.detail-profile:after, section.blog-container:after, section.blog-container div.blog-list article:after, section.blog-container div.blog-side form:after, section.manage-information:after, section.manage-addstore-container:after, section.manage-addstore-container form div ul:after, section.manage-addblog-elements:after, section.manage-addblog-elements ul li:after, section.manage-addblog-crucial:after, section.manage-addblog-crucial form:after, section.manage-addblog-container div.blog-element:after, section.manage-addblog-container div.blog-element ul:after, footer:after {
     clear: both; }
 
 * {
@@ -19,7 +19,7 @@ html {
 body {
   background-color: #f3f3f3; }
 
-.content-container, section.login, section.home-promotion-blogs, article.home-promotion-about, section.search-information, section.search-results, section.search-nearby-results, section.detail-profile, section.blog-container, section.manage-information, section.manage-store-list, section.manage-addstore-container, section.manage-blog-list, section.manage-addblog-elements, section.manage-addblog-crucial, section.manage-addblog-container, section.manage-addblog-container div.blog-element, footer {
+.content-container, section.login, section.home-promotion-blogs, article.home-promotion-about, section.search-information, section.search-results, section.search-nearby-results, section.detail-profile, section.blog-detail-container, section.blog-container, section.manage-information, section.manage-store-list, section.manage-addstore-container, section.manage-blog-list, section.manage-addblog-elements, section.manage-addblog-crucial, section.manage-addblog-container, section.manage-addblog-container div.blog-element, footer {
   display: block;
   width: 1024px;
   margin: 0 auto; }
@@ -335,7 +335,7 @@ section.search-results, section.search-nearby-results {
       max-height: 150px; }
     section.search-results div h3, section.search-nearby-results div h3 {
       float: left;
-      padding: 5px 5px 5px 5px;
+      padding: 5px 10px;
       width: 290px;
       font-family: latoregular, sans-serif;
       font-weight: 400;
@@ -357,12 +357,12 @@ section.search-results, section.search-nearby-results {
       box-sizing: border-box; }
     section.search-results div p:first-of-type, section.search-nearby-results div p:first-of-type {
       margin: -15px 0 0 0;
-      padding: 0 5px;
+      padding: 0 10px;
       height: 85px; }
     section.search-results div p:nth-of-type(2), section.search-nearby-results div p:nth-of-type(2) {
       font-size: 14px;
       margin: 5px 0 0 0;
-      padding: 0 5px; }
+      padding: 0 10px; }
     section.search-results div a, section.search-nearby-results div a, section.search-results div a svg, section.search-nearby-results div a svg {
       display: block;
       float: left;
@@ -480,35 +480,115 @@ section.detail-profile {
         section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup a:hover, section.detail-profile div.detail-profile-right div.detail-profile-contact section.search-results div.detail-profile-contact-popup a svg:hover, section.search-results section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup a svg:hover, section.detail-profile div.detail-profile-right div.detail-profile-contact section.search-nearby-results div.detail-profile-contact-popup a svg:hover, section.search-nearby-results section.detail-profile div.detail-profile-right div.detail-profile-contact div.detail-profile-contact-popup a svg:hover {
           text-decoration: underline; }
 
-section.blog-container {
+section.blog-detail-container {
   margin-top: 30px;
   background-color: #ffffff;
   border: 1px solid #e9e9e9; }
-  section.blog-container h2 {
+  section.blog-detail-container h2 {
     font-family: latoregular, sans-serif;
     font-weight: 400;
     font-size: 32px;
     color: #333333;
     margin: 10px; }
-  section.blog-container p:first-of-type {
+  section.blog-detail-container p:first-of-type {
     font-family: latoregular, sans-serif;
     font-size: 16px;
     color: #333333;
     margin: 10px 10px 25px 10px; }
-    section.blog-container p:first-of-type span {
+    section.blog-detail-container p:first-of-type span {
       color: #999999;
       text-transform: lowercase; }
-    section.blog-container p:first-of-type a, section.blog-container p:first-of-type section.search-results div a svg, section.search-results div a section.blog-container p:first-of-type svg, section.blog-container p:first-of-type section.search-nearby-results div a svg, section.search-nearby-results div a section.blog-container p:first-of-type svg {
+    section.blog-detail-container p:first-of-type a, section.blog-detail-container p:first-of-type section.search-results div a svg, section.search-results div a section.blog-detail-container p:first-of-type svg, section.blog-detail-container p:first-of-type section.search-nearby-results div a svg, section.search-nearby-results div a section.blog-detail-container p:first-of-type svg {
       color: #333333;
       text-decoration: none; }
-    section.blog-container p:first-of-type a:hover, section.blog-container p:first-of-type section.search-results div a svg:hover, section.search-results div a section.blog-container p:first-of-type svg:hover, section.blog-container p:first-of-type section.search-nearby-results div a svg:hover, section.search-nearby-results div a section.blog-container p:first-of-type svg:hover {
+    section.blog-detail-container p:first-of-type a:hover, section.blog-detail-container p:first-of-type section.search-results div a svg:hover, section.search-results div a section.blog-detail-container p:first-of-type svg:hover, section.blog-detail-container p:first-of-type section.search-nearby-results div a svg:hover, section.search-nearby-results div a section.blog-detail-container p:first-of-type svg:hover {
       cursor: pointer;
       text-decoration: underline; }
-  section.blog-container p.blog-plain-text {
+  section.blog-detail-container p.blog-plain-text {
     font-family: latoregular, sans-serif;
     font-size: 16px;
     color: #333333;
     margin: 15px 10px; }
+
+section.blog-container {
+  margin-top: 30px; }
+  section.blog-container div.blog-list {
+    float: left;
+    width: 670px;
+    margin: 0 40px 0 0; }
+    section.blog-container div.blog-list article {
+      background-color: #ffffff;
+      border: 1px solid #e9e9e9;
+      margin: 0 0 30px 0; }
+      section.blog-container div.blog-list article img {
+        float: left;
+        height: 125px;
+        width: 220px; }
+      section.blog-container div.blog-list article a, section.blog-container section.search-results div.blog-list article a svg, section.search-results section.blog-container div.blog-list article a svg, section.blog-container section.search-results div.blog-list a article svg, section.search-results section.blog-container div.blog-list a article svg, section.blog-container section.search-nearby-results div.blog-list article a svg, section.search-nearby-results section.blog-container div.blog-list article a svg, section.blog-container section.search-nearby-results div.blog-list a article svg, section.search-nearby-results section.blog-container div.blog-list a article svg {
+        display: block;
+        float: left;
+        width: 426px;
+        font-family: latoregular, sans-serif;
+        font-size: 18px;
+        color: #333333;
+        padding: 5px 10px;
+        text-decoration: none; }
+      section.blog-container div.blog-list article a:hover, section.blog-container section.search-results div.blog-list article a svg:hover, section.search-results section.blog-container div.blog-list article a svg:hover, section.blog-container section.search-results div.blog-list a article svg:hover, section.search-results section.blog-container div.blog-list a article svg:hover, section.blog-container section.search-nearby-results div.blog-list article a svg:hover, section.search-nearby-results section.blog-container div.blog-list article a svg:hover, section.blog-container section.search-nearby-results div.blog-list a article svg:hover, section.search-nearby-results section.blog-container div.blog-list a article svg:hover {
+        color: #1f9b35; }
+      section.blog-container div.blog-list article p {
+        float: left;
+        width: 426px;
+        font-family: latoregular, sans-serif;
+        font-size: 16px;
+        color: #333333;
+        padding: 5px 10px;
+        margin: 10px 0 0 0; }
+      section.blog-container div.blog-list article p:first-of-type {
+        height: 74px; }
+  section.blog-container div.blog-side {
+    float: left;
+    width: 314px; }
+    section.blog-container div.blog-side form input[type="text"] {
+      float: left;
+      width: 253px;
+      height: 18px;
+      font-family: latoregular, sans-serif;
+      font-size: 16px;
+      border: 1px solid #999999;
+      border-right: none;
+      padding: 10px; }
+    section.blog-container div.blog-side form input[type="text"]:focus {
+      outline: 0;
+      border: 1px solid #1f9b35;
+      border-right: none; }
+    section.blog-container div.blog-side form input[type="submit"] {
+      width: 40px;
+      height: 40px;
+      background: url(../Content/SVG/search_icon.svg);
+      background-position: center center;
+      background-repeat: no-repeat;
+      border: 1px solid #1f9b35; }
+    section.blog-container div.blog-side form input[type="submit"]:hover {
+      cursor: pointer;
+      background: url(../Content/SVG/search_icon_hover.svg);
+      border: 1px solid #197f25; }
+    section.blog-container div.blog-side div.blog-sort-options {
+      margin: 25px 0 0 0; }
+      section.blog-container div.blog-side div.blog-sort-options h3 {
+        font-family: latoregular, sans-serif;
+        font-weight: 400;
+        color: #333333;
+        border-bottom: 1px solid #cccccc;
+        padding: 10px 0; }
+      section.blog-container div.blog-side div.blog-sort-options ul li {
+        list-style: none;
+        margin: 10px 0; }
+        section.blog-container div.blog-side div.blog-sort-options ul li a, section.blog-container div.blog-side section.search-results div.blog-sort-options ul li a svg, section.search-results section.blog-container div.blog-side div.blog-sort-options ul li a svg, section.blog-container div.blog-side section.search-results div.blog-sort-options a ul li svg, section.search-results section.blog-container div.blog-side div.blog-sort-options a ul li svg, section.blog-container div.blog-side section.search-nearby-results div.blog-sort-options ul li a svg, section.search-nearby-results section.blog-container div.blog-side div.blog-sort-options ul li a svg, section.blog-container div.blog-side section.search-nearby-results div.blog-sort-options a ul li svg, section.search-nearby-results section.blog-container div.blog-side div.blog-sort-options a ul li svg {
+          font-family: latoregular, sans-serif;
+          color: #333333;
+          text-decoration: none; }
+        section.blog-container div.blog-side div.blog-sort-options ul li a:hover, section.blog-container div.blog-side section.search-results div.blog-sort-options ul li a svg:hover, section.search-results section.blog-container div.blog-side div.blog-sort-options ul li a svg:hover, section.blog-container div.blog-side section.search-results div.blog-sort-options a ul li svg:hover, section.search-results section.blog-container div.blog-side div.blog-sort-options a ul li svg:hover, section.blog-container div.blog-side section.search-nearby-results div.blog-sort-options ul li a svg:hover, section.search-nearby-results section.blog-container div.blog-side div.blog-sort-options ul li a svg:hover, section.blog-container div.blog-side section.search-nearby-results div.blog-sort-options a ul li svg:hover, section.search-nearby-results section.blog-container div.blog-side div.blog-sort-options a ul li svg:hover {
+          text-decoration: underline; }
 
 section.manage-information {
   margin-top: 30px;
@@ -859,6 +939,10 @@ section.manage-addblog-crucial {
       section.manage-addblog-crucial form div:nth-of-type(1) select:focus {
         outline: 0;
         border: 1px solid #1f9b35; }
+      section.manage-addblog-crucial form div:nth-of-type(1) input[type="text"].blog-crucial-hidden {
+        display: none; }
+      section.manage-addblog-crucial form div:nth-of-type(1) textarea.blog-crucial-hidden {
+        display: none; }
     section.manage-addblog-crucial form div:nth-of-type(2) {
       float: left;
       width: 350px;

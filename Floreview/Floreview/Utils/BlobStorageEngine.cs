@@ -187,5 +187,14 @@ namespace Floreview.Utils
 
             return "http://floreview.blob.core.windows.net/blog/blog_avatar_default.jpg";
         }
+
+        public static void DeleteBlogAvatar(Blog blog)
+        {
+            _blobClient = _storageAccount.CreateCloudBlobClient();
+
+            String blogAvatarURL = String.Format("blog_{0}_avatar.jpg", blog.ID);
+            
+            DeleteImageFromStorage(blogAvatarURL, "blog");
+        }
     }
 }
