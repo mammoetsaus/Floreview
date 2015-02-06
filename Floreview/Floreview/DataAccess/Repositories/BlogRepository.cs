@@ -37,7 +37,7 @@ namespace Floreview.DataAccess.Repositories
 
         public IEnumerable<Blog> GetAllAccessibleBlogs(int skip)
         {
-            return ((from b in context.Blog.Where(i => (DateTime.Compare(i.PublishDate, DateTime.UtcNow) <= 1)).OrderByDescending(j => j.PublishDate).Skip(skip).Take(AccessService.BLOCKSIZE) select b));
+            return ((from b in context.Blog.Where(i => i.PublishDate <= DateTime.UtcNow).OrderByDescending(j => j.PublishDate).Skip(skip).Take(AccessService.BLOCKSIZE) select b));
         }
 
         public IEnumerable<BlogCategoryFrequency> GetAllBlogFrequencies()
@@ -59,19 +59,19 @@ namespace Floreview.DataAccess.Repositories
 
         public IEnumerable<Blog> GetAllBlogsByCategoryID(int ID, int skip)
         {
-            return (from b in context.Blog.Where(i => (DateTime.Compare(i.PublishDate, DateTime.UtcNow) <= 1) && i.Category.ID.Equals(ID)).OrderByDescending(j => j.PublishDate).Skip(skip).Take(AccessService.BLOCKSIZE) select b);
+            return (from b in context.Blog.Where(i => (i.PublishDate <= DateTime.UtcNow) && i.Category.ID.Equals(ID)).OrderByDescending(j => j.PublishDate).Skip(skip).Take(AccessService.BLOCKSIZE) select b);
         }
 
 
         public IEnumerable<Blog> GetAllBlogsByArchive(int year, int month, int skip)
         {
-            return (from b in context.Blog.Where(i => (DateTime.Compare(i.PublishDate, DateTime.UtcNow) <= 1) && i.PublishDate.Year.Equals(year) && i.PublishDate.Month.Equals(month)).OrderByDescending(j => j.PublishDate).Skip(skip).Take(AccessService.BLOCKSIZE) select b);
+            return (from b in context.Blog.Where(i => (i.PublishDate <= DateTime.UtcNow) && i.PublishDate.Year.Equals(year) && i.PublishDate.Month.Equals(month)).OrderByDescending(j => j.PublishDate).Skip(skip).Take(AccessService.BLOCKSIZE) select b);
         }
 
 
         public IEnumerable<Blog> GetAllBlogsByAuthor(String author, int skip)
         {
-            return ((from b in context.Blog.Where(i => (DateTime.Compare(i.PublishDate, DateTime.UtcNow) <= 1) && i.Author.AccessCode == author).OrderByDescending(j => j.PublishDate).Skip(skip).Take(AccessService.BLOCKSIZE) select b));
+            return ((from b in context.Blog.Where(i => (i.PublishDate <= DateTime.UtcNow) && i.Author.AccessCode == author).OrderByDescending(j => j.PublishDate).Skip(skip).Take(AccessService.BLOCKSIZE) select b));
         }
     }
 }
