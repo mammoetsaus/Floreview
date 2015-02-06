@@ -564,14 +564,16 @@ section.blog-container {
     section.blog-container div.blog-side form input[type="submit"] {
       width: 40px;
       height: 40px;
-      background: url(../Content/SVG/search_icon.svg);
+      background-image: url(http://floreview.blob.core.windows.net/images/search_icon.svg);
       background-position: center center;
       background-repeat: no-repeat;
+      background-color: #1f9b35;
       border: 1px solid #1f9b35; }
     section.blog-container div.blog-side form input[type="submit"]:hover {
       cursor: pointer;
-      background: url(../Content/SVG/search_icon_hover.svg);
-      border: 1px solid #197f25; }
+      background-image: url(http://floreview.blob.core.windows.net/images/search_icon_hover.svg);
+      border: 1px solid #197f25;
+      background-color: #197f25; }
     section.blog-container div.blog-side div.blog-sort-options {
       margin: 25px 0 0 0; }
       section.blog-container div.blog-side div.blog-sort-options h3 {

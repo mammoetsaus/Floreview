@@ -297,8 +297,6 @@
     <Content Include="Content\style.css">
       <DependentUpon>style.scss</DependentUpon>
     </Content>
-    <Content Include="Content\SVG\search_icon_hover.svg" />
-    <Content Include="Content\SVG\search_icon.svg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\Lato-Reg-webfont.svg" />
     <Content Include="Global.asax" />

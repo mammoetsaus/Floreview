@@ -809,16 +809,18 @@ section.blog-container {
             input[type="submit"] {
                 width: 40px;
                 height: 40px;
-                background: url(../Content/SVG/search_icon.svg);
+                background-image: url(http://floreview.blob.core.windows.net/images/search_icon.svg);
                 background-position: center center;
                 background-repeat: no-repeat;
+                background-color: $secondary-green;
                 border: 1px solid $secondary-green;
             }
 
             input[type="submit"]:hover {
                 cursor: pointer;
-                background: url(../Content/SVG/search_icon_hover.svg);
+                background-image: url(http://floreview.blob.core.windows.net/images/search_icon_hover.svg);
                 border: 1px solid $secondary-green-active;
+                background-color: $secondary-green-active;
             }
         }
 
