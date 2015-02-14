@@ -236,10 +236,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201502140948501_initDB.cs" />
-    <Compile Include="Migrations\201502140948501_initDB.Designer.cs">
-      <DependentUpon>201502140948501_initDB.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApiErrorMessage.cs" />
     <Compile Include="Models\BlogAuthorFrequency.cs" />
@@ -703,9 +699,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201502140948501_initDB.resx">
-      <DependentUpon>201502140948501_initDB.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Global.en.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Global.en.Designer.cs</LastGenOutput>

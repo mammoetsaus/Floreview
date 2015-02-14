@@ -295,5 +295,21 @@ namespace Floreview.Controllers.CMS
 
             return RedirectToAction("BlogCategory", "Manage");
         }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult UploadPicture()
+        {
+            if (ModelState.IsValid)
+            {
+                HttpPostedFileBase picture = Request.Files[0];
+
+                String fileName = BlobStorageEngine.UploadBlogPicture(picture);
+
+                return Json(new { success = true, message = "Picture uploaded", filename = fileName });
+            }
+
+            return Json(new { success = false, message = "Couldn't upload picture.", filename = "" });
+        }
     }
 }

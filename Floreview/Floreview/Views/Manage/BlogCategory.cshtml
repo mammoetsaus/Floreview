@@ -43,7 +43,7 @@
 <section class="manage-addblogcategory">
     @using (Html.BeginForm("AddBlogCategory", "Manage", FormMethod.Post))
     {
-        @Html.TextBoxFor(model => model.BlogCategory.Name, new { @placeholder = "CategoryName" })
+        @Html.TextBoxFor(model => model.BlogCategory.Name, new { @placeholder = "Categorie" })
         
         <input type="submit" value="Toevoegen" />
     }

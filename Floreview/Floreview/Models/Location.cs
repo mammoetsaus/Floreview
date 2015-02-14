@@ -14,7 +14,7 @@ namespace Floreview.Models
 
         public int Zip { get; set; }
 
-        [Required(ErrorMessageResourceName = "Manage_AddStore_City_Error", ErrorMessageResourceType = typeof(Global), ErrorMessage = null)]
+        [Required(ErrorMessage = "Gelieve een gemeente in te vullen.")]
         public String City { get; set; }
 
         public int ZipMain { get; set; }

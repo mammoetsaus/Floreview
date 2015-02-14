@@ -7,15 +7,13 @@ using System.Web;
 
 namespace Floreview.Utils
 {
-    public class CodeEngine
+    public abstract class CodeEngine
     {
-        private const int LENGTH = 4;
-
-        public String GenerateRandomCode()
+        public static String GenerateRandomCode(int totalChars)
         {
-            StringBuilder builder = new StringBuilder(LENGTH);
+            StringBuilder builder = new StringBuilder(totalChars);
 
-            for (int i = 0; i < LENGTH; i++)
+            for (int i = 0; i < totalChars; i++)
             {
                 Random r = new Random(GetCryptographicallyRandomInt());
 
@@ -28,7 +26,7 @@ namespace Floreview.Utils
             return builder.ToString();
         }
 
-        private Int32 GetCryptographicallyRandomInt()
+        private static Int32 GetCryptographicallyRandomInt()
         {
             byte[] randomBytes = new byte[4];
             RNGCryptoServiceProvider crypto = new RNGCryptoServiceProvider();
@@ -39,7 +37,7 @@ namespace Floreview.Utils
             return randomInteger;
         }
 
-        private char[] GetAllowableCharacters()
+        private static char[] GetAllowableCharacters()
         {
             String chars = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789";
 

@@ -118,262 +118,94 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Blog_Archive" xml:space="preserve">
-    <value>Archive</value>
+    <value>Archief</value>
   </data>
   <data name="Blog_Author" xml:space="preserve">
-    <value>Authors</value>
+    <value>Auteurs</value>
   </data>
   <data name="Blog_Author_Info" xml:space="preserve">
-    <value>By</value>
+    <value>Door</value>
   </data>
   <data name="Blog_Categories" xml:space="preserve">
-    <value>Categories</value>
+    <value>Categorieën</value>
   </data>
   <data name="Blog_Datetime_Info" xml:space="preserve">
-    <value>Created on</value>
+    <value>Geplaatst op</value>
   </data>
   <data name="Blog_Search_Placeholder" xml:space="preserve">
-    <value>Search</value>
+    <value>Zoeken</value>
   </data>
   <data name="Detail_Contact_Mobile_Error" xml:space="preserve">
-    <value>No mbile number available</value>
+    <value>Geen GSM nummer beschikbaar</value>
   </data>
   <data name="Detail_Contact_Phone_Error" xml:space="preserve">
-    <value>No phone number available</value>
+    <value>Geen telefoonnummer beschikbaar</value>
   </data>
   <data name="Detail_Contact_Website_Error" xml:space="preserve">
-    <value>No website available</value>
+    <value>Geen website beschikbaar</value>
   </data>
   <data name="Footer_Language_Dutch" xml:space="preserve">
-    <value>Dutch</value>
+    <value>Nederlands</value>
   </data>
   <data name="Footer_Language_English" xml:space="preserve">
-    <value>English</value>
+    <value>Engels</value>
   </data>
   <data name="Footer_Language_French" xml:space="preserve">
-    <value>French</value>
+    <value>Frans</value>
   </data>
   <data name="Footer_Language_German" xml:space="preserve">
-    <value>German</value>
+    <value>Duits</value>
   </data>
   <data name="Home_Blog_Promotion_Author" xml:space="preserve">
-    <value>by</value>
+    <value>door</value>
   </data>
   <data name="Home_Blog_Promotion_Datetime" xml:space="preserve">
-    <value>created on</value>
+    <value>geplaatst op</value>
   </data>
   <data name="Home_Blog_Promotion_Title" xml:space="preserve">
-    <value>Most recent blogs</value>
+    <value>Recente blogs</value>
   </data>
   <data name="Home_Search_City_Placeholder" xml:space="preserve">
-    <value>City</value>
+    <value>Gemeente</value>
   </data>
   <data name="Home_Search_Name_Placeholder" xml:space="preserve">
-    <value>Name</value>
+    <value>Naam</value>
   </data>
   <data name="Home_Search_Submit" xml:space="preserve">
-    <value>Search</value>
+    <value>Zoeken</value>
   </data>
   <data name="Home_Search_Title" xml:space="preserve">
-    <value>I'm looking for a flower shop</value>
+    <value>Ik zoek een bloemenwinkel</value>
   </data>
   <data name="Login_Password_Error" xml:space="preserve">
-    <value>Please fill in a password.</value>
+    <value>Gelieve een wachtwoord in te vullen.</value>
   </data>
   <data name="Login_Password_Placeholder" xml:space="preserve">
-    <value>Password</value>
+    <value>Wachtwoord</value>
   </data>
   <data name="Login_Submit" xml:space="preserve">
-    <value>Log in</value>
+    <value>Aanmelden</value>
   </data>
   <data name="Login_Title" xml:space="preserve">
-    <value>Log in</value>
+    <value>Aanmelden</value>
   </data>
   <data name="Login_Username_Error" xml:space="preserve">
-    <value>Please fill in an username.</value>
+    <value>Gelieve een gebruikersnaam in te vullen.</value>
   </data>
   <data name="Login_Username_Placeholder" xml:space="preserve">
-    <value>Username</value>
+    <value>Gebruikersnaam</value>
   </data>
   <data name="Login_Validation_Message" xml:space="preserve">
-    <value>Credentials are not correct.</value>
-  </data>
-  <data name="Manage_AddBlog_BasicInformation" xml:space="preserve">
-    <value>Basic information</value>
-  </data>
-  <data name="Manage_AddBlog_PublishDate_Placeholder" xml:space="preserve">
-    <value>Publish date</value>
-  </data>
-  <data name="Manage_AddBlog_Submit" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="Manage_AddBlog_Teaser_DE" xml:space="preserve">
-    <value>Short description (DE)</value>
-  </data>
-  <data name="Manage_AddBlog_Teaser_EN" xml:space="preserve">
-    <value>Short description (EN)</value>
-  </data>
-  <data name="Manage_AddBlog_Teaser_FR" xml:space="preserve">
-    <value>Short description (FR)</value>
-  </data>
-  <data name="Manage_AddBlog_Teaser_NL" xml:space="preserve">
-    <value>Short description (NL)</value>
-  </data>
-  <data name="Manage_AddBlog_Title_DE" xml:space="preserve">
-    <value>Title (DE)</value>
-  </data>
-  <data name="Manage_AddBlog_Title_EN" xml:space="preserve">
-    <value>Title (EN)</value>
-  </data>
-  <data name="Manage_AddBlog_Title_FR" xml:space="preserve">
-    <value>Title (FR)</value>
-  </data>
-  <data name="Manage_AddBlog_Title_NL" xml:space="preserve">
-    <value>Title (NL)</value>
-  </data>
-  <data name="Manage_AddStore_Address_Error" xml:space="preserve">
-    <value>Please fill in an address.</value>
-  </data>
-  <data name="Manage_AddStore_Address_Placeholder" xml:space="preserve">
-    <value>Address</value>
-  </data>
-  <data name="Manage_AddStore_City_Error" xml:space="preserve">
-    <value>Please fill in a city.</value>
-  </data>
-  <data name="Manage_AddStore_City_Placeholder" xml:space="preserve">
-    <value>City</value>
-  </data>
-  <data name="Manage_AddStore_Description_Long_DE" xml:space="preserve">
-    <value>Long description (DE)</value>
-  </data>
-  <data name="Manage_AddStore_Description_Long_EN" xml:space="preserve">
-    <value>Long description (EN)</value>
-  </data>
-  <data name="Manage_AddStore_Description_Long_FR" xml:space="preserve">
-    <value>Long description (FR)</value>
-  </data>
-  <data name="Manage_AddStore_Description_Long_NL" xml:space="preserve">
-    <value>Long description (NL)</value>
-  </data>
-  <data name="Manage_AddStore_Description_Short_DE" xml:space="preserve">
-    <value>Short description (DE)</value>
-  </data>
-  <data name="Manage_AddStore_Description_Short_EN" xml:space="preserve">
-    <value>Short description (EN)</value>
-  </data>
-  <data name="Manage_AddStore_Description_Short_FR" xml:space="preserve">
-    <value>Short description (FR)</value>
-  </data>
-  <data name="Manage_AddStore_Description_Short_NL" xml:space="preserve">
-    <value>Short description (NL)</value>
-  </data>
-  <data name="Manage_AddStore_Description_Title" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="Manage_AddStore_Facebook_Error" xml:space="preserve">
-    <value>Please fill in a Facebook profile.</value>
-  </data>
-  <data name="Manage_AddStore_Facebook_Placeholder" xml:space="preserve">
-    <value>Facebook</value>
-  </data>
-  <data name="Manage_AddStore_Florist_Email_Error" xml:space="preserve">
-    <value>Please fill in an e-mail address.</value>
-  </data>
-  <data name="Manage_AddStore_Florist_Email_Placeholder" xml:space="preserve">
-    <value>E-mail</value>
-  </data>
-  <data name="Manage_AddStore_Florist_Email_REGEX_Error" xml:space="preserve">
-    <value>Please fill in a correct e-mail address.</value>
-  </data>
-  <data name="Manage_AddStore_Florist_FirstName_Error" xml:space="preserve">
-    <value>Please fill in a first name.</value>
-  </data>
-  <data name="Manage_AddStore_Florist_FirstName_Length_Error" xml:space="preserve">
-    <value>A first name has min. 2 and max. 35 characters.</value>
-  </data>
-  <data name="Manage_AddStore_Florist_Firstname_Placeholder" xml:space="preserve">
-    <value>Firstname</value>
-  </data>
-  <data name="Manage_AddStore_Florist_LastName_Error" xml:space="preserve">
-    <value>Please fill in a last name.</value>
-  </data>
-  <data name="Manage_AddStore_Florist_LastName_Length_Error" xml:space="preserve">
-    <value>A last name has min. 2 and max. 35 characters.</value>
-  </data>
-  <data name="Manage_AddStore_Florist_Lastname_Placeholder" xml:space="preserve">
-    <value>Lastname</value>
-  </data>
-  <data name="Manage_AddStore_Florist_Mobile_Placeholder" xml:space="preserve">
-    <value>Mobile phone</value>
-  </data>
-  <data name="Manage_AddStore_Florist_Mobile_REGEX_Error" xml:space="preserve">
-    <value>Please fill in a correct mobile number. (+324)</value>
-  </data>
-  <data name="Manage_AddStore_Florist_Phone_Placeholder" xml:space="preserve">
-    <value>Phone number</value>
-  </data>
-  <data name="Manage_AddStore_Florist_Phone_REGEX_Error" xml:space="preserve">
-    <value>Please fill in a correct phonenumber. (+329)</value>
-  </data>
-  <data name="Manage_AddStore_Florist_Title" xml:space="preserve">
-    <value>Florist</value>
-  </data>
-  <data name="Manage_AddStore_StoreName_Error" xml:space="preserve">
-    <value>Please fill in a company name.</value>
-  </data>
-  <data name="Manage_AddStore_StoreName_Length_Error" xml:space="preserve">
-    <value>A company name has min. 2 and max. 30 characters.</value>
-  </data>
-  <data name="Manage_AddStore_StoreName_Placeholder" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="Manage_AddStore_Store_Title" xml:space="preserve">
-    <value>Store</value>
-  </data>
-  <data name="Manage_AddStore_Submit" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="Manage_AddStore_Website_Error" xml:space="preserve">
-    <value>Please fill in a correct website address.</value>
-  </data>
-  <data name="Manage_AddStore_Website_Placeholder" xml:space="preserve">
-    <value>Website</value>
-  </data>
-  <data name="Manage_Blog_Select_PublishDate" xml:space="preserve">
-    <value>Publish date</value>
-  </data>
-  <data name="Manage_Blog_Select_Recent" xml:space="preserve">
-    <value>Most recent</value>
-  </data>
-  <data name="Manage_Store_Add_Blog" xml:space="preserve">
-    <value>Add blog</value>
-  </data>
-  <data name="Manage_Store_Add_Store" xml:space="preserve">
-    <value>Add store</value>
-  </data>
-  <data name="Manage_Store_Search_Placeholder" xml:space="preserve">
-    <value>Search</value>
-  </data>
-  <data name="Manage_Store_Select_City" xml:space="preserve">
-    <value>City</value>
-  </data>
-  <data name="Manage_Store_Select_Name" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="Manage_Store_Select_Province" xml:space="preserve">
-    <value>Province</value>
-  </data>
-  <data name="Manage_Store_Select_Recent" xml:space="preserve">
-    <value>Most recent</value>
+    <value>Inloggegevens niet correct.</value>
   </data>
   <data name="Menu_Admin_BlogCategory" xml:space="preserve">
-    <value>Categories</value>
+    <value>Categorieën</value>
   </data>
   <data name="Menu_Admin_Blogs" xml:space="preserve">
     <value>Blogs</value>
   </data>
   <data name="Menu_Admin_Stores" xml:space="preserve">
-    <value>Stores</value>
+    <value>Winkels</value>
   </data>
   <data name="Menu_Blog" xml:space="preserve">
     <value>Blog</value>
@@ -388,24 +220,24 @@
     <value>Home</value>
   </data>
   <data name="Menu_Login" xml:space="preserve">
-    <value>Log in</value>
+    <value>Aanmelden</value>
   </data>
   <data name="Menu_Login_Welcome" xml:space="preserve">
-    <value>Hi</value>
+    <value>Hallo</value>
   </data>
   <data name="Menu_Logout" xml:space="preserve">
-    <value>Log out</value>
+    <value>Afmelden</value>
   </data>
   <data name="Search_Information_City" xml:space="preserve">
-    <value>City</value>
+    <value>Gemeente</value>
   </data>
   <data name="Search_Information_Name" xml:space="preserve">
-    <value>Name</value>
+    <value>Naam</value>
   </data>
   <data name="Search_Information_Results" xml:space="preserve">
-    <value>Results</value>
+    <value>Resultaten</value>
   </data>
   <data name="Search_Nearby_Companies" xml:space="preserve">
-    <value>Stores in the area</value>
+    <value>Winkels in de buurt</value>
   </data>
 </root>

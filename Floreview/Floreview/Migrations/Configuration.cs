@@ -25,7 +25,6 @@ namespace Floreview.Migrations
         {
             FlowerContext context = new FlowerContext();
             var idManager = new IdentityManagerRepository(context);
-            CodeEngine codeEngine = new CodeEngine();
 
             idManager.CreateRole("Admin", "Global Access");
             var adminUser = new ApplicationUser()
@@ -34,7 +33,7 @@ namespace Floreview.Migrations
                 FirstName = "Thomas",
                 LastName = "Voet",
                 Email = "thomas.voet@live.be",
-                AccessCode = codeEngine.GenerateRandomCode()
+                AccessCode = CodeEngine.GenerateRandomCode(4)
             };
             idManager.Create(adminUser, "P@ssw0rd");
             idManager.AddUserToRole(adminUser.Id, "Admin");
@@ -47,7 +46,7 @@ namespace Floreview.Migrations
                 FirstName = "Juan",
                 LastName = "Garcia",
                 Email = "juan.garcia@live.be",
-                AccessCode = codeEngine.GenerateRandomCode()
+                AccessCode = CodeEngine.GenerateRandomCode(4)
             };
             idManager.Create(secondAdminUser, "P@ssw0rd");
             idManager.AddUserToRole(secondAdminUser.Id, "Admin");
@@ -401,94 +400,34 @@ namespace Floreview.Migrations
             context.SaveChanges();
         }
 
-        //private void CreateBlogItems()
-        //{
-        //    FlowerContext context = new FlowerContext();
-        //    var idManager = new IdentityManagerRepository(context);
-
-        //    Blog b1 = new Blog()
-        //    {
-        //        Avatar = "http://floreview.blob.core.windows.net/blog/news_item.jpg",
-        //        Title = "How to train a dragon?",
-        //        Timestamp = new DateTime(2014, 8, 1, 0, 0, 0),
-        //        Category = context.BlogCategory.First(i => i.Name.Equals("DIY")),
-        //        Author = idManager.FindAsync("mammoetsaus", "P@ssw0rd")
-        //    };
-
-        //    Blog b2 = new Blog()
-        //    {
-        //        Avatar = "http://floreview.blob.core.windows.net/blog/news_item.jpg",
-        //        Title = "Water found on Mars. Wait what?!",
-        //        Timestamp = new DateTime(2014, 9, 1, 0, 0, 0),
-        //        Category = context.BlogCategory.First(i => i.Name.Equals("Quick read")),
-        //        Author = idManager.FindAsync("mammoetsaus", "P@ssw0rd")
-        //    };
-
-        //    Blog b3 = new Blog()
-        //    {
-        //        Avatar = "http://floreview.blob.core.windows.net/blog/news_item.jpg",
-        //        Title = "I visited my grandmother yesterday.",
-        //        Timestamp = new DateTime(2013, 5, 1, 0, 0, 0),
-        //        Category = context.BlogCategory.First(i => i.Name.Equals("Story")),
-        //        Author = idManager.FindAsync("mammoetsaus", "P@ssw0rd")
-        //    };
-
-        //    Blog b4 = new Blog()
-        //    {
-        //        Avatar = "http://floreview.blob.core.windows.net/blog/news_item.jpg",
-        //        Title = "We spent the afternoon chasing pavements.",
-        //        Timestamp = new DateTime(2014, 9, 1, 0, 0, 0),
-        //        Category = context.BlogCategory.First(i => i.Name.Equals("Story")),
-        //        Author = idManager.FindAsync("mammoetsaus", "P@ssw0rd")
-        //    };
-
-        //    Blog b5 = new Blog()
-        //    {
-        //        Avatar = "http://floreview.blob.core.windows.net/blog/news_item.jpg",
-        //        Title = "How to create your own space station.",
-        //        Timestamp = new DateTime(2014, 9, 7, 15, 0, 0),
-        //        Category = context.BlogCategory.First(i => i.Name.Equals("DIY")),
-        //        Author = idManager.FindAsync("mammoetsaus", "P@ssw0rd")
-        //    };
-
-        //    Blog b6 = new Blog()
-        //    {
-        //        Avatar = "http://floreview.blob.core.windows.net/blog/news_item.jpg",
-        //        Title = "How to cross the border?",
-        //        Timestamp = new DateTime(2014, 9, 7, 12, 45, 0),
-        //        Category = context.BlogCategory.First(i => i.Name.Equals("DIY")),
-        //        Author = idManager.FindAsync("dipsaus", "P@ssw0rd")
-        //    };
-
-        //    context.Blog.Add(b1);
-        //    context.Blog.Add(b2);
-        //    context.Blog.Add(b3);
-        //    context.Blog.Add(b4);
-        //    context.Blog.Add(b5);
-        //    context.Blog.Add(b6);
-        //    context.SaveChanges();
-        //}
-
         private void CreateBlogElements()
         {
             FlowerContext context = new FlowerContext();
 
             BlogElement b1 = new BlogElement()
             {
-                Name = "Plain text",
-                Layout = "<h2>Plain text</h2> <ul> <li class=\"blog-element-min\"> <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 40 40\" enable-background=\"new 0 0 40 40\" xml:space=\"preserve\"> <rect x=\"8\" y=\"29\" fill=\"#333333\" width=\"24\" height=\"3\"/> </svg> </li><li class=\"blog-element-max\"> <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 40 40\" enable-background=\"new 0 0 40 40\" xml:space=\"preserve\"> <g> <rect x=\"10\" y=\"6\" fill=\"#FFFFFF\" stroke=\"#333333\" stroke-width=\"2\" stroke-miterlimit=\"10\" width=\"24\" height=\"24\"/> <rect x=\"6\" y=\"10\" fill=\"#FFFFFF\" stroke=\"#333333\" stroke-width=\"2\" stroke-miterlimit=\"10\" width=\"24\" height=\"24\"/> </g> </svg> </li><li class=\"blog-element-del\"> <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 40 40\" enable-background=\"new 0 0 40 40\" xml:space=\"preserve\"> <g> <path fill=\"#333333\" d=\"M32,10.4L29.6,8L20,17.6L10.4,8L8,10.4l9.6,9.6L8,29.6l2.4,2.4l9.6-9.6l9.6,9.6l2.4-2.4L22.4,20L32,10.4z M32,10.4\"/> </g> </svg> </li></ul> <textarea class=\"blog-element-plain-text-nl\" placeholder=\"Dutch\"></textarea> <textarea class=\"blog-element-plain-text-en\" placeholder=\"English\"></textarea> <textarea class=\"blog-element-plain-text-fr\" placeholder=\"French\"></textarea> <textarea class=\"blog-element-plain-text-de\" placeholder=\"German\"></textarea>",
+                Name = "Paragraaf",
+                Layout = "<h2>Paragraaf</h2> <ul> <li class=\"blog-element-min\"> <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 40 40\" enable-background=\"new 0 0 40 40\" xml:space=\"preserve\"> <rect x=\"8\" y=\"29\" fill=\"#333333\" width=\"24\" height=\"3\"/> </svg> </li><li class=\"blog-element-max\"> <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 40 40\" enable-background=\"new 0 0 40 40\" xml:space=\"preserve\"> <g> <rect x=\"10\" y=\"6\" fill=\"#FFFFFF\" stroke=\"#333333\" stroke-width=\"2\" stroke-miterlimit=\"10\" width=\"24\" height=\"24\"/> <rect x=\"6\" y=\"10\" fill=\"#FFFFFF\" stroke=\"#333333\" stroke-width=\"2\" stroke-miterlimit=\"10\" width=\"24\" height=\"24\"/> </g> </svg> </li><li class=\"blog-element-del\"> <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 40 40\" enable-background=\"new 0 0 40 40\" xml:space=\"preserve\"> <g> <path fill=\"#333333\" d=\"M32,10.4L29.6,8L20,17.6L10.4,8L8,10.4l9.6,9.6L8,29.6l2.4,2.4l9.6-9.6l9.6,9.6l2.4-2.4L22.4,20L32,10.4z M32,10.4\"/> </g> </svg> </li></ul> <textarea class=\"blog-element-plain-text-nl\" placeholder=\"Inhoud (NL)\"></textarea> <textarea class=\"blog-element-plain-text-en\" placeholder=\"Inhoud (EN)\"></textarea> <textarea class=\"blog-element-plain-text-fr\" placeholder=\"Inhoud (FR)\"></textarea> <textarea class=\"blog-element-plain-text-de\" placeholder=\"Inhoud (DE)\"></textarea>",
                 SVG = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n\t viewBox=\"0 0 16 16\" enable-background=\"new 0 0 16 16\" xml:space=\"preserve\">\r\n<g>\r\n\t<path fill=\"#333333\" d=\"M14,0H2C1.448,0,1,0.448,1,1v14c0,0.552,0.448,1,1,1h12c0.552,0,1-0.448,1-1V1C15,0.448,14.552,0,14,0z M14,15H2V1h12V15z\"/>\r\n\t<path fill=\"#333333\" d=\"M7.5,4h4C11.775,4,12,3.776,12,3.5S11.775,3,11.5,3h-4C7.224,3,7,3.224,7,3.5S7.224,4,7.5,4z\"/>\r\n\t<path fill=\"#333333\" d=\"M4.5,7h7C11.775,7,12,6.776,12,6.5S11.775,6,11.5,6h-7C4.224,6,4,6.224,4,6.5S4.224,7,4.5,7z\"/>\r\n\t<path fill=\"#333333\" d=\"M4.5,10h7c0.275,0,0.5-0.225,0.5-0.5S11.775,9,11.5,9h-7C4.224,9,4,9.225,4,9.5S4.224,10,4.5,10z\"/>\r\n\t<path fill=\"#333333\" d=\"M4.5,13h7c0.275,0,0.5-0.225,0.5-0.5S11.775,12,11.5,12h-7C4.224,12,4,12.225,4,12.5S4.224,13,4.5,13z\"/>\r\n</g>\r\n</svg>\r\n"
             };
 
             BlogElement b2 = new BlogElement()
             {
-                Name = "enumeration",
-                Layout = "<div class=\"blog-element\"><ul class=\"blog-element-numeration\">{0}</ul></div>",
+                Name = "Opsomming",
+                Layout = "<h2>Opsomming</h2> <ul> <li class=\"blog-element-min\"> <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 40 40\" enable-background=\"new 0 0 40 40\" xml:space=\"preserve\"> <rect x=\"8\" y=\"29\" fill=\"#333333\" width=\"24\" height=\"3\"></rect> </svg> </li><li class=\"blog-element-max\"> <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 40 40\" enable-background=\"new 0 0 40 40\" xml:space=\"preserve\"> <g> <rect x=\"10\" y=\"6\" fill=\"#FFFFFF\" stroke=\"#333333\" stroke-width=\"2\" stroke-miterlimit=\"10\" width=\"24\" height=\"24\"></rect> <rect x=\"6\" y=\"10\" fill=\"#FFFFFF\" stroke=\"#333333\" stroke-width=\"2\" stroke-miterlimit=\"10\" width=\"24\" height=\"24\"></rect> </g> </svg> </li><li class=\"blog-element-del\"> <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 40 40\" enable-background=\"new 0 0 40 40\" xml:space=\"preserve\"> <g> <path fill=\"#333333\" d=\"M32,10.4L29.6,8L20,17.6L10.4,8L8,10.4l9.6,9.6L8,29.6l2.4,2.4l9.6-9.6l9.6,9.6l2.4-2.4L22.4,20L32,10.4z M32,10.4\"></path> </g> </svg> </li></ul> <input type=\"text\" placeholder=\"Hoofding (NL)\" class=\"blog-element-enumeration-nl\"/> <input type=\"text\" placeholder=\"Hoofding (EN)\" class=\"blog-element-enumeration-en\"/> <input type=\"text\" placeholder=\"Hoofding (FR)\" class=\"blog-element-enumeration-fr\"/> <input type=\"text\" placeholder=\"Hoofding (DE)\" class=\"blog-element-enumeration-de\"/>",
                 SVG = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n\t viewBox=\"0 0 64 64\" enable-background=\"new 0 0 64 64\" xml:space=\"preserve\">\r\n<g>\r\n\t<path fill=\"#333333\" d=\"M11.374,5.317c-2.945,0-5.342,2.397-5.342,5.344s2.396,5.343,5.342,5.343c2.946,0,5.343-2.396,5.343-5.343\r\n\t\tS14.32,5.317,11.374,5.317z M11.374,14.401c-2.063,0-3.741-1.678-3.741-3.74c0-2.063,1.678-3.743,3.741-3.743\r\n\t\tc2.064,0,3.742,1.68,3.742,3.743C15.116,12.724,13.438,14.401,11.374,14.401z\"/>\r\n\t<path fill=\"#333333\" d=\"M11.374,26.445c-2.945,0-5.342,2.396-5.342,5.343c0,2.944,2.396,5.34,5.342,5.34\r\n\t\tc2.946,0,5.343-2.396,5.343-5.34C16.717,28.842,14.32,26.445,11.374,26.445z M11.374,35.526c-2.063,0-3.741-1.677-3.741-3.738\r\n\t\tc0-2.063,1.678-3.74,3.741-3.74c2.064,0,3.742,1.678,3.742,3.74C15.116,33.85,13.438,35.526,11.374,35.526z\"/>\r\n\t<path fill=\"#333333\" d=\"M11.374,47.997c-2.945,0-5.342,2.396-5.342,5.343s2.396,5.343,5.342,5.343c2.946,0,5.343-2.396,5.343-5.343\r\n\t\tS14.32,47.997,11.374,47.997z M11.374,57.081c-2.063,0-3.741-1.68-3.741-3.741c0-2.063,1.678-3.742,3.741-3.742\r\n\t\tc2.064,0,3.742,1.68,3.742,3.742C15.116,55.401,13.438,57.081,11.374,57.081z\"/>\r\n\t<rect x=\"25.755\" y=\"9.766\" fill=\"#333333\" width=\"32.213\" height=\"1.79\"/>\r\n\t<rect x=\"25.755\" y=\"31.738\" fill=\"#333333\" width=\"32.213\" height=\"1.79\"/>\r\n\t<rect x=\"25.755\" y=\"52.131\" fill=\"#333333\" width=\"32.213\" height=\"1.789\"/>\r\n</g>\r\n</svg>"
+            };
+
+            BlogElement b3 = new BlogElement()
+            {
+                Name = "Afbeelding",
+                Layout = "<h2>Afbeelding</h2> <ul> <li class=\"blog-element-min\"> <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 40 40\" enable-background=\"new 0 0 40 40\" xml:space=\"preserve\"> <rect x=\"8\" y=\"29\" fill=\"#333333\" width=\"24\" height=\"3\"></rect> </svg> </li><li class=\"blog-element-max\"> <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 40 40\" enable-background=\"new 0 0 40 40\" xml:space=\"preserve\"> <g> <rect x=\"10\" y=\"6\" fill=\"#FFFFFF\" stroke=\"#333333\" stroke-width=\"2\" stroke-miterlimit=\"10\" width=\"24\" height=\"24\"></rect> <rect x=\"6\" y=\"10\" fill=\"#FFFFFF\" stroke=\"#333333\" stroke-width=\"2\" stroke-miterlimit=\"10\" width=\"24\" height=\"24\"></rect> </g> </svg> </li><li class=\"blog-element-del\"> <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 40 40\" enable-background=\"new 0 0 40 40\" xml:space=\"preserve\"> <g> <path fill=\"#333333\" d=\"M32,10.4L29.6,8L20,17.6L10.4,8L8,10.4l9.6,9.6L8,29.6l2.4,2.4l9.6-9.6l9.6,9.6l2.4-2.4L22.4,20L32,10.4z M32,10.4\"></path> </g> </svg> </li></ul> <input id=\"blog-element-picture-select-{0}\" type=\"file\" accept=\"image/*\"/> <img id=\"blog-element-picture-preview-{1}\" src=\"http://floreview.blob.core.windows.net/blog/blog_element_picture_default.jpg\" alt=\"Blog picture preview\"/>",
+                SVG = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 512 512\" enable-background=\"new 0 0 512 512\" xml:space=\"preserve\"> <path fill=\"#333333\" d=\"M0,64v416h512V64H0z M480,448H32V96h448V448z M352,176c0,26.51,21.49,48,48,48s48-21.49,48-48s-21.49-48-48-48 S352,149.49,352,176z M448,416H64l96-256l128,160l64-48L448,416z\"/> </svg>"
             };
 
             context.BlogElement.Add(b1);
             context.BlogElement.Add(b2);
+            context.BlogElement.Add(b3);
             context.SaveChanges();
         }
 
@@ -500,12 +439,6 @@ namespace Floreview.Migrations
             CreateProvinces();
 
             CreateLocations();
-
-            //CreateCompanies();
-
-            CreateBlogCategories();
-
-            //CreateBlogItems();
 
             CreateBlogElements();
         }

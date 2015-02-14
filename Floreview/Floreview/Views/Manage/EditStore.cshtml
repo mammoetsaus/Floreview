@@ -47,21 +47,21 @@
         @Html.HiddenFor(model => model.Company.ID)
 
         <div>
-            <h2>@Global.Manage_AddStore_Store_Title</h2>
+            <h2>Winkel</h2>
 
-            @Html.TextBoxFor(model => model.Company.Name, new { @placeholder = Global.Manage_AddStore_StoreName_Placeholder, @autocomplete = "off" })
+            @Html.TextBoxFor(model => model.Company.Name, new { @placeholder = "Naam", @autocomplete = "off" })
             @Html.ValidationMessageFor(model => model.Company.Name)
 
-            @Html.TextBoxFor(model => model.Company.Facebook, new { @placeholder = Global.Manage_AddStore_Facebook_Placeholder, @autocomplete = "off" })
+            @Html.TextBoxFor(model => model.Company.Facebook, new { @placeholder = "Facebook", @autocomplete = "off" })
             @Html.ValidationMessageFor(model => model.Company.Facebook)
 
-            @Html.TextBoxFor(model => model.Company.Website, new { @placeholder = Global.Manage_AddStore_Website_Placeholder, @autocomplete = "off" })
+            @Html.TextBoxFor(model => model.Company.Website, new { @placeholder = "Website", @autocomplete = "off" })
             @Html.ValidationMessageFor(model => model.Company.Website)
 
-            @Html.TextBoxFor(model => model.Company.Location.City, new { @placeholder = Global.Manage_AddStore_City_Placeholder, @id = "manage-addstore-city", @list = "list-manage-addstore-cities", @autocomplete = "off" })
+            @Html.TextBoxFor(model => model.Company.Location.City, new { @placeholder = "Gemeente", @id = "manage-addstore-city", @list = "list-manage-addstore-cities", @autocomplete = "off" })
             @Html.ValidationMessageFor(model => model.Company.Location.City)
 
-            @Html.TextBoxFor(model => model.Company.Address, new { @placeholder = Global.Manage_AddStore_Address_Placeholder, @autocomplete = "off" })
+            @Html.TextBoxFor(model => model.Company.Address, new { @placeholder = "Adres", @autocomplete = "off" })
             @Html.ValidationMessageFor(model => model.Company.Address)
 
             <input id="manage-addstore-company-avatar" type="file" name="CompanyAvatar" accept="image/*" />
@@ -69,21 +69,21 @@
         </div>
 
         <div>
-            <h2>@Global.Manage_AddStore_Florist_Title</h2>
+            <h2>Florist</h2>
 
-            @Html.TextBoxFor(model => model.Company.Florist.FirstName, new { @placeholder = Global.Manage_AddStore_Florist_Firstname_Placeholder, @autocomplete = "off" })
+            @Html.TextBoxFor(model => model.Company.Florist.FirstName, new { @placeholder = "Voornaam", @autocomplete = "off" })
             @Html.ValidationMessageFor(model => model.Company.Florist.FirstName)
 
-            @Html.TextBoxFor(model => model.Company.Florist.LastName, new { @placeholder = Global.Manage_AddStore_Florist_Lastname_Placeholder, @autocomplete = "off" })
+            @Html.TextBoxFor(model => model.Company.Florist.LastName, new { @placeholder = "Achternaam", @autocomplete = "off" })
             @Html.ValidationMessageFor(model => model.Company.Florist.LastName)
 
-            @Html.TextBoxFor(model => model.Company.Florist.Phone, new { @placeholder = Global.Manage_AddStore_Florist_Phone_Placeholder, @autocomplete = "off" })
+            @Html.TextBoxFor(model => model.Company.Florist.Phone, new { @placeholder = "Telefoon", @autocomplete = "off" })
             @Html.ValidationMessageFor(model => model.Company.Florist.Phone)
 
-            @Html.TextBoxFor(model => model.Company.Florist.Cellphone, new { @placeholder = Global.Manage_AddStore_Florist_Mobile_Placeholder, @autocomplete = "off" })
+            @Html.TextBoxFor(model => model.Company.Florist.Cellphone, new { @placeholder = "GSM", @autocomplete = "off" })
             @Html.ValidationMessageFor(model => model.Company.Florist.Cellphone)
 
-            @Html.TextBoxFor(model => model.Company.Email, new { @placeholder = Global.Manage_AddStore_Florist_Email_Placeholder, @autocomplete = "off" })
+            @Html.TextBoxFor(model => model.Company.Email, new { @placeholder = "E-mail", @autocomplete = "off" })
             @Html.ValidationMessageFor(model => model.Company.Email)
 
             <input id="manage-addstore-florist-avatar" type="file" name="FloristAvatar" accept="image/*" />
@@ -95,7 +95,7 @@
         </div>
 
         <div>
-            <h2>@Global.Manage_AddStore_Description_Title</h2>
+            <h2>Beschrijving</h2>
 
             <ul>
                 <li id="description-nl">NL</li>
@@ -104,26 +104,26 @@
                 <li id="description-de">DE</li>
             </ul>
 
-            @Html.TextAreaFor(model => model.Company.DescriptionShortNL, new { @placeholder = Global.Manage_AddStore_Description_Short_NL, @class = "description-nl" })
+            @Html.TextAreaFor(model => model.Company.DescriptionShortNL, new { @placeholder = "Korte beschrijving (NL)", @class = "description-nl" })
             @Html.ValidationMessageFor(model => model.Company.DescriptionShortNL)
-            @Html.TextAreaFor(model => model.Company.DescriptionShortEN, new { @placeholder = Global.Manage_AddStore_Description_Short_EN, @class = "description-en" })
+            @Html.TextAreaFor(model => model.Company.DescriptionShortEN, new { @placeholder = "Korte beschrijving (EN)", @class = "description-en" })
             @Html.ValidationMessageFor(model => model.Company.DescriptionShortEN)
-            @Html.TextAreaFor(model => model.Company.DescriptionShortFR, new { @placeholder = Global.Manage_AddStore_Description_Short_FR, @class = "description-fr" })
+            @Html.TextAreaFor(model => model.Company.DescriptionShortFR, new { @placeholder = "Korte beschrijving (FR)", @class = "description-fr" })
             @Html.ValidationMessageFor(model => model.Company.DescriptionShortFR)
-            @Html.TextAreaFor(model => model.Company.DescriptionShortDE, new { @placeholder = Global.Manage_AddStore_Description_Short_DE, @class = "description-de" })
+            @Html.TextAreaFor(model => model.Company.DescriptionShortDE, new { @placeholder = "Korte beschrijving (DE)", @class = "description-de" })
             @Html.ValidationMessageFor(model => model.Company.DescriptionShortDE)
 
-            @Html.TextAreaFor(model => model.Company.DescriptionLongNL, new { @placeholder = Global.Manage_AddStore_Description_Long_NL, @class = "description-nl" })
+            @Html.TextAreaFor(model => model.Company.DescriptionLongNL, new { @placeholder = "Lange beschrijving (NL)", @class = "description-nl" })
             @Html.ValidationMessageFor(model => model.Company.DescriptionLongNL)
-            @Html.TextAreaFor(model => model.Company.DescriptionLongEN, new { @placeholder = Global.Manage_AddStore_Description_Long_EN, @class = "description-en" })
+            @Html.TextAreaFor(model => model.Company.DescriptionLongEN, new { @placeholder = "Lange beschrijving (EN)", @class = "description-en" })
             @Html.ValidationMessageFor(model => model.Company.DescriptionLongEN)
-            @Html.TextAreaFor(model => model.Company.DescriptionLongFR, new { @placeholder = Global.Manage_AddStore_Description_Long_FR, @class = "description-fr" })
+            @Html.TextAreaFor(model => model.Company.DescriptionLongFR, new { @placeholder = "Lange beschrijving (FR)", @class = "description-fr" })
             @Html.ValidationMessageFor(model => model.Company.DescriptionLongFR)
-            @Html.TextAreaFor(model => model.Company.DescriptionLongDE, new { @placeholder = Global.Manage_AddStore_Description_Long_DE, @class = "description-de" })
+            @Html.TextAreaFor(model => model.Company.DescriptionLongDE, new { @placeholder = "Lange beschrijving (DE)", @class = "description-de" })
             @Html.ValidationMessageFor(model => model.Company.DescriptionLongDE)
         </div>
 
-        <input type="submit" value="@Global.Manage_AddStore_Submit" />
+        <input type="submit" value="Opslaan" />
     }
 </section>
 

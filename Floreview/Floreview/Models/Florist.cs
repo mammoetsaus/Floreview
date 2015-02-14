@@ -11,18 +11,18 @@ namespace Floreview.Models
     {
         public int ID { get; set; }
 
-        [Required(ErrorMessageResourceName = "Manage_AddStore_Florist_FirstName_Error", ErrorMessageResourceType = typeof(Global), ErrorMessage = null)]
-        [StringLength(35, MinimumLength = 2, ErrorMessageResourceName = "Manage_AddStore_Florist_FirstName_Length_Error", ErrorMessageResourceType = typeof(Global), ErrorMessage = null)]
+        [Required(ErrorMessage = "Gelieve een voornaam in te vullen.")]
+        [StringLength(35, MinimumLength = 2, ErrorMessage = "Een voornaam heeft min. 2 en max. 35 karakters.")]
         public String FirstName { get; set; }
 
-        [Required(ErrorMessageResourceName = "Manage_AddStore_Florist_LastName_Error", ErrorMessageResourceType = typeof(Global), ErrorMessage = null)]
-        [StringLength(35, MinimumLength = 2, ErrorMessageResourceName = "Manage_AddStore_Florist_LastName_Length_Error", ErrorMessageResourceType = typeof(Global), ErrorMessage = null)]
+        [Required(ErrorMessage = "Gelieve een achternaam in te vullen.")]
+        [StringLength(35, MinimumLength = 2, ErrorMessage = "Een achternaam heeft min 2. en max. 35 karakters.")]
         public String LastName { get; set; }
 
-        [RegularExpression(@"\+3[23](?:\s*?\(0\))?(?:\s*?\d){8}$", ErrorMessageResourceName = "Manage_AddStore_Florist_Phone_REGEX_Error", ErrorMessageResourceType = typeof(Global), ErrorMessage = null)]
+        [RegularExpression(@"\+3[23](?:\s*?\(0\))?(?:\s*?\d){8}$", ErrorMessage = "Gelieve een correct telefoonnummer in te vullen. (+329)")]
         public String Phone { get; set; }
 
-        [RegularExpression(@"\+3[23](?:\s*?\(0\))?(?:\s*?\d){9}$", ErrorMessageResourceName = "Manage_AddStore_Florist_Mobile_REGEX_Error", ErrorMessageResourceType = typeof(Global), ErrorMessage = null)]
+        [RegularExpression(@"\+3[23](?:\s*?\(0\))?(?:\s*?\d){9}$", ErrorMessage = "Gelieve een correct GSM nummer in te vullen. (+324)")]
         public String Cellphone { get; set; }
 
         public String ImagePath { get; set; }

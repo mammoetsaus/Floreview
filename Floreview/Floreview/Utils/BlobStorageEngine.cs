@@ -196,5 +196,20 @@ namespace Floreview.Utils
             
             DeleteImageFromStorage(blogAvatarURL, "blog");
         }
+
+        public static String UploadBlogPicture(HttpPostedFileBase picture)
+        {
+            _blobClient = _storageAccount.CreateCloudBlobClient();
+
+            String filename = "blog_picture_" + CodeEngine.GenerateRandomCode(8) + ".jpg";
+            String blogPictureFileName = UploadImageToStorage(picture, filename, "blog");
+
+            if (!String.IsNullOrEmpty(blogPictureFileName))
+            {
+                return "http://floreview.blob.core.windows.net/blog/" + filename;
+            }
+
+            return "http://floreview.blob.core.windows.net/blog/blog_element_picture_default.jpg";
+        }
     }
 }

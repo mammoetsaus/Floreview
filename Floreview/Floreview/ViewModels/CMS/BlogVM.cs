@@ -18,5 +18,7 @@ namespace Floreview.ViewModels.CMS
         public int SelectedBlogCategoryID { get; set; }
 
         public HttpPostedFileBase BlogAvatar { get; set; }
+
+        public HttpPostedFileBase[] BlogPictures { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 @model Floreview.ViewModels.CMS.BlogVM
 
 @{
-    var layout = Model.BlogElements.Find(i => i.ID.Equals(1)).Layout;
+    var iets = Model.BlogElements.Find(i => i.ID.Equals(3)).Layout;
 }
 
 <header class="admin">
@@ -59,24 +59,24 @@
 </section>
 
 <section class="manage-addblog-crucial">
-    <h2>@Global.Manage_AddBlog_BasicInformation</h2>
+    <h2>Basisinformatie</h2>
 
     @using (Html.BeginForm("AddBlog", "Manage", FormMethod.Post, new { enctype = "multipart/form-data", @id = "manage-addblog-form" }))
     {
         @Html.AntiForgeryToken();
 
         <div>
-            @Html.TextBoxFor(model => model.Blog.TitleNL, new { @class = "manage-addblog-title blog-nl", @placeholder = Global.Manage_AddBlog_Title_NL, @autocomplete = "off" })
-            @Html.TextBoxFor(model => model.Blog.TitleEN, new { @class = "manage-addblog-title blog-en", @placeholder = Global.Manage_AddBlog_Title_EN, @autocomplete = "off" })
-            @Html.TextBoxFor(model => model.Blog.TitleFR, new { @class = "manage-addblog-title blog-fr", @placeholder = Global.Manage_AddBlog_Title_FR, @autocomplete = "off" })
-            @Html.TextBoxFor(model => model.Blog.TitleDE, new { @class = "manage-addblog-title blog-de", @placeholder = Global.Manage_AddBlog_Title_DE, @autocomplete = "off" })
+            @Html.TextBoxFor(model => model.Blog.TitleNL, new { @class = "manage-addblog-title blog-nl", @placeholder = "Titel (NL)", @autocomplete = "off" })
+            @Html.TextBoxFor(model => model.Blog.TitleEN, new { @class = "manage-addblog-title blog-en", @placeholder = "Titel (EN)", @autocomplete = "off" })
+            @Html.TextBoxFor(model => model.Blog.TitleFR, new { @class = "manage-addblog-title blog-fr", @placeholder = "Titel (FR)", @autocomplete = "off" })
+            @Html.TextBoxFor(model => model.Blog.TitleDE, new { @class = "manage-addblog-title blog-de", @placeholder = "Titel (DE)", @autocomplete = "off" })
 
-            @Html.TextAreaFor(model => model.Blog.TeaserNL, new { @placeholder = Global.Manage_AddBlog_Teaser_NL, @class = "blog-nl" })
-            @Html.TextAreaFor(model => model.Blog.TeaserEN, new { @placeholder = Global.Manage_AddBlog_Teaser_EN, @class = "blog-en" })
-            @Html.TextAreaFor(model => model.Blog.TeaserFR, new { @placeholder = Global.Manage_AddBlog_Teaser_FR, @class = "blog-fr" })
-            @Html.TextAreaFor(model => model.Blog.TeaserDE, new { @placeholder = Global.Manage_AddBlog_Teaser_DE, @class = "blog-de" })
+            @Html.TextAreaFor(model => model.Blog.TeaserNL, new { @placeholder = "Teaser (NL)", @class = "blog-nl" })
+            @Html.TextAreaFor(model => model.Blog.TeaserEN, new { @placeholder = "Teaser (EN)", @class = "blog-en" })
+            @Html.TextAreaFor(model => model.Blog.TeaserFR, new { @placeholder = "Teaser (FR)", @class = "blog-fr" })
+            @Html.TextAreaFor(model => model.Blog.TeaserDE, new { @placeholder = "Teaser (DE)", @class = "blog-de" })
 
-            @Html.TextBoxFor(model => model.Blog.PublishDate, new { @placeholder = Global.Manage_AddBlog_PublishDate_Placeholder, @value = Model.Blog.PublishDate, @autocomplete = "off" })
+            @Html.TextBoxFor(model => model.Blog.PublishDate, new { @placeholder = "Release datum", @value = Model.Blog.PublishDate, @autocomplete = "off" })
 
             @Html.DropDownList("SelectedBlogCategoryID", Model.BlogCategories)
 
@@ -97,7 +97,7 @@
 
             <input type="file" id="manage-addblog-avatar" name="BlogAvatar" accept="image/*" />
 
-            <input type="submit" id="manage-addblog-submit" value="@Global.Manage_AddBlog_Submit" />
+            <input type="submit" id="manage-addblog-submit" value="Opslaan" />
         </div>
     }
 </section>
@@ -148,6 +148,10 @@
             appendBlogElementToContainer(2);
         });
 
+        document.getElementById('blog-element-3').addEventListener('click', function () {
+            appendBlogElementToContainer(3);
+        });
+
 
         function appendBlogElementToContainer(elementID) {
             var content = '',
@@ -164,6 +168,11 @@
                     content = '@Html.Raw(Model.BlogElements.Find(i => i.ID.Equals(2)).Layout)';
                     element.classList.add('blog-element-enumeration');
                     break;
+                case 3:
+                    // picture
+                    content = '@Html.Raw(Model.BlogElements.Find(i => i.ID.Equals(3)).Layout)';
+                    element.classList.add('blog-element-picture');
+                    break;
             }
 
             element.innerHTML = content;
@@ -175,7 +184,7 @@
         }
 
         function parseBlogElements() {
-            var root = '<section class="blog-detail-container"><h2>{0}</h2><p><span>{1} </span>{2}<span> | {3} </span><a href="/Blog/Index?author={4}">{5} {6}</a></p>',
+            var root = '<h2>{0}</h2><p><span>{1} </span>{2}<span> | {3} </span><a href="/Blog/Index?author={4}">{5} {6}</a></p>',
                 elementNL = root, elementEN = root, elementFR = root, elementDE = root,
                 enumCounter = 0;
 
@@ -206,12 +215,17 @@
                     elementFR += '<p class="blog-enumeration"><span>' + enumCounter + '.</span>' + enumFR.value + '</p>';
                     elementDE += '<p class="blog-enumeration"><span>' + enumCounter + '.</span>' + enumDE.value + '</p>';
                 }
-            }
+                else if (blogElement.classList.contains('blog-element-picture')) {
+                    var picture = blogElement.querySelector('input[type="file"]').files[0];
 
-            elementNL += '</section>';
-            elementEN += '</section>';
-            elementFR += '</section>';
-            elementDE += '</section>';
+                    uploadPicture(picture, function (data) {
+                        elementNL += '<img class="blog-element-picture" src="' + data.filename + '" alt="Blog picture" />';
+                        elementEN += '<img class="blog-element-picture" src="' + data.filename + '" alt="Blog picture" />';
+                        elementFR += '<img class="blog-element-picture" src="' + data.filename + '" alt="Blog picture" />';
+                        elementDE += '<img class="blog-element-picture" src="' + data.filename + '" alt="Blog picture" />';
+                    });
+                }
+            }
 
             document.getElementById('manage-addblog-content-nl').value = elementNL;
             document.getElementById('manage-addblog-content-en').value = elementEN;
@@ -270,6 +284,20 @@
                     textareas[i].classList.remove('blog-crucial-hidden');
                 }
             }
+        }
+
+        function uploadPicture(picture, resultCallback) {
+            var formData = new FormData();
+            formData.append(picture.name, picture);
+
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 && request.status == 200) {
+                    resultCallback(JSON.parse(request.responseText));
+                }
+            };
+            request.open('POST', '/Manage/UploadPicture', false);
+            request.send(formData);
         }
     });
 </script>
