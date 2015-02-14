@@ -1,0 +1,74 @@
+﻿@using Floreview.Resources
+@model Floreview.ViewModels.CMS.BlogCategoryVM
+
+<header class="admin">
+    <nav>
+        <ul class="content-container">
+            <li>
+                @Html.ActionLink(Global.Menu_Home, "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink(Global.Menu_Blog, "Index", "Blog")
+            </li>
+            <li>
+                @Html.ActionLink(Global.Menu_Floreview, "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink(Global.Menu_Contact, "Index", "Home")
+            </li>
+            <li>
+                @Html.Partial("_LoginPartial")
+            </li>
+        </ul>
+    </nav>
+
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <section class="menu-admin">
+            <ul class="content-container">
+                <li>
+                    @Html.ActionLink(Global.Menu_Admin_Stores, "Store", "Manage")
+                </li>
+                <li>
+                    @Html.ActionLink(Global.Menu_Admin_Blogs, "Blog", "Manage")
+                </li>
+                <li>
+                    @Html.ActionLink(Global.Menu_Admin_BlogCategory, "BlogCategory", "Manage")
+                </li>
+            </ul>
+        </section>
+    }
+</header>
+
+<section class="manage-addblogcategory">
+    @using (Html.BeginForm("AddBlogCategory", "Manage", FormMethod.Post))
+    {
+        @Html.TextBoxFor(model => model.BlogCategory.Name, new { @placeholder = "CategoryName" })
+        
+        <input type="submit" value="Toevoegen" />
+    }
+</section>
+
+<section class="manage-blogcategory-list">
+    @{
+        foreach (var blogcategory in Model.BlogCategories)
+        {
+            <div class="blogcategory-profile">
+                <p>@blogcategory.Name</p>
+                <a href="/Manage/DeleteBlogCategory?id=@blogcategory.ID" title="Delete">
+                    <svg class="icon-delete" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                         x="0px" y="0px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+                    <rect fill="#cccccc" width="50" height="50" />
+                    <g>
+                        <path fill="#ffffff" d="M32.7,22.7L32.7,22.7C32.7,22.8,32.7,22.8,32.7,22.7c0,0.1,0,0.1,0,0.1l-0.6,12.2h0c-0.1,1-1.2,2.4-7.1,2.4 c-5.9,
+                            0-7-1.5-7.1-2.4h0l-0.6-12.2c0,0,0,0,0,0c0,0,0,0,0,0l0-0.1h0c0-0.1,0.1-0.2,0.2-0.3c0.8,0.8,3.8,0.9,7.5,0.9 c3.7,0,6.7-0.1,7.5-0.9C32.6,
+                            22.5,32.7,22.6,32.7,22.7L32.7,22.7z M33.7,18.1v1.4c0,0.3-0.3,0.6-0.8,0.8c-1.4,0.7-4.4,1.1-7.9,1.1 c-3.5,0-6.5-0.5-7.9-1.1c-0.5-0.3-0.8-0.5-0.8-0.8v-1.4c0-0.8,
+                            1.9-1.4,4.8-1.7v-3c0-0.5,0.4-0.9,0.9-0.9h5.9c0.5,0,0.9,0.4,0.9,0.9 v3C31.6,16.6,33.7,17.3,33.7,18.1L33.7,18.1z M27.1,15c0-0.5-0.1-1-0.2-1h-4.1c-0.1,
+                            0-0.2,0.4-0.2,1v1.2l0.2,0 c0.7,0,1.4-0.1,2.1-0.1c0.7,0,1.4,0,2.1,0.1V15z M27.1,15" />
+                        </g>
+                    </svg>
+                </a>
+            </div>
+        }
+    }
+</section>

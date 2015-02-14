@@ -236,6 +236,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502140948501_initDB.cs" />
+    <Compile Include="Migrations\201502140948501_initDB.Designer.cs">
+      <DependentUpon>201502140948501_initDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApiErrorMessage.cs" />
     <Compile Include="Models\BlogAuthorFrequency.cs" />
@@ -284,6 +288,7 @@
     <Compile Include="Utils\BlobStorageEngine.cs" />
     <Compile Include="Utils\GeocodingEngine.cs" />
     <Compile Include="ViewModels\BlogVM.cs" />
+    <Compile Include="ViewModels\CMS\BlogCategoryVM.cs" />
     <Compile Include="ViewModels\DetailBlogVM.cs" />
     <Compile Include="ViewModels\CMS\BlogVM.cs" />
     <Compile Include="ViewModels\CMS\StoreVM.cs" />
@@ -300,7 +305,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\Lato-Reg-webfont.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="fonts\Lato-Reg-webfont.eot" />
     <Content Include="fonts\Lato-Reg-webfont.ttf" />
     <Content Include="fonts\Lato-Reg-webfont.woff" />
@@ -319,16 +323,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\humane.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.easing.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\js-webshim\dev\polyfiller.js" />
     <Content Include="Scripts\js-webshim\dev\shims\color-picker.js" />
     <Content Include="Scripts\js-webshim\dev\shims\combos\1.js" />
@@ -606,8 +601,6 @@
     <Content Include="Scripts\lunar.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -620,7 +613,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
@@ -702,6 +694,7 @@
     <Content Include="Views\Store\Detail.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Blog\Detail.cshtml" />
+    <Content Include="Views\Manage\BlogCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -710,6 +703,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201502140948501_initDB.resx">
+      <DependentUpon>201502140948501_initDB.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Global.en.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Global.en.Designer.cs</LastGenOutput>

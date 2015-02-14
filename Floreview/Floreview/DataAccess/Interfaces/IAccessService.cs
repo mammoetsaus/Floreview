@@ -30,6 +30,12 @@ namespace Floreview.DataAccess.Interfaces
 
         BlogCategory GetBlogCategoryByID(int ID);
 
+        BlogCategory InsertBlogCategory(BlogCategory blogCategory);
+
+        void DeleteBlogCategory(BlogCategory blogCategory);
+
+        Boolean IsNewBlogcategory(String categoryName);
+
         List<BlogCategoryFrequency> GetAllBlogFrequencies();
 
         List<BlogElement> GetAllBlogElements();

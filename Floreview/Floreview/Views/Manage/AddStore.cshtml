@@ -1,6 +1,8 @@
 ﻿@using Floreview.Resources
 @model Floreview.ViewModels.CMS.StoreVM
 
+@using Floreview.Resources
+
 <header class="admin">
     <nav>
         <ul class="content-container">
@@ -31,6 +33,9 @@
                 </li>
                 <li>
                     @Html.ActionLink(Global.Menu_Admin_Blogs, "Blog", "Manage")
+                </li>
+                <li>
+                    @Html.ActionLink(Global.Menu_Admin_BlogCategory, "BlogCategory", "Manage")
                 </li>
             </ul>
         </section>

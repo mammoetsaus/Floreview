@@ -6,6 +6,7 @@ using Floreview.ViewModels.CMS;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Spatial;
 using System.Linq;
 using System.Web;
@@ -246,6 +247,53 @@ namespace Floreview.Controllers.CMS
             }
 
             return RedirectToAction("Blog", "Manage");
+        }
+
+        public ActionResult BlogCategory()
+        {
+            BlogCategoryVM model = new BlogCategoryVM();
+            model.BlogCategories = _accessService.GetAllBlogCategories();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult AddBlogCategory(BlogCategoryVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (_accessService.IsNewBlogcategory(model.BlogCategory.Name))
+                {
+                    _accessService.InsertBlogCategory(model.BlogCategory);
+                }
+            }
+
+            return RedirectToAction("BlogCategory", "Manage");
+        }
+
+        public ActionResult DeleteBlogCategory(int? id)
+        {
+            if (ModelState.IsValid)
+            {
+                if (id.HasValue && id > 0)
+                {
+                    BlogCategory blogCategory = _accessService.GetBlogCategoryByID(id.Value);
+
+                    if (blogCategory != null)
+                    {
+                        try
+                        {
+                            _accessService.DeleteBlogCategory(blogCategory);
+                        }
+                        catch (DbUpdateException ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                    }
+                }
+            }
+
+            return RedirectToAction("BlogCategory", "Manage");
         }
     }
 }

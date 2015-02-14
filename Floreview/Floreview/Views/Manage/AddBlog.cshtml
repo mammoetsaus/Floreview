@@ -36,6 +36,9 @@
                 <li>
                     @Html.ActionLink(Global.Menu_Admin_Blogs, "Blog", "Manage")
                 </li>
+                <li>
+                    @Html.ActionLink(Global.Menu_Admin_BlogCategory, "BlogCategory", "Manage")
+                </li>
             </ul>
         </section>
     }
@@ -141,6 +144,10 @@
             appendBlogElementToContainer(1);
         });
 
+        document.getElementById('blog-element-2').addEventListener('click', function () {
+            appendBlogElementToContainer(2);
+        });
+
 
         function appendBlogElementToContainer(elementID) {
             var content = '',
@@ -151,6 +158,11 @@
                     // plain text
                     content = '@Html.Raw(Model.BlogElements.Find(i => i.ID.Equals(1)).Layout)';
                     element.classList.add('blog-element-plain-text');
+                    break;
+                case 2:
+                    // enumeration
+                    content = '@Html.Raw(Model.BlogElements.Find(i => i.ID.Equals(2)).Layout)';
+                    element.classList.add('blog-element-enumeration');
                     break;
             }
 
@@ -164,32 +176,35 @@
 
         function parseBlogElements() {
             var root = '<section class="blog-detail-container"><h2>{0}</h2><p><span>{1} </span>{2}<span> | {3} </span><a href="/Blog/Index?author={4}">{5} {6}</a></p>',
-                elementNL = root, elementEN = root, elementFR = root, elementDE = root;
+                elementNL = root, elementEN = root, elementFR = root, elementDE = root,
+                enumCounter = 0;
 
             for (var i = 0; i < container.childNodes.length; i++) {
                 blogElement = container.childNodes[i];
 
                 if (blogElement.classList.contains('blog-element-plain-text')) {
-                    var textareaNL = blogElement.querySelector('.blog-element-plain-text-nl');
-                    var textareaEN = blogElement.querySelector('.blog-element-plain-text-en');
-                    var textareaFR = blogElement.querySelector('.blog-element-plain-text-fr');
-                    var textareaDE = blogElement.querySelector('.blog-element-plain-text-de');
+                    var textareaNL = blogElement.querySelector('.blog-element-plain-text-nl'),
+                        textareaEN = blogElement.querySelector('.blog-element-plain-text-en'),
+                        textareaFR = blogElement.querySelector('.blog-element-plain-text-fr'),
+                        textareaDE = blogElement.querySelector('.blog-element-plain-text-de');
 
-                    elementNL += '<p class="blog-plain-text">';
-                    elementNL += textareaNL.value;
-                    elementNL += '</p>';
+                    elementNL += '<p class="blog-plain-text">' + textareaNL.value + '</p>';
+                    elementEN += '<p class="blog-plain-text">' + textareaEN.value + '</p>';
+                    elementFR += '<p class="blog-plain-text">' + textareaFR.value + '</p>';
+                    elementDE += '<p class="blog-plain-text">' + textareaDE.value + '</p>';
+                }
+                else if (blogElement.classList.contains('blog-element-enumeration')) {
+                    var enumNL = blogElement.querySelector('.blog-element-enumeration-nl'),
+                        enumEN = blogElement.querySelector('.blog-element-enumeration-en'),
+                        enumFR = blogElement.querySelector('.blog-element-enumeration-fr'),
+                        enumDE = blogElement.querySelector('.blog-element-enumeration-de');
 
-                    elementEN += '<p class="blog-plain-text">';
-                    elementEN += textareaEN.value;
-                    elementEN += '</p>';
+                    enumCounter++;
 
-                    elementFR += '<p class="blog-plain-text">';
-                    elementFR += textareaFR.value;
-                    elementFR += '</p>';
-
-                    elementDE += '<p class="blog-plain-text">';
-                    elementDE += textareaDE.value;
-                    elementDE += '</p>';
+                    elementNL += '<p class="blog-enumeration"><span>' + enumCounter + '.</span>' + enumNL.value + '</p>';
+                    elementEN += '<p class="blog-enumeration"><span>' + enumCounter + '.</span>' + enumEN.value + '</p>';
+                    elementFR += '<p class="blog-enumeration"><span>' + enumCounter + '.</span>' + enumFR.value + '</p>';
+                    elementDE += '<p class="blog-enumeration"><span>' + enumCounter + '.</span>' + enumDE.value + '</p>';
                 }
             }
 

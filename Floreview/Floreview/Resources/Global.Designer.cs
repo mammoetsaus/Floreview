@@ -808,6 +808,15 @@ namespace Floreview.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Categorieën.
+        /// </summary>
+        public static string Menu_Admin_BlogCategory {
+            get {
+                return ResourceManager.GetString("Menu_Admin_BlogCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Blogs.
         /// </summary>
         public static string Menu_Admin_Blogs {

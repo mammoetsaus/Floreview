@@ -146,6 +146,27 @@ namespace Floreview.DataAccess.Services
             return _blogCategoryRepository.GetByID(ID);
         }
 
+        public void DeleteBlogCategory(BlogCategory blogCategory)
+        {
+            _blogCategoryRepository.Delete(blogCategory);
+            _uow.SaveChanges();
+        }
+
+        public Boolean IsNewBlogcategory(String categoryName)
+        {
+            BlogCategory category = _blogCategoryRepository.GetBlogCategoryByName(categoryName);
+
+            return (category == null) ? true : false; 
+        }
+
+        public BlogCategory InsertBlogCategory(BlogCategory blogCategory)
+        {
+            BlogCategory result = _blogCategoryRepository.Insert(blogCategory);
+            _uow.SaveChanges();
+
+            return result;
+        }
+
         public List<BlogCategoryFrequency> GetAllBlogFrequencies()
         {
             return _blogRepository.GetAllBlogFrequencies().ToList<BlogCategoryFrequency>();
@@ -247,7 +268,6 @@ namespace Floreview.DataAccess.Services
         {
             return _locationRepository.GetLocationByCityName(city);
         }
-        
 
         private Boolean IsArchiveInCorrectFormat(String archive)
         {

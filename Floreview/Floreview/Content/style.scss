@@ -727,6 +727,18 @@ section.blog-detail-container {
         color: $font-color-dark-grey;
         margin: 15px 10px;
     }
+
+    p.blog-enumeration {
+        font-family: latoregular, sans-serif;
+        font-size: 24px;
+        color: $font-color-dark-grey;
+        margin: 15px 10px;
+
+        span {
+            font-size: 32px;
+            margin: 0 10px 0 0;
+        }
+    }
 }
 
 section.blog-container {
@@ -859,6 +871,7 @@ section.manage-information {
     margin-top: 30px;
     height: 60px;
     background-color: $fill-white;
+    border: 1px solid $border-color-default;
 
     a {
         display: block;
@@ -902,7 +915,7 @@ section.manage-information {
         width: 160px;
         height: 20px;
         font-family: latoregular, sans-serif;
-        font-size: 14px;
+        font-size: 16px;
         margin: 10px 10px 0 0;
         padding: 10px;
         border: 1px solid $border-color-light-grey;
@@ -926,11 +939,107 @@ section.manage-information {
     }
 }
 
+section.manage-addblogcategory {
+    @extend .content-container;
+    @extend %clearfix;
+    margin-top: 30px;
+    height: 60px;
+    background-color: $fill-white;
+    border: 1px solid $border-color-default;
+
+    input[type="text"] {
+        float: left;
+        width: 320px;
+        height: 20px;
+        font-family: latoregular, sans-serif;
+        font-size: 16px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid $border-color-light-grey;
+    }
+
+    input[type="text"]:focus {
+        outline: 0;
+        border: 1px solid $border-color-focus-green;
+    }
+
+    input[type="submit"] {
+        display: block;
+        float: right;
+        width: 160px;
+        height: 40px;
+        background-color: $secondary-green;
+        border: none;
+        font-family: latoregular, sans-serif;
+        font-size: 18px;
+        color: $font-color-white;
+        text-decoration: none;
+        text-align: center;
+        line-height: 40px;
+        margin: 10px;
+    }
+
+    input[type="submit"]:hover {
+        cursor: pointer;
+        background-color: $secondary-green-active;
+    }
+
+    input[type="submit"]:focus {
+        outline: 0;
+    }
+}
+
+section.manage-blogcategory-list {
+    @extend .content-container;
+    margin-top: 30px;
+
+    div.blogcategory-profile {
+        height: 50px;
+        background-color: $fill-white;
+        border: 1px solid $border-color-default;
+        margin: 0 0 15px 0;
+
+        p {
+            float: left;
+            font-family: latoregular, sans-serif;
+            line-height: 50px;
+            width: 952px;
+            padding: 0 10px;
+        }
+
+        a {
+            float: left;
+            display: block;
+            width: 50px;
+            height: 50px;
+
+            svg {
+                display: block;
+                width: 50px;
+                height: 50px;
+            }
+
+            svg:hover {
+                cursor: pointer;
+
+                rect {
+                    fill: #f24730;
+                }
+            }
+        }
+
+        a:focus {
+            outline: 0;
+        }
+    }
+}
+
 section.manage-store-list {
     @extend .content-container;
     margin-top: 30px;
 
     div.store-profile {
+        @extend %clearfix;
         height: 50px;
         background-color: $fill-white;
         border: 1px solid $border-color-default;
@@ -1538,6 +1647,28 @@ section.manage-addblog-container {
         textarea:focus {
             outline: 0;
             border: 1px solid $border-color-focus-green;
+        }
+    }
+
+    div.blog-element-enumeration {
+        input[type="text"] {
+            float: left;
+            width: 465px;
+            height: 18px;
+            font-family: latoregular, sans-serif;
+            font-size: 16px;
+            border: 1px solid $border-color-light-grey;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        input[type="text"]:focus {
+            outline: 0;
+            border: 1px solid $border-color-focus-green;
+        }
+
+        input[type="text"]:nth-child(even) {
+            margin: 10px 10px 10px 20px;
         }
     }
 }

@@ -366,6 +366,9 @@
   <data name="Manage_Store_Select_Recent" xml:space="preserve">
     <value>Most recent</value>
   </data>
+  <data name="Menu_Admin_BlogCategory" xml:space="preserve">
+    <value>Categories</value>
+  </data>
   <data name="Menu_Admin_Blogs" xml:space="preserve">
     <value>Blogs</value>
   </data>

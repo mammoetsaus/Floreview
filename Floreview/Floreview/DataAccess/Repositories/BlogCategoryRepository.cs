@@ -19,5 +19,10 @@ namespace Floreview.DataAccess.Repositories
         {
 
         }
+
+        public BlogCategory GetBlogCategoryByName(string categoryName)
+        {
+            return (from b in context.BlogCategory.Where(i => i.Name.Equals(categoryName)) select b).FirstOrDefault();
+        }
     }
 }
