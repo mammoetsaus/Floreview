@@ -21,10 +21,14 @@ namespace Floreview.DataAccess.Interfaces
 
         IEnumerable<BlogAuthorFrequency> GetAllBlogAuthorFrequencies();
 
+        IEnumerable<Blog> GetAllBlogsByQuery(String query, int skip);
+
         IEnumerable<Blog> GetAllBlogsByCategoryID(int ID, int skip);
 
         IEnumerable<Blog> GetAllBlogsByArchive(int year, int month, int skip);
 
         IEnumerable<Blog> GetAllBlogsByAuthor(String author, int skip);
+
+        IEnumerable<Blog> GetRelatedBlogs(int amount, int blogDetailID, int blogCategoryID);
     }
 }

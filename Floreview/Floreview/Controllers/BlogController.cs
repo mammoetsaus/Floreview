@@ -54,6 +54,8 @@ namespace Floreview.Controllers
 
                     if (model.Blog != null && (DateTime.Compare(model.Blog.PublishDate, DateTime.UtcNow) <= 0 || User.Identity.IsAuthenticated))
                     {
+                        model.RelatedBlogs = _accessService.GetRelatedBlogs(3, model.Blog.ID, model.Blog.Category.ID);
+
                         return View(model);
                     }
                 }

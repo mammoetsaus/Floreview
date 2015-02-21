@@ -25,41 +25,39 @@ namespace Floreview.Controllers
 
         }
 
-        public ActionResult Index()
-        {
-            return RedirectToAction("Index", "Home");
-        }
-
-        [HttpPost]
-        public ActionResult Index(IndexSearchVM model)
+        public ActionResult Index(String name, String city)
         {
             if (ModelState.IsValid)
             {
                 IndexSearchResultVM result = new IndexSearchResultVM();
 
-                if (!String.IsNullOrEmpty(model.Name) && String.IsNullOrEmpty(model.City))
+                if (String.IsNullOrEmpty(name) && String.IsNullOrEmpty(city))
                 {
-                    result.Companies = _accessService.GetCompaniesByCompanyName(model.Name);
-                    ViewBag.Name = model.Name;
+                    return RedirectToAction("Index", "Home");
+                }
+                else if (!String.IsNullOrEmpty(name) && String.IsNullOrEmpty(city))
+                {
+                    result.Companies = _accessService.GetCompaniesByCompanyName(name);
+                    ViewBag.Name = name;
                     ViewBag.City = "-";
 
                     ViewBag.NumberOfCompanies = result.Companies.Count;
                     return View(result);
                 }
-                else if (String.IsNullOrEmpty(model.Name) && !String.IsNullOrEmpty(model.City))
+                else if (String.IsNullOrEmpty(name) && !String.IsNullOrEmpty(city))
                 {
-                    result.Companies = _accessService.GetCompaniesByCityName(model.City);
+                    result.Companies = _accessService.GetCompaniesByCityName(city);
                     ViewBag.Name = "-";
-                    ViewBag.City = model.City;
+                    ViewBag.City = city;
 
                     ViewBag.NumberOfCompanies = result.Companies.Count;
                     return View(result);
                 }
-                else if (!String.IsNullOrEmpty(model.Name) && !String.IsNullOrEmpty(model.City))
+                else if (!String.IsNullOrEmpty(name) && !String.IsNullOrEmpty(city))
                 {
-                    result.Companies = _accessService.GetCompaniesByCompanyAndCity(model.Name, model.City);
-                    ViewBag.Name = model.Name;
-                    ViewBag.City = model.City;
+                    result.Companies = _accessService.GetCompaniesByCompanyAndCity(name, city);
+                    ViewBag.Name = name;
+                    ViewBag.City = city;
 
                     ViewBag.NumberOfCompanies = result.Companies.Count;
                     return View(result);

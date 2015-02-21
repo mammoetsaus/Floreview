@@ -2,6 +2,7 @@
 using Floreview.DataAccess.Interfaces;
 using Floreview.DataAccess.Services;
 using Floreview.Models;
+using Floreview.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,22 +57,33 @@ namespace Floreview.DataAccess.Repositories
             return context.Database.SqlQuery<BlogAuthorFrequency>("SELECT AspNetUsers.AccessCode as 'AccessCode', AspNetUsers.FirstName as 'FirstName', AspNetUsers.LastName as 'LastName', COUNT(*) as 'Frequency' FROM Blogs LEFT OUTER JOIN AspNetUsers ON Blogs.Author_Id = AspNetUsers.ID WHERE PublishDate < GETUTCDATE() GROUP BY AspNetUsers.AccessCode, AspNetUsers.FirstName, AspNetUsers.LastName");
         }
 
+        public IEnumerable<Blog> GetAllBlogsByQuery(String query, int skip)
+        {
+            return (from b in context.Blog.Where(i => (i.PublishDate <= DateTime.UtcNow) && (
+                i.TitleNL.Contains(query) || i.TitleEN.Contains(query) || i.TitleFR.Contains(query) || i.TitleDE.Contains(query) ||
+                i.TeaserNL.Contains(query) || i.TeaserEN.Contains(query) || i.TeaserFR.Contains(query) || i.TeaserDE.Contains(query) ||
+                i.ContentNL.Contains(query) || i.ContentEN.Contains(query) || i.ContentFR.Contains(query) || i.ContentDE.Contains(query)
+                )).OrderByDescending(j => j.PublishDate).Skip(skip).Take(AccessService.BLOCKSIZE) select b);
+        }
 
         public IEnumerable<Blog> GetAllBlogsByCategoryID(int ID, int skip)
         {
             return (from b in context.Blog.Where(i => (i.PublishDate <= DateTime.UtcNow) && i.Category.ID.Equals(ID)).OrderByDescending(j => j.PublishDate).Skip(skip).Take(AccessService.BLOCKSIZE) select b);
         }
 
-
         public IEnumerable<Blog> GetAllBlogsByArchive(int year, int month, int skip)
         {
             return (from b in context.Blog.Where(i => (i.PublishDate <= DateTime.UtcNow) && i.PublishDate.Year.Equals(year) && i.PublishDate.Month.Equals(month)).OrderByDescending(j => j.PublishDate).Skip(skip).Take(AccessService.BLOCKSIZE) select b);
         }
 
-
         public IEnumerable<Blog> GetAllBlogsByAuthor(String author, int skip)
         {
             return ((from b in context.Blog.Where(i => (i.PublishDate <= DateTime.UtcNow) && i.Author.AccessCode == author).OrderByDescending(j => j.PublishDate).Skip(skip).Take(AccessService.BLOCKSIZE) select b));
+        }
+
+        public IEnumerable<Blog> GetRelatedBlogs(int amount, int blogDetailID, int blogCategoryID)
+        {
+            return (from b in context.Blog.Where(i => i.PublishDate <= DateTime.UtcNow && !i.ID.Equals(blogDetailID) && i.Category.ID.Equals(blogCategoryID)).Shuffle().Take(amount) select b);
         }
     }
 }

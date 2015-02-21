@@ -43,7 +43,7 @@
     <section class="home-search-container">
         <h1>@Global.Home_Search_Title</h1>
 
-        @using (Html.BeginForm("Index", "Search", FormMethod.Post))
+        @using (Html.BeginForm("Index", "Search", FormMethod.Get))
         {
             <input type="text" id="home-search-name" name="name" placeholder="@Global.Home_Search_Name_Placeholder" autocomplete="off" />
 
@@ -73,7 +73,7 @@
                 <img src="@blog.Avatar" alt="@title" />
                 <a href="/Blog/Detail?blog=@blog.ID" title="@title">@title</a>
                 <p>
-                    <span>@Global.Home_Blog_Promotion_Datetime</span> @blog.PublishDate.ToString("dd").@blog.PublishDate.ToString("MM").@blog.PublishDate.Year <span>|</span>  <a href="/Blog/Index?c=@blog.Category.ID">@blog.Category.Name</a>
+                    <span>@Global.Home_Blog_Promotion_Datetime</span> @blog.PublishDate.ToString("dd").@blog.PublishDate.ToString("MM").@blog.PublishDate.Year <span>|</span>  <a href="/Blog/Index?category=@blog.Category.ID">@blog.Category.Name</a>
                 </p>
                 <p>
                     <span>@Global.Home_Blog_Promotion_Author</span> <a href="/Blog/Index?author=@blog.Author.AccessCode">@blog.Author.FirstName @blog.Author.LastName</a>

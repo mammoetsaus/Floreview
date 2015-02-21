@@ -24,6 +24,8 @@ namespace Floreview.DataAccess.Interfaces
 
         List<Blog> GetBlogsWithFilters(int? page, String query, int? category, String archive, String author);
 
+        List<Blog> GetRelatedBlogs(int amount, int blogDetailID, int blogCategoryID);
+
         List<BlogAuthorFrequency> GetAllBlogAuthorFrequencies();
 
         List<BlogCategory> GetAllBlogCategories();

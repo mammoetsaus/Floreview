@@ -9,5 +9,7 @@ namespace Floreview.ViewModels
     public class DetailBlogVM
     {
         public Blog Blog { get; set; }
+
+        public List<Blog> RelatedBlogs { get; set; }
     }
 }

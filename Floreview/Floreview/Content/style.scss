@@ -693,7 +693,7 @@ section.blog-detail-container {
     div.blog-left {
         @extend %clearfix;
         float: left;
-        width: 665px;
+        width: 660px;
         background-color: $fill-white;
         border: 1px solid $border-color-default;
 
@@ -747,19 +747,88 @@ section.blog-detail-container {
         }
 
         img {
-            max-width: 645px;
-            max-height: 363px;
+            max-width: 640px;
+            max-height: 360px;
             margin: 10px;
-
         }
     }
 
     div.blog-right {
+        @extend %clearfix;
         float: left;
-        width: 315px;
-        height: 200px;
+        width: 320px;
         margin: 0 0 0 42px;
-        background-color: orange;
+
+        h3 {
+            font-family: latoregular, sans-serif;
+            font-weight: 400;
+            color: $font-color-dark-grey;
+            border-bottom: 1px solid $border-color-dashed;
+            padding: 10px 0;
+        }
+
+        article {
+            display: block;
+            float: left;
+            width: 320px;
+            margin: 25px 0 0 0;
+            background-color: $fill-white;
+            border: 1px solid $border-color-default;
+            @include prefix(box-sizing, border-box);
+
+            img {
+                width: 318px;
+                border-bottom: 1px solid $border-color-default;
+            }
+
+            > a {
+                display: block;
+                height: 42px;
+                max-height: 42px;
+                color: $font-color-dark-grey;
+                font-size: 18px;
+                font-family: latoregular, sans-serif;
+                text-decoration: none;
+                border-bottom: 1px dashed $border-color-dashed;
+                padding: 10px;
+            }
+
+            > a:hover {
+                color: $secondary-green;
+            }
+
+            p {
+                color: #333333;
+                padding: 0 10px;
+                font-size: 14px;
+                font-family: latoregular, sans-serif;
+
+                span {
+                    font-size: 14px;
+                    font-family: latoregular, sans-serif;
+                    color: $font-color-light-grey;
+                }
+
+                a {
+                    color: $font-color-dark-grey;
+                    font-size: 14px;
+                    font-family: latoregular, sans-serif;
+                    text-decoration: none;
+                }
+
+                a:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            p:nth-of-type(1) {
+                margin: 9px 0 4px 0;
+            }
+
+            p:nth-of-type(2) {
+                margin: 4px 0 9px 0;
+            }
+        }
     }
 }
 
@@ -843,18 +912,24 @@ section.blog-container {
             input[type="submit"] {
                 width: 40px;
                 height: 40px;
-                background-image: url(http://floreview.blob.core.windows.net/images/search_icon.svg);
+                background-image: url(http://floreview.blob.core.windows.net/images/search_icon.png);
                 background-position: center center;
                 background-repeat: no-repeat;
                 background-color: $secondary-green;
+                background-size: 40px 40px;
                 border: 1px solid $secondary-green;
             }
 
             input[type="submit"]:hover {
                 cursor: pointer;
-                background-image: url(http://floreview.blob.core.windows.net/images/search_icon_hover.svg);
+                background-image: url(http://floreview.blob.core.windows.net/images/search_icon_hover.png);
                 border: 1px solid $secondary-green-active;
+                background-size: 40px 40px;
                 background-color: $secondary-green-active;
+            }
+
+            input[type="submit"]:focus {
+                outline: 0;
             }
         }
 
@@ -866,7 +941,7 @@ section.blog-container {
                 font-weight: 400;
                 color: $font-color-dark-grey;
                 border-bottom: 1px solid $border-color-dashed;
-                padding: 10px 0;
+                padding: 0 0 10px 0;
             }
 
             ul li {
@@ -1303,10 +1378,12 @@ section.manage-blog-list {
 
         p {
             float: left;
+            max-height: 50px;
             font-family: latoregular, sans-serif;
             line-height: 50px;
             padding: 0 10px;
             border-right: 1px dashed $border-color-dashed;
+            overflow: hidden;
         }
 
         p:first-of-type {
@@ -1703,11 +1780,11 @@ section.manage-addblog-container {
 
         input[type="file"] {
             float: left;
-            width: 300px;
+            width: 992px;
             height: 22px;
             border: 1px solid $border-color-light-grey;
             padding: 8px 5px;
-            margin: 177px 10px 10px 10px;
+            margin: 10px;
         }
 
         input[type="file"]:focus {

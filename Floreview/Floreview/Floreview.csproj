@@ -243,6 +243,7 @@
     <Compile Include="Models\BlogElement.cs" />
     <Compile Include="Models\BlogPublishdateFrequency.cs" />
     <Compile Include="Utils\CodeEngine.cs" />
+    <Compile Include="Utils\EnumerableExtensions.cs" />
     <Compile Include="Utils\LanguageUtility.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
     <Compile Include="Models\ApplicationRole.cs" />

@@ -118,94 +118,94 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Blog_Archive" xml:space="preserve">
-    <value>Archief</value>
+    <value>Archive</value>
   </data>
   <data name="Blog_Author" xml:space="preserve">
-    <value>Auteurs</value>
+    <value>Authors</value>
   </data>
   <data name="Blog_Author_Info" xml:space="preserve">
-    <value>Door</value>
+    <value>By</value>
   </data>
   <data name="Blog_Categories" xml:space="preserve">
-    <value>Categorieën</value>
+    <value>Categories</value>
   </data>
   <data name="Blog_Datetime_Info" xml:space="preserve">
-    <value>Geplaatst op</value>
+    <value>Created on</value>
   </data>
   <data name="Blog_Search_Placeholder" xml:space="preserve">
-    <value>Zoeken</value>
+    <value>Search</value>
   </data>
   <data name="Detail_Contact_Mobile_Error" xml:space="preserve">
-    <value>Geen GSM nummer beschikbaar</value>
+    <value>No mobile phone available</value>
   </data>
   <data name="Detail_Contact_Phone_Error" xml:space="preserve">
-    <value>Geen telefoonnummer beschikbaar</value>
+    <value>No phone number available</value>
   </data>
   <data name="Detail_Contact_Website_Error" xml:space="preserve">
-    <value>Geen website beschikbaar</value>
+    <value>No website available</value>
   </data>
   <data name="Footer_Language_Dutch" xml:space="preserve">
-    <value>Nederlands</value>
+    <value>Dutch</value>
   </data>
   <data name="Footer_Language_English" xml:space="preserve">
-    <value>Engels</value>
+    <value>English</value>
   </data>
   <data name="Footer_Language_French" xml:space="preserve">
-    <value>Frans</value>
+    <value>French</value>
   </data>
   <data name="Footer_Language_German" xml:space="preserve">
-    <value>Duits</value>
+    <value>German</value>
   </data>
   <data name="Home_Blog_Promotion_Author" xml:space="preserve">
-    <value>door</value>
+    <value>by</value>
   </data>
   <data name="Home_Blog_Promotion_Datetime" xml:space="preserve">
-    <value>geplaatst op</value>
+    <value>Created on</value>
   </data>
   <data name="Home_Blog_Promotion_Title" xml:space="preserve">
-    <value>Recente blogs</value>
+    <value>Most recent blogs</value>
   </data>
   <data name="Home_Search_City_Placeholder" xml:space="preserve">
-    <value>Gemeente</value>
+    <value>City</value>
   </data>
   <data name="Home_Search_Name_Placeholder" xml:space="preserve">
-    <value>Naam</value>
+    <value>Name</value>
   </data>
   <data name="Home_Search_Submit" xml:space="preserve">
-    <value>Zoeken</value>
+    <value>Search</value>
   </data>
   <data name="Home_Search_Title" xml:space="preserve">
-    <value>Ik zoek een bloemenwinkel</value>
+    <value>I'm looking for a store</value>
   </data>
   <data name="Login_Password_Error" xml:space="preserve">
-    <value>Gelieve een wachtwoord in te vullen.</value>
+    <value>Please fill in a password.</value>
   </data>
   <data name="Login_Password_Placeholder" xml:space="preserve">
-    <value>Wachtwoord</value>
+    <value>Password</value>
   </data>
   <data name="Login_Submit" xml:space="preserve">
-    <value>Aanmelden</value>
+    <value>Log in</value>
   </data>
   <data name="Login_Title" xml:space="preserve">
-    <value>Aanmelden</value>
+    <value>Log in</value>
   </data>
   <data name="Login_Username_Error" xml:space="preserve">
-    <value>Gelieve een gebruikersnaam in te vullen.</value>
+    <value>Please fill in an username.</value>
   </data>
   <data name="Login_Username_Placeholder" xml:space="preserve">
-    <value>Gebruikersnaam</value>
+    <value>Username</value>
   </data>
   <data name="Login_Validation_Message" xml:space="preserve">
-    <value>Inloggegevens niet correct.</value>
+    <value>Credentials are not correct.</value>
   </data>
   <data name="Menu_Admin_BlogCategory" xml:space="preserve">
-    <value>Categorieën</value>
+    <value>Categories</value>
   </data>
   <data name="Menu_Admin_Blogs" xml:space="preserve">
     <value>Blogs</value>
   </data>
   <data name="Menu_Admin_Stores" xml:space="preserve">
-    <value>Winkels</value>
+    <value>Stores</value>
   </data>
   <data name="Menu_Blog" xml:space="preserve">
     <value>Blog</value>
@@ -220,24 +220,24 @@
     <value>Home</value>
   </data>
   <data name="Menu_Login" xml:space="preserve">
-    <value>Aanmelden</value>
+    <value>Log in</value>
   </data>
   <data name="Menu_Login_Welcome" xml:space="preserve">
-    <value>Hallo</value>
+    <value>Hi</value>
   </data>
   <data name="Menu_Logout" xml:space="preserve">
-    <value>Afmelden</value>
+    <value>Log off</value>
   </data>
   <data name="Search_Information_City" xml:space="preserve">
-    <value>Gemeente</value>
+    <value>City</value>
   </data>
   <data name="Search_Information_Name" xml:space="preserve">
-    <value>Naam</value>
+    <value>Name</value>
   </data>
   <data name="Search_Information_Results" xml:space="preserve">
-    <value>Resultaten</value>
+    <value>Results</value>
   </data>
   <data name="Search_Nearby_Companies" xml:space="preserve">
-    <value>Winkels in de buurt</value>
+    <value>Stores in the area</value>
   </data>
 </root>

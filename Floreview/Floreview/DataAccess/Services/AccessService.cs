@@ -108,7 +108,7 @@ namespace Floreview.DataAccess.Services
 
             if (!String.IsNullOrEmpty(query))
             {
-
+                blogs = _blogRepository.GetAllBlogsByQuery(query, skip).ToList<Blog>();
             }
             else if (category > 0)
             {
@@ -129,6 +129,11 @@ namespace Floreview.DataAccess.Services
             }
 
             return blogs;
+        }
+
+        public List<Blog> GetRelatedBlogs(int amount, int blogDetailID, int blogCategoryID)
+        {
+            return _blogRepository.GetRelatedBlogs(amount, blogDetailID, blogCategoryID).ToList<Blog>();
         }
 
         public List<BlogAuthorFrequency> GetAllBlogAuthorFrequencies()
